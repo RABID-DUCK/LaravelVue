@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{route('color.create')}}" method="post">
+                <form action="{{route('color.store')}}" method="post">
                     @csrf
                     <div class="form-group">
                         <input type="text" class="form-control" name="title" placeholder="Наименование">

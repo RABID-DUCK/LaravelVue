@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Color;
+namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,11 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string'
-//            'title' => ['required', 'regex:/^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}$/']
+            'login' => 'required|string',
+            'name' => 'required|string',
+            'password' => 'required|string|confirmed',
+            'address' => 'required|string',
+            'number' => 'required|integer'
         ];
     }
 }
