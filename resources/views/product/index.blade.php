@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Пользователи</h1>
+                    <h1 class="m-0">Продукты</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -26,7 +26,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <a href="{{ route('user.create') }}" class="btn btn-primary">Добавить</a>
+                            <a href="{{ route('product.create') }}" class="btn btn-primary">Добавить</a>
                         </div>
 
                         <div class="card-body table-responsive p-0">
@@ -40,13 +40,13 @@
                                     <th>Номер</th>
                                 </thead>
                                 <tbody>
-                                @foreach($users as $user)
+                                @foreach($products as $product)
                                     <tr>
-                                        <td>{{ $user->id }}</td>
-                                        <td><a href="{{route('user.show', $user->id)}}">{{$user->login}}</a></td>
-                                        <td>{{$user->name}}</td>
-                                        <td>{{$user->address}}</td>
-                                        <td>{{$user->number}}</td>
+                                        <td>{{ $product->id }}</td>
+                                        <td><a href="{{route('user.show', $product->id)}}">{${roduct->login}}</a></td>
+                                        <td>{{$product->name}}</td>
+                                        <td>{{$product->address}}</td>
+                                        <td>{{$product->number}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

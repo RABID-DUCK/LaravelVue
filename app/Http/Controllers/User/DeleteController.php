@@ -7,7 +7,7 @@ use App\Http\Requests\User\StoreRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class UpdateController extends Controller
+class DeleteController extends Controller
 {
     public function __invoke(User $user)
     {

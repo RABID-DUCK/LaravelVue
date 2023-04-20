@@ -9,13 +9,10 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function __invoke(StoreRequest $request)
+    public function __invoke()
     {
-        $data = $request->all();
-        User::firstOrCreate([
-            'address' => $data['address']
-        ], $data);
+        $users = User::all();
 
-        return redirect()->route('user.index');
+        return view('user.index', compact('users'));
     }
 }

@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Пользователи</h1>
+                    <h1 class="m-0">Пользователь</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -25,30 +25,32 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <a href="{{ route('user.create') }}" class="btn btn-primary">Добавить</a>
+                        <div class="card-header d-flex p-3">
+                            <div class="mr-3">
+                                <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary">Редактировать</a>
+                            </div>
+                            <form action="{{ route('user.delete', $user->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" class="btn btn-danger" value="Удалить">
+                            </form>
                         </div>
 
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Логин</th>
-                                    <th>Имя</th>
-                                    <th>Почта</th>
-                                    <th>Номер</th>
-                                </thead>
                                 <tbody>
-                                @foreach($users as $user)
+                                <th>ID</th>
+                                <th>Логин</th>
+                                <th>Имя</th>
+                                <th>Почта</th>
+                                <th>Номер</th>
                                     <tr>
                                         <td>{{ $user->id }}</td>
-                                        <td><a href="{{route('user.show', $user->id)}}">{{$user->login}}</a></td>
-                                        <td>{{$user->name}}</td>
-                                        <td>{{$user->address}}</td>
-                                        <td>{{$user->number}}</td>
+                                        <td>{{ $user->login }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->address }}</td>
+                                        <td>{{ $user->number }}</td>
                                     </tr>
-                                @endforeach
                                 </tbody>
                             </table>
                         </div>

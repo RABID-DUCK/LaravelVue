@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\StoreRequest;
-use App\Models\User;
+use App\Http\Requests\Product\StoreRequest;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
@@ -12,10 +12,10 @@ class StoreController extends Controller
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        User::firstOrCreate([
+        Product::firstOrCreate([
             'address' => $data['address']
         ], $data);
 
-        return redirect()->route('user.index');
+        return redirect()->route('product.index');
     }
 }
