@@ -34,19 +34,29 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Логин</th>
-                                    <th>Имя</th>
-                                    <th>Почта</th>
-                                    <th>Номер</th>
+                                    <th>Название</th>
+                                    <th>Описание</th>
+                                    <th>Контент</th>
+                                    <th>Изображение</th>
+                                    <th>Цена</th>
+                                    <th>Количество</th>
+                                    <th>В наличии</th>
+                                    <th>Категория</th>
+                                    <th>Теги</th>
                                 </thead>
                                 <tbody>
                                 @foreach($products as $product)
                                     <tr>
                                         <td>{{ $product->id }}</td>
-                                        <td><a href="{{route('user.show', $product->id)}}">{${roduct->login}}</a></td>
-                                        <td>{{$product->name}}</td>
-                                        <td>{{$product->address}}</td>
-                                        <td>{{$product->number}}</td>
+                                        <td><a href="{{route('product.show', $product->id)}}">{{$product->title}}</a></td>
+                                        <td>{{$product->description}}</td>
+                                        <td>{{$product->content}}</td>
+                                        <td><img src="{{$product->preview_image}}">{{$product->preview_image}}</td>
+                                        <td>{{$product->price}} .руб</td>
+                                        <td>{{$product->count}} .шт</td>
+                                        <td>{{$product->is_published}}</td>
+                                        <td>{{$product->categories}}</td>
+                                        <td>{{$product->tags}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

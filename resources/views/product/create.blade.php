@@ -23,25 +23,49 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{route('product.store')}}" method="post">
+                <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control" value="{{old('login')}}" name="login" placeholder="Логин">
+                        <input type="text" class="form-control" name="title" placeholder="Название">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" value="{{old('address')}}" name="address" placeholder="Почта">
+                        <input type="text" class="form-control" name="description" placeholder="Описание">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" value="{{old('password')}}" name="password" placeholder="Пароль">
+                        <textarea class="form-control" name="content" cols="30" rows="10" placeholder="Контент"></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" value="{{old('password_confirmation')}}" name="password_confirmation" placeholder="Подтвердите пароль">
+                        <input type="text" class="form-control" name="price" placeholder="Цена">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" value="{{old('name')}}" name="name" placeholder="Имя">
+                        <input type="text" class="form-control" name="count" placeholder="Количество">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" value="{{old('number')}}" name="number" placeholder="Телефон">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input name="preview_image" type="file" class="custom-file-input" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Загрузка</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Disabled Result</label>
+                        <select name="category_id" class="form-control select2" style="width: 100%;">
+                            <option selected="selected" disabled>Выберите категорию</option>
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="tags[]" class="tags" multiple="multiple" data-placeholder="Выберите тег" style="width: 100%;">
+                            @foreach($tags as $tag)
+                            <option value="{{$tag->id}}">{{$tag->title}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Добавить">

@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Редактировать пользователя</h1>
+                    <h1 class="m-0">Редактировать продукт</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -23,14 +23,43 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-            <form action="{{route('user.update', $user->id)}}" method="post">
+            <form action="{{route('product.update', $product->id)}}" method="post">
                 @method('patch')
                 @csrf
                 <div class="form-group">
-                    <input type="text" class="form-control" name="login" value="{{ $user->login ?? old('login') }}">
-                    <input type="text" class="form-control" name="name" value="{{ $user->name ?? old('name')}}">
-                    <input type="text" class="form-control" name="address" value="{{ $user->address ?? old('address') }}">
-                    <input type="text" class="form-control" name="number" value="{{ $user->number ?? old('number') }}">
+                    <input type="text" class="form-control" name="title" value="{{ $product->title ?? old('title') }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="description" value="{{ $product->description ?? old('description')}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="content" value="{{ $product->content ?? old('content') }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="preview_image" value="{{ $product->preview_image ?? old('preview_image') }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="price" value="{{ $product->price ?? old('price') }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="count" value="{{ $product->count ?? old('count') }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="is_published" value="{{ $product->is_published ?? old('is_published') }}">
+                </div>
+                <div class="form-group">
+                    <select name="category_id" class="tags" multiple="multiple" data-placeholder="Выберите категорию" style="width: 100%;">
+                        @foreach($categories as $category)
+                            <option value="{{$category->id ?? old('id')}}">{{$category->title ?? old('tags')}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="tags[]" class="tags" multiple="multiple" data-placeholder="Выберите тег" style="width: 100%;">
+                        @foreach($tags as $tag)
+                            <option value="{{$tag->id ?? old('id')}}">{{$tag->title ?? old('tags')}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Редактировать">
