@@ -38,6 +38,7 @@
                                     <th>Описание</th>
                                     <th>Контент</th>
                                     <th>Изображение</th>
+                                    <th>Старая цена</th>
                                     <th>Цена</th>
                                     <th>Количество</th>
                                     <th>В наличии</th>
@@ -52,10 +53,11 @@
                                         <td>{{$product->description}}</td>
                                         <td>{{$product->content}}</td>
                                         <td><img src="{{$product->preview_image}}">{{$product->preview_image}}</td>
+                                        <td>{{$product->old_price}} .руб</td>
                                         <td>{{$product->price}} .руб</td>
                                         <td>{{$product->count}} .шт</td>
                                         <td>{{$product->is_published}}</td>
-                                        <td>{{$product->categories}}</td>
+                                        <td>{{$product->category_id}}</td>
                                         <td>{{$product->tags}}</td>
                                     </tr>
                                 @endforeach

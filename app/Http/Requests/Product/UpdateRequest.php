@@ -23,14 +23,14 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => 'nullable|string',
-            'description' => 'nullable|string',
-            'content' => 'nullable|string',
-            'preview_image' => 'nullable|string',
-            'price' => 'nullable|integer',
-            'count' => 'nullable|integer',
-            'is_published' => 'nullable|boolean',
-            'category_id' => 'nullable',
-            'tags' => 'nullable|array'
+            'description' => 'nullable',
+            'content' => 'nullable',
+            'preview_image' => 'nullable',
+            'price' => 'nullable',
+            'old_price' => 'nullable',
+            'count' => 'nullable',
+            'is_published' => 'nullable',
+            'category_id' => 'nullable'
         ];
     }
 }

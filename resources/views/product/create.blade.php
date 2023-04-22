@@ -35,6 +35,9 @@
                         <textarea class="form-control" name="content" cols="30" rows="10" placeholder="Контент"></textarea>
                     </div>
                     <div class="form-group">
+                        <input type="text" class="form-control" name="old_price" placeholder="Старая цена">
+                    </div>
+                    <div class="form-group">
                         <input type="text" class="form-control" name="price" placeholder="Цена">
                     </div>
                     <div class="form-group">

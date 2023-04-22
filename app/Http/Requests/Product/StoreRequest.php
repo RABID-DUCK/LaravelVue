@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
             'content' => 'required',
             'preview_image' => 'required',
             'price' => 'required',
+            'old_price' => 'required',
             'count' => 'required',
             'is_published' => 'nullable',
             'category_id' => 'nullable',
