@@ -63,7 +63,7 @@
                     <input type="text" class="form-control" name="count" value="{{ $product->count ?? old('count') }}">
                 </div>
                 <div class="form-group">
-                    <label>В наличии(1 - да, 2 - нет)</label>
+                    <label>В наличии(1 - да, 0 - нет)</label>
                     <input type="text" class="form-control" name="is_published" value="{{ $product->is_published ?? old('is_published') }}">
                 </div>
                 <div class="form-group">
