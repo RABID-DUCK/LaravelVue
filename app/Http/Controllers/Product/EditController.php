@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\Tag;
 
 class EditController extends Controller
@@ -13,6 +14,7 @@ class EditController extends Controller
     {
         $tags = Tag::all();
         $categories = Category::all();
-        return view('product.edit', compact('product', 'tags', 'categories'));
+        $productImage = ProductImage::all();
+        return view('product.edit', compact('product', 'tags', 'categories', 'productImage'));
     }
 }

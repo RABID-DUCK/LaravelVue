@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
+                            <table class="table table-hover text-wrap">
                                 <tbody>
                                 <th>ID</th>
                                 <th>Название</th>
@@ -56,12 +56,12 @@
                                         <td>{{$product->title}}</td>
                                         <td>{{$product->description}}</td>
                                         <td>{{$product->content}}</td>
-                                        <td><img src="{{$product->preview_image}}">{{$product->preview_image}}</td>
+                                        <td><img src="{{asset('storage/' . $product->preview_image)}}" width="100" height="70">{{$product->preview_image}}</td>
                                         <td>{{$product->old_price}} .руб</td>
                                         <td>{{$product->price}} .руб</td>
                                         <td>{{$product->count}} .шт</td>
-                                        <td>{{$product->is_published}}</td>
-                                        <td>{{$product->category_id}}</td>
+                                        <td class="text-info">{{$product->is_published == 1 ? 'В наличии' : 'Нет в наличии'}}</td>
+                                        <td>{{$category->title}}</td>
                                         <td>{{$product->tags}}</td>
                                     </tr>
                                 </tbody>

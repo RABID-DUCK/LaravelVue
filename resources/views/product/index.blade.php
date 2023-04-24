@@ -2,6 +2,7 @@
 
 @section('content')
     <!-- Content Header (Page header) -->
+
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -30,7 +31,7 @@
                         </div>
 
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
+                            <table class="table table-hover text-wrap">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -49,14 +50,14 @@
                                 @foreach($products as $product)
                                     <tr>
                                         <td>{{ $product->id }}</td>
-                                        <td><a href="{{route('product.show', $product->id)}}">{{$product->title}}</a></td>
-                                        <td>{{$product->description}}</td>
-                                        <td>{{$product->content}}</td>
-                                        <td><img src="{{$product->preview_image}}">{{$product->preview_image}}</td>
+                                        <td class="text-nowrap"><a href="{{route('product.show', $product->id)}}">{{$product->title}}</a></td>
+                                        <td class="limit-content" style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;">{{$product->description}}</td>
+                                        <td class="limit-content h-5">{{$product->content}}</td>
+                                        <td><img src="{{asset('storage/' . $product->preview_image)}}" width="100px" height="60px">{{$product->preview_image}}</td>
                                         <td>{{$product->old_price}} .руб</td>
                                         <td>{{$product->price}} .руб</td>
                                         <td>{{$product->count}} .шт</td>
-                                        <td>{{$product->is_published}}</td>
+                                        <td class="text-info">{{$product->is_published == 1 ? 'в наличии' : "нет в наличии"}}</td>
                                         <td>{{$product->category_id}}</td>
                                         <td>{{$product->tags}}</td>
                                     </tr>

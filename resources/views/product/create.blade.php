@@ -26,27 +26,55 @@
                 <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
+                        <label>Название продукта</label>
                         <input type="text" class="form-control" name="title" placeholder="Название">
                     </div>
                     <div class="form-group">
+                        <label>Описание(вступление небольшое)</label>
                         <input type="text" class="form-control" name="description" placeholder="Описание">
                     </div>
                     <div class="form-group">
+                        <label>Сюжет игры</label>
                         <textarea class="form-control" name="content" cols="30" rows="10" placeholder="Контент"></textarea>
                     </div>
                     <div class="form-group">
+                        <label>Старая цена(если есть)</label>
                         <input type="text" class="form-control" name="old_price" placeholder="Старая цена">
                     </div>
                     <div class="form-group">
+                        <label>Цена</label>
                         <input type="text" class="form-control" name="price" placeholder="Цена">
                     </div>
                     <div class="form-group">
+                        <label>Количество</label>
                         <input type="text" class="form-control" name="count" placeholder="Количество">
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <div class="custom-file">
                                 <input name="preview_image" type="file" class="custom-file-input" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Загрузка</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input name="product_images[]" type="file" class="custom-file-input" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Загрузка</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input name="product_images[]" type="file" class="custom-file-input" id="exampleInputFile">
                                 <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
                             </div>
                             <div class="input-group-append">

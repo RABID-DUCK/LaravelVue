@@ -562,6 +562,13 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+.limit-content{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 
 @media (min-width: 576px) {
   .container, .container-sm {

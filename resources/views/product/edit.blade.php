@@ -32,11 +32,13 @@
                 </div>
                 <div class="form-group">
                     <label>Описание</label>
-                    <input type="text" class="form-control" name="description" value="{{ $product->description ?? old('description')}}">
+                    <textarea class="form-control" name="description" cols="10" rows="5">{{ $product->description ?? old('description')}}</textarea>
+{{--                    <input type="text" class="form-control" name="description" value="{{ $product->description ?? old('description')}}">--}}
                 </div>
                 <div class="form-group">
                     <label>Контент</label>
-                    <input type="text" class="form-control" name="content" value="{{ $product->content ?? old('content') }}">
+                    <textarea class="form-control" name="content" cols="70" rows="10">{{ $product->content ?? old('content') }}</textarea>
+{{--                    <input type="text" class="form-control" name="content" value="{{ $product->content ?? old('content') }}">--}}
                 </div>
                 <div class="form-group">
                     <div class="input-group">
@@ -49,6 +51,30 @@
                         </div>
                     </div>
                     <span>{{$product->preview_image ?? old('preview_image')}}</span>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input name="product_images[]" type="file" class="custom-file-input" id="exampleInputFile">
+                            <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Загрузка</span>
+                        </div>
+                    </div>
+                    <span>{{!empty($productImage[1]) ? $productImage[1]->file_path : ''}}</span>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input name="product_images[]" type="file" class="custom-file-input" id="exampleInputFile">
+                            <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Загрузка</span>
+                        </div>
+                    </div>
+                    <span>{{!empty($productImage[1]) ? $productImage[1]->file_path : ''}}</span>
                 </div>
                 <div class="form-group">
                     <label>Цена</label>
@@ -68,10 +94,10 @@
                 </div>
                 <div class="form-group">
                     <label>Категория</label>
-                    <select name="category_id" class="tags" multiple="multiple" data-placeholder="Выберите категорию" style="width: 100%;">
-{{--                        <option selected="selected">{{$category->category_id ?? old('id')}}</option>--}}
+                    <select name="category_id" class="tags" data-placeholder="Выберите категорию" style="width: 100%;">
                         @foreach($categories as $category)
-                            <option value="{{$category->id ?? old('id')}}">{{$category->title ?? old('category_id')}}</option>
+                            <option value="{{$category->id}}" {{$category->id == $product->category_id ? 'selected' : ''}}>
+                                {{$category->title}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -79,7 +105,8 @@
                     <label>Теги</label>
                     <select name="tags[]" class="tags" multiple="multiple" data-placeholder="Выберите тег" style="width: 100%;">
                         @foreach($tags as $tag)
-                            <option value="{{$tag->id ?? old('id')}}">{{$tag->title ?? old('tags')}}</option>
+                            <option value="{{$tag->id}}" {{$tag->id == $product->category_id ? 'selected' : '' }}>
+                                {{$tag->title }}</option>
                         @endforeach
                     </select>
                 </div>

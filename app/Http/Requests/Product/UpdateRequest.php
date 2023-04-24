@@ -30,7 +30,8 @@ class UpdateRequest extends FormRequest
             'old_price' => 'nullable',
             'count' => 'nullable',
             'is_published' => 'nullable',
-            'category_id' => 'nullable'
+            'category_id' => 'nullable',
+            'product_images' => 'nullable|array'
         ];
     }
 }
