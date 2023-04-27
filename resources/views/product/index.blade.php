@@ -43,8 +43,6 @@
                                     <th>Цена</th>
                                     <th>Количество</th>
                                     <th>В наличии</th>
-                                    <th>Категория</th>
-                                    <th>Теги</th>
                                 </thead>
                                 <tbody>
                                 @foreach($products as $product)
@@ -52,14 +50,12 @@
                                         <td>{{ $product->id }}</td>
                                         <td class="text-nowrap"><a href="{{route('product.show', $product->id)}}">{{$product->title}}</a></td>
                                         <td class="limit-content" style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;">{{$product->description}}</td>
-                                        <td class="limit-content h-5">{{$product->content}}</td>
+                                        <td >{{$product->content}}</td>
                                         <td><img src="{{asset('storage/' . $product->preview_image)}}" width="100px" height="60px">{{$product->preview_image}}</td>
                                         <td>{{$product->old_price}} .руб</td>
                                         <td>{{$product->price}} .руб</td>
                                         <td>{{$product->count}} .шт</td>
                                         <td class="text-info">{{$product->is_published == 1 ? 'в наличии' : "нет в наличии"}}</td>
-                                        <td>{{$product->category_id}}</td>
-                                        <td>{{$product->tags}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

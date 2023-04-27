@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\ProductTag;
 
 class ShowController extends Controller
 {
@@ -16,6 +17,12 @@ class ShowController extends Controller
             $productImage = $productImage[0];
         }
         $category = Category::find($product->category_id);
-        return view('product.show', compact('product', 'productImage', 'category'));
+        $tags = ProductTag::join('tags', 'tags.id', '=', 'product_tags.tag_id')->
+        select('tags.title', 'tags.id')->where('product_id', $product->id)->get();
+        $tag = '';
+        foreach ($tags as $item) {
+            $tag = $item->title;
+        }
+        return view('product.show', compact('product', 'productImage', 'category', 'tag'));
     }
 }

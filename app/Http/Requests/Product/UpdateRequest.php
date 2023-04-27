@@ -31,6 +31,7 @@ class UpdateRequest extends FormRequest
             'count' => 'nullable',
             'is_published' => 'nullable',
             'category_id' => 'nullable',
+            'tags' => 'nullable|array',
             'product_images' => 'nullable|array'
         ];
     }
