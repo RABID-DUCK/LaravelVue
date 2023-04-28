@@ -62,7 +62,7 @@
                                         <td>{{$product->count}} .шт</td>
                                         <td class="text-info">{{$product->is_published == 1 ? 'В наличии' : 'Нет в наличии'}}</td>
                                         <td>{{$category->title}}</td>
-                                        <td>{{$tag}}...</td>
+                                        <td>{{isset($tag) ?? ''}}...</td>
                                     </tr>
                                 </tbody>
                             </table>

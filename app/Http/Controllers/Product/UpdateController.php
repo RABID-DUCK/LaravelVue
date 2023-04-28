@@ -42,27 +42,23 @@ class UpdateController extends Controller
 
        if (isset($data['product_images'])){
             $productImages = $data['product_images'];
-
+            $original_file = '';
+            $file = $request->file('file');
             $currentImages = ProductImage::where('product_id', $product->id)->get();
-            if(count($currentImages) == 2) {
-                foreach($productImages as $p_img) {
-                    $filePath = Storage::disk('public')->put('/images', $p_img);
-                    ProductImage::updateOrCreate(
+           foreach($productImages as $index => $p_img) {
+                $filePath = Storage::disk('public')->put('/images', $p_img);
+                if (isset($currentImages[$index])){
+                    $currentImage = $currentImages[$index];
+                    $currentImage->file_path = $filePath;
+                    $currentImage->save();
+                }
+                else{
+                    ProductImage::create(
                         ['product_id' => $product->id],
                         ['file_path' => $filePath]);
                 }
             }
-                elseif(count($currentImages) <= 1){
-                    foreach($productImages as $p_img) {
-                        $filePath = Storage::disk('public')->put('/images', $p_img);
-
-                        ProductImage::updateOrCreate([
-                            'product_id' => $product->id,
-                            'file_path' => $filePath
-                        ]);
-                    }
-                }
-            }
+        }
 
         $product->update([
             'title' => $data['title'],
