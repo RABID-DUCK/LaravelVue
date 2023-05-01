@@ -36,8 +36,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Название</th>
-                                    <th>Описание</th>
-                                    <th>Контент</th>
+                                    <th style="width: 22%">Описание</th>
                                     <th>Изображение</th>
                                     <th>Старая цена</th>
                                     <th>Цена</th>
@@ -50,7 +49,6 @@
                                         <td>{{ $product->id }}</td>
                                         <td class="text-nowrap"><a href="{{route('product.show', $product->id)}}">{{$product->title}}</a></td>
                                         <td class="limit-content" style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;">{{$product->description}}</td>
-                                        <td >{{$product->content}}</td>
                                         <td><img src="{{asset('storage/' . $product->preview_image)}}" width="100px" height="60px">{{$product->preview_image}}</td>
                                         <td>{{$product->old_price}} .руб</td>
                                         <td>{{$product->price}} .руб</td>
