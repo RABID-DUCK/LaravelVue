@@ -98,8 +98,11 @@
                                                            class="number"><i class="flaticon-heart"></i> <span
                               class="count">(2)</span> </a> </li>
                           <li class="cartm"> <a href="#0" class="number cart-icon"> <i
-                              class="flaticon-shopping-cart"></i><span
-                              class="count">({{products ? products.length : 0}})</span> </a> </li>
+                              class="flaticon-shopping-cart"></i>
+                              <span class="count">({{lengthCart}})</span>
+
+                          </a>
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -138,7 +141,7 @@
     <div class="side-cart d-flex flex-column justify-content-between">
       <div class="top">
         <div class="content d-flex justify-content-between align-items-center">
-          <h6 class="text-uppercase">Ваша корзина ({{products ? products.length : 0}})</h6> <span class="cart-close text-uppercase">X</span>
+          <h6 class="text-uppercase">Ваша корзина ({{lengthCart}})</h6> <span class="cart-close text-uppercase">X</span>
         </div>
         <div class="cart_items" v-if="products">
           <div class="items d-flex justify-content-between align-items-center" v-for="product in products">
@@ -351,15 +354,20 @@ export default {
     return {
       products: [],
       totalPrice: 0,
+      lengthCart: 0
     }
   },
-
-  mounted() {
+    mounted() {
     $(document).trigger('changed')
     this.getCartProducts()
-
   },
-  methods: {
+    methods: {
+      getLength(){
+          let products = JSON.parse(localStorage.getItem('cart'));
+          let qty = products.reduce((qty, product) => qty + product.qty, 0);
+          this.lengthCart = qty
+          console.log(qty);
+      },
     getCartProducts(){
       if (localStorage.getItem('cart')){
         this.products = JSON.parse(localStorage.getItem('cart'));
@@ -380,7 +388,11 @@ export default {
     },
     calculateCartPrice(){
       this.totalPrice = this.products.reduce((sum, product) => sum + product.price * product.qty, 0)
-    }
+    },
+      // getCartLength(){
+      //   this.cartLength = this.products.reduce((qty, product) => qty + product.qty, 0)
+      //     console.log(this.cartLength)
+      // }
   }
 }
 </script>

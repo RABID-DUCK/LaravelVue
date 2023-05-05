@@ -11,7 +11,7 @@
     <!-- Favicon For This Document -->
     <link rel="shortcut icon" href="assets/images/logo/favicon-32x32.png" type="image/x-icon">
     <!-- Bootstrap 5 Css -->
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.5.1.')}}1.min.css">
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.5.1.1.min.css')}}">
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- FlatIcon Css -->

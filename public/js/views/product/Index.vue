@@ -187,7 +187,7 @@
                           </a>
                             <div class="products-grid-one__badge-box"> <span
                                 class="bg_base badge new ">New</span>
-                            </div> <a @click.prevent="addToCart(product, true)" href="cart.html" class="addcart btn--primary style2">
+                            </div> <a @click.prevent="addToCart(product, true)" class="addcart btn--primary style2">
                               Add To Cart </a>
                             <div class="products-grid__usefull-links">
                               <ul>
@@ -338,6 +338,7 @@
 import Logo from "../../../../public/assets/images/logo/logo.png";
 
 export default {
+    props: ['someProps'],
 
   name: "Index",
   mounted() {
@@ -362,7 +363,7 @@ export default {
       ],
       selectedSort: "all",
       pagination: [],
-      totalPrice: 0
+      totalPrice: 0,
     }
   },
   methods: {
@@ -370,7 +371,8 @@ export default {
       let qty = isSingle ? 1 : $('.qtyValue').val();
       let cart = localStorage.getItem('cart');
       $('.qtyValue').val(1);
-
+        console.log(qty)
+        console.log(cart)
       let newProduct = [
         {
           "id": product.id,
@@ -380,8 +382,8 @@ export default {
           "qty": qty
         }
       ];
-
-      if (!cart){
+        console.log(newProduct);
+        if (!cart){
         localStorage.setItem('cart', JSON.stringify(newProduct))
       }
       else{
@@ -390,6 +392,7 @@ export default {
             if (productInCart.id === product.id){
               productInCart.qty = Number(productInCart.qty) + Number(qty);
               newProduct = null;
+              console.log(productInCart.qty)
             }
           })
           Array.prototype.push.apply(cart, newProduct);

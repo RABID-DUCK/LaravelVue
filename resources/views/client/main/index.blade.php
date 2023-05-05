@@ -3,7 +3,7 @@
 @section('content')
 <body class="shoe">
 <!-- ==========Preloader========== -->
-<div class="loader"><span>Karte...</span></div>
+<div class="loader"><span>Capibara...</span></div>
 <!-- ==========Preloader========== -->
 <!--===scroll bottom to top===-->
 <!--===scroll bottom to top===-->

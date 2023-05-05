@@ -187,8 +187,8 @@
                           </a>
                             <div class="products-grid-one__badge-box"> <span
                                 class="bg_base badge new ">New</span>
-                            </div> <a @click.prevent="addToCart(product, true)" href="cart.html" class="addcart btn--primary style2">
-                              Add To Cart </a>
+                            </div>
+                              <a @click.prevent="addToCart(product, true)" href="cart.html" class="addcart btn--primary style2">Add To Cart </a>
                             <div class="products-grid__usefull-links">
                               <ul>
                                 <li><a href="wishlist.html"> <i class="flaticon-heart">
@@ -395,6 +395,8 @@ export default {
           Array.prototype.push.apply(cart, newProduct);
           localStorage.setItem('cart', JSON.stringify(cart));
       }
+      let cartArr = JSON.parse(cart)
+        let qtyCart = cartArr.reduce((qty, product) => qty + product.qty, 0);
       this.calculateCartPrice()
     },
     addTags(id){
