@@ -8,6 +8,7 @@ use App\Http\Resources\Order\OrderResource;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 
 class StoreController extends Controller
@@ -16,7 +17,7 @@ class StoreController extends Controller
     {
         $data = $request->validated();
 
-        $password = Hash::make('123123123');
+        $password = Hash::make(Str::random(10));
         $user = User::firstOrCreate([
             'address' => $data['email']
         ],[
