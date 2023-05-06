@@ -11,7 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _public_assets_images_logo_logo_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../public/assets/images/logo/logo.png */ "./public/assets/images/logo/logo.png");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/logo/logo.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Index",
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      Logo: _public_assets_images_logo_logo_png__WEBPACK_IMPORTED_MODULE_0__["default"],
+      Logo: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/logo/logo.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
       products: [],
       popupProduct: null,
       filterList: [],
@@ -182,11 +182,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _public_assets_images_logo_logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../public/assets/images/logo/logo.png */ "./public/assets/images/logo/logo.png");
-/* harmony import */ var _public_assets_images_payment_method_method_1_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../public/assets/images/payment_method/method_1.png */ "./public/assets/images/payment_method/method_1.png");
-/* harmony import */ var _public_assets_images_payment_method_method_2_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../public/assets/images/payment_method/method_2.png */ "./public/assets/images/payment_method/method_2.png");
-/* harmony import */ var _public_assets_images_payment_method_method_3_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../public/assets/images/payment_method/method_3.png */ "./public/assets/images/payment_method/method_3.png");
-/* harmony import */ var _public_assets_images_payment_method_method_4_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../public/assets/images/payment_method/method_4.png */ "./public/assets/images/payment_method/method_4.png");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/logo/logo.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 
@@ -198,7 +198,7 @@ var _hoisted_1 = {
 };
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container\"><div class=\"row\"><div class=\"col-xl-12\"><div class=\"breadcrumb-content pb-60 text-center wow fadeInUp animated\"><h2>Shop Grid</h2><div class=\"breadcrumb-menu\"><ul><li><a href=\"index.html\"><i class=\"flaticon-home pe-2\"></i>Home</a></li><li><i class=\"flaticon-next\"></i></li><li class=\"active\">Shop Grid</li></ul></div></div></div></div></div>", 1);
 var _hoisted_3 = [_hoisted_2];
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"product-categories-one pb-60\"><div class=\"container\"><div class=\"row wow fadeInUp animated\"><div class=\"col-xl-12\"><div class=\"product-categories-one__inner\"><ul><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"" + _public_assets_images_logo_logo_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Accessories</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"" + _public_assets_images_logo_logo_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Furnitures</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"" + _public_assets_images_logo_logo_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Jewellery</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"" + _public_assets_images_logo_logo_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Shoes</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"" + _public_assets_images_logo_logo_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Electronics</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"" + _public_assets_images_logo_logo_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Fashion</h6></a></div></li></ul></div></div></div></div></section>", 1);
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"product-categories-one pb-60\"><div class=\"container\"><div class=\"row wow fadeInUp animated\"><div class=\"col-xl-12\"><div class=\"product-categories-one__inner\"><ul><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"" + Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/logo/logo.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) + "\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Accessories</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"" + Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/logo/logo.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) + "\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Furnitures</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"" + Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/logo/logo.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) + "\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Jewellery</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"" + Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/logo/logo.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) + "\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Shoes</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"" + Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/logo/logo.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) + "\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Electronics</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"" + Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/logo/logo.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) + "\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Fashion</h6></a></div></li></ul></div></div></div></div></section>", 1);
 var _hoisted_5 = {
   "class": "product-grid pt-60 pb-120"
 };
@@ -362,7 +362,7 @@ var _hoisted_48 = {
 var _hoisted_49 = ["src"];
 var _hoisted_50 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
 var _hoisted_51 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_logo_logo_png__WEBPACK_IMPORTED_MODULE_1__["default"],
+  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/logo/logo.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
   alt: "",
   "class": "hover-img"
 }, null, -1 /* HOISTED */);
@@ -470,7 +470,7 @@ var _hoisted_88 = {
 };
 var _hoisted_89 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"qtySelector text-center\"><span class=\"decreaseQty\"><i class=\"flaticon-minus\"></i></span> <input type=\"number\" class=\"qtyValue\" value=\"1\"><span class=\"increaseQty\"><i class=\"flaticon-plus\"></i></span></div>", 1);
 var _hoisted_90 = ["onClick"];
-var _hoisted_91 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"payment-method\"><a href=\"#0\"><img src=\"" + _public_assets_images_payment_method_method_1_png__WEBPACK_IMPORTED_MODULE_2__["default"] + "\" alt=\"\"></a><a href=\"#0\"><img src=\"" + _public_assets_images_payment_method_method_2_png__WEBPACK_IMPORTED_MODULE_3__["default"] + "\" alt=\"\"></a> <a href=\"#0\"><img src=\"" + _public_assets_images_payment_method_method_3_png__WEBPACK_IMPORTED_MODULE_4__["default"] + "\" alt=\"\"></a><a href=\"#0\"><img src=\"" + _public_assets_images_payment_method_method_4_png__WEBPACK_IMPORTED_MODULE_5__["default"] + "\" alt=\"\"></a></div>", 1);
+var _hoisted_91 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"payment-method\"><a href=\"#0\"><img src=\"" + Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) + "\" alt=\"\"></a><a href=\"#0\"><img src=\"" + Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) + "\" alt=\"\"></a> <a href=\"#0\"><img src=\"" + Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) + "\" alt=\"\"></a><a href=\"#0\"><img src=\"" + Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) + "\" alt=\"\"></a></div>", 1);
 var _hoisted_92 = {
   "class": "products-three-single-content text-center"
 };
@@ -634,62 +634,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     href: "#0"
   }, _hoisted_104)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End product-grid")])]);
 }
-
-/***/ }),
-
-/***/ "./public/assets/images/payment_method/method_1.png":
-/*!**********************************************************!*\
-  !*** ./public/assets/images/payment_method/method_1.png ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/method_1.png?f591da84fc93bc18d5ca09a1c4600b85");
-
-/***/ }),
-
-/***/ "./public/assets/images/payment_method/method_2.png":
-/*!**********************************************************!*\
-  !*** ./public/assets/images/payment_method/method_2.png ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/method_2.png?489fcb215bd06047dec9d275798c7321");
-
-/***/ }),
-
-/***/ "./public/assets/images/payment_method/method_3.png":
-/*!**********************************************************!*\
-  !*** ./public/assets/images/payment_method/method_3.png ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/method_3.png?dbecbbe93e3b292bde993c06fe24487a");
-
-/***/ }),
-
-/***/ "./public/assets/images/payment_method/method_4.png":
-/*!**********************************************************!*\
-  !*** ./public/assets/images/payment_method/method_4.png ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/method_4.png?867c77cb9a56bf5ff8fd86f3908c0ea3");
 
 /***/ }),
 

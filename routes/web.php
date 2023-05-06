@@ -19,8 +19,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::group(['prefix' => 'admin'], function() {
-
 
 Route::get('/', \App\Http\Controllers\Main\indexController::class)->name('main.index');
 
@@ -73,8 +71,3 @@ Route::group(['prefix' => 'products'], function () {
     Route::patch('/{product}', \App\Http\Controllers\Product\UpdateController::class)->name('product.update');
     Route::delete('/{product}', \App\Http\Controllers\Product\DeleteController::class)->name('product.delete');
 });
-});
-
-Route::get('{page}', \App\Http\Controllers\Client\IndexController::class)->where('page', '.*');
-//Route::get('/{vueRoutes}', App\Http\Controllers\Client\IndexController::class)
-//    ->where('vueRoutes', '|products|products\/[0-9]+');
