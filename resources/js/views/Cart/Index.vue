@@ -79,12 +79,6 @@
             </div>
           </div>
         </div>
-          <div class="row w-25">
-              <input type="text" v-model="login" placeholder="Придумайте логин...">
-              <input type="text" v-model="email" placeholder="Электронная почта...">
-              <input type="text" v-model="number_phone" placeholder="Номер телефона...">
-              <input @click.prevent="storeOrder" type="submit" class="btn btn-primary" value="Оформить">
-          </div>
         <div class="row pt-120">
           <div class="col-xl-6 col-lg-7 wow fadeInUp animated">
             <div class="cart-total-box">
@@ -146,10 +140,7 @@ export default {
   data (){
     return {
       products: [],
-      totalPrice: 0,
-        login: '',
-        email: '',
-        number_phone: ''
+      totalPrice: 0
     }
   },
   methods: {
@@ -182,22 +173,7 @@ export default {
     },
     calculateTotal(){
         this.totalPrice = this.products.reduce((sum, product) => sum + product.price * product.qty, 0)
-    },
-      storeOrder(){
-          this.axios.post('/api/orders', {
-              'login': this.login,
-              'email': this.email,
-              'number_phone': this.number_phone,
-              'products': this.products,
-              'total_price': this.totalPrice,
-          })
-              .then(res => {
-                  console.log(res);
-              })
-              .finally(v => {
-                  $(document).trigger('changed')
-              })
-      }
+    }
   }
 
 }

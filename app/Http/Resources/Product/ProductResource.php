@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\Product;
 
-use App\Http\Resources\Category\OrderResource;
+use App\Http\Resources\Category\CategoryResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -25,7 +25,7 @@ class ProductResource extends JsonResource
             'old_price' => $this->old_price,
             'count' => $this->count,
             'is_published' => $this->is_published,
-            'category' => new OrderResource($this->category),
+            'category' => new CategoryResource($this->category),
             'product_images' => ProductImageResource::collection($this->productImages),
             'tags' => $this->tags,
             'date_added' => $this->created_at->format('Y-m-d H:i:s')

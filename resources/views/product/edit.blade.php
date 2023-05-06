@@ -77,7 +77,7 @@
                     <span>{{!empty($productImage[1]) ? $productImage[1]->file_path : ''}}</span>
                 </div>
                 <div class="form-group">
-                    <label>Цена</label>
+                    <label>Старая цена</label>
                     <input type="text" class="form-control" name="old_price" value="{{ $product->old_price ?? old('old_price') }}">
                 </div>
                 <div class="form-group">

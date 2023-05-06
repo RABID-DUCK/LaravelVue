@@ -54,8 +54,8 @@ class UpdateController extends Controller
                 }
                 else{
                     ProductImage::create(
-                        ['product_id' => $product->id],
-                        ['file_path' => $filePath]);
+                        ['product_id' => $product->id,
+                        'file_path' => $filePath]);
                 }
             }
         }

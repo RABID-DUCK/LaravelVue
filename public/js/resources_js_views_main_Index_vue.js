@@ -31,136 +31,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/logo/logo.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/home-3-bg.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/home-3-bg-2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/cat-1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/catbg-3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/catbg-2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-hover-1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-hover-3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-4.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-5.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-6.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-hover-1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-hover-3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-4.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-5.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-hover-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-hover-3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-4.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-5.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _public_assets_images_shop_products_v6_img5_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../public/assets/images/shop/products-v6-img5.jpg */ "./public/assets/images/shop/products-v6-img5.jpg");
-/* harmony import */ var _public_assets_images_shop_products_v6_img6_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../public/assets/images/shop/products-v6-img6.jpg */ "./public/assets/images/shop/products-v6-img6.jpg");
-/* harmony import */ var _public_assets_images_shop_products_v6_img7_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../public/assets/images/shop/products-v6-img7.jpg */ "./public/assets/images/shop/products-v6-img7.jpg");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-hover-2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _public_assets_images_shop_products_v6_img8_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../public/assets/images/shop/products-v6-img8.jpg */ "./public/assets/images/shop/products-v6-img8.jpg");
-/* harmony import */ var _public_assets_images_shop_products_v6_img9_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../public/assets/images/shop/products-v6-img9.jpg */ "./public/assets/images/shop/products-v6-img9.jpg");
-/* harmony import */ var _public_assets_images_shop_products_v6_img10_jpg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../public/assets/images/shop/products-v6-img10.jpg */ "./public/assets/images/shop/products-v6-img10.jpg");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-hover-5.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _public_assets_images_shop_products_v6_img1_jpg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../public/assets/images/shop/products-v6-img1.jpg */ "./public/assets/images/shop/products-v6-img1.jpg");
-/* harmony import */ var _public_assets_images_shop_products_v6_img2_jpg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../public/assets/images/shop/products-v6-img2.jpg */ "./public/assets/images/shop/products-v6-img2.jpg");
-/* harmony import */ var _public_assets_images_shop_products_v6_img3_jpg__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../public/assets/images/shop/products-v6-img3.jpg */ "./public/assets/images/shop/products-v6-img3.jpg");
-/* harmony import */ var _public_assets_images_shop_products_v6_img4_jpg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../public/assets/images/shop/products-v6-img4.jpg */ "./public/assets/images/shop/products-v6-img4.jpg");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/fimg.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-two/envalop.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/categories-v2-img1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/categories-v2-img2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/categories-v2-img3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/icon/f-icon-1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/icon/f-icon-2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/icon/f-icon-3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/icon/f-icon-4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _public_assets_images_testimonial_testimonial_v1_1_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../public/assets/images/testimonial/testimonial-v1-1.png */ "./public/assets/images/testimonial/testimonial-v1-1.png");
-/* harmony import */ var _public_assets_images_testimonial_testimonial_v1_2_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../../public/assets/images/testimonial/testimonial-v1-2.png */ "./public/assets/images/testimonial/testimonial-v1-2.png");
-/* harmony import */ var _public_assets_images_testimonial_testimonial_v1_3_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../public/assets/images/testimonial/testimonial-v1-3.png */ "./public/assets/images/testimonial/testimonial-v1-3.png");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/blog/blog-v3-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/blog/blog-v3-2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/blog/blog-v3-3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img4.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img5.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img6.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", {
   "class": "overflow-hidden"
@@ -178,7 +48,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "newsLetter-popup__thumb imgenews"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/products-1.jpg",
   alt: "newsletter"
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-lg-7 col-md-8 col-sm-10"
@@ -190,7 +60,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "index.html",
   "class": "logo"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/logo/logo.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/logo/logo.png",
   alt: "logo"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Join "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "with us.")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, " Subscribe to receive news from Karte In a free hour ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
   action: "#0",
@@ -219,14 +89,14 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "banner-style-3 overflow-hidden"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Banner Carousel "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "banner-slide3 slick",
-  "data-slick": "{\"dots\": true, \"infinite\": true, \"speed\": 600, \"slidesToShow\": 1,\n                \"slidesToScroll\": 1, \"arrows\": false, \"autoplay\": true, \"autoplaySpeed\": 6000,\n                 \"fade\": false, \"pauseOnHover\": false}"
+  "data-slick": "{\"dots\": true, \"infinite\": true, \"speed\": 600, \"slidesToShow\": 1,\r\n                \"slidesToScroll\": 1, \"arrows\": false, \"autoplay\": true, \"autoplaySpeed\": 6000,\r\n                 \"fade\": false, \"pauseOnHover\": false}"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Slide "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "slide"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "contant-box position-relative"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "bg-img hundread-vh",
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/home-3-bg.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/home-3-bg.jpg",
   alt: "image"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "content-holder p-0 absolute-content"
@@ -254,7 +124,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "contant-box position-relative"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "bg-img hundread-vh",
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/home-3-bg-2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/home-3-bg-2.jpg",
   alt: "image"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "content-holder p-0 absolute-content"
@@ -288,7 +158,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-grid.html",
   "class": "catagory-single one home3cat"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/cat-1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/cat-1.png",
   alt: "#",
   "class": "background-img bg-img imgone"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -316,7 +186,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-grid.html",
   "class": "catagory-single home3cat"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/catbg-3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/catbg-3.png",
   alt: "",
   "class": "background-img bg-img"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -340,7 +210,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-grid.html",
   "class": "catagory-single home3cat"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/catbg-2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/catbg-2.png",
   alt: "",
   "class": "background-img bg-img"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -428,11 +298,11 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/products-1.jpg",
   "class": "first-img",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-hover-1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/products-hover-1.png",
   alt: "",
   "class": "hover-img"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -472,7 +342,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/products-2.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "cart.html",
@@ -505,11 +375,11 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/products-3.jpg",
   "class": "first-img",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-hover-3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/products-hover-3.png",
   alt: "",
   "class": "hover-img"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -547,7 +417,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-4.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/products-4.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "cart.html",
@@ -580,7 +450,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-5.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/products-5.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-grid-one__badge-box"
@@ -617,7 +487,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/products-6.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/products-6.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-grid-one__badge-box"
@@ -661,11 +531,11 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-1.jpg",
   "class": "first-img",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-hover-1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-hover-1.png",
   alt: "",
   "class": "hover-img"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -705,7 +575,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-2.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "cart.html",
@@ -738,11 +608,11 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-3.jpg",
   "class": "first-img",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-hover-3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-hover-3.png",
   alt: "",
   "class": "hover-img"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -780,7 +650,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-4.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-4.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "cart.html",
@@ -813,7 +683,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-5.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-5.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-grid-one__badge-box"
@@ -850,7 +720,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-2.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-grid-one__badge-box"
@@ -894,11 +764,11 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss3-1.jpg",
   "class": "first-img",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-hover-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss3-hover-1.jpg",
   alt: "",
   "class": "hover-img"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -938,7 +808,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss3-2.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "cart.html",
@@ -971,11 +841,11 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss3-3.jpg",
   "class": "first-img",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-hover-3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss3-hover-3.png",
   alt: "",
   "class": "hover-img"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -1013,7 +883,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-4.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss3-4.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "cart.html",
@@ -1046,7 +916,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-5.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss3-5.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-grid-one__badge-box"
@@ -1083,7 +953,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss3-3.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-grid-one__badge-box"
@@ -1132,7 +1002,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "video-two__img",
   style: {
-    "background-image": "url(../../../../public/assets/images/home-three/video-v2-img1.jpg)"
+    "background-image": "url(src/assets/images/home-three/video-v2-img1.jpg)"
   }
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "icon wow zoomIn animated animated",
@@ -1187,11 +1057,11 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-1.jpg",
   "class": "first-img",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-hover-1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-hover-1.png",
   alt: "",
   "class": "hover-img"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -1236,21 +1106,21 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabb1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img5_jpg__WEBPACK_IMPORTED_MODULE_2__["default"],
+  src: "src/assets/images/shop/products-v6-img5.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabb2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img6_jpg__WEBPACK_IMPORTED_MODULE_3__["default"],
+  src: "src/assets/images/shop/products-v6-img6.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabb3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img7_jpg__WEBPACK_IMPORTED_MODULE_4__["default"],
+  src: "src/assets/images/shop/products-v6-img7.jpg",
   alt: ""
 })])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-main-image-box"
@@ -1260,7 +1130,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img5_jpg__WEBPACK_IMPORTED_MODULE_2__["default"],
+  src: "src/assets/images/shop/products-v6-img5.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tabb2",
@@ -1268,7 +1138,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img6_jpg__WEBPACK_IMPORTED_MODULE_3__["default"],
+  src: "src/assets/images/shop/products-v6-img6.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tabb3",
@@ -1276,7 +1146,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img7_jpg__WEBPACK_IMPORTED_MODULE_4__["default"],
+  src: "src/assets/images/shop/products-v6-img7.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "prev"
@@ -1348,22 +1218,22 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_1.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_2.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_3.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_4.png",
   alt: ""
 })])])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-three-single-content text-center"
@@ -1377,11 +1247,11 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-hover-2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-hover-2.png",
   "class": "first-img",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-2.jpg",
   alt: "",
   "class": "hover-img"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -1426,21 +1296,21 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabb11"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img6_jpg__WEBPACK_IMPORTED_MODULE_3__["default"],
+  src: "src/assets/images/shop/products-v6-img6.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabb22"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img7_jpg__WEBPACK_IMPORTED_MODULE_4__["default"],
+  src: "src/assets/images/shop/products-v6-img7.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabb33"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img8_jpg__WEBPACK_IMPORTED_MODULE_5__["default"],
+  src: "src/assets/images/shop/products-v6-img8.jpg",
   alt: ""
 })])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-main-image-box"
@@ -1450,7 +1320,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img6_jpg__WEBPACK_IMPORTED_MODULE_3__["default"],
+  src: "src/assets/images/shop/products-v6-img6.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tabb22",
@@ -1458,7 +1328,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img7_jpg__WEBPACK_IMPORTED_MODULE_4__["default"],
+  src: "src/assets/images/shop/products-v6-img7.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tabb33",
@@ -1466,7 +1336,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img8_jpg__WEBPACK_IMPORTED_MODULE_5__["default"],
+  src: "src/assets/images/shop/products-v6-img8.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "prev"
@@ -1538,22 +1408,22 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_1.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_2.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_3.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_4.png",
   alt: ""
 })])])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-three-single-content text-center"
@@ -1567,7 +1437,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-3.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "cart.html",
@@ -1607,21 +1477,21 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabb111"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img7_jpg__WEBPACK_IMPORTED_MODULE_4__["default"],
+  src: "src/assets/images/shop/products-v6-img7.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabb222"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img8_jpg__WEBPACK_IMPORTED_MODULE_5__["default"],
+  src: "src/assets/images/shop/products-v6-img8.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabb333"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img9_jpg__WEBPACK_IMPORTED_MODULE_6__["default"],
+  src: "src/assets/images/shop/products-v6-img9.jpg",
   alt: ""
 })])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-main-image-box"
@@ -1631,7 +1501,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img7_jpg__WEBPACK_IMPORTED_MODULE_4__["default"],
+  src: "src/assets/images/shop/products-v6-img7.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tabb222",
@@ -1639,7 +1509,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img8_jpg__WEBPACK_IMPORTED_MODULE_5__["default"],
+  src: "src/assets/images/shop/products-v6-img8.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tabb333",
@@ -1647,7 +1517,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img9_jpg__WEBPACK_IMPORTED_MODULE_6__["default"],
+  src: "src/assets/images/shop/products-v6-img9.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "prev"
@@ -1719,22 +1589,22 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_1.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_2.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_3.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_4.png",
   alt: ""
 })])])])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-three-single-content text-center"
@@ -1748,7 +1618,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-4.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-4.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-grid-one__badge-box"
@@ -1792,21 +1662,21 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabb1111"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img9_jpg__WEBPACK_IMPORTED_MODULE_6__["default"],
+  src: "src/assets/images/shop/products-v6-img9.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabb2222"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img9_jpg__WEBPACK_IMPORTED_MODULE_6__["default"],
+  src: "src/assets/images/shop/products-v6-img9.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabb3333"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img10_jpg__WEBPACK_IMPORTED_MODULE_7__["default"],
+  src: "src/assets/images/shop/products-v6-img10.jpg",
   alt: ""
 })])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-main-image-box"
@@ -1816,7 +1686,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img8_jpg__WEBPACK_IMPORTED_MODULE_5__["default"],
+  src: "src/assets/images/shop/products-v6-img8.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tabb2222",
@@ -1824,7 +1694,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img9_jpg__WEBPACK_IMPORTED_MODULE_6__["default"],
+  src: "src/assets/images/shop/products-v6-img9.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tabb3333",
@@ -1832,7 +1702,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img10_jpg__WEBPACK_IMPORTED_MODULE_7__["default"],
+  src: "src/assets/images/shop/products-v6-img10.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "prev"
@@ -1904,22 +1774,22 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_1.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_2.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_3.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_4.png",
   alt: ""
 })])])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-three-single-content text-center"
@@ -1933,11 +1803,11 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-5.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-5.jpg",
   "class": "first-img",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-hover-5.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-hover-5.png",
   alt: "",
   "class": "hover-img"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
@@ -1978,21 +1848,21 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabc1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img9_jpg__WEBPACK_IMPORTED_MODULE_6__["default"],
+  src: "src/assets/images/shop/products-v6-img9.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabc2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img9_jpg__WEBPACK_IMPORTED_MODULE_6__["default"],
+  src: "src/assets/images/shop/products-v6-img9.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tabc3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img10_jpg__WEBPACK_IMPORTED_MODULE_7__["default"],
+  src: "src/assets/images/shop/products-v6-img10.jpg",
   alt: ""
 })])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-main-image-box"
@@ -2002,7 +1872,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img8_jpg__WEBPACK_IMPORTED_MODULE_5__["default"],
+  src: "src/assets/images/shop/products-v6-img8.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tabc2",
@@ -2010,7 +1880,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img9_jpg__WEBPACK_IMPORTED_MODULE_6__["default"],
+  src: "src/assets/images/shop/products-v6-img9.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tabc3",
@@ -2018,7 +1888,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img10_jpg__WEBPACK_IMPORTED_MODULE_7__["default"],
+  src: "src/assets/images/shop/products-v6-img10.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "prev"
@@ -2090,22 +1960,22 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_1.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_2.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_3.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_4.png",
   alt: ""
 })])])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-three-single-content text-center"
@@ -2119,11 +1989,11 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss3-1.jpg",
   "class": "first-img",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-hover-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss3-hover-1.jpg",
   alt: "",
   "class": "hover-img"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -2170,21 +2040,21 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img1_jpg__WEBPACK_IMPORTED_MODULE_8__["default"],
+  src: "src/assets/images/shop/products-v6-img1.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img2_jpg__WEBPACK_IMPORTED_MODULE_9__["default"],
+  src: "src/assets/images/shop/products-v6-img2.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img3_jpg__WEBPACK_IMPORTED_MODULE_10__["default"],
+  src: "src/assets/images/shop/products-v6-img3.jpg",
   alt: ""
 })])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-main-image-box"
@@ -2194,7 +2064,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img1_jpg__WEBPACK_IMPORTED_MODULE_8__["default"],
+  src: "src/assets/images/shop/products-v6-img1.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tab2",
@@ -2202,7 +2072,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img2_jpg__WEBPACK_IMPORTED_MODULE_9__["default"],
+  src: "src/assets/images/shop/products-v6-img2.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tab3",
@@ -2210,7 +2080,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img3_jpg__WEBPACK_IMPORTED_MODULE_10__["default"],
+  src: "src/assets/images/shop/products-v6-img3.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "prev"
@@ -2282,22 +2152,22 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_1.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_2.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_3.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_4.png",
   alt: ""
 })])])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-three-single-content text-center"
@@ -2311,7 +2181,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss3-2.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "cart.html",
@@ -2351,21 +2221,21 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab11"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img1_jpg__WEBPACK_IMPORTED_MODULE_8__["default"],
+  src: "src/assets/images/shop/products-v6-img1.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab22"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img2_jpg__WEBPACK_IMPORTED_MODULE_9__["default"],
+  src: "src/assets/images/shop/products-v6-img2.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab33"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img3_jpg__WEBPACK_IMPORTED_MODULE_10__["default"],
+  src: "src/assets/images/shop/products-v6-img3.jpg",
   alt: ""
 })])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-main-image-box"
@@ -2375,7 +2245,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img1_jpg__WEBPACK_IMPORTED_MODULE_8__["default"],
+  src: "src/assets/images/shop/products-v6-img1.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tab22",
@@ -2383,7 +2253,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img2_jpg__WEBPACK_IMPORTED_MODULE_9__["default"],
+  src: "src/assets/images/shop/products-v6-img2.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tab33",
@@ -2391,7 +2261,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img3_jpg__WEBPACK_IMPORTED_MODULE_10__["default"],
+  src: "src/assets/images/shop/products-v6-img3.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "prev"
@@ -2463,22 +2333,22 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_1.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_2.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_3.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_4.png",
   alt: ""
 })])])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-three-single-content text-center"
@@ -2492,7 +2362,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss3-3.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-grid-one__badge-box"
@@ -2536,21 +2406,21 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab111"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img3_jpg__WEBPACK_IMPORTED_MODULE_10__["default"],
+  src: "src/assets/images/shop/products-v6-img3.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab222"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img4_jpg__WEBPACK_IMPORTED_MODULE_11__["default"],
+  src: "src/assets/images/shop/products-v6-img4.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab333"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img5_jpg__WEBPACK_IMPORTED_MODULE_2__["default"],
+  src: "src/assets/images/shop/products-v6-img5.jpg",
   alt: ""
 })])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-main-image-box"
@@ -2560,7 +2430,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img3_jpg__WEBPACK_IMPORTED_MODULE_10__["default"],
+  src: "src/assets/images/shop/products-v6-img3.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tab222",
@@ -2568,7 +2438,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img4_jpg__WEBPACK_IMPORTED_MODULE_11__["default"],
+  src: "src/assets/images/shop/products-v6-img4.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tab333",
@@ -2576,7 +2446,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img5_jpg__WEBPACK_IMPORTED_MODULE_2__["default"],
+  src: "src/assets/images/shop/products-v6-img5.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "prev"
@@ -2648,22 +2518,22 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_1.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_2.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_3.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_4.png",
   alt: ""
 })])])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-three-single-content text-center"
@@ -2677,7 +2547,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss3-4.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss3-4.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "cart.html",
@@ -2717,21 +2587,21 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab1111"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img4_jpg__WEBPACK_IMPORTED_MODULE_11__["default"],
+  src: "src/assets/images/shop/products-v6-img4.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab2222"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img5_jpg__WEBPACK_IMPORTED_MODULE_2__["default"],
+  src: "src/assets/images/shop/products-v6-img5.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab3333"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img6_jpg__WEBPACK_IMPORTED_MODULE_3__["default"],
+  src: "src/assets/images/shop/products-v6-img6.jpg",
   alt: ""
 })])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-main-image-box"
@@ -2741,7 +2611,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img4_jpg__WEBPACK_IMPORTED_MODULE_11__["default"],
+  src: "src/assets/images/shop/products-v6-img4.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tab2222",
@@ -2749,7 +2619,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img5_jpg__WEBPACK_IMPORTED_MODULE_2__["default"],
+  src: "src/assets/images/shop/products-v6-img5.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tab3333",
@@ -2757,7 +2627,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img6_jpg__WEBPACK_IMPORTED_MODULE_3__["default"],
+  src: "src/assets/images/shop/products-v6-img6.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "prev"
@@ -2829,22 +2699,22 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_1.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_2.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_3.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_4.png",
   alt: ""
 })])])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-three-single-content text-center"
@@ -2858,7 +2728,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-details-3.html",
   "class": "d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/productss2-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/productss2-1.jpg",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-grid-one__badge-box"
@@ -2902,21 +2772,21 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab11111"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img5_jpg__WEBPACK_IMPORTED_MODULE_2__["default"],
+  src: "src/assets/images/shop/products-v6-img5.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab22222"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img6_jpg__WEBPACK_IMPORTED_MODULE_3__["default"],
+  src: "src/assets/images/shop/products-v6-img6.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "tab-nav popup-product-thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#tab33333"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img7_jpg__WEBPACK_IMPORTED_MODULE_4__["default"],
+  src: "src/assets/images/shop/products-v6-img7.jpg",
   alt: ""
 })])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-main-image-box"
@@ -2926,7 +2796,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img5_jpg__WEBPACK_IMPORTED_MODULE_2__["default"],
+  src: "src/assets/images/shop/products-v6-img5.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tab22222",
@@ -2934,7 +2804,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img6_jpg__WEBPACK_IMPORTED_MODULE_3__["default"],
+  src: "src/assets/images/shop/products-v6-img6.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   id: "tab33333",
@@ -2942,7 +2812,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "popup-product-single-image"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shop_products_v6_img7_jpg__WEBPACK_IMPORTED_MODULE_4__["default"],
+  src: "src/assets/images/shop/products-v6-img7.jpg",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "prev"
@@ -3014,22 +2884,22 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_1.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_2.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_3.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "#0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/payment_method/method_4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/payment_method/method_4.png",
   alt: ""
 })])])])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-three-single-content text-center"
@@ -3054,7 +2924,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "img-box"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/fimg.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/fimg.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "content-box mt-4"
@@ -3070,7 +2940,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "img-box"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/fimg.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/fimg.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "content-box mt-4"
@@ -3086,7 +2956,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "img-box"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/fimg.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/fimg.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "content-box mt-4"
@@ -3110,7 +2980,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-cetagory-three__single-img height-400",
   style: {
-    "background-image": "url(../../../../public/assets/images/shop/products-v7-img1.jpg)"
+    "background-image": "url(src/assets/images/shop/products-v7-img1.jpg)"
   }
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-cetagory-three__single-content"
@@ -3138,7 +3008,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-cetagory-three__single-img height-400",
   style: {
-    "background-image": "url(../../../../public/assets/images/shop/products-v7-img2.jpg)"
+    "background-image": "url(src/assets/images/shop/products-v7-img2.jpg)"
   }
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "products-cetagory-three__single-content"
@@ -3162,7 +3032,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-two/envalop.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-two/envalop.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
   "class": "t36"
@@ -3225,7 +3095,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-grid-right-sidebar.html",
   "class": "img-box"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/categories-v2-img1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/categories-v2-img1.jpg",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "text"
@@ -3243,7 +3113,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-grid-left-sidebar.html",
   "class": "img-box"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/categories-v2-img2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/categories-v2-img2.jpg",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "text"
@@ -3261,7 +3131,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "shop-grid-left-sidebar.html",
   "class": "img-box"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/categories-v2-img3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/categories-v2-img3.jpg",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "text"
@@ -3287,7 +3157,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/icon/f-icon-1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/icon/f-icon-1.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "core-features__box-content"
@@ -3306,7 +3176,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/icon/f-icon-2.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/icon/f-icon-2.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "core-features__box-content"
@@ -3325,7 +3195,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/icon/f-icon-3.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/icon/f-icon-3.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "core-features__box-content"
@@ -3344,7 +3214,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/icon/f-icon-4.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/icon/f-icon-4.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "core-features__box-content"
@@ -3376,7 +3246,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_testimonial_testimonial_v1_1_png__WEBPACK_IMPORTED_MODULE_12__["default"],
+  src: "src/assets/images/testimonial/testimonial-v1-1.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "quate"
@@ -3395,7 +3265,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_testimonial_testimonial_v1_2_png__WEBPACK_IMPORTED_MODULE_13__["default"],
+  src: "src/assets/images/testimonial/testimonial-v1-2.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "quate"
@@ -3414,7 +3284,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_testimonial_testimonial_v1_3_png__WEBPACK_IMPORTED_MODULE_14__["default"],
+  src: "src/assets/images/testimonial/testimonial-v1-3.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "quate"
@@ -3433,7 +3303,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "thumb"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_testimonial_testimonial_v1_2_png__WEBPACK_IMPORTED_MODULE_13__["default"],
+  src: "src/assets/images/testimonial/testimonial-v1-2.png",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "quate"
@@ -3459,7 +3329,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "blog-single.html",
   "class": "blog-three__single-img d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/blog/blog-v3-1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/blog/blog-v3-1.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "blog-three__single-content text-center"
@@ -3477,7 +3347,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "blog-single.html",
   "class": "blog-three__single-img d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/blog/blog-v3-2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/blog/blog-v3-2.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "blog-three__single-content text-center"
@@ -3495,7 +3365,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   href: "blog-single.html",
   "class": "blog-three__single-img d-block"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/blog/blog-v3-3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/blog/blog-v3-3.jpg",
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "blog-three__single-content text-center"
@@ -3516,90 +3386,90 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "gallery-two__slider"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "../../../../public/assets/images/home-three/gallery-v2-img1.jpg",
+  href: "src/assets/images/home-three/gallery-v2-img1.jpg",
   "class": "gallery-two__single"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/gallery-v2-img1.jpg",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "zoom-icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "flaticon-expand"
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "../../../../public/assets/images/home-three/gallery-v2-img2.jpg",
+  href: "src/assets/images/home-three/gallery-v2-img2.jpg",
   "class": "gallery-two__single"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/gallery-v2-img2.jpg",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "zoom-icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "flaticon-expand"
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "../../../../public/assets/images/home-three/gallery-v2-img3.jpg",
+  href: "src/assets/images/home-three/gallery-v2-img3.jpg",
   "class": "gallery-two__single"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/gallery-v2-img3.jpg",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "zoom-icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "flaticon-expand"
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "../../../../public/assets/images/home-three/gallery-v2-img4.jpg",
+  href: "src/assets/images/home-three/gallery-v2-img4.jpg",
   "class": "gallery-two__single"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img4.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/gallery-v2-img4.jpg",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "zoom-icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "flaticon-expand"
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "../../../../public/assets/images/home-three/gallery-v2-img5.jpg",
+  href: "src/assets/images/home-three/gallery-v2-img5.jpg",
   "class": "gallery-two__single"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img5.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/gallery-v2-img5.jpg",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "zoom-icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "flaticon-expand"
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "../../../../public/assets/images/home-three/gallery-v2-img6.jpg",
+  href: "src/assets/images/home-three/gallery-v2-img6.jpg",
   "class": "gallery-two__single"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img6.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/gallery-v2-img6.jpg",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "zoom-icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "flaticon-expand"
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "../../../../public/assets/images/home-three/gallery-v2-img2.jpg",
+  href: "src/assets/images/home-three/gallery-v2-img2.jpg",
   "class": "gallery-two__single"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/gallery-v2-img2.jpg",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "zoom-icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "flaticon-expand"
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "../../../../public/assets/images/home-three/gallery-v2-img3.jpg",
+  href: "src/assets/images/home-three/gallery-v2-img3.jpg",
   "class": "gallery-two__single"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/gallery-v2-img3.jpg",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "zoom-icon"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "flaticon-expand"
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "../../../../public/assets/images/home-three/gallery-v2-img4.jpg",
+  href: "src/assets/images/home-three/gallery-v2-img4.jpg",
   "class": "gallery-two__single"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/assets/images/home-three/gallery-v2-img4.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+  src: "src/assets/images/home-three/gallery-v2-img4.jpg",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "zoom-icon"
@@ -3610,188 +3480,6 @@ var _hoisted_2 = [_hoisted_1];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, _hoisted_2);
 }
-
-/***/ }),
-
-/***/ "./public/assets/images/shop/products-v6-img1.jpg":
-/*!********************************************************!*\
-  !*** ./public/assets/images/shop/products-v6-img1.jpg ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/products-v6-img1.jpg?9c2e1f4c3e2b6abb787cee95b573f0b7");
-
-/***/ }),
-
-/***/ "./public/assets/images/shop/products-v6-img10.jpg":
-/*!*********************************************************!*\
-  !*** ./public/assets/images/shop/products-v6-img10.jpg ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/products-v6-img10.jpg?9c2e1f4c3e2b6abb787cee95b573f0b7");
-
-/***/ }),
-
-/***/ "./public/assets/images/shop/products-v6-img2.jpg":
-/*!********************************************************!*\
-  !*** ./public/assets/images/shop/products-v6-img2.jpg ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/products-v6-img2.jpg?9c2e1f4c3e2b6abb787cee95b573f0b7");
-
-/***/ }),
-
-/***/ "./public/assets/images/shop/products-v6-img3.jpg":
-/*!********************************************************!*\
-  !*** ./public/assets/images/shop/products-v6-img3.jpg ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/products-v6-img3.jpg?9c2e1f4c3e2b6abb787cee95b573f0b7");
-
-/***/ }),
-
-/***/ "./public/assets/images/shop/products-v6-img4.jpg":
-/*!********************************************************!*\
-  !*** ./public/assets/images/shop/products-v6-img4.jpg ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/products-v6-img4.jpg?9c2e1f4c3e2b6abb787cee95b573f0b7");
-
-/***/ }),
-
-/***/ "./public/assets/images/shop/products-v6-img5.jpg":
-/*!********************************************************!*\
-  !*** ./public/assets/images/shop/products-v6-img5.jpg ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/products-v6-img5.jpg?9c2e1f4c3e2b6abb787cee95b573f0b7");
-
-/***/ }),
-
-/***/ "./public/assets/images/shop/products-v6-img6.jpg":
-/*!********************************************************!*\
-  !*** ./public/assets/images/shop/products-v6-img6.jpg ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/products-v6-img6.jpg?9c2e1f4c3e2b6abb787cee95b573f0b7");
-
-/***/ }),
-
-/***/ "./public/assets/images/shop/products-v6-img7.jpg":
-/*!********************************************************!*\
-  !*** ./public/assets/images/shop/products-v6-img7.jpg ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/products-v6-img7.jpg?9c2e1f4c3e2b6abb787cee95b573f0b7");
-
-/***/ }),
-
-/***/ "./public/assets/images/shop/products-v6-img8.jpg":
-/*!********************************************************!*\
-  !*** ./public/assets/images/shop/products-v6-img8.jpg ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/products-v6-img8.jpg?9c2e1f4c3e2b6abb787cee95b573f0b7");
-
-/***/ }),
-
-/***/ "./public/assets/images/shop/products-v6-img9.jpg":
-/*!********************************************************!*\
-  !*** ./public/assets/images/shop/products-v6-img9.jpg ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/products-v6-img9.jpg?9c2e1f4c3e2b6abb787cee95b573f0b7");
-
-/***/ }),
-
-/***/ "./public/assets/images/testimonial/testimonial-v1-1.png":
-/*!***************************************************************!*\
-  !*** ./public/assets/images/testimonial/testimonial-v1-1.png ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/testimonial-v1-1.png?ccdce7b37dc35da7a99d92815ab1027f");
-
-/***/ }),
-
-/***/ "./public/assets/images/testimonial/testimonial-v1-2.png":
-/*!***************************************************************!*\
-  !*** ./public/assets/images/testimonial/testimonial-v1-2.png ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/testimonial-v1-2.png?2f52c321d40f6fa76813cd2118219d30");
-
-/***/ }),
-
-/***/ "./public/assets/images/testimonial/testimonial-v1-3.png":
-/*!***************************************************************!*\
-  !*** ./public/assets/images/testimonial/testimonial-v1-3.png ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/testimonial-v1-3.png?7b407cd4cd21e34ff0d47ad364e06bbd");
 
 /***/ }),
 

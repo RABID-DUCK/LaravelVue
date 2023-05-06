@@ -2,8 +2,7 @@
 <div>
   <main class="overflow-hidden ">
     <!--Start Breadcrumb Style2-->
-      <template>
-    <div class="breadcrumb-area" :style="{backgroundImage: `url(${Logo})`}">
+    <div class="breadcrumb-area" style="background-image: url(src/assets/images/logo/logo.png);">
       <div class="container">
         <div class="row">
           <div class="col-xl-12">
@@ -21,7 +20,6 @@
         </div>
       </div>
     </div>
-      </template>
     <!--End Breadcrumb Style2-->
     <!--Start Product Categories One-->
     <section class="product-categories-one pb-60">
@@ -31,7 +29,7 @@
             <div class="product-categories-one__inner">
               <ul>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="../../../../public/assets/images/logo/logo.png"
+                  <div class="inner"> <img src="src/assets/images/logo/logo.png"
                                            alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
@@ -39,7 +37,7 @@
                   </a> </div>
                 </li>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="../../../../public/assets/images/logo/logo.png"
+                  <div class="inner"> <img src="src/assets/images/logo/logo.png"
                                            alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
@@ -47,7 +45,7 @@
                   </a> </div>
                 </li>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="../../../../public/assets/images/logo/logo.png"
+                  <div class="inner"> <img src="src/assets/images/logo/logo.png"
                                            alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
@@ -55,7 +53,7 @@
                   </a> </div>
                 </li>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="../../../../public/assets/images/logo/logo.png"
+                  <div class="inner"> <img src="src/assets/images/logo/logo.png"
                                            alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
@@ -63,7 +61,7 @@
                   </a> </div>
                 </li>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="../../../../public/assets/images/logo/logo.png"
+                  <div class="inner"> <img src="src/assets/images/logo/logo.png"
                                            alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
@@ -71,7 +69,7 @@
                   </a> </div>
                 </li>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="../../../../public/assets/images/logo/logo.png"
+                  <div class="inner"> <img src="src/assets/images/logo/logo.png"
                                            alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
@@ -175,20 +173,19 @@
                 <div class="tab-content" id="pills-tabContent">
                   <div class="tab-pane fade show active" id="pills-grid" role="tabpanel"
                        aria-labelledby="pills-grid-tab">
-                    <div class="row">
+                    <div class="row" v-if="products">
                       <div class="col-xl-4 col-lg-6 col-6 " v-for="product in products">
                         <div class="products-three-single w-100  mt-30">
-                          <div class="products-three-single-img"> <a
-                              href="shop-details-3.html" class="d-block"> <img
-                              :src="product.image_url"
-                              class="first-img" alt="" /> <img
-                              src="../../../../public/assets/images/logo/logo.png"
-                              alt="" class="hover-img" />
+                          <div class="products-three-single-img">
+                              <a
+                              href="shop-details-3.html" class="d-block">
+                                  <img :src="product.image_url" class="first-img" alt="" />
+                                  <img src="assets/images/logo/logo.png" alt="" class="hover-img" />
                           </a>
                             <div class="products-grid-one__badge-box"> <span
                                 class="bg_base badge new ">New</span>
-                            </div>
-                              <a @click.prevent="addToCart(product, true)" href="cart.html" class="addcart btn--primary style2">Add To Cart </a>
+                            </div> <a @click.prevent="addToCart(product, true)" href="cart.html" class="addcart btn--primary style2">
+                              Add To Cart </a>
                             <div class="products-grid__usefull-links">
                               <ul>
                                 <li><a href="wishlist.html"> <i class="flaticon-heart">
@@ -212,33 +209,34 @@
                                     <div class="quick-view__left-content">
                                       <div class="tabs">
                                         <div class="popup-product-thumb-box">
-                                          <ul>
-                                            <li v-for="productImage in popupProduct.product_images"
-                                                class="tab-nav popup-product-thumb" :aria-controls="`tabb${productImage.id}`">
-                                              <a :href="`#tabb${productImage.id}`">
-                                                <img :src="productImage.url"
-                                                     alt="" /> </a>
-                                            </li>
-                                          </ul>
+                                            <ul>
+                                                <li v-for="productImage in popupProduct.product_images"
+                                                    class="tab-nav popup-product-thumb" :aria-controls="`tabb${productImage.id}`">
+                                                    <a :href="`#tabb${productImage.id}`">
+                                                        <img :src="productImage.url"
+                                                             alt="" /> </a>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <div class="popup-product-main-image-box">
-                                          <div v-for="productImage in popupProduct.product_images" :id="`tabb${productImage.id}`" class="tab-item popup-product-image">
-                                            <div class="popup-product-single-image">
-                                              <img :src="productImage.url" style="min-height: 350px; height: auto">
-                                            </div>
+                                          <div class="popup-product-main-image-box">
+                                              <div v-for="productImage in popupProduct.product_images" :id="`tabb${productImage.id}`" class="tab-item popup-product-image">
+                                                  <div class="popup-product-single-image">
+                                                      <img :src="productImage.url" style="min-height: 350px; height: auto">
+                                                  </div>
+                                              </div>
+                                              <button class="prev"> <i
+                                                  class="flaticon-back"></i>
+                                              </button> <button class="next"> <i
+                                              class="flaticon-next"></i>
+                                          </button>
                                           </div>
-                                          <button class="prev"> <i
-                                              class="flaticon-back"></i>
-                                          </button> <button class="next"> <i
-                                            class="flaticon-next"></i>
-                                        </button>
-                                        </div>
                                       </div>
                                     </div>
                                   </div>
                                   <div class="col-lg-6">
                                     <div class="popup-right-content">
                                       <h3>{{popupProduct.title}}</h3>
+                                      <i>{{popupProduct.category.title}}</i>
                                       <div class="ratting"> <i
                                           class="flaticon-star"></i> <i
                                           class="flaticon-star"></i> <i
@@ -249,7 +247,7 @@
                                       <p class="text"> {{popupProduct.description}}
                                       </p>
                                       <div class="price">
-                                        <h2> {{ popupProduct.price }}$
+                                        <h2> {{ popupProduct.price }}.руб
                                           <del v-if="popupProduct.old_price > 0"> {{popupProduct.old_price}}.руб</del>
                                         </h2>
                                         <h6 v-if="popupProduct.is_published == 1" style="color: green;"> В наличии</h6>
@@ -270,15 +268,15 @@
                                         </div>
                                       </div>
                                       <div class="payment-method"> <a href="#0"> <img
-                                          src="../../../../public/assets/images/payment_method/method_1.png"
+                                          src="src/assets/images/payment_method/method_1.png"
                                           alt=""> </a>
                                         <a href="#0"> <img
-                                            src="../../../../public/assets/images/payment_method/method_2.png"
+                                            src="src/assets/images/payment_method/method_2.png"
                                             alt=""> </a> <a href="#0"> <img
-                                            src="../../../../public/assets/images/payment_method/method_3.png"
+                                            src="src/assets/images/payment_method/method_3.png"
                                             alt=""> </a>
                                         <a href="#0"> <img
-                                            src="../../../../public/assets/images/payment_method/method_4.png"
+                                            src="src/assets/images/payment_method/method_4.png"
                                             alt=""> </a> </div>
                                     </div>
                                   </div>
@@ -286,7 +284,7 @@
                               </div>
                             </div>
                           <div class="products-three-single-content text-center">
-                            <span>{{ product.category.title }}</span>
+                            <span v-if="product.category">{{ product.category.title }}</span>
                             <h5><router-link :to="{name: 'products.show', params: {id: product.id}}"> {{ product.title }}</router-link>
                             </h5>
                             <p><del v-if="product.old_price">{{product.old_price}}.руб</del>
@@ -335,8 +333,6 @@
 
 <script>
 
-import Logo from "../../../../public/assets/images/logo/logo.png";
-
 export default {
 
   name: "Index",
@@ -347,7 +343,6 @@ export default {
   },
   data(){
     return {
-        Logo,
       products: [],
       popupProduct: null,
       filterList: [],
@@ -395,8 +390,6 @@ export default {
           Array.prototype.push.apply(cart, newProduct);
           localStorage.setItem('cart', JSON.stringify(cart));
       }
-      let cartArr = JSON.parse(cart)
-        let qtyCart = cartArr.reduce((qty, product) => qty + product.qty, 0);
       this.calculateCartPrice()
     },
     addTags(id){
@@ -431,7 +424,7 @@ export default {
 
     },
     getProducts(page = 1){
-      this.axios.post('/api/products', {
+      this.axios.post('http://market/api/products', {
         'filterList': this.filterList,
         'categories': this.categories,
         'prices': this.prices,
@@ -439,7 +432,8 @@ export default {
         'page': page
       })
           .then(res => {
-            this.products = res.data.data;
+              console.log(res);
+              this.products = res.data.data;
             this.pagination = res.data.meta;
           })
           .finally(v => {
@@ -447,16 +441,17 @@ export default {
       })
     },
     getProduct(id){
-      this.axios.get(`/api/products/${id}`)
+      this.axios.get(`http://market/api/products/${id}`)
           .then(res => {
-            this.popupProduct = res.data.data;
+              console.log(res);
+              this.popupProduct = res.data.data;
           })
           .finally(v => {
             $(document).trigger('changed')
           })
     },
     getFilterList(){
-      this.axios.get('/api/products/filters')
+      this.axios.get('http://market/api/products/filters')
           .then(res => {
             this.filterList = res.data;
             //  Price Filter

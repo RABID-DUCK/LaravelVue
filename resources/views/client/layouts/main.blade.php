@@ -49,6 +49,7 @@
 <script src="{{asset('assets/js/plugin/wow.v1.3.0.min.js')}}"></script>
 <script src="{{asset('assets/js/plugin/jquery.countdown.min.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
+<script src="{{asset('js/app.js')}}" defer></script>
 <!--==== Js Scripts End ====-->
 
 </html>
