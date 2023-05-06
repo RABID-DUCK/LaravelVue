@@ -360,6 +360,7 @@ export default {
     mounted() {
     $(document).trigger('changed')
     this.getCartProducts()
+        this.getLength()
   },
     methods: {
       getLength(){
@@ -389,10 +390,6 @@ export default {
     calculateCartPrice(){
       this.totalPrice = this.products.reduce((sum, product) => sum + product.price * product.qty, 0)
     },
-      // getCartLength(){
-      //   this.cartLength = this.products.reduce((qty, product) => qty + product.qty, 0)
-      //     console.log(this.cartLength)
-      // }
   }
 }
 </script>

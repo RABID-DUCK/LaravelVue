@@ -2,7 +2,7 @@
 <div>
   <main class="overflow-hidden ">
     <!--Start Breadcrumb Style2-->
-    <section class="breadcrumb-area" style="background-image: url(src/assets/images/inner-pages/breadcum-bg.png);">
+    <section class="breadcrumb-area" style="background-image: url('/assets/images/inner-pages/breadcum-bg.png');">
       <div class="container">
         <div class="row">
           <div class="col-xl-12">
@@ -74,8 +74,6 @@
                 <div class="apply-coupon-button mt-30"> <button class="btn--primary style2"
                                                                 type="submit">Применить</button> </div>
               </div>
-              <div class="cart-button-box-right wow fadeInUp animated"> <button class="btn--primary mt-30"
-                                                                                type="submit">Продолжить покупку</button>  </div>
             </div>
           </div>
         </div>
@@ -120,6 +118,37 @@
               </ul>
             </div>
           </div>
+          <div class="col-xl-6 col-lg-5 wow fadeInUp animated">
+            <div class="cart-check-out mt-30">
+              <h3>Заполните данные</h3>
+              <ul class="cart-check-out-list">
+                <li>
+                  <div class="left form-group">
+                      <label>Придумайте логин</label>
+                      <input class="form-control" type="text" v-model="login" placeholder="Логин...">
+                      <label>Электронная почта</label>
+                      <input class="form-control" type="text" v-model="email" placeholder="sobaka@gmail.com...">
+                      <label>Номер телефона</label>
+                      <input class="form-control" type="text" v-model="number_phone" placeholder="89000034567">
+                  </div>
+                </li>
+                <li>
+                  <div class="left">
+                    <p>Сумма</p>
+                  </div>
+                  <div class="right">
+                    <p><span>Размер:</span> {{totalPrice}}.руб</p>
+                  </div>
+                </li>
+                <li>
+                    <div class="left"></div>
+                    <div class="right">
+                        <button @click.prevent="storeOrder" class="btn btn-success">Оформить</button>
+                    </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -140,7 +169,10 @@ export default {
   data (){
     return {
       products: [],
-      totalPrice: 0
+      totalPrice: 0,
+        login: '',
+        email: '',
+        number_phone: ''
     }
   },
   methods: {
@@ -173,12 +205,33 @@ export default {
     },
     calculateTotal(){
         this.totalPrice = this.products.reduce((sum, product) => sum + product.price * product.qty, 0)
-    }
+    },
+      storeOrder(){
+        this.axios.post('/api/orders', {
+            'login': this.login,
+            'email': this.email,
+            'number_phone': this.number_phone,
+            'products': this.products,
+            'total_price': this.totalPrice,
+        })
+            .then(res => {
+                console.log(res)
+            })
+            .finally(v => {
+                $(document).trigger('changed')
+            })
+      }
   }
 
 }
 </script>
 
 <style scoped>
-
+.form-group input{
+    margin-bottom: 10px;
+}
+.form-group label{
+    font-weight: 600;
+    margin-bottom: 3px;
+}
 </style>
