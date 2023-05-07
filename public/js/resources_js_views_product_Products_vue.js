@@ -17,6 +17,7 @@ __webpack_require__.r(__webpack_exports__);
     $(document).trigger('changed');
     this.getProducts();
     this.getFilterList();
+    this.calculateCountCart;
   },
   data: function data() {
     return {
@@ -44,6 +45,17 @@ __webpack_require__.r(__webpack_exports__);
       totalPrice: 0
     };
   },
+  computed: {
+    calculateCountCart: function calculateCountCart() {
+      if (localStorage.getItem('cart')) {
+        var computedCart = JSON.parse(localStorage.getItem('cart'));
+        var qtyCart = computedCart.reduce(function (qty, product) {
+          return qty + product.qty;
+        }, 0);
+        this.$store.commit('COUNT', qtyCart);
+      }
+    }
+  },
   methods: {
     addToCart: function addToCart(product, isSingle) {
       var qty = isSingle ? 1 : $('.qtyValue').val();
@@ -57,7 +69,8 @@ __webpack_require__.r(__webpack_exports__);
         "qty": qty
       }];
       if (!cart) {
-        localStorage.setItem('cart', JSON.stringify(newProduct));
+        // localStorage.setItem('cart', JSON.stringify(newProduct))
+        this.$store.commit('ADD_TO_CART', newProduct);
       } else {
         cart = JSON.parse(cart);
         cart.forEach(function (productInCart) {
@@ -67,8 +80,15 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
         Array.prototype.push.apply(cart, newProduct);
-        localStorage.setItem('cart', JSON.stringify(cart));
+        // localStorage.setItem('cart', JSON.stringify(cart));
+        this.$store.commit('ADD_TO_CART', newProduct);
       }
+      var computedCart = JSON.parse(localStorage.getItem('cart'));
+      var qtyCart = computedCart.reduce(function (qty, product) {
+        return qty + product.qty;
+      }, 0);
+      this.$store.commit('COUNT', qtyCart);
+      this.$store.commit('CART_ITEMS');
       this.calculateCartPrice();
     },
     addTags: function addTags(id) {
@@ -119,7 +139,6 @@ __webpack_require__.r(__webpack_exports__);
         'tags': this.tags,
         'page': page
       }).then(function (res) {
-        console.log(res);
         _this.products = res.data.data;
         _this.pagination = res.data.meta;
       })["finally"](function (v) {
@@ -129,7 +148,6 @@ __webpack_require__.r(__webpack_exports__);
     getProduct: function getProduct(id) {
       var _this2 = this;
       this.axios.get("http://market/api/products/".concat(id)).then(function (res) {
-        console.log(res);
         _this2.popupProduct = res.data.data;
       })["finally"](function (v) {
         $(document).trigger('changed');
@@ -157,9 +175,11 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     calculateCartPrice: function calculateCartPrice() {
-      this.totalPrice = this.products.reduce(function (sum, product) {
-        return sum + product.price * product.qty;
-      }, 0);
+      if (this.totalPrice !== 0) {
+        this.totalPrice = this.products.reduce(function (sum, product) {
+          return sum + product.price * product.qty;
+        }, 0);
+      }
     }
   }
 });
@@ -181,7 +201,7 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "overflow-hidden"
 };
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"breadcrumb-area\" style=\"background-image:url(src/assets/images/logo/logo.png);\"><div class=\"container\"><div class=\"row\"><div class=\"col-xl-12\"><div class=\"breadcrumb-content pb-60 text-center wow fadeInUp animated\"><h2>Shop Grid</h2><div class=\"breadcrumb-menu\"><ul><li><a href=\"index.html\"><i class=\"flaticon-home pe-2\"></i>Home</a></li><li><i class=\"flaticon-next\"></i></li><li class=\"active\">Shop Grid</li></ul></div></div></div></div></div></div>", 1);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"breadcrumb-area\" style=\"background-image:url(&#39;assets/images/logo/logo.png&#39;);\"><div class=\"container\"><div class=\"row\"><div class=\"col-xl-12\"><div class=\"breadcrumb-content pb-60 text-center wow fadeInUp animated\"><h2>Shop Grid</h2><div class=\"breadcrumb-menu\"><ul><li><a href=\"index.html\"><i class=\"flaticon-home pe-2\"></i>Home</a></li><li><i class=\"flaticon-next\"></i></li><li class=\"active\">Shop Grid</li></ul></div></div></div></div></div></div>", 1);
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"product-categories-one pb-60\"><div class=\"container\"><div class=\"row wow fadeInUp animated\"><div class=\"col-xl-12\"><div class=\"product-categories-one__inner\"><ul><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"src/assets/images/logo/logo.png\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Accessories</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"src/assets/images/logo/logo.png\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Furnitures</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"src/assets/images/logo/logo.png\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Jewellery</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"src/assets/images/logo/logo.png\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Shoes</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"src/assets/images/logo/logo.png\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Electronics</h6></a></div></li><li><a href=\"#0\" class=\"img-box\"><div class=\"inner\"><img src=\"src/assets/images/logo/logo.png\" alt=\"\"></div></a><div class=\"title\"><a href=\"#0\"><h6>Fashion</h6></a></div></li></ul></div></div></div></div></section>", 1);
 var _hoisted_4 = {
   "class": "product-grid pt-60 pb-120"

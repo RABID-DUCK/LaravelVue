@@ -56,59 +56,58 @@
               </div>
             </div>
             <div class="col-lg-9 g-0 p-0">
-              <div class="row g-0 holder">
-                <div class="col-12">
-                  <div class="some-info">
-                    <p class="d-flex align-items-center"> <span class="icon"> <i
-                        class="flaticon-power"></i> </span> Welcome to Game ru</p>
-                    <div class="right d-flex align-items-center ">
-                      <div class="language currency">
-                          <select-currency></select-currency>
-                         </div>
-                      <div class="language two"> <select>
-                        <option>ENGLISH </option>
-                        <option value="1">GERMAN</option>
-                        <option value="4">FRENCH</option>
-                      </select> </div> <a href="login.html"> Sign In / Register </a>
+                <div class="row g-0 holder">
+                    <div class="col-12">
+                        <div class="some-info">
+                            <p class="d-flex align-items-center"> <span class="icon"> <i
+                                class="flaticon-power"></i> </span> Welcome to Capigame ru</p>
+                            <div class="right d-flex align-items-center ">
+                                <div class="language currency">
+                                    <select-currency></select-currency>
+                                </div>
+                                <div class="language two"> <select>
+                                    <option>Россия </option>
+                                    <option value="1" disabled>English</option>
+                                </select> </div> <a href="login.html"> Войти / Зарегистрироваться </a>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
               <div class="border-one"> </div>
-              <div class="row g-0 holder">
-                <div class="col-12">
-                  <div class="mega-menu-default mega-menu d-lg-block d-none">
-                    <div class=" d-flex align-items-center justify-content-between ">
-                      <nav>
-                        <ul
-                            class="page-dropdown-menu d-flex align-items-center justify-content-center">
-                          <li class="dropdown-list"> <router-link to="/"><span>Главная</span></router-link></li>
-                          <li class="dropdown-list">
-                            <router-link to="/products"><span>Продукты</span></router-link>
-                          </li>
-                        </ul>
-                      </nav>
+                <div class="row g-0 holder">
+                    <div class="col-12">
+                        <div class="mega-menu-default mega-menu d-lg-block d-none">
+                            <div class=" d-flex align-items-center justify-content-between ">
+                                <nav>
+                                    <ul
+                                        class="page-dropdown-menu d-flex align-items-center justify-content-center">
+                                        <li class="dropdown-list"> <router-link to="/"><span>Главная</span></router-link></li>
+                                        <li class="dropdown-list">
+                                            <router-link to="/products"><span>Продукты</span></router-link>
+                                        </li>
+                                    </ul>
+                                </nav>
 
 
-                      <div class="right d-flex align-items-center justify-content-end">
-                        <ul class="main-menu__widge-box d-flex align-items-center ">
-                          <li class="d-lg-block d-none"><a href="my-account.html"><i
-                              class="flaticon-user"></i> </a></li>
-                          <li class="d-lg-block d-none"><a href="wishlist.html"
-                                                           class="number"><i class="flaticon-heart"></i> <span
-                              class="count">(2)</span> </a> </li>
-                          <li class="cartm"> <a href="#0" class="number cart-icon"> <i
-                              class="flaticon-shopping-cart"></i>
-                              <span class="count">({{lengthCart}})</span>
+                                <div class="right d-flex align-items-center justify-content-end">
+                                    <ul class="main-menu__widge-box d-flex align-items-center ">
+                                        <li class="d-lg-block d-none"><a href="my-account.html"><i
+                                            class="flaticon-user"></i> </a></li>
+                                        <li class="d-lg-block d-none"><a href="wishlist.html"
+                                                                         class="number"><i class="flaticon-heart"></i> <span
+                                            class="count">(2)</span> </a> </li>
+                                        <li class="cartm"> <a href="#0" class="number cart-icon"> <i
+                                            class="flaticon-shopping-cart"></i>
+                                            <span class="count">({{$store.state.count}})</span>
 
-                          </a>
-                          </li>
-                        </ul>
-                      </div>
+                                        </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div> <a href="shop-grid.html" class="offer-link"> Offer </a>
           </div>
         </div>
@@ -141,10 +140,10 @@
     <div class="side-cart d-flex flex-column justify-content-between">
       <div class="top">
         <div class="content d-flex justify-content-between align-items-center">
-          <h6 class="text-uppercase">Ваша корзина ({{lengthCart}})</h6> <span class="cart-close text-uppercase">X</span>
+          <h6 class="text-uppercase">Ваша корзина ({{$store.state.count}})</h6> <span class="cart-close text-uppercase">X</span>
         </div>
-        <div class="cart_items" v-if="products">
-          <div class="items d-flex justify-content-between align-items-center" v-for="product in products">
+        <div v-if="$store.state.cart" class="cart_items" >
+          <div v-for="product in $store.state.cart" class="items d-flex justify-content-between align-items-center" >
             <div class="left d-flex align-items-center">
               <a href="shop-details-1.html" class="thumb d-flex justify-content-between align-items-center">
                 <img :src="product.image_url" alt=""> </a>
@@ -155,7 +154,7 @@
               </div>
             </div>
             <div class="right">
-              <div @click.prevent="removeCart(product.id)" class="item-remove"> <i class="flaticon-cross"></i> </div>
+              <div @click.prevent="removeProduct(product.id)" class="item-remove"> <i class="flaticon-cross"></i> </div>
             </div>
           </div>
         </div>
@@ -226,10 +225,7 @@
         </div>
       </div>
     </div>
-
   </header>
-
-
 
   <router-view></router-view>
 
@@ -348,47 +344,47 @@ import selectCurrency from "./components/SelectCurrency.vue";
 export default {
   name: 'App',
   components: {
-    selectCurrency
+    selectCurrency,
   },
   data() {
     return {
       products: [],
       totalPrice: 0,
-      lengthCart: 0
     }
   },
     mounted() {
     $(document).trigger('changed')
     this.getCartProducts()
-        this.getLength()
   },
     methods: {
-      getLength(){
-          let products = JSON.parse(localStorage.getItem('cart'));
-          let qty = products.reduce((qty, product) => qty + product.qty, 0);
-          this.lengthCart = qty
-          console.log(qty);
-      },
     getCartProducts(){
       if (localStorage.getItem('cart')){
         this.products = JSON.parse(localStorage.getItem('cart'));
+        this.$store.commit('CART_ITEMS');
         this.calculateCartPrice()
       }
 
     },
-    removeCart(id){
-        this.products = this.products.filter(product => {
-            return product.id !== id
-        })
-      this.updateCart()
-      this.calculateCartPrice()
-    },
-    updateCart(cartProducts){
-      localStorage.setItem('cart', JSON.stringify(this.products))
-      this.products = cartProducts
+    removeProduct(id){
+        const index = this.products.findIndex(product => product.id === id);
+        if(index !== -1){
+            this.products.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(this.products))
+            this.$store.commit('CART_ITEMS', this.products);
+            this.updateCart()
+            this.calculateCartPrice()
+        }
+        else{
+            console.warn(`Product with id ${id} not found in cart`);
+        }
+        },
+    updateCart(){
+        let computedCart = JSON.parse(localStorage.getItem('cart'));
+        let qtyCart = computedCart.reduce((qty, product) => qty + product.qty, 0);
+        this.$store.commit('COUNT', qtyCart);
     },
     calculateCartPrice(){
-      this.totalPrice = this.products.reduce((sum, product) => sum + product.price * product.qty, 0)
+        this.totalPrice = this.products?.reduce((sum, product) => sum + product.price * product.qty, 0)
     },
   }
 }

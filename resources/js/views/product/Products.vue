@@ -2,7 +2,7 @@
 <div>
   <main class="overflow-hidden ">
     <!--Start Breadcrumb Style2-->
-    <div class="breadcrumb-area" style="background-image: url(src/assets/images/logo/logo.png);">
+    <div class="breadcrumb-area" style="background-image: url('assets/images/logo/logo.png');">
       <div class="container">
         <div class="row">
           <div class="col-xl-12">
@@ -340,6 +340,7 @@ export default {
     $(document).trigger('changed')
     this.getProducts()
     this.getFilterList()
+      this.calculateCountCart
   },
   data(){
     return {
@@ -360,6 +361,15 @@ export default {
       totalPrice: 0
     }
   },
+    computed: {
+        calculateCountCart(){
+            if (localStorage.getItem('cart')){
+                let computedCart = JSON.parse(localStorage.getItem('cart'));
+                let qtyCart = computedCart.reduce((qty, product) => qty + product.qty, 0);
+                this.$store.commit('COUNT', qtyCart);
+            }
+        }
+    },
   methods: {
     addToCart(product, isSingle){
       let qty = isSingle ? 1 : $('.qtyValue').val();
@@ -377,7 +387,8 @@ export default {
       ];
 
       if (!cart){
-        localStorage.setItem('cart', JSON.stringify(newProduct))
+        // localStorage.setItem('cart', JSON.stringify(newProduct))
+          this.$store.commit('ADD_TO_CART', newProduct)
       }
       else{
           cart = JSON.parse(cart);
@@ -388,8 +399,13 @@ export default {
             }
           })
           Array.prototype.push.apply(cart, newProduct);
-          localStorage.setItem('cart', JSON.stringify(cart));
+          // localStorage.setItem('cart', JSON.stringify(cart));
+          this.$store.commit('ADD_TO_CART', newProduct)
       }
+      let computedCart = JSON.parse(localStorage.getItem('cart'));
+        let qtyCart = computedCart.reduce((qty, product) => qty + product.qty, 0);
+        this.$store.commit('COUNT', qtyCart);
+        this.$store.commit('CART_ITEMS');
       this.calculateCartPrice()
     },
     addTags(id){
@@ -432,7 +448,6 @@ export default {
         'page': page
       })
           .then(res => {
-              console.log(res);
               this.products = res.data.data;
             this.pagination = res.data.meta;
           })
@@ -443,7 +458,6 @@ export default {
     getProduct(id){
       this.axios.get(`http://market/api/products/${id}`)
           .then(res => {
-              console.log(res);
               this.popupProduct = res.data.data;
           })
           .finally(v => {
@@ -473,7 +487,9 @@ export default {
           })
     },
     calculateCartPrice(){
+        if (this.totalPrice !== 0){
         this.totalPrice = this.products.reduce((sum, product) => sum + product.price * product.qty, 0)
+        }
     }
   },
 }
