@@ -8,8 +8,9 @@
           <div class="col-xl-12">
             <div class="shop-details-inner">
               <ul class="shop-details-menu">
-                <li><router-link to="/products">Home</router-link></li>
-                <li class="active">Shop Details</li>
+                <li><router-link to="/products">Домой</router-link></li>
+                <li class="active" v-if="product">Страница товара: {{product.title}}</li>
+                <li class="active" v-else>Страница товара</li>
               </ul>
             </div>
           </div>
@@ -52,7 +53,7 @@
                       <li><i class="flaticon-star-1"></i></li>
                       <li><i class="flaticon-star-1"></i></li>
                     </ul>
-                    <p>(2 Reviews)</p>
+                    <p>(2 отзыва)</p>
                   </div>
                 </div>
                 <div class="shop-details-top-title">
@@ -60,16 +61,16 @@
                 </div>
                 <ul class="shop-details-top-info">
                   <li><span>SKU:</span> 25d5214</li>
-                  <li><span>Vendor:</span> Flemeno</li>
+                  <li><span>Продавец:</span> Capigame</li>
                 </ul>
                 <div class="shop-details-top-price-box">
                   <h3>{{ product.price }}.руб <del v-if="product.old_price">{{ product.old_price }}.руб</del></h3>
-                  <p>(+15% Vat Included)</p>
+                  <p>(+15% НДС включает)</p>
                 </div>
-                <p class="shop-details-top-product-sale"><span>20</span> Products sold in last 12 hours
+                <p class="shop-details-top-product-sale"><span>1</span> Продуктов продано за 12 ч
                 </p>
                 <div class="timer-box">
-                  <h4>Running Offer</h4>
+                  <h4>Действующее предложение</h4>
                   <div class="countdown-timer">
                     <div class="default-coundown">
                       <div class="box">
@@ -79,7 +80,7 @@
                     </div>
                   </div>
                 </div>
-                <p class="shop-details-top-product-sale"><span>20</span> Persons looking for this
+                <p class="shop-details-top-product-sale"><span>{{ viewersCount }}</span> Людей смотрят этот товар
                   product</p>
                 <div class="product-quantity">
                   <h4>Quantity</h4>
@@ -99,10 +100,10 @@
                 <div class="shop-details-top-order-now"> <i class="flaticon-point"></i>
                   <p>Закажите сейчас, осталось ровно {{product.count}} штук!</p>
                 </div>
-                <div class="shop-details-top-cart-box-btn"> <button class="btn--primary style2 "
-                                                                    type="submit">Add to Cart</button> </div>
+                <div class="shop-details-top-cart-box-btn">
+                    <button @click.prevent="AddToCart(product)" class="btn--primary style2 " type="submit">Добавить в корзину</button> </div>
                 <div class="shop-details-top-social-box">
-                  <p>Share:</p>
+                  <p>Поделиться:</p>
                   <ul class="ps-1 social_link d-flex align-items-center">
                     <li><a href="https://www.facebook.com/" class="active" target="_blank"><i
                         class="flaticon-facebook-app-symbol"></i></a> </li>
@@ -116,33 +117,32 @@
                 </div>
                 <div class="checked-box">
                   <form>
-                    <div class="form-group"> <input type="checkbox" id="html"> <label for="html">I
-                      agree with all company terms & condition</label> </div>
+                    <div class="form-group"> <input type="checkbox" id="html"> <label for="html">Я согласен со всеми правилами и условиями магазина</label> </div>
                   </form>
                 </div>
                 <div class="shop-details-top-buy-now-btn"> <a href="#" class="btn--primary">Buy It
                   Now</a> </div>
                 <ul class="shop-details-top-category-tags">
-                  <li>Category: <span>{{ product.category.title }}</span></li>
-                  <li>Tags: <span v-for="tag in product.tags">{{tag.title + ', '}} </span></li>
+                  <li>Категория: <span>{{ product.category.title }}</span></li>
+                  <li>Теги: <span v-for="tag in product.tags">{{tag.title + ', '}} </span></li>
                 </ul>
                 <ul class="shop-details-top-feature">
                   <li>
                     <div class="icon"> <i class="flaticon-portfolio"></i> </div>
                     <div class="text">
-                      <p>Money back guarantee</p>
+                      <p>Лицензионные ключи от официальных издателей</p>
                     </div>
                   </li>
                   <li>
                     <div class="icon"> <i class="flaticon-truck"></i> </div>
                     <div class="text">
-                      <p>Free Shipping & Return</p>
+                      <p>Гарантированная техподдержка вашей покупки</p>
                     </div>
                   </li>
                   <li>
                     <div class="icon"> <i class="flaticon-security"></i> </div>
                     <div class="text">
-                      <p>Comportable Support</p>
+                      <p>Регулярные акции, скидки и бонусы</p>
                     </div>
                   </li>
                 </ul>
@@ -151,6 +151,7 @@
           </div>
         </div>
       </div>
+
     </section>
     <!--End Shop Details Top-->
     <!-- productdrescription-tabStart -->
@@ -301,503 +302,46 @@
       </div>
     </section> <!-- productdrescription-tab End -->
     <!-- recent-products Start -->
-    <section class="recent-products pt-60 pb-120 overflow-hidden wow fadeInUp">
-      <div class="container ">
-        <div class="row">
-          <div class="col-12 wow fadeInUp animated">
-            <div class="section-head text-center">
-              <h2>Recent Products </h2>
-            </div>
+      <section>
+          <h3 class="text-center">Другие продукты</h3>
+          <div v-if="!isLoading" class="d-flex justify-content-center">
+              <div class="spinner-border " role="status">
+                  <span class="visually-hidden">Загрузка...</span>
+              </div>
           </div>
-        </div>
-        <div class="row mt-30 wow fadeInUp animated">
-          <div class="catagory-slider">
-            <div class="products-grid-one">
-              <div class="products-grid-one__product-image">
-                <div class="products-grid-one__badge-box"> <span class="bg_base badge new ">New</span>
-                </div> <a href="shop-details-1.html" class="d-block products-grid__image_holder"> <img
-                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img1.jpg" alt="Alt"> </a>
-                <div class="products-grid__usefull-links">
-                  <ul>
-                    <li><a href="wishlist.html"> <i class="flaticon-heart"> </i> <span>
-                                                    wishlist</span> </a> </li>
-                    <li><a href="compare.html"> <i class="flaticon-left-and-right-arrows"></i>
-                      <span> compare</span> </a> </li>
-                    <li><a href="#view-popup1" class="popup_link"> <i
-                        class="flaticon-visibility"></i> <span> quick view</span> </a> </li>
-                  </ul>
-                </div>
+          <div id="carouselExampleCaptions" class="carousel slide w-50 m-auto" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                  <button type="button" v-for="(product, index) in anotherProducts" :key="index"
+                          :data-bs-target="'#carouselExampleCaptions'" :data-bs-slide-to="index" :class="[currentIndex === index ? 'active' : '']"
+                          aria-current="true" :aria-label="'Slide'+ (index + 1)"></button>
               </div>
-              <div id="view-popup1" class="product-gird__quick-view-popup mfp-hide">
-                <div class="container">
-                  <div class="row justify-content-between align-items-center">
-                    <div class="col-lg-6">
-                      <div class="quick-view__left-content">
-                        <div class="tabs">
-                          <div class="popup-product-thumb-box">
-                            <ul>
-                              <li class="tab-nav popup-product-thumb"> <a href="#tab7">
-                                <img src="http://127.0.0.1:5173/src/assets/images/shop/products-img1.jpg"
-                                     alt="img"> </a> </li>
-                              <li class="tab-nav popup-product-thumb "> <a href="#tab8">
-                                <img src="http://127.0.0.1:5173/src/assets/images/shop/products-img2.jpg"
-                                     alt="img"> </a> </li>
-                              <li class="tab-nav popup-product-thumb "> <a href="#tab9">
-                                <img src="http://127.0.0.1:5173/src/assets/images/shop/products-img3.jpg"
-                                     alt="img"> </a> </li>
-                            </ul>
-                          </div>
-                          <div class="popup-product-main-image-box">
-                            <div id="tab7" class="tab-item popup-product-image">
-                              <div class="popup-product-single-image"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img1.jpg"
-                                  alt="img"> </div>
-                            </div>
-                            <div id="tab8" class="tab-item popup-product-image">
-                              <div class="popup-product-single-image"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img2.jpg"
-                                  alt="img"> </div>
-                            </div>
-                            <div id="tab9" class="tab-item popup-product-image">
-                              <div class="popup-product-single-image"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img3.jpg"
-                                  alt="img"> </div>
-                            </div> <button class="prev"> <i class="flaticon-back"></i>
-                          </button> <button class="next"> <i class="flaticon-next"></i>
-                          </button>
-                          </div>
-                        </div>
+              <div class="carousel-inner" v-if="anotherProducts">
+                  <div  v-for="(product, key) in anotherProducts" class="carousel-item" v-bind:class="key === 0 ? 'active' : ''">
+                      <img :src="product.image_url" class="'d-block w-100" :alt="product.title">
+                      <div class="carousel-caption d-none d-md-block">
+                          <a :href="`/products/${product.id}`"><h5 class="text-white">{{product.title}}</h5></a>
+                          <p>{{ product.price }}.руб</p>
                       </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="popup-right-content">
-                        <h3>Blacked Neckles Set</h3>
-                        <div class="ratting"> <i class="flaticon-star"></i> <i
-                            class="flaticon-star"></i> <i class="flaticon-star"></i> <i
-                            class="flaticon-star"></i> <i class="flaticon-star"></i>
-                          <span>(100)</span> </div>
-                        <p class="text"> Hydrating Plumping Intense Shine Lip Colour </p>
-                        <div class="price">
-                          <h2> $45 USD <del> $50 USD</del></h2>
-                          <h6> In stuck</h6>
-                        </div>
-                        <div class="color-varient"> <a href="#0" class="color-name pink">
-                          <span>Pink</span> </a> <a href="#0" class="color-name red">
-                          <span>Red</span> </a> <a href="#0"
-                                                   class="color-name yellow"><span>Yellow</span> </a> <a href="#0"
-                                                                                                         class="color-name blue"> <span>Blue</span> </a> <a href="#0"
-                                                                                                                                                            class="color-name black"> <span>Black</span> </a> </div>
-                        <div class="add-product">
-                          <h6>Qty:</h6>
-                          <div class="button-group">
-                            <div class="qtySelector text-center"> <span
-                                class="decreaseQty"><i class="flaticon-minus"></i>
-                                                            </span> <input type="number" class="qtyValue" value="1" />
-                              <span class="increaseQty"> <i class="flaticon-plus"></i>
-                                                            </span> </div> <button class="btn--primary "> Add to Cart
-                          </button>
-                          </div>
-                        </div>
-                        <div class="payment-method"> <a href="#0"> <img
-                            src="http://127.0.0.1:5173/src/assets/images/payment_method/method_1.png" alt=""> </a>
-                          <a href="#0"> <img src="http://127.0.0.1:5173/src/assets/images/payment_method/method_2.png"
-                                             alt=""> </a> <a href="#0"> <img
-                              src="http://127.0.0.1:5173/src/assets/images/payment_method/method_3.png" alt=""> </a>
-                          <a href="#0"> <img src="http://127.0.0.1:5173/src/assets/images/payment_method/method_4.png"
-                                             alt=""> </a> </div>
-                      </div>
-                    </div>
                   </div>
-                </div>
               </div>
-              <div class="products-grid__content"> <a href="cart.html"
-                                                      class="products-grid__cart-btn btn--primary"> <span class="one"> Add to Cart </span>
-                <span class="two"> <i class="flaticon-shopping-cart"> </i> </span> </a>
-                <div class="ratting"> <i class="flaticon-star"></i> <i class="flaticon-star"></i> <i
-                    class="flaticon-star"></i> <i class="flaticon-star"></i> <i
-                    class="flaticon-star"></i> </div>
-                <h5 class="product_name"><a href="shop-details-1.html">Diamond Bracelet </a></h5>
-                <div class="price d-flex align-content-center justify-content-center">
-                  <p>$2909</p>
-                </div>
-              </div>
-            </div>
-            <div class="products-grid-one">
-              <div class="products-grid-one__product-image">
-                <div class="products-grid-one__badge-box"> <span
-                    class="bg_black badge discount">-20%</span> </div> <a href="shop-details-1.html"
-                                                                          class="d-block products-grid__image_holder"> <img
-                  class="products-grid-one__mainimage products-grid-one__first-img"
-                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img3.jpg" alt="Alt"> <img
-                  class="products-grid-one__hover-img" src="http://127.0.0.1:5173/src/assets/images/shop/products-img4.jpg"
-                  alt="Alt"> </a>
-                <div class="products-grid__usefull-links">
-                  <ul>
-                    <li><a href="wishlist.html"> <i class="flaticon-heart"> </i> <span>
-                                                    wishlist</span> </a> </li>
-                    <li><a href="compare.html"> <i class="flaticon-left-and-right-arrows"></i>
-                      <span> compare</span> </a> </li>
-                    <li><a href="#view-popup2" class="popup_link"> <i
-                        class="flaticon-visibility"></i> <span> quick view</span> </a> </li>
-                  </ul>
-                </div>
-              </div>
-              <div id="view-popup2" class="product-gird__quick-view-popup mfp-hide">
-                <div class="container">
-                  <div class="row justify-content-between align-items-center">
-                    <div class="col-lg-6">
-                      <div class="quick-view__left-content">
-                        <div class="tabs">
-                          <div class="popup-product-thumb-box">
-                            <ul>
-                              <li class="tab-nav popup-product-thumb "> <a href="#tab777">
-                                <img src="http://127.0.0.1:5173/src/assets/images/shop/products-img3.jpg"
-                                     alt="img"> </a> </li>
-                              <li class="tab-nav popup-product-thumb "> <a href="#tab888">
-                                <img src="http://127.0.0.1:5173/src/assets/images/shop/products-img4.jpg"
-                                     alt="img"> </a> </li>
-                              <li class="tab-nav popup-product-thumb "> <a href="#tab999">
-                                <img src="http://127.0.0.1:5173/src/assets/images/shop/products-img5.jpg"
-                                     alt="img"> </a> </li>
-                            </ul>
-                          </div>
-                          <div class="popup-product-main-image-box">
-                            <div id="tab777" class="tab-item popup-product-image">
-                              <div class="popup-product-single-image"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img3.jpg"
-                                  alt="img"> </div>
-                            </div>
-                            <div id="tab888" class="tab-item popup-product-image">
-                              <div class="popup-product-single-image"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img5.jpg"
-                                  alt="img"> </div>
-                            </div>
-                            <div id="tab999" class="tab-item popup-product-image">
-                              <div class="popup-product-single-image"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img6.jpg"
-                                  alt="img"> </div>
-                            </div> <button class="prev"> <i class="flaticon-back"></i>
-                          </button> <button class="next"> <i class="flaticon-next"></i>
-                          </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="popup-right-content">
-                        <h3>Girl Diamond Ring </h3>
-                        <div class="ratting"> <i class="flaticon-star"></i> <i
-                            class="flaticon-star"></i> <i class="flaticon-star"></i> <i
-                            class="flaticon-star"></i> <i class="flaticon-star"></i>
-                          <span>(100)</span> </div>
-                        <p class="text"> Hydrating Plumping Intense Shine Lip Colour </p>
-                        <div class="price">
-                          <h2> $45 USD <del> $50 USD</del></h2>
-                          <h6> In stuck</h6>
-                        </div>
-                        <div class="color-varient"> <a href="#0" class="color-name pink">
-                          <span>Pink</span> </a> <a href="#0" class="color-name red">
-                          <span>Red</span> </a> <a href="#0"
-                                                   class="color-name yellow"><span>Yellow</span> </a> <a href="#0"
-                                                                                                         class="color-name blue"> <span>Blue</span> </a> <a href="#0"
-                                                                                                                                                            class="color-name black"> <span>Black</span> </a> </div>
-                        <div class="add-product">
-                          <h6>Qty:</h6>
-                          <div class="button-group">
-                            <div class="qtySelector text-center"> <span
-                                class="decreaseQty"><i class="flaticon-minus"></i>
-                                                            </span> <input type="number" class="qtyValue" value="1" />
-                              <span class="increaseQty"> <i class="flaticon-plus"></i>
-                                                            </span> </div> <button class="btn--primary "> Add to Cart
-                          </button>
-                          </div>
-                        </div>
-                        <div class="payment-method"> <a href="#0"> <img
-                            src="http://127.0.0.1:5173/src/assets/images/payment_method/method_1.png" alt=""> </a>
-                          <a href="#0"> <img src="http://127.0.0.1:5173/src/assets/images/payment_method/method_2.png"
-                                             alt=""> </a> <a href="#0"> <img
-                              src="http://127.0.0.1:5173/src/assets/images/payment_method/method_3.png" alt=""> </a>
-                          <a href="#0"> <img src="http://127.0.0.1:5173/src/assets/images/payment_method/method_4.png"
-                                             alt=""> </a> </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="products-grid__content"> <a href="cart.html"
-                                                      class="products-grid__cart-btn btn--primary"> <span class="one"> Add to Cart </span>
-                <span class="two"> <i class="flaticon-shopping-cart"> </i> </span> </a>
-                <div class="ratting"> <i class="flaticon-star"></i> <i class="flaticon-star"></i> <i
-                    class="flaticon-star"></i> <i class="flaticon-star"></i> <i
-                    class="flaticon-star"></i> </div>
-                <h5 class="product_name"><a href="shop-details-1.html"> Girl Diamond Ring </a></h5>
-                <div class="price d-flex align-content-center justify-content-center">
-                  <p>$250</p>
-                </div>
-              </div>
-              <div class="products-grid-one__thumb-box">
-                <p class="products-grid-one__product-varient"> <span class="color"> Yellow </span> <img
-                    src="http://127.0.0.1:5173/src/assets/images/shop/products-img3.jpg" alt="Alt"> </p>
-                <p class="products-grid-one__product-varient"> <span class="color"> blue </span> <img
-                    src="http://127.0.0.1:5173/src/assets/images/shop/products-img4.jpg" alt="Alt"> </p>
-                <p class="products-grid-one__product-varient"> <span class="color"> Black </span> <img
-                    src="http://127.0.0.1:5173/src/assets/images/shop/products-img5.jpg" alt="Alt"> </p>
-              </div>
-            </div>
-            <div class="products-grid-one">
-              <div class="products-grid-one__product-image">
-                <div class="products-grid-one__badge-box"> <span class="bg_base badge new ">New</span>
-                  <span class="bg_black badge discount">-30%</span> </div> <a
-                  href="shop-details-1.html" class="d-block products-grid__image_holder"> <img
-                  class="products-grid-one__mainimage products-grid-one__first-img"
-                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img4.jpg" alt="Alt"> <img
-                  class="products-grid-one__hover-img" src="http://127.0.0.1:5173/src/assets/images/shop/products-img5.jpg"
-                  alt="Alt"> </a>
-                <div class="products-grid__usefull-links">
-                  <ul>
-                    <li><a href="wishlist.html"> <i class="flaticon-heart"> </i> <span>
-                                                    wishlist</span> </a> </li>
-                    <li><a href="compare.html"> <i class="flaticon-left-and-right-arrows"></i>
-                      <span> compare</span> </a> </li>
-                    <li><a href="#view-popup3" class="popup_link"> <i
-                        class="flaticon-visibility"></i> <span> quick view</span> </a></li>
-                  </ul>
-                </div>
-              </div>
-              <div id="view-popup3" class="product-gird__quick-view-popup mfp-hide">
-                <div class="container">
-                  <div class="row justify-content-between align-items-center">
-                    <div class="col-lg-6">
-                      <div class="quick-view__left-content">
-                        <div class="tabs">
-                          <div class="popup-product-thumb-box">
-                            <ul>
-                              <li class="tab-nav popup-product-thumb"> <a href="#tab7777">
-                                <img src="http://127.0.0.1:5173/src/assets/images/shop/products-img4.jpg"
-                                     alt="img"> </a> </li>
-                              <li class="tab-nav popup-product-thumb "> <a
-                                  href="#tab8888"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img5.jpg"
-                                  alt="img"> </a> </li>
-                              <li class="tab-nav popup-product-thumb "> <a
-                                  href="#tab9999"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img6.jpg"
-                                  alt="img"> </a> </li>
-                            </ul>
-                          </div>
-                          <div class="popup-product-main-image-box">
-                            <div id="tab7777" class="tab-item popup-product-image">
-                              <div class="popup-product-single-image"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img4.jpg"
-                                  alt="img"> </div>
-                            </div>
-                            <div id="tab8888" class="tab-item popup-product-image">
-                              <div class="popup-product-single-image"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img5.jpg"
-                                  alt="img"> </div>
-                            </div>
-                            <div id="tab9999" class="tab-item popup-product-image">
-                              <div class="popup-product-single-image"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img6.jpg"
-                                  alt="img"> </div>
-                            </div> <button class="prev"> <i class="flaticon-back"></i>
-                          </button> <button class="next"> <i class="flaticon-next"></i>
-                          </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="popup-right-content">
-                        <h3>Women Earring Erl</h3>
-                        <div class="ratting"> <i class="flaticon-star"></i> <i
-                            class="flaticon-star"></i> <i class="flaticon-star"></i> <i
-                            class="flaticon-star"></i> <i class="flaticon-star"></i>
-                          <span>(100)</span> </div>
-                        <p class="text"> Hydrating Plumping Intense Shine Lip Colour </p>
-                        <div class="price">
-                          <h2> $45 USD <del> $50 USD</del></h2>
-                          <h6> In stuck</h6>
-                        </div>
-                        <div class="color-varient"> <a href="#0" class="color-name pink">
-                          <span>Pink</span> </a> <a href="#0" class="color-name red">
-                          <span>Red</span> </a> <a href="#0"
-                                                   class="color-name yellow"><span>Yellow</span> </a> <a href="#0"
-                                                                                                         class="color-name blue"> <span>Blue</span> </a> <a href="#0"
-                                                                                                                                                            class="color-name black"> <span>Black</span> </a> </div>
-                        <div class="add-product">
-                          <h6>Qty:</h6>
-                          <div class="button-group">
-                            <div class="qtySelector text-center"> <span
-                                class="decreaseQty"><i class="flaticon-minus"></i>
-                                                            </span> <input type="number" class="qtyValue" value="1" />
-                              <span class="increaseQty"> <i class="flaticon-plus"></i>
-                                                            </span> </div> <button class="btn--primary "> Add to Cart
-                          </button>
-                          </div>
-                        </div>
-                        <div class="payment-method"> <a href="#0"> <img
-                            src="http://127.0.0.1:5173/src/assets/images/payment_method/method_1.png" alt=""> </a>
-                          <a href="#0"> <img src="http://127.0.0.1:5173/src/assets/images/payment_method/method_2.png"
-                                             alt=""> </a> <a href="#0"> <img
-                              src="http://127.0.0.1:5173/src/assets/images/payment_method/method_3.png" alt=""> </a>
-                          <a href="#0"> <img src="http://127.0.0.1:5173/src/assets/images/payment_method/method_4.png"
-                                             alt=""> </a> </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="products-grid__content"> <a href="cart.html"
-                                                      class="products-grid__cart-btn btn--primary"> <span class="one"> Add to Cart </span>
-                <span class="two"> <i class="flaticon-shopping-cart"> </i> </span> </a>
-                <div class="ratting"> <i class="flaticon-star"></i> <i class="flaticon-star"></i> <i
-                    class="flaticon-star"></i> <i class="flaticon-star"></i> <i
-                    class="flaticon-star"></i> </div>
-                <h5 class="product_name"><a href="shop-details-1.html"> Women Earring Erl </a></h5>
-                <div class="price d-flex align-content-center justify-content-center"> <span
-                    class="pe-1"><del> $200.00</del></span>
-                  <p>$160</p>
-                </div>
-              </div>
-              <div class="products-grid-one__thumb-box">
-                <p class="products-grid-one__product-varient"> <span class="color"> Yellow </span> <img
-                    src="http://127.0.0.1:5173/src/assets/images/shop/products-img4.jpg" alt="Alt"> </p>
-                <p class="products-grid-one__product-varient"> <span class="color"> blue </span> <img
-                    src="http://127.0.0.1:5173/src/assets/images/shop/products-img5.jpg" alt="Alt"> </p>
-              </div>
-            </div>
-            <div class="products-grid-one">
-              <div class="products-grid-one__product-image">
-                <div class="products-grid-one__badge-box"> <span class="bg_base badge new ">New</span>
-                </div> <a href="shop-details-1.html" class="d-block products-grid__image_holder"> <img
-                  class="products-grid-one__hover-img now-main"
-                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img6.jpg" alt="Alt"> </a>
-                <div class="products-grid__usefull-links">
-                  <ul>
-                    <li><a href="wishlist.html"> <i class="flaticon-heart"> </i> <span>
-                                                    wishlist</span> </a> </li>
-                    <li><a href="compare.html"> <i class="flaticon-left-and-right-arrows"></i>
-                      <span> compare</span> </a> </li>
-                    <li><a href="#view-popup4" class="popup_link"> <i
-                        class="flaticon-visibility"></i> <span> quick view</span> </a> </li>
-                  </ul>
-                </div>
-              </div>
-              <div id="view-popup4" class="product-gird__quick-view-popup mfp-hide">
-                <div class="container">
-                  <div class="row justify-content-between align-items-center">
-                    <div class="col-lg-6">
-                      <div class="quick-view__left-content">
-                        <div class="tabs">
-                          <div class="popup-product-thumb-box">
-                            <ul>
-                              <li class="tab-nav popup-product-thumb"> <a
-                                  href="#tab77777"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img5.jpg"
-                                  alt="img"> </a> </li>
-                              <li class="tab-nav popup-product-thumb "> <a
-                                  href="#tab88888"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img6.jpg"
-                                  alt="img"> </a> </li>
-                              <li class="tab-nav popup-product-thumb "> <a
-                                  href="#tab99999"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img7.jpg"
-                                  alt="img"> </a> </li>
-                            </ul>
-                          </div>
-                          <div class="popup-product-main-image-box">
-                            <div id="tab77777" class="tab-item popup-product-image">
-                              <div class="popup-product-single-image"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img5.jpg"
-                                  alt="img"> </div>
-                            </div>
-                            <div id="tab88888" class="tab-item popup-product-image">
-                              <div class="popup-product-single-image"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img6.jpg"
-                                  alt="img"> </div>
-                            </div>
-                            <div id="tab99999" class="tab-item popup-product-image">
-                              <div class="popup-product-single-image"> <img
-                                  src="http://127.0.0.1:5173/src/assets/images/shop/products-img7.jpg"
-                                  alt="img"> </div>
-                            </div> <button class="prev"> <i class="flaticon-back"></i>
-                          </button> <button class="next"> <i class="flaticon-next"></i>
-                          </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="popup-right-content">
-                        <h3>Wedding Ring Men</h3>
-                        <div class="ratting"> <i class="flaticon-star"></i> <i
-                            class="flaticon-star"></i> <i class="flaticon-star"></i> <i
-                            class="flaticon-star"></i> <i class="flaticon-star"></i>
-                          <span>(100)</span> </div>
-                        <p class="text"> Hydrating Plumping Intense Shine Lip Colour </p>
-                        <div class="price">
-                          <h2> $35 USD <del> $50 USD</del></h2>
-                          <h6> In stuck</h6>
-                        </div>
-                        <div class="color-varient"> <a href="#0" class="color-name pink">
-                          <span>Pink</span> </a> <a href="#0" class="color-name red">
-                          <span>Red</span> </a> <a href="#0"
-                                                   class="color-name yellow"><span>Yellow</span> </a> <a href="#0"
-                                                                                                         class="color-name blue"> <span>Blue</span> </a> <a href="#0"
-                                                                                                                                                            class="color-name black"> <span>Black</span> </a> </div>
-                        <div class="add-product">
-                          <h6>Qty:</h6>
-                          <div class="button-group">
-                            <div class="qtySelector text-center"> <span
-                                class="decreaseQty"><i class="flaticon-minus"></i>
-                                                            </span> <input type="number" class="qtyValue" value="1" />
-                              <span class="increaseQty"> <i class="flaticon-plus"></i>
-                                                            </span> </div> <button class="btn--primary "> Add to Cart
-                          </button>
-                          </div>
-                        </div>
-                        <div class="payment-method"> <a href="#0"> <img
-                            src="http://127.0.0.1:5173/src/assets/images/payment_method/method_1.png" alt=""> </a>
-                          <a href="#0"> <img src="http://127.0.0.1:5173/src/assets/images/payment_method/method_2.png"
-                                             alt=""> </a> <a href="#0"> <img
-                              src="http://127.0.0.1:5173/src/assets/images/payment_method/method_3.png" alt=""> </a>
-                          <a href="#0"> <img src="http://127.0.0.1:5173/src/assets/images/payment_method/method_4.png"
-                                             alt=""> </a> </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="products-grid__content"> <a href="cart.html"
-                                                      class="products-grid__cart-btn btn--primary"> <span class="one"> Add to Cart </span>
-                <span class="two"> <i class="flaticon-shopping-cart"> </i> </span> </a>
-                <div class="ratting"> <i class="flaticon-star"></i> <i class="flaticon-star"></i> <i
-                    class="flaticon-star"></i> <i class="flaticon-star"></i> <i
-                    class="flaticon-star"></i> </div>
-                <h5 class="product_name"><a href="shop-details-1.html"> Wedding Ring Men </a></h5>
-                <div class="price d-flex align-content-center justify-content-center">
-                  <p>$200</p>
-                </div>
-              </div>
-              <div class="products-grid-one__thumb-box">
-                <p class="products-grid-one__product-varient"> <span class="color"> blue </span> <img
-                    src="http://127.0.0.1:5173/src/assets/images/shop/products-img6.jpg" alt="Alt"> </p>
-                <p class="products-grid-one__product-varient"> <span class="color"> Yellow </span> <img
-                    src="http://127.0.0.1:5173/src/assets/images/shop/products-img5.jpg" alt="Alt"> </p>
-              </div>
-            </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon text-black" aria-hidden="true"></span>
+                  <span class="visually-hidden">Предыдущий</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Следующий</span>
+              </button>
           </div>
-        </div>
-      </div>
-    </section> <!-- recent-products End -->
+
+      </section>
   </main>
 </div>
 </template>
 
 <script>
-export default {
 
+export default {
   name: "Show",
   mounted() {
     $(document).trigger('changed')
@@ -805,24 +349,92 @@ export default {
   },
   data(){
     return {
-      product: null
+      product: null,
+        viewersCount: 0,
+        isProductsLoaded: false,
+        anotherProducts: [],
+        currentIndex: 0,
+        isLoading: false
     }
   },
-  methods: {
+    created() {
+      this.viewersCount++;
+      window.addEventListener('beforeunload', this.decreaseViewersCount)
+        window.addEventListener('scroll', this.scrollMethod)
+    },
+    methods: {
     getProduct(){
       this.axios.get(`http://market/api/products/${this.$route.params.id}`)
           .then(res => {
             this.product = res.data.data;
-            console.log(res);
           })
           .finally(v => {
             $(document).trigger('changed')
           })
     },
+    decreaseViewersCount(){
+        this.count--;
+    },
+    AddToCart(product){
+        let qty = parseInt($('.qtyValue').val(), 10);
+        let cart = this.$store.state.cart;
+
+        let newProduct = [
+            {
+                "id": product.id,
+                "image_url": product.image_url,
+                "title": product.title,
+                "price": product.price,
+                "qty": qty
+            }
+        ];
+
+        if (!cart) {
+            this.$store.commit('ADD_TO_CART', newProduct);
+        } else {
+            // обновление корзины в хранилище из состояния хранилища
+            this.$store.commit('ADD_TO_CART', newProduct);
+        }
+    },
+    getProductsAnother(page = 1){
+        this.axios.post('http://market/api/products', {
+            'filterList': this.filterList,
+            'categories': this.categories,
+            'prices': this.prices,
+            'tags': this.tags,
+            'page': page
+        })
+            .then(res => {
+                this.isLoading = false;
+                this.anotherProducts = res.data.data;
+            })
+            .then(v => {
+                this.isLoading = true;
+            })
+            .finally(v => {
+                $(document).trigger('changed')
+            })
+    },
+    scrollMethod(){
+        if (window.scrollY > 1000 && !this.isProductsLoaded){
+            this.getProductsAnother();
+            this.isProductsLoaded = true;
+        }
+    }
   }
 }
 </script>
 
 <style scoped>
-
+.thumb{
+    min-width: 100%;
+    min-height: 100%;
+}
+.carousel-control-next, .carousel-control-prev {
+    background-color: #464646;
+    width: 4%;
+}
+.carousel-item img{
+    max-height: 400px;
+}
 </style>

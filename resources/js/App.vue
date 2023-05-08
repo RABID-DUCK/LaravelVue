@@ -145,9 +145,9 @@
         <div v-if="$store.state.cart" class="cart_items" >
           <div v-for="product in $store.state.cart" class="items d-flex justify-content-between align-items-center" >
             <div class="left d-flex align-items-center">
-              <a href="shop-details-1.html" class="thumb d-flex justify-content-between align-items-center">
+              <a :href="`/products/${product.id}`" class="thumb d-flex justify-content-between align-items-center">
                 <img :src="product.image_url" alt=""> </a>
-              <div class="text"> <a href="shop-details-1.html">
+              <div class="text"> <a :href="`/products/${product.id}`">
                 <h6>{{product.title}}</h6>
               </a>
                 <p>{{product.qty}} X <span>{{product.price * product.qty}}.руб</span> </p>
@@ -162,7 +162,7 @@
       <div class="bottom">
         <div class="total-ammount d-flex justify-content-between align-items-center">
           <h6 class="text-uppercase">Итого:</h6>
-          <h6 class="ammount text-uppercase">{{totalPrice}}.руб</h6>
+          <h6 class="ammount text-uppercase">{{this.$store.state.totalPrice}}.руб</h6>
         </div>
         <div class="button-box d-flex justify-content-between">
           <router-link to="/cart" class="btn_black p-2"> Страница корзины</router-link> <a href="cart.html" class="button-2 btn_theme"> Оформить </a> </div>
@@ -365,26 +365,19 @@ export default {
       }
 
     },
-    removeProduct(id){
-        const index = this.products.findIndex(product => product.id === id);
-        if(index !== -1){
-            this.products.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(this.products))
-            this.$store.commit('CART_ITEMS', this.products);
-            this.updateCart()
-            this.calculateCartPrice()
-        }
-        else{
-            console.warn(`Product with id ${id} not found in cart`);
-        }
-        },
+    removeProduct(id) {
+        this.$store.commit('REMOVE_PRODUCT', id);
+        this.updateCart();
+        this.calculateCartPrice()
+    },
     updateCart(){
         let computedCart = JSON.parse(localStorage.getItem('cart'));
         let qtyCart = computedCart.reduce((qty, product) => qty + product.qty, 0);
         this.$store.commit('COUNT', qtyCart);
     },
     calculateCartPrice(){
-        this.totalPrice = this.products?.reduce((sum, product) => sum + product.price * product.qty, 0)
+        let computedCart = JSON.parse(localStorage.getItem('cart'));
+        this.totalPrice = computedCart.reduce((sum, product) => sum + product.price * product.qty, 0)
     },
   }
 }

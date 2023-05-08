@@ -177,8 +177,7 @@
                       <div class="col-xl-4 col-lg-6 col-6 " v-for="product in products">
                         <div class="products-three-single w-100  mt-30">
                           <div class="products-three-single-img">
-                              <a
-                              href="shop-details-3.html" class="d-block">
+                              <a :href="`/products/${product.id}`" class="d-block">
                                   <img :src="product.image_url" class="first-img" alt="" />
                                   <img src="assets/images/logo/logo.png" alt="" class="hover-img" />
                           </a>
@@ -336,11 +335,15 @@
 export default {
 
   name: "Index",
-  mounted() {
+    beforeCreate() {
+        if (!localStorage.getItem('cart')){
+            localStorage.setItem('cart', '[]')
+        }
+    },
+    mounted() {
     $(document).trigger('changed')
     this.getProducts()
     this.getFilterList()
-      this.calculateCountCart
   },
   data(){
     return {
@@ -361,52 +364,28 @@ export default {
       totalPrice: 0
     }
   },
-    computed: {
-        calculateCountCart(){
-            if (localStorage.getItem('cart')){
-                let computedCart = JSON.parse(localStorage.getItem('cart'));
-                let qtyCart = computedCart.reduce((qty, product) => qty + product.qty, 0);
-                this.$store.commit('COUNT', qtyCart);
-            }
-        }
-    },
   methods: {
     addToCart(product, isSingle){
-      let qty = isSingle ? 1 : $('.qtyValue').val();
-      let cart = localStorage.getItem('cart');
-      $('.qtyValue').val(1);
+        let qty = isSingle ? 1 : parseInt($('.qtyValue').val(), 10);
+        let cart = this.$store.state.cart;
+        $('.qtyValue').val(1);
 
-      let newProduct = [
-        {
-          "id": product.id,
-          "image_url": product.image_url,
-          "title": product.title,
-          "price": product.price,
-          "qty": qty
-        }
-      ];
-
-      if (!cart){
-        // localStorage.setItem('cart', JSON.stringify(newProduct))
-          this.$store.commit('ADD_TO_CART', newProduct)
-      }
-      else{
-          cart = JSON.parse(cart);
-          cart.forEach(productInCart => {
-            if (productInCart.id === product.id){
-              productInCart.qty = Number(productInCart.qty) + Number(qty);
-              newProduct = null;
+        let newProduct = [
+            {
+                "id": product.id,
+                "image_url": product.image_url,
+                "title": product.title,
+                "price": product.price,
+                "qty": qty
             }
-          })
-          Array.prototype.push.apply(cart, newProduct);
-          // localStorage.setItem('cart', JSON.stringify(cart));
-          this.$store.commit('ADD_TO_CART', newProduct)
-      }
-      let computedCart = JSON.parse(localStorage.getItem('cart'));
-        let qtyCart = computedCart.reduce((qty, product) => qty + product.qty, 0);
-        this.$store.commit('COUNT', qtyCart);
-        this.$store.commit('CART_ITEMS');
-      this.calculateCartPrice()
+        ];
+
+        if (!cart) {
+            this.$store.commit('ADD_TO_CART', newProduct);
+        } else {
+            // обновление корзины в хранилище из состояния хранилища
+            this.$store.commit('ADD_TO_CART', newProduct);
+        }
     },
     addTags(id){
       if (!this.tags.includes(id)){
@@ -486,15 +465,6 @@ export default {
             $(document).trigger('changed');
           })
     },
-    calculateCartPrice(){
-        if (this.totalPrice !== 0){
-        this.totalPrice = this.products.reduce((sum, product) => sum + product.price * product.qty, 0)
-        }
-    }
   },
 }
 </script>
-
-<style scoped>
-
-</style>

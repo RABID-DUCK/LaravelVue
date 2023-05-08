@@ -13,11 +13,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Index",
+  beforeCreate: function beforeCreate() {
+    if (!localStorage.getItem('cart')) {
+      localStorage.setItem('cart', '[]');
+    }
+  },
   mounted: function mounted() {
     $(document).trigger('changed');
     this.getProducts();
     this.getFilterList();
-    this.calculateCountCart;
   },
   data: function data() {
     return {
@@ -45,21 +49,10 @@ __webpack_require__.r(__webpack_exports__);
       totalPrice: 0
     };
   },
-  computed: {
-    calculateCountCart: function calculateCountCart() {
-      if (localStorage.getItem('cart')) {
-        var computedCart = JSON.parse(localStorage.getItem('cart'));
-        var qtyCart = computedCart.reduce(function (qty, product) {
-          return qty + product.qty;
-        }, 0);
-        this.$store.commit('COUNT', qtyCart);
-      }
-    }
-  },
   methods: {
     addToCart: function addToCart(product, isSingle) {
-      var qty = isSingle ? 1 : $('.qtyValue').val();
-      var cart = localStorage.getItem('cart');
+      var qty = isSingle ? 1 : parseInt($('.qtyValue').val(), 10);
+      var cart = this.$store.state.cart;
       $('.qtyValue').val(1);
       var newProduct = [{
         "id": product.id,
@@ -69,27 +62,11 @@ __webpack_require__.r(__webpack_exports__);
         "qty": qty
       }];
       if (!cart) {
-        // localStorage.setItem('cart', JSON.stringify(newProduct))
         this.$store.commit('ADD_TO_CART', newProduct);
       } else {
-        cart = JSON.parse(cart);
-        cart.forEach(function (productInCart) {
-          if (productInCart.id === product.id) {
-            productInCart.qty = Number(productInCart.qty) + Number(qty);
-            newProduct = null;
-          }
-        });
-        Array.prototype.push.apply(cart, newProduct);
-        // localStorage.setItem('cart', JSON.stringify(cart));
+        // обновление корзины в хранилище из состояния хранилища
         this.$store.commit('ADD_TO_CART', newProduct);
       }
-      var computedCart = JSON.parse(localStorage.getItem('cart'));
-      var qtyCart = computedCart.reduce(function (qty, product) {
-        return qty + product.qty;
-      }, 0);
-      this.$store.commit('COUNT', qtyCart);
-      this.$store.commit('CART_ITEMS');
-      this.calculateCartPrice();
     },
     addTags: function addTags(id) {
       if (!this.tags.includes(id)) {
@@ -173,13 +150,6 @@ __webpack_require__.r(__webpack_exports__);
       })["finally"](function (v) {
         $(document).trigger('changed');
       });
-    },
-    calculateCartPrice: function calculateCartPrice() {
-      if (this.totalPrice !== 0) {
-        this.totalPrice = this.products.reduce(function (sum, product) {
-          return sum + product.price * product.qty;
-        }, 0);
-      }
     }
   }
 });
@@ -360,10 +330,7 @@ var _hoisted_45 = {
 var _hoisted_46 = {
   "class": "products-three-single-img"
 };
-var _hoisted_47 = {
-  href: "shop-details-3.html",
-  "class": "d-block"
-};
+var _hoisted_47 = ["href"];
 var _hoisted_48 = ["src"];
 var _hoisted_49 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "assets/images/logo/logo.png",
@@ -557,11 +524,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       selected: sort.key === 'all' ? true : false
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(sort.name), 9 /* TEXT, PROPS */, _hoisted_36);
   }), 256 /* UNKEYED_FRAGMENT */))], 544 /* HYDRATE_EVENTS, NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.selectedSort]])]), _hoisted_37]), _hoisted_38])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [$data.products ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_43, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.products, function (product) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_44, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_47, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_44, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+      href: "/products/".concat(product.id),
+      "class": "d-block"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       src: product.image_url,
       "class": "first-img",
       alt: ""
-    }, null, 8 /* PROPS */, _hoisted_48), _hoisted_49]), _hoisted_50, _hoisted_51, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    }, null, 8 /* PROPS */, _hoisted_48), _hoisted_49], 8 /* PROPS */, _hoisted_47), _hoisted_50, _hoisted_51, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
       onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
         return $options.addToCart(product, true);
       }, ["prevent"]),
