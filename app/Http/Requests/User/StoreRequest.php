@@ -18,15 +18,26 @@ class StoreRequest extends FormRequest
      * Get the validation rules that apply to the request.
      *
      * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
-     */
-    public function rules(): array
+     */public function rules(): array
+{
+    return [
+        'login' => 'required|string|unique:users',
+        'name' => 'nullable|string',
+        'password' => 'required|string|confirmed',
+        'address' => 'required|string|unique:users,address',
+        'number' => 'nullable|integer',
+        'is_admin' => 'required|boolean'
+    ];
+}
+
+    public function messages()
     {
         return [
-            'login' => 'required|string',
-            'name' => 'nullable|string',
-            'password' => 'required|string|confirmed',
-            'address' => 'required|string|unique:users,address',
-            'number' => 'nullable|integer'
+            'login.required' => 'Это поле обязательно!',
+            'login.unique' => 'Пользователь с таким логином уже существует!',
+            'password.required' => 'Подтверждение пароля является обязательным полем!',
+            'password.confirmed' => 'Пароли не совпадают!',
         ];
     }
+
 }

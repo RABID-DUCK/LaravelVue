@@ -25,7 +25,8 @@ class UpdateRequest extends FormRequest
             'login' => 'nullable|string',
             'name' => 'nullable|string',
             'address' => 'nullable|string',
-            'number' => 'nullable|integer'
+            'number' => 'nullable|integer',
+            'is_admin' => 'nullable|string'
         ];
     }
 }

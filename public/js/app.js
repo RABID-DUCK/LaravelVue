@@ -17742,7 +17742,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "SelectCurrency"
+  name: "SelectCurrency",
+  data: function data() {
+    return {
+      value: 'rub'
+    };
+  },
+  methods: {
+    selectedValue: function selectedValue() {
+      this.$store.commit("ADD_CURRENCY_VALUE", this.value);
+    }
+  }
 });
 
 /***/ }),
@@ -17948,9 +17958,7 @@ var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   disabled: ""
 }, "English")])], -1 /* HOISTED */);
 var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
-var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "login.html"
-}, " Войти / Зарегистрироваться ", -1 /* HOISTED */);
+var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Войти / Зарегистрироваться ");
 var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "border-one"
 }, null, -1 /* HOISTED */);
@@ -18187,7 +18195,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_15];
     }),
     _: 1 /* STABLE */
-  }), _hoisted_16]), _hoisted_17, _hoisted_18, _hoisted_19])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_select_currency)]), _hoisted_30, _hoisted_31, _hoisted_32])])])]), _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  }), _hoisted_16]), _hoisted_17, _hoisted_18, _hoisted_19])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_select_currency)]), _hoisted_30, _hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: "/register "
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_32];
+    }),
+    _: 1 /* STABLE */
+  })])])])]), _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -18254,7 +18269,14 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, "KZT", -1 /* HOISTED */);
 var _hoisted_4 = [_hoisted_1, _hoisted_2, _hoisted_3];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("select", null, _hoisted_4);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("select", {
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.value = $event;
+    }),
+    onInput: _cache[1] || (_cache[1] = function () {
+      return $options.selectedValue && $options.selectedValue.apply($options, arguments);
+    })
+  }, _hoisted_4, 544 /* HYDRATE_EVENTS, NEED_PATCH */)), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.value]]);
 }
 
 /***/ }),
@@ -18538,7 +18560,8 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.createStore)({
   state: {
     count: 0,
     cart: [],
-    totalPrice: 0
+    totalPrice: 0,
+    cur_value: 'rub'
   },
   mutations: {
     ADD_TO_CART: function ADD_TO_CART(state, product) {
@@ -18583,6 +18606,11 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.createStore)({
       state.totalPrice = state.cart.reduce(function (sum, product) {
         return sum + product.price * product.qty;
       }, 0);
+    },
+    ADD_CURRENCY_VALUE: function ADD_CURRENCY_VALUE(state, value) {
+      console.log(value);
+      state.cur_value = value;
+      localStorage.setItem('cur_value', value);
     }
   },
   actions: {
@@ -18590,6 +18618,12 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.createStore)({
       var commit = _ref.commit;
       commit('CART_ITEMS');
       commit('TOTAL_PRICE');
+      commit('GET_CURRENCY_VALUE');
+    }
+  },
+  getters: {
+    currencyValue: function currencyValue(state) {
+      return state.cur_value;
     }
   }
 });
@@ -18687,6 +18721,18 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.createRouter)({
     path: '/cart',
     name: 'cart.index',
     component: _views_Cart_Index_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }, {
+    path: '/register',
+    name: 'Auth.Register',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_views_Auth_Register_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Auth/Register.vue */ "./resources/js/views/Auth/Register.vue"));
+    }
+  }, {
+    path: '/login',
+    name: 'Auth.Login',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_views_Auth_Login_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Auth/Login.vue */ "./resources/js/views/Auth/Login.vue"));
+    }
   }]
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
@@ -31245,7 +31291,7 @@ function useRoute() {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_main_Index_vue":1,"resources_js_views_product_Products_vue":1,"resources_js_views_product_Show_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_main_Index_vue":1,"resources_js_views_product_Products_vue":1,"resources_js_views_product_Show_vue":1,"resources_js_views_Auth_Register_vue":1,"resources_js_views_Auth_Login_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

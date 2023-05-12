@@ -10,7 +10,8 @@ const store = createStore({
     state: {
         count: 0,
         cart: [],
-        totalPrice: 0
+        totalPrice: 0,
+        cur_value: 'rub'
     },
     mutations: {
         ADD_TO_CART: (state, product) => {
@@ -43,15 +44,24 @@ const store = createStore({
         },
         TOTAL_PRICE: (state) => {
             state.totalPrice = state.cart.reduce((sum, product) => sum + product.price * product.qty, 0);
+        },
+        ADD_CURRENCY_VALUE: (state, value) => {
+            console.log(value);
+            state.cur_value = value;
+            localStorage.setItem('cur_value', value);
         }
-
     },
     actions: {
         initializeCart: ({commit}) => {
            commit('CART_ITEMS');
            commit('TOTAL_PRICE');
+           commit('GET_CURRENCY_VALUE');
         },
-
+    },
+    getters: {
+        currencyValue(state){
+            return state.cur_value;
+        }
     }
 })
 

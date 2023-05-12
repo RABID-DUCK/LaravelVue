@@ -38,6 +38,7 @@
                                     <th>Имя</th>
                                     <th>Почта</th>
                                     <th>Номер</th>
+                                    <th>Статус</th>
                                 </thead>
                                 <tbody>
                                 @foreach($users as $user)
@@ -47,6 +48,7 @@
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->address}}</td>
                                         <td>{{$user->number}}</td>
+                                        <td>{{$user->is_admin === 1 ? 'Администратор' : 'Пользователь'}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

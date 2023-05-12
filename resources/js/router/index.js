@@ -23,7 +23,17 @@ const router = createRouter({
       path: '/cart',
       name: 'cart.index',
       component: Cart
-    }
+    },
+      {
+          path: '/register',
+          name: 'Auth.Register',
+          component: () => import('../views/Auth/Register.vue')
+      },
+      {
+          path: '/login',
+          name: 'Auth.Login',
+          component: () => import('../views/Auth/Login.vue')
+      }
   ]
 })
 

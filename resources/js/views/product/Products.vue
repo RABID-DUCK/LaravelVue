@@ -29,7 +29,7 @@
             <div class="product-categories-one__inner">
               <ul>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="src/assets/images/logo/logo.png"
+                  <div class="inner"> <img src="assets/images/logo/logo.png"
                                            alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
@@ -37,7 +37,7 @@
                   </a> </div>
                 </li>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="src/assets/images/logo/logo.png"
+                  <div class="inner"> <img src="assets/images/logo/logo.png"
                                            alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
@@ -45,7 +45,7 @@
                   </a> </div>
                 </li>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="src/assets/images/logo/logo.png"
+                  <div class="inner"> <img src="assets/images/logo/logo.png"
                                            alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
@@ -53,7 +53,7 @@
                   </a> </div>
                 </li>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="src/assets/images/logo/logo.png"
+                  <div class="inner"> <img src="assets/images/logo/logo.png"
                                            alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
@@ -61,7 +61,7 @@
                   </a> </div>
                 </li>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="src/assets/images/logo/logo.png"
+                  <div class="inner"> <img src="assets/images/logo/logo.png"
                                            alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
@@ -69,7 +69,7 @@
                   </a> </div>
                 </li>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="src/assets/images/logo/logo.png"
+                  <div class="inner"> <img src="assets/images/logo/logo.png"
                                            alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
@@ -113,7 +113,7 @@
                     <div class="output-price"> <label for="priceRange">Цена:</label> <input
                         type="text" id="priceRange" readonly> </div>
                     <button  class="filterbtn" type="submit"
-                    @click.prevent="filterProductBtn"> Filter </button>
+                    @click.prevent="filterProductBtn"> Фильтр </button>
                   </div>
                 </div>
                 <div class="single-sidebar-box mt-30 wow fadeInUp animated pb-0 border-bottom-0 ">
@@ -131,7 +131,7 @@
                 <div
                     class="shop-grid-page-top-info p-0 justify-content-md-between justify-content-center">
                   <div class="left-box wow fadeInUp animated">
-                    <p>Showing 1–12 of 50 Results </p>
+                    <p>Показано {{pagination.from}}–{{ pagination.to }} из {{ pagination.total }} результатов </p>
                   </div>
                   <div
                       class="right-box justify-content-md-between justify-content-center wow fadeInUp animated">
@@ -174,6 +174,11 @@
                   <div class="tab-pane fade show active" id="pills-grid" role="tabpanel"
                        aria-labelledby="pills-grid-tab">
                     <div class="row" v-if="products">
+                        <div v-if="!isLoadedProduct" class="d-flex justify-content-center">
+                            <div class="spinner-border " role="status">
+                                <span class="visually-hidden">Загрузка...</span>
+                            </div>
+                        </div>
                       <div class="col-xl-4 col-lg-6 col-6 " v-for="product in products">
                         <div class="products-three-single w-100  mt-30">
                           <div class="products-three-single-img">
@@ -286,8 +291,9 @@
                             <span v-if="product.category">{{ product.category.title }}</span>
                             <h5><router-link :to="{name: 'products.show', params: {id: product.id}}"> {{ product.title }}</router-link>
                             </h5>
-                            <p><del v-if="product.old_price">{{product.old_price}}.руб</del>
-                              {{ product.price }}.руб</p>
+                         <p v-if="currency_value === 'rub'"><del v-if="product.old_price">{{product.old_price}}.руб</del>{{ product.price }}.руб</p>
+                          <p v-if="currency_value === 'usd'"><del v-if="product.old_price">{{product.old_price / 76}}.руб</del>{{ product.price / 76 }}.руб</p>
+                          <p v-if="currency_value === 'kzt'"><del v-if="product.old_price">{{product.old_price * 5.81}}.руб</del>{{ product.price * 5.81}}.руб</p>
                           </div>
 
                         </div>
@@ -343,7 +349,8 @@ export default {
     mounted() {
     $(document).trigger('changed')
     this.getProducts()
-    this.getFilterList()
+    this.getFilterList(),
+    this.getCurrencyValue()
   },
   data(){
     return {
@@ -361,7 +368,9 @@ export default {
       ],
       selectedSort: "all",
       pagination: [],
-      totalPrice: 0
+      totalPrice: 0,
+        isLoadedProduct: false,
+        currency_value: ''
     }
   },
   methods: {
@@ -432,6 +441,7 @@ export default {
           })
           .finally(v => {
         $(document).trigger('changed')
+              this.isLoadedProduct = true;
       })
     },
     getProduct(id){
@@ -465,6 +475,9 @@ export default {
             $(document).trigger('changed');
           })
     },
+      getCurrencyValue(){
+            this.currency_value = this.$store.getters.currencyValue;
+      }
   },
 }
 </script>

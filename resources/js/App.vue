@@ -68,7 +68,7 @@
                                 <div class="language two"> <select>
                                     <option>Россия </option>
                                     <option value="1" disabled>English</option>
-                                </select> </div> <a href="login.html"> Войти / Зарегистрироваться </a>
+                                </select> </div> <router-link to="/register "> Войти / Зарегистрироваться </router-link>
                             </div>
                         </div>
                     </div>
