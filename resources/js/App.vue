@@ -68,7 +68,10 @@
                                 <div class="language two"> <select>
                                     <option>Россия </option>
                                     <option value="1" disabled>English</option>
-                                </select> </div> <router-link to="/register "> Войти / Зарегистрироваться </router-link>
+                                </select> </div>
+                                <div v-if="!this.$store.getters.statusUser">
+                                    <router-link to="/register"> Войти / Зарегистрироваться </router-link>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -355,6 +358,7 @@ export default {
     mounted() {
     $(document).trigger('changed')
     this.getCartProducts()
+        this.$store.dispatch('getUserInfo')
   },
     methods: {
     getCartProducts(){
@@ -379,6 +383,10 @@ export default {
         let computedCart = JSON.parse(localStorage.getItem('cart'));
         this.totalPrice = computedCart.reduce((sum, product) => sum + product.price * product.qty, 0)
     },
+        logout(){
+            localStorage.removeItem('access_token');
+            window.location.reload();
+        }
   }
 }
 </script>

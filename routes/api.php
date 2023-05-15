@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,11 @@ Route::post('/orders', \App\Http\Controllers\API\Order\StoreController::class);
 Route::post('/products', \App\Http\Controllers\API\Product\IndexController::class);
 Route::get('/products/filters', \App\Http\Controllers\API\Product\FilterListController::class);
 Route::get('/products/{product}', \App\Http\Controllers\API\Product\ShowController::class);
+Route::group(['middleware' => 'api', 'prefix' => 'auth'], function($router) {
+    Route::post('/register', [AuthController::class, 'addUser']);
+    Route::post('login', [App\Http\Controllers\API\Auth\AuthController::class, 'login']);
+    Route::post('refresh', [App\Http\Controllers\API\Auth\AuthController::class, 'refresh']);
+    Route::post('me', [App\Http\Controllers\API\Auth\AuthController::class, 'me']);
+    Route::post('/user', [AuthController::class, 'user']);
+});
+

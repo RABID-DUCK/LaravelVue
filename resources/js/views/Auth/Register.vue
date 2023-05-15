@@ -12,21 +12,23 @@
                         <form class="common-form">
                             <div class="form-group">
                                 <label>Введите ваше имя</label>
-                                <input type="text" class="form-control"  placeholder="Виктор"> </div>
+                                <input v-model="name" type="text" class="form-control"  placeholder="Виктор"> </div>
                             <div class="form-group">
                                 <label>Придумайте логин</label>
-                                <input type="text" class="form-control" placeholder="Username123">
+                                <input v-model="login" type="text" class="form-control" placeholder="Username123">
                             </div>
                             <div class="form-group">
                                 <label>Ваша почта</label>
-                                <input type="email" class="form-control"  placeholder="dropZew@gmail.com"> </div>
+                                <input v-model="email" type="email" class="form-control"  placeholder="dropZew@gmail.com"> </div>
                             <div class="form-group">
                                 <label>Ваш телефон</label>
-                                <input type="email" class="form-control"  placeholder="89004567614"> </div>
+                                <input v-model="number_phone" type="text" class="form-control"  placeholder="89004567614" maxlength="18"> </div>
                             <div class="form-group eye">
                                 <div class="icon icon-1"> <i class="flaticon-hidden"></i></div>
                                 <label>Придумайте пароль</label>
-                                <input type="password" id="password-field" class="form-control" placeholder="Password">
+                                <input v-model="password" type="password" id="password-field" class="form-control" placeholder="Password">
+                                <label>Подтвердите пароль</label>
+                                <input v-model="password_confirm" type="password" class="form-control phone" placeholder="Password">
                                 <div class="icon icon-2 "><i class="flaticon-visibility"></i> </div>
                             </div>
                             <div class="checkk ">
@@ -34,7 +36,7 @@
                                     <input type="checkbox" id="remember"> <label
                                     class="p-0" for="remember"> Примите условия и Политику конфиденциальности </label>
                                 </div>
-                            </div> <button type="submit" class="btn--primary style2">Зарегистрироваться </button>
+                            </div> <button @click.prevent="register" class="btn--primary style2">Зарегистрироваться </button>
                         </form>
                     </div>
                 </div>
@@ -45,7 +47,37 @@
 
 <script>
 export default {
-    name: "Register"
+    name: "Register",
+    data() {
+        return {
+            name: '',
+            login: '',
+            email: '',
+            number_phone: '',
+            password: '',
+            password_confirm: ''
+        }
+    },
+    methods: {
+        register(){
+            if (this.login && this.password && this.password_confirm && this.email){
+                this.axios.post('http://market/api/register', {
+                    'login': this.login,
+                    'password': this.password,
+                    'password_confirmation': this.password_confirm,
+                    'name': this.name,
+                    'address': this.email,
+                    'number': this.number_phone,
+                })
+                    .then(res => {
+                        this.$router.push({name: 'Auth.MyAccount'})
+                    })
+            }else{
+                alert('Заполните поля!')
+            }
+
+        }
+    }
 }
 </script>
 

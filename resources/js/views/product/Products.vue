@@ -287,7 +287,7 @@
                                 </div>
                               </div>
                             </div>
-                          <div class="products-three-single-content text-center">
+                          <div class="products-three-single-content text-center" >
                             <span v-if="product.category">{{ product.category.title }}</span>
                             <h5><router-link :to="{name: 'products.show', params: {id: product.id}}"> {{ product.title }}</router-link>
                             </h5>

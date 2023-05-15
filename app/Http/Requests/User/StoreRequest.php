@@ -25,8 +25,8 @@ class StoreRequest extends FormRequest
         'name' => 'nullable|string',
         'password' => 'required|string|confirmed',
         'address' => 'required|string|unique:users,address',
-        'number' => 'nullable|integer',
-        'is_admin' => 'required|boolean'
+        'number' => 'nullable|string',
+        'is_admin' => 'nullable|boolean'
     ];
 }
 
