@@ -18571,7 +18571,8 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.createStore)({
     cur_value: 'rub',
     isLogedIn: false,
     user: [],
-    isLoadingUser: false
+    isLoadingUser: false,
+    tokenRefreshed: true
   },
   mutations: {
     ADD_TO_CART: function ADD_TO_CART(state, product) {
@@ -18625,16 +18626,19 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.createStore)({
       state.isLogedIn = true;
       localStorage.setItem('access_token', JSON.stringify(value));
     },
-    LOGOUT: function LOGOUT(state) {
-      localStorage.removeItem('access_token');
-      state.isLogedIn = false;
-    },
     SET_IS_LOGED_IN: function SET_IS_LOGED_IN(state, value) {
       state.isLogedIn = value;
     },
     GET_INFO_USER: function GET_INFO_USER(state, value) {
       state.user = value;
       state.isLoadingUser = true;
+    },
+    SET_TOKEN_REFRESHED: function SET_TOKEN_REFRESHED(state, value) {
+      state.tokenRefreshed = value;
+    },
+    LOGOUT: function LOGOUT(state) {
+      state.isLogedIn = false;
+      axios__WEBPACK_IMPORTED_MODULE_5__["default"].post('http://market/api/auth/logout');
     }
   },
   actions: {
@@ -18644,7 +18648,8 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.createStore)({
       commit('TOTAL_PRICE');
     },
     getUserInfo: function getUserInfo(_ref2) {
-      var commit = _ref2.commit;
+      var commit = _ref2.commit,
+        state = _ref2.state;
       var token = localStorage.getItem('access_token');
       if (token) {
         axios__WEBPACK_IMPORTED_MODULE_5__["default"].post("http://market/api/auth/me", {}, {
@@ -18652,35 +18657,37 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.createStore)({
             'authorization': "Bearer ".concat(token)
           }
         }).then(function (res) {
-          commit('SET_IS_LOGED_IN', true); // сохраняем данные в state
+          commit('SET_IS_LOGED_IN', true);
           commit('GET_INFO_USER', res.data);
         })["catch"](function (err) {
           if (err.response.data.message === 'Unauthenticated.') {
+            commit('SET_IS_LOGED_IN', false);
             axios__WEBPACK_IMPORTED_MODULE_5__["default"].post('http://market/api/auth/refresh', {}, {
               headers: {
                 'authorization': "Bearer ".concat(token)
               }
             }).then(function (res) {
-              console.log(res);
               localStorage.setItem('access_token', res.data.access_token);
               axios__WEBPACK_IMPORTED_MODULE_5__["default"].post("http://market/api/auth/me", {}, {
                 headers: {
-                  'authorization': "Bearer ".concat(token)
+                  'authorization': "Bearer ".concat(res.data.access_token)
                 }
               }).then(function (res) {
                 commit('SET_IS_LOGED_IN', true); // сохраняем данные в state
                 commit('GET_INFO_USER', res.data);
+              })["catch"](function (err) {
+                commit('SET_IS_LOGED_IN', false);
               });
+            })["catch"](function (err) {
+              commit('SET_IS_LOGED_IN', false);
             });
           }
-          commit('SET_IS_LOGED_IN', false); // если запрос прошел неудачно
         });
       } else {
-        commit('SET_IS_LOGED_IN', false); // если токен отсутствует
+        commit('SET_IS_LOGED_IN', false);
       }
     }
   },
-
   getters: {
     currencyValue: function currencyValue(state) {
       return state.cur_value;
@@ -18694,6 +18701,7 @@ app.use(_router__WEBPACK_IMPORTED_MODULE_3__["default"]).use(store);
 app.mixin({
   created: function created() {
     this.$store.dispatch('initializeCart');
+    this.$store.dispatch('getUserInfo');
   }
 });
 app.config.globalProperties.axios = axios__WEBPACK_IMPORTED_MODULE_5__["default"];
@@ -18801,6 +18809,12 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.createRouter)({
     name: 'Auth.MyAccount',
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_Auth_My-Account_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Auth/My-Account.vue */ "./resources/js/views/Auth/My-Account.vue"));
+    }
+  }, {
+    path: '/:catchAll(.*)',
+    name: '404',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_views_Error_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Error.vue */ "./resources/js/views/Error.vue"));
     }
   }]
 });
@@ -31360,7 +31374,7 @@ function useRoute() {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_main_Index_vue":1,"resources_js_views_product_Products_vue":1,"resources_js_views_product_Show_vue":1,"resources_js_views_Auth_Register_vue":1,"resources_js_views_Auth_Login_vue":1,"resources_js_views_Auth_My-Account_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_main_Index_vue":1,"resources_js_views_product_Products_vue":1,"resources_js_views_product_Show_vue":1,"resources_js_views_Auth_Register_vue":1,"resources_js_views_Auth_Login_vue":1,"resources_js_views_Auth_My-Account_vue":1,"resources_js_views_Error_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

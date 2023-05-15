@@ -38,15 +38,15 @@
                                  <button class="nav-link" id="v-pills-account-tab" data-bs-toggle="pill" data-bs-target="#v-pills-account" type="button" role="tab"
                                                   aria-controls="v-pills-account" aria-selected="false">
                                 <span> Детали аккаунта</span>
-                                </button> <button class="nav-link"> <span> Logout </span> </button> </div>
+                                </button> <button class="nav-link"> <span> Выйти </span> </button> </div>
                         </div>
                     </div>
                     <div class="col-lg-7">
                         <div class="tab-content " id="v-pills-tabContent">
                             <div class="tab-pane fade show active" id="v-pills-dashboard" role="tabpanel"
                                  aria-labelledby="v-pills-dashboard-tab">
-                                <div class="tabs-content__single">
-                                    <h4><span>Hello {{user.login}}</span></h4>
+                                <div class="tabs-content__single" >
+                                    <h4 v-if="user && isLoadingUser"><span>Привет {{user.login}}</span></h4>
                                     <h5>На панели мониторинга вашей учетной записи вы можете просматривать свои <span>последние заказы</span>,
                                         а также <span>редактировать</span> свой пароль и данные учетной записи</h5>
                                 </div>
@@ -83,12 +83,8 @@ import {mapState} from "vuex";
 
 export default {
     name: "My-Account",
-
     computed: {
-        ...mapState(['user'])
-    },
-    mounted() {
-        this.$store.dispatch('getUserInfo')
+        ...mapState(['user', 'isLoadingUser'])
     }
 }
 </script>

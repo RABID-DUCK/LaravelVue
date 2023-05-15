@@ -38,6 +38,11 @@ const router = createRouter({
           path: '/myAccount',
           name: 'Auth.MyAccount',
           component: () => import('../views/Auth/My-Account.vue')
+      },
+      {
+          path: '/:catchAll(.*)',
+          name: '404',
+          component: () => import('../views/Error.vue')
       }
   ]
 })

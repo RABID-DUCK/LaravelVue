@@ -14,7 +14,8 @@ const store = createStore({
         cur_value: 'rub',
         isLogedIn: false,
         user: [],
-        isLoadingUser: false
+        isLoadingUser: false,
+        tokenRefreshed: true
     },
     mutations: {
         ADD_TO_CART: (state, product) => {
@@ -56,16 +57,19 @@ const store = createStore({
             state.isLogedIn = true;
             localStorage.setItem('access_token', JSON.stringify(value))
         },
-        LOGOUT: (state) =>  {
-            localStorage.removeItem('access_token');
-            state.isLogedIn = false;
-        },
         SET_IS_LOGED_IN: (state, value) => {
             state.isLogedIn = value;
         },
         GET_INFO_USER: (state, value) => {
             state.user = value
             state.isLoadingUser = true
+        },
+        SET_TOKEN_REFRESHED: (state, value) => {
+            state.tokenRefreshed = value
+        },
+        LOGOUT: (state) => {
+            state.isLogedIn = false;
+            axios.post('http://market/api/auth/logout')
         }
     },
     actions: {
@@ -73,7 +77,7 @@ const store = createStore({
            commit('CART_ITEMS');
            commit('TOTAL_PRICE');
         },
-        getUserInfo: ({commit}) => {
+        getUserInfo: ({commit, state}) => {
             const token = localStorage.getItem('access_token');
             if (token) {
                 axios.post("http://market/api/auth/me", {}, {
@@ -82,32 +86,39 @@ const store = createStore({
                     }
                 })
                     .then(res => {
-                    commit('SET_IS_LOGED_IN', true); // сохраняем данные в state
-                    commit('GET_INFO_USER', res.data);
-                    }).catch(err => {
-                    if (err.response.data.message === 'Unauthenticated.'){
-                        axios.post('http://market/api/auth/refresh', {}, {
-                                headers: {
-                                    'authorization': `Bearer ${token}`
-                                }
-                            }).then(res => {
-                                console.log(res);
-                                localStorage.setItem('access_token', res.data.access_token)
-                                axios.post("http://market/api/auth/me", {}, {
+                        commit('SET_IS_LOGED_IN', true);
+                        commit('GET_INFO_USER', res.data);
+                    })
+                    .catch(err => {
+                        if (err.response.data.message === 'Unauthenticated.') {
+                            commit('SET_IS_LOGED_IN', false);
+                                axios.post('http://market/api/auth/refresh', {}, {
                                     headers: {
                                         'authorization': `Bearer ${token}`
                                     }
                                 })
                                     .then(res => {
-                                        commit('SET_IS_LOGED_IN', true); // сохраняем данные в state
-                                        commit('GET_INFO_USER', res.data);
+                                        localStorage.setItem('access_token', res.data.access_token);
+                                        axios.post("http://market/api/auth/me", {}, {
+                                            headers: {
+                                                'authorization': `Bearer ${res.data.access_token}`
+                                            }
+                                        })
+                                            .then(res => {
+                                                commit('SET_IS_LOGED_IN', true); // сохраняем данные в state
+                                                commit('GET_INFO_USER', res.data);
+                                            })
+                                            .catch(err => {
+                                                commit('SET_IS_LOGED_IN', false);
+                                            })
                                     })
-                            })
+                                    .catch(err => {
+                                        commit('SET_IS_LOGED_IN', false);
+                                    })
                         }
-                    commit('SET_IS_LOGED_IN', false); // если запрос прошел неудачно
-                });
+                    });
             } else {
-                commit('SET_IS_LOGED_IN', false); // если токен отсутствует
+                commit('SET_IS_LOGED_IN', false);
             }
         }
     },
@@ -117,7 +128,7 @@ const store = createStore({
         },
         statusUser(state){
             return state.isLogedIn;
-        }
+        },
     }
 })
 
@@ -126,6 +137,7 @@ app.use(router)
 app.mixin({
     created: function(){
         this.$store.dispatch('initializeCart')
+        this.$store.dispatch('getUserInfo')
     }
 })
 app.config.globalProperties.axios = axios
