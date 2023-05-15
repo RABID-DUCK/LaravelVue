@@ -16,7 +16,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       loginUser: '',
-      password: ''
+      password: '',
+      error: null
     };
   },
   methods: {
@@ -32,6 +33,8 @@ __webpack_require__.r(__webpack_exports__);
           _this.$router.push({
             name: 'Auth.MyAccount'
           });
+        })["catch"](function (err) {
+          _this.error = err.response.data.error;
         });
       } else {
         alert('Не все данные заполнены!');
@@ -100,6 +103,10 @@ var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "flaticon-visibility"
 })], -1 /* HOISTED */);
 var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"checkk\"><div class=\"form-check p-0 m-0\"><input type=\"checkbox\" id=\"remember\"><label class=\"p-0\" for=\"remember\"> Запомнить меня</label></div><a href=\"#0\" class=\"forgot\"> Забыли пароль?</a></div> ", 2);
+var _hoisted_19 = {
+  key: 0,
+  "class": "text-danger"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
@@ -128,7 +135,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.login();
     }, ["prevent"])),
     "class": "btn--primary style2"
-  }, "Войти ")])])])])])]);
+  }, "Войти "), $data.error ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("b", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.error), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])])]);
 }
 
 /***/ }),

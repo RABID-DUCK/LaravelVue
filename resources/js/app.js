@@ -55,7 +55,7 @@ const store = createStore({
         },
         ADD_AUTH: (state, value) => {
             state.isLogedIn = true;
-            localStorage.setItem('access_token', JSON.stringify(value))
+            localStorage.setItem('access_token', value)
         },
         SET_IS_LOGED_IN: (state, value) => {
             state.isLogedIn = value;
@@ -68,8 +68,17 @@ const store = createStore({
             state.tokenRefreshed = value
         },
         LOGOUT: (state) => {
-            state.isLogedIn = false;
-            axios.post('http://market/api/auth/logout')
+            axios.post('http://market/api/auth/logout', {}, {
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('access_token')}`
+                },
+                responseType: 'json'
+            })
+                .then(res => {
+                    localStorage.removeItem('access_token');
+                    state.isLogedIn = false;
+                    router.push({name: 'Auth.Login'})
+                })
         }
     },
     actions: {
@@ -80,10 +89,12 @@ const store = createStore({
         getUserInfo: ({commit, state}) => {
             const token = localStorage.getItem('access_token');
             if (token) {
-                axios.post("http://market/api/auth/me", {}, {
+                axios.post("http://market/api/auth/me", null, {
                     headers: {
-                        'authorization': `Bearer ${token}`
-                    }
+                        'authorization': `Bearer ${token}`,
+                        'Accept': 'application/json'
+                    },
+                    responseType: 'json'
                 })
                     .then(res => {
                         commit('SET_IS_LOGED_IN', true);
@@ -92,17 +103,21 @@ const store = createStore({
                     .catch(err => {
                         if (err.response.data.message === 'Unauthenticated.') {
                             commit('SET_IS_LOGED_IN', false);
-                                axios.post('http://market/api/auth/refresh', {}, {
+                                axios.post('http://market/api/auth/refresh', null, {
                                     headers: {
-                                        'authorization': `Bearer ${token}`
-                                    }
+                                        'authorization': `Bearer ${token}`,
+                                        'Accept': 'application/json'
+                                    },
+                                    responseType: 'json'
                                 })
                                     .then(res => {
                                         localStorage.setItem('access_token', res.data.access_token);
                                         axios.post("http://market/api/auth/me", {}, {
                                             headers: {
-                                                'authorization': `Bearer ${res.data.access_token}`
-                                            }
+                                                'authorization': `Bearer ${res.data.access_token}`,
+                                                'Accept': 'application/json'
+                                            },
+                                            responseType: 'json'
                                         })
                                             .then(res => {
                                                 commit('SET_IS_LOGED_IN', true); // сохраняем данные в state

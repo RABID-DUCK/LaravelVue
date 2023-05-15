@@ -20,14 +20,15 @@ __webpack_require__.r(__webpack_exports__);
       email: '',
       number_phone: '',
       password: '',
-      password_confirm: ''
+      password_confirm: '',
+      error: null
     };
   },
   methods: {
     register: function register() {
       var _this = this;
       if (this.login && this.password && this.password_confirm && this.email) {
-        this.axios.post('http://market/api/register', {
+        this.axios.post('http://market/api/auth/register', {
           'login': this.login,
           'password': this.password,
           'password_confirmation': this.password_confirm,
@@ -35,9 +36,12 @@ __webpack_require__.r(__webpack_exports__);
           'address': this.email,
           'number': this.number_phone
         }).then(function (res) {
+          localStorage.setItem('access_token', res.data.access_token);
           _this.$router.push({
             name: 'Auth.MyAccount'
           });
+        })["catch"](function (err) {
+          _this.error = err.response.data.message;
         });
       } else {
         alert('Заполните поля!');
@@ -130,6 +134,10 @@ var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "for": "remember"
 }, " Примите условия и Политику конфиденциальности ")])], -1 /* HOISTED */);
 var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
+var _hoisted_26 = {
+  key: 0,
+  "class": "text-danger"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
@@ -188,7 +196,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.register && $options.register.apply($options, arguments);
     }, ["prevent"])),
     "class": "btn--primary style2"
-  }, "Зарегистрироваться ")])])])])])]);
+  }, "Зарегистрироваться "), $data.error ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("b", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.error), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])])]);
 }
 
 /***/ }),

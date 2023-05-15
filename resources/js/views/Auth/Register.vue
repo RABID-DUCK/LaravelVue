@@ -37,6 +37,7 @@
                                     class="p-0" for="remember"> Примите условия и Политику конфиденциальности </label>
                                 </div>
                             </div> <button @click.prevent="register" class="btn--primary style2">Зарегистрироваться </button>
+                            <b v-if="error" class="text-danger">{{error}}</b>
                         </form>
                     </div>
                 </div>
@@ -55,13 +56,14 @@ export default {
             email: '',
             number_phone: '',
             password: '',
-            password_confirm: ''
+            password_confirm: '',
+            error: null
         }
     },
     methods: {
         register(){
             if (this.login && this.password && this.password_confirm && this.email){
-                this.axios.post('http://market/api/register', {
+                this.axios.post('http://market/api/auth/register', {
                     'login': this.login,
                     'password': this.password,
                     'password_confirmation': this.password_confirm,
@@ -70,7 +72,11 @@ export default {
                     'number': this.number_phone,
                 })
                     .then(res => {
+                        localStorage.setItem('access_token', res.data.access_token);
                         this.$router.push({name: 'Auth.MyAccount'})
+                    })
+                    .catch(err => {
+                        this.error = err.response.data.message
                     })
             }else{
                 alert('Заполните поля!')

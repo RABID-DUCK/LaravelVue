@@ -24,6 +24,7 @@
                                     <label class="p-0" for="remember"> Запомнить меня</label> </div>
                                 <a href="#0" class="forgot"> Забыли пароль?</a>
                             </div> <button @click.prevent="login()" class="btn--primary style2">Войти </button>
+                            <b v-if="error" class="text-danger">{{error}}</b>
                         </form>
                     </div>
                 </div>
@@ -38,7 +39,8 @@ export default {
     data() {
         return {
             loginUser: '',
-            password: ''
+            password: '',
+            error: null
         }
     },
     methods: {
@@ -53,6 +55,9 @@ export default {
                             this.$store.commit('ADD_AUTH', res.data.access_token)
                             this.$router.push({name: 'Auth.MyAccount'})
 
+                    })
+                    .catch(err => {
+                        this.error = err.response.data.error
                     })
             }else{
                 alert('Не все данные заполнены!')

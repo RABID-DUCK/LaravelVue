@@ -24,7 +24,7 @@ Route::post('/products', \App\Http\Controllers\API\Product\IndexController::clas
 Route::get('/products/filters', \App\Http\Controllers\API\Product\FilterListController::class);
 Route::get('/products/{product}', \App\Http\Controllers\API\Product\ShowController::class);
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function($router) {
-    Route::post('/register', [AuthController::class, 'addUser']);
+    Route::post('register', [App\Http\Controllers\API\Auth\AuthController::class, 'register']);
     Route::post('login', [App\Http\Controllers\API\Auth\AuthController::class, 'login']);
     Route::post('refresh', [App\Http\Controllers\API\Auth\AuthController::class, 'refresh']);
     Route::post('me', [App\Http\Controllers\API\Auth\AuthController::class, 'me']);

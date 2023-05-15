@@ -18624,7 +18624,7 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.createStore)({
     },
     ADD_AUTH: function ADD_AUTH(state, value) {
       state.isLogedIn = true;
-      localStorage.setItem('access_token', JSON.stringify(value));
+      localStorage.setItem('access_token', value);
     },
     SET_IS_LOGED_IN: function SET_IS_LOGED_IN(state, value) {
       state.isLogedIn = value;
@@ -18637,8 +18637,18 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.createStore)({
       state.tokenRefreshed = value;
     },
     LOGOUT: function LOGOUT(state) {
-      state.isLogedIn = false;
-      axios__WEBPACK_IMPORTED_MODULE_5__["default"].post('http://market/api/auth/logout');
+      axios__WEBPACK_IMPORTED_MODULE_5__["default"].post('http://market/api/auth/logout', {}, {
+        headers: {
+          'authorization': "Bearer ".concat(localStorage.getItem('access_token'))
+        },
+        responseType: 'json'
+      }).then(function (res) {
+        localStorage.removeItem('access_token');
+        state.isLogedIn = false;
+        _router__WEBPACK_IMPORTED_MODULE_3__["default"].push({
+          name: 'Auth.Login'
+        });
+      });
     }
   },
   actions: {
@@ -18652,26 +18662,32 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.createStore)({
         state = _ref2.state;
       var token = localStorage.getItem('access_token');
       if (token) {
-        axios__WEBPACK_IMPORTED_MODULE_5__["default"].post("http://market/api/auth/me", {}, {
+        axios__WEBPACK_IMPORTED_MODULE_5__["default"].post("http://market/api/auth/me", null, {
           headers: {
-            'authorization': "Bearer ".concat(token)
-          }
+            'authorization': "Bearer ".concat(token),
+            'Accept': 'application/json'
+          },
+          responseType: 'json'
         }).then(function (res) {
           commit('SET_IS_LOGED_IN', true);
           commit('GET_INFO_USER', res.data);
         })["catch"](function (err) {
           if (err.response.data.message === 'Unauthenticated.') {
             commit('SET_IS_LOGED_IN', false);
-            axios__WEBPACK_IMPORTED_MODULE_5__["default"].post('http://market/api/auth/refresh', {}, {
+            axios__WEBPACK_IMPORTED_MODULE_5__["default"].post('http://market/api/auth/refresh', null, {
               headers: {
-                'authorization': "Bearer ".concat(token)
-              }
+                'authorization': "Bearer ".concat(token),
+                'Accept': 'application/json'
+              },
+              responseType: 'json'
             }).then(function (res) {
               localStorage.setItem('access_token', res.data.access_token);
               axios__WEBPACK_IMPORTED_MODULE_5__["default"].post("http://market/api/auth/me", {}, {
                 headers: {
-                  'authorization': "Bearer ".concat(res.data.access_token)
-                }
+                  'authorization': "Bearer ".concat(res.data.access_token),
+                  'Accept': 'application/json'
+                },
+                responseType: 'json'
               }).then(function (res) {
                 commit('SET_IS_LOGED_IN', true); // сохраняем данные в state
                 commit('GET_INFO_USER', res.data);

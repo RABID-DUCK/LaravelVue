@@ -19,7 +19,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'refresh']]);
+        $this->middleware('auth:api', ['except' => ['login', 'refresh', 'register']]);
     }
 
     /**
@@ -27,20 +27,18 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function register(){
+    public function register(StoreRequest $request){
         $data = $request->validated();
-        $user = new User;
-        $user->login = $data['login'];
-        $user->password = Hash::make($data['password']);
-        $user->name = $data['name'];
-        $user->address = $data['address'];
-        $user->number = $data['number'];
-        $user->is_admin = false;
-        $user->save();
+        $data['password'] = Hash::make($data['password']);
+        $user = User::where('address', $data['address'])->first();
+        if ($user) return response(['message' => 'Пользователь с такой почтой уже существует!'], 403);
+        $user = User::create($data);
+        $token = auth()->tokenById($user->id);
 
-        return response()->json([
+
+        return response([
             'status' => true,
-            'user' => $user
+            'access_token' => $token
         ]);
     }
 
@@ -49,7 +47,7 @@ class AuthController extends Controller
         $credentials = request(['login', 'password']);
 
         if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'Неправильный логин или пароль!'], 401);
         }
 
         return $this->respondWithToken($token);
