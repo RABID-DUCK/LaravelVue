@@ -192,7 +192,7 @@
                               Add To Cart </a>
                             <div class="products-grid__usefull-links">
                               <ul>
-                                <li><a href="wishlist.html"> <i class="flaticon-heart">
+                                <li><a @click.prevent="addToFav(product)"> <i class="flaticon-heart">
                                 </i> <span>
                                                                             wishlist</span> </a> </li>
                                 <li><a href="compare.html"> <i
@@ -394,6 +394,27 @@ export default {
             this.$store.commit('ADD_TO_CART', newProduct);
         }
     },
+      addToFav(product){
+          let fav = this.$store.state.favourites;
+          console.log(product.is_published);
+          let newProduct = [
+              {
+                  "id": product.id,
+                  "image_url": product.image_url,
+                  "title": product.title,
+                  "price": product.price,
+                  "qty": 1,
+                  "is_published": product.is_published,
+              }
+          ];
+
+          if (!fav) {
+              this.$store.commit('ADD_TO_FAVOURITES', newProduct);
+          } else {
+              // обновление корзины в хранилище из состояния хранилища
+              this.$store.commit('ADD_TO_FAVOURITES', newProduct);
+          }
+      },
     addTags(id){
       if (!this.tags.includes(id)){
         this.tags.push(id)

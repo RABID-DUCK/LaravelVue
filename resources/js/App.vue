@@ -99,9 +99,9 @@
                                     <ul class="main-menu__widge-box d-flex align-items-center ">
                                         <li class="d-lg-block d-none"><a href="my-account.html"><i
                                             class="flaticon-user"></i> </a></li>
-                                        <li class="d-lg-block d-none"><a href="wishlist.html"
+                                        <li class="d-lg-block d-none"><router-link to="/favourites"
                                                                          class="number"><i class="flaticon-heart"></i> <span
-                                            class="count">(2)</span> </a> </li>
+                                            class="count">{{$store.state.countFav}}</span> </router-link> </li>
                                         <li class="cartm"> <a href="#0" class="number cart-icon"> <i
                                             class="flaticon-shopping-cart"></i>
                                             <span class="count">({{$store.state.count}})</span>
@@ -123,25 +123,6 @@
 
 
 
-    <div class="sticy-header">
-      <div class="mobile-menu d-lg-none d-block">
-        <div class="mobile-menu__menu-top border-bottom-0">
-          <div class="container">
-            <div class="row">
-              <div class="menu-info d-flex justify-content-between align-items-center">
-                <div class="menubar"> <span></span> <span></span> <span></span> </div> <a
-                  href="index.html" class="logo"> <img src="../../public/assets/images/logo/logo.png" alt=""> </a>
-                <div class="cart-holder">
-                  <a href="#0" class="cart cart-icon position-relative">
-                    <i class="flaticon-shopping-cart"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="side-cart-closer"></div>
     <div class="side-cart d-flex flex-column justify-content-between">
       <div class="top">

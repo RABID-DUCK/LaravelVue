@@ -40,6 +40,11 @@ const router = createRouter({
           component: () => import('../views/Auth/My-Account.vue')
       },
       {
+          path: '/favourites',
+          name: 'products.favourites',
+          component: () => import('../views/product/Favourites.vue')
+      },
+      {
           path: '/:catchAll(.*)',
           name: '404',
           component: () => import('../views/Error.vue')

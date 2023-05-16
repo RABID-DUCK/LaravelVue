@@ -1,0 +1,141 @@
+<template>
+    <main class="overflow-hidden">
+        <!--Start Breadcrumb Style2-->
+        <section class="breadcrumb-area" style="background-image: url(assets/images/inner-pages/breadcum-bg.png);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-content text-center wow fadeInUp animated">
+                            <h2>Избранное</h2>
+                            <div class="breadcrumb-menu">
+                                <ul>
+                                    <li><router-link to="/"><i class="flaticon-home pe-2"></i>Главная</router-link></li>
+                                    <li> <i class="flaticon-next"></i> </li>
+                                    <li class="active">Избранное</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End Breadcrumb Style2-->
+        <!--Start Wishlist-->
+        <section class="wishlist pt-120 pb-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12 wow fadeInUp animated">
+                        <div class="wishlist-table-box">
+                            <div class="wishlist-table-outer">
+                                <table class="wishlist-table">
+                                    <thead class="wishlist-header">
+                                    <tr>
+                                        <th>Картинка</th>
+                                        <th>Название</th>
+                                        <th>Цена</th>
+                                        <th>Статус</th>
+                                        <th>Количество</th>
+                                        <th>Итог</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody v-if="products">
+                                    <tr v-for="product in products">
+                                        <td>
+                                            <div class="wishlist-thumb">
+                                                <img :src="product.image_url" :alt="product.title">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>{{ product.title }} </h5>
+                                        </td>
+                                        <td>
+                                            <p class="price" v-if="this.$store.getters.currencyValue === 'rub'">{{ product.price }}.руб</p>
+                                            <p class="price" v-if="this.$store.getters.currencyValue === 'usd'">${{ product.price }}</p>
+                                            <p class="price" v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ product.price }}</p>
+                                        </td>
+                                        <td>
+                                            <p class="instock">{{ product.is_published ? 'В наличии' : "Нет в наличии" }}</p>
+                                        </td>
+                                        <td>
+                                            <p class="qty">{{ product.qty}}</p>
+                                        </td>
+                                        <td class="add-to-cart-btn p-0">
+                                            <a @click.prevent="addToCart(product)" class=" btn--primary style2 ">Add To Cart</a> </td>
+                                        <td>
+                                            <p class="sub-total" v-if="this.$store.getters.currencyValue === 'rub'">{{ product.qty * product.price }}.руб</p>
+                                            <p class="sub-total" v-if="this.$store.getters.currencyValue === 'usd'">${{ product.qty * product.price }}</p>
+                                            <p class="sub-total" v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ product.qty * product.price }}</p>
+                                        </td>
+                                        <td>
+                                            <div class="remove" @click.prevent="removeProduct(product.id)"> <i class="flaticon-cross"></i> </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End Wishlist-->
+    </main>
+</template>
+
+<script>
+export default {
+    name: "Favorites",
+    data() {
+        return {
+            products: []
+        }
+    },
+    mounted() {
+        this.udpdateProducts()
+    },
+    methods: {
+        udpdateProducts(){
+            const items = JSON.parse(localStorage.getItem('favour'));
+            this.products = items;
+        },
+        addToCart(product){
+            let cart = this.$store.state.cart;
+            let newProduct = [
+                {
+                    "id": product.id,
+                    "image_url": product.image_url,
+                    "title": product.title,
+                    "price": product.price,
+                    "qty": product.qty
+                }
+            ];
+
+            if (!cart) {
+                this.$store.commit('ADD_TO_CART', newProduct);
+            } else {
+                // обновление корзины в хранилище из состояния хранилища
+                this.$store.commit('ADD_TO_CART', newProduct);
+            }
+        },
+        removeProduct(id){
+            this.products = this.products.filter(product => {
+                return product.id !== id
+            })
+            this.updateCart()
+            this.calculateTotal()
+        },
+        updateCart(){
+            localStorage.setItem('favour', JSON.stringify(this.products))
+        },
+        calculateTotal(){
+            this.totalPrice = this.products.reduce((sum, product) => sum + product.price * product.qty, 0)
+        }
+
+    }
+}
+</script>
+
+<style scoped>
+
+</style>

@@ -15,7 +15,9 @@ const store = createStore({
         isLogedIn: false,
         user: [],
         isLoadingUser: false,
-        tokenRefreshed: true
+        tokenRefreshed: true,
+        favourites: [],
+        countFav: 0
     },
     mutations: {
         ADD_TO_CART: (state, product) => {
@@ -79,12 +81,30 @@ const store = createStore({
                     state.isLogedIn = false;
                     router.push({name: 'Auth.Login'})
                 })
+        },
+        ADD_TO_FAVOURITES: (state, product) => {
+            let index = state.favourites.findIndex(productInFav => productInFav.id === product[0].id);
+            if (index !== -1){
+                state.favourites[index].qty += parseInt(product[0].qty, 10)
+            } else{
+                state.favourites.push(product[0])
+            }
+            localStorage.setItem('favour', JSON.stringify(state.favourites));
+            state.countFav = state.favourites.length;
+        },
+        COUNT_FAV: (state) => {
+            let fav = localStorage.getItem('favour') || '[]';
+            state.favourites = JSON.parse(fav)
+            state.countFav = state.favourites.reduce((qty, product) => qty + product.qty, 0);
         }
     },
     actions: {
         initializeCart: ({commit}) => {
            commit('CART_ITEMS');
            commit('TOTAL_PRICE');
+        },
+        initializeFav: ({commit}) => {
+           commit('COUNT_FAV');
         },
         getUserInfo: ({commit, state}) => {
             const token = localStorage.getItem('access_token');
@@ -160,6 +180,7 @@ app.mixin({
         this.$store.dispatch('initializeCart')
         this.$store.dispatch('getUserInfo')
         this.$store.dispatch('initalizePrice')
+        this.$store.dispatch('initializeFav')
     }
 })
 app.config.globalProperties.axios = axios
