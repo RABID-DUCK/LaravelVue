@@ -44,12 +44,14 @@
                                 <th>Имя</th>
                                 <th>Почта</th>
                                 <th>Номер</th>
+                                <th>Статус</th>
                                     <tr>
                                         <td>{{ $user->id }}</td>
                                         <td>{{ $user->login }}</td>
-                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->name ?? '(не указано)'}}</td>
                                         <td>{{ $user->address }}</td>
                                         <td>{{ $user->number }}</td>
+                                        <td>{{ $user->is_admin ? 'Администратор' : 'Пользователь'}}</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -1,5 +1,5 @@
 <template>
-  <select v-model="value" @input="selectedValue">
+  <select v-model="value" @change="selectedValue">
     <option value="rub" selected>RUB</option>
     <option value="usd">USD</option>
     <option value="kzt">KZT</option>
@@ -14,9 +14,15 @@ export default {
           value: 'rub'
       }
     },
+    created() {
+        this.value = this.$store.getters.currencyValue;
+    },
     methods: {
       selectedValue(){
+          if (this.value !== this.$store.getters.currencyValue){
             this.$store.commit("ADD_CURRENCY_VALUE", this.value)
+              this.value = this.$store.getters.currencyValue;
+          }
       }
     }
 }

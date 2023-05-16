@@ -17725,10 +17725,6 @@ __webpack_require__.r(__webpack_exports__);
       this.totalPrice = computedCart.reduce(function (sum, product) {
         return sum + product.price * product.qty;
       }, 0);
-    },
-    logout: function logout() {
-      localStorage.removeItem('access_token');
-      window.location.reload();
     }
   }
 });
@@ -17753,9 +17749,15 @@ __webpack_require__.r(__webpack_exports__);
       value: 'rub'
     };
   },
+  created: function created() {
+    this.value = this.$store.getters.currencyValue;
+  },
   methods: {
     selectedValue: function selectedValue() {
-      this.$store.commit("ADD_CURRENCY_VALUE", this.value);
+      if (this.value !== this.$store.getters.currencyValue) {
+        this.$store.commit("ADD_CURRENCY_VALUE", this.value);
+        this.value = this.$store.getters.currencyValue;
+      }
     }
   }
 });
@@ -17960,129 +17962,133 @@ var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "language two"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", null, "Россия "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
   value: "1",
-  disabled: ""
+  disabled: "",
+  title: "Скоро...(soon...)"
 }, "English")])], -1 /* HOISTED */);
 var _hoisted_31 = {
   key: 0
 };
 var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Войти / Зарегистрироваться ");
-var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_33 = {
+  key: 1
+};
+var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "border-one"
 }, null, -1 /* HOISTED */);
-var _hoisted_34 = {
+var _hoisted_35 = {
   "class": "row g-0 holder"
 };
-var _hoisted_35 = {
+var _hoisted_36 = {
   "class": "col-12"
 };
-var _hoisted_36 = {
+var _hoisted_37 = {
   "class": "mega-menu-default mega-menu d-lg-block d-none"
 };
-var _hoisted_37 = {
+var _hoisted_38 = {
   "class": "d-flex align-items-center justify-content-between"
 };
-var _hoisted_38 = {
+var _hoisted_39 = {
   "class": "page-dropdown-menu d-flex align-items-center justify-content-center"
 };
-var _hoisted_39 = {
+var _hoisted_40 = {
   "class": "dropdown-list"
 };
-var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Главная", -1 /* HOISTED */);
-var _hoisted_41 = {
+var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Главная", -1 /* HOISTED */);
+var _hoisted_42 = {
   "class": "dropdown-list"
 };
-var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Продукты", -1 /* HOISTED */);
-var _hoisted_43 = {
+var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Продукты", -1 /* HOISTED */);
+var _hoisted_44 = {
   "class": "right d-flex align-items-center justify-content-end"
 };
-var _hoisted_44 = {
+var _hoisted_45 = {
   "class": "main-menu__widge-box d-flex align-items-center"
 };
-var _hoisted_45 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<li class=\"d-lg-block d-none\"><a href=\"my-account.html\"><i class=\"flaticon-user\"></i></a></li><li class=\"d-lg-block d-none\"><a href=\"wishlist.html\" class=\"number\"><i class=\"flaticon-heart\"></i> <span class=\"count\">(2)</span></a></li>", 2);
-var _hoisted_47 = {
+var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<li class=\"d-lg-block d-none\"><a href=\"my-account.html\"><i class=\"flaticon-user\"></i></a></li><li class=\"d-lg-block d-none\"><a href=\"wishlist.html\" class=\"number\"><i class=\"flaticon-heart\"></i> <span class=\"count\">(2)</span></a></li>", 2);
+var _hoisted_48 = {
   "class": "cartm"
 };
-var _hoisted_48 = {
+var _hoisted_49 = {
   href: "#0",
   "class": "number cart-icon"
 };
-var _hoisted_49 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_50 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "flaticon-shopping-cart"
 }, null, -1 /* HOISTED */);
-var _hoisted_50 = {
+var _hoisted_51 = {
   "class": "count"
 };
-var _hoisted_51 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
-var _hoisted_52 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+var _hoisted_52 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
+var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "shop-grid.html",
   "class": "offer-link"
 }, " Offer ", -1 /* HOISTED */);
-var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"sticy-header\"><div class=\"mobile-menu d-lg-none d-block\"><div class=\"mobile-menu__menu-top border-bottom-0\"><div class=\"container\"><div class=\"row\"><div class=\"menu-info d-flex justify-content-between align-items-center\"><div class=\"menubar\"><span></span> <span></span> <span></span></div> <a href=\"index.html\" class=\"logo\"><img src=\"" + _public_assets_images_logo_logo_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\"></a><div class=\"cart-holder\"><a href=\"#0\" class=\"cart cart-icon position-relative\"><i class=\"flaticon-shopping-cart\"></i></a></div></div></div></div></div></div></div><div class=\"side-cart-closer\"></div>", 2);
-var _hoisted_55 = {
+var _hoisted_54 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"sticy-header\"><div class=\"mobile-menu d-lg-none d-block\"><div class=\"mobile-menu__menu-top border-bottom-0\"><div class=\"container\"><div class=\"row\"><div class=\"menu-info d-flex justify-content-between align-items-center\"><div class=\"menubar\"><span></span> <span></span> <span></span></div> <a href=\"index.html\" class=\"logo\"><img src=\"" + _public_assets_images_logo_logo_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\"></a><div class=\"cart-holder\"><a href=\"#0\" class=\"cart cart-icon position-relative\"><i class=\"flaticon-shopping-cart\"></i></a></div></div></div></div></div></div></div><div class=\"side-cart-closer\"></div>", 2);
+var _hoisted_56 = {
   "class": "side-cart d-flex flex-column justify-content-between"
 };
-var _hoisted_56 = {
+var _hoisted_57 = {
   "class": "top"
 };
-var _hoisted_57 = {
+var _hoisted_58 = {
   "class": "content d-flex justify-content-between align-items-center"
 };
-var _hoisted_58 = {
+var _hoisted_59 = {
   "class": "text-uppercase"
 };
-var _hoisted_59 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
-var _hoisted_60 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_60 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
+var _hoisted_61 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "cart-close text-uppercase"
 }, "X", -1 /* HOISTED */);
-var _hoisted_61 = {
+var _hoisted_62 = {
   key: 0,
   "class": "cart_items"
 };
-var _hoisted_62 = {
+var _hoisted_63 = {
   "class": "items d-flex justify-content-between align-items-center"
 };
-var _hoisted_63 = {
+var _hoisted_64 = {
   "class": "left d-flex align-items-center"
 };
-var _hoisted_64 = ["href"];
-var _hoisted_65 = ["src"];
-var _hoisted_66 = {
+var _hoisted_65 = ["href"];
+var _hoisted_66 = ["src"];
+var _hoisted_67 = {
   "class": "text"
 };
-var _hoisted_67 = ["href"];
-var _hoisted_68 = {
+var _hoisted_68 = ["href"];
+var _hoisted_69 = {
   "class": "right"
 };
-var _hoisted_69 = ["onClick"];
-var _hoisted_70 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_70 = ["onClick"];
+var _hoisted_71 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "flaticon-cross"
 }, null, -1 /* HOISTED */);
-var _hoisted_71 = [_hoisted_70];
-var _hoisted_72 = {
+var _hoisted_72 = [_hoisted_71];
+var _hoisted_73 = {
   "class": "bottom"
 };
-var _hoisted_73 = {
+var _hoisted_74 = {
   "class": "total-ammount d-flex justify-content-between align-items-center"
 };
-var _hoisted_74 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
+var _hoisted_75 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
   "class": "text-uppercase"
 }, "Итого:", -1 /* HOISTED */);
-var _hoisted_75 = {
+var _hoisted_76 = {
   "class": "ammount text-uppercase"
 };
-var _hoisted_76 = {
+var _hoisted_77 = {
   "class": "button-box d-flex justify-content-between"
 };
-var _hoisted_77 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Страница корзины");
-var _hoisted_78 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
-var _hoisted_79 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+var _hoisted_78 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Страница корзины");
+var _hoisted_79 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
+var _hoisted_80 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "cart.html",
   "class": "button-2 btn_theme"
 }, " Оформить ", -1 /* HOISTED */);
-var _hoisted_80 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_81 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "sidebar-content-closer"
 }, null, -1 /* HOISTED */);
-var _hoisted_81 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_82 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "sidebar-content"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "sidebar-widget-container"
@@ -18183,8 +18189,9 @@ var _hoisted_81 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "flaticon-youtube"
 })])])])])])])])])], -1 /* HOISTED */);
-var _hoisted_82 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<footer class=\"footer-default footer-3\"><div class=\"footer-default__shap_1 position-absolute\"><img src=\"" + _public_assets_images_shape_footer_shape_1_png__WEBPACK_IMPORTED_MODULE_3__["default"] + "\" alt=\"\"></div><!--Start Footer--><div class=\"footer-default__main-footer position-relative\"><div class=\"container\"><div class=\"row\"><div class=\"col-xl-3 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated\"><div class=\"footer-default__single-box\"><div class=\"company-info\"><div class=\"footer-title\"><h4> Office</h4></div><div class=\"text1\"><p>29 Holles Place, Dublin 2 D02 YY46</p></div><div class=\"text2\"><p>68 Jay Street, Suite 902 New Side <br> Brooklyn, NY 11201</p></div><div class=\"text3\"><p>New York, United States</p></div></div></div></div><div class=\"col-xl-2 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated\"><div class=\"footer-default__single-box\"><div class=\"footer-title\"><h4> Useful Links </h4></div><ul class=\"footer-links\"><li><a href=\"my-account.html\">Account</a></li><li><a href=\"login.html\">Sign In</a></li><li><a href=\"cart.html\">View Cart</a></li><li><a href=\"wishlist.html\">My WishList</a></li><li><a href=\"compare.html\">Compare Products</a></li></ul></div></div><div class=\"col-xl-3 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated\"><div class=\"footer-default__single-box\"><div class=\"footer-title\"><h4> Information </h4></div><ul class=\"footer-links\"><li><a href=\"about-us.html\">About us</a></li><li><a href=\"contact.html\">Contact Us </a></li><li><a href=\"faq.html\">Faq</a></li><li><a href=\"blog.html\">Latest Posts</a></li><li><a href=\"order-track.html\">Order Track</a></li></ul></div></div><div class=\"col-xl-4 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated\"><div class=\"footer-default__single-box\"><div class=\"footer-title\"><h4> Newsletter </h4></div><div class=\"footer-newsletter\"><p class=\"text\">Enter your email to receive our latest updates about our products &amp; promotions. </p><form action=\"#0\" class=\"footer-default__subscrib-form\"><div class=\"footer-input-box\"><input type=\"email\" placeholder=\"Email address\" name=\"email\"> <button type=\"submit\" class=\"subscribe_btn\"> Subscribe </button></div></form><div class=\"newsletter-bottom d-flex align-items-center\"><div class=\"footer-title-box\"><p>Follow Us:</p></div><div class=\"footer__medio-boxx medio-boxx d-flex align-items-center\"><ul><li><a href=\"https://www.facebook.com/\" target=\"_blank\" class=\"active\"><i class=\"flaticon-facebook-app-symbol\"></i></a></li><li><a href=\"https://www.youtube.com/\" target=\"_blank\"><i class=\"flaticon-youtube\"></i></a></li><li><a href=\"https://twitter.com/\"><i class=\"flaticon-twitter\" target=\"_blank\"></i></a></li><li><a href=\"https://www.instagram.com/\"><i class=\"flaticon-instagram\" target=\"_blank\"></i></a></li></ul></div></div></div></div></div></div></div></div><!-- footer-bottom Footer--><div class=\"footer_bottom position-relative\"><div class=\"container\"><div class=\"footer_bottom_content\"><div class=\"copyright wow fadeInUp animated\"><p>© 2022 <a href=\"index.html\">Game ru.</a> All Rights Reserved.</p></div><div class=\"footer-payment wow fadeInUp animated\"><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_1_jpg__WEBPACK_IMPORTED_MODULE_4__["default"] + "\" alt=\"payment\"></a><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_2_jpg__WEBPACK_IMPORTED_MODULE_5__["default"] + "\" alt=\"payment\"></a><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_3_jpg__WEBPACK_IMPORTED_MODULE_6__["default"] + "\" alt=\"payment\"></a><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_4_jpg__WEBPACK_IMPORTED_MODULE_7__["default"] + "\" alt=\"payment\"></a></div></div></div></div></footer>", 1);
+var _hoisted_83 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<footer class=\"footer-default footer-3\"><div class=\"footer-default__shap_1 position-absolute\"><img src=\"" + _public_assets_images_shape_footer_shape_1_png__WEBPACK_IMPORTED_MODULE_3__["default"] + "\" alt=\"\"></div><!--Start Footer--><div class=\"footer-default__main-footer position-relative\"><div class=\"container\"><div class=\"row\"><div class=\"col-xl-3 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated\"><div class=\"footer-default__single-box\"><div class=\"company-info\"><div class=\"footer-title\"><h4> Office</h4></div><div class=\"text1\"><p>29 Holles Place, Dublin 2 D02 YY46</p></div><div class=\"text2\"><p>68 Jay Street, Suite 902 New Side <br> Brooklyn, NY 11201</p></div><div class=\"text3\"><p>New York, United States</p></div></div></div></div><div class=\"col-xl-2 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated\"><div class=\"footer-default__single-box\"><div class=\"footer-title\"><h4> Useful Links </h4></div><ul class=\"footer-links\"><li><a href=\"my-account.html\">Account</a></li><li><a href=\"login.html\">Sign In</a></li><li><a href=\"cart.html\">View Cart</a></li><li><a href=\"wishlist.html\">My WishList</a></li><li><a href=\"compare.html\">Compare Products</a></li></ul></div></div><div class=\"col-xl-3 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated\"><div class=\"footer-default__single-box\"><div class=\"footer-title\"><h4> Information </h4></div><ul class=\"footer-links\"><li><a href=\"about-us.html\">About us</a></li><li><a href=\"contact.html\">Contact Us </a></li><li><a href=\"faq.html\">Faq</a></li><li><a href=\"blog.html\">Latest Posts</a></li><li><a href=\"order-track.html\">Order Track</a></li></ul></div></div><div class=\"col-xl-4 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated\"><div class=\"footer-default__single-box\"><div class=\"footer-title\"><h4> Newsletter </h4></div><div class=\"footer-newsletter\"><p class=\"text\">Enter your email to receive our latest updates about our products &amp; promotions. </p><form action=\"#0\" class=\"footer-default__subscrib-form\"><div class=\"footer-input-box\"><input type=\"email\" placeholder=\"Email address\" name=\"email\"> <button type=\"submit\" class=\"subscribe_btn\"> Subscribe </button></div></form><div class=\"newsletter-bottom d-flex align-items-center\"><div class=\"footer-title-box\"><p>Follow Us:</p></div><div class=\"footer__medio-boxx medio-boxx d-flex align-items-center\"><ul><li><a href=\"https://www.facebook.com/\" target=\"_blank\" class=\"active\"><i class=\"flaticon-facebook-app-symbol\"></i></a></li><li><a href=\"https://www.youtube.com/\" target=\"_blank\"><i class=\"flaticon-youtube\"></i></a></li><li><a href=\"https://twitter.com/\"><i class=\"flaticon-twitter\" target=\"_blank\"></i></a></li><li><a href=\"https://www.instagram.com/\"><i class=\"flaticon-instagram\" target=\"_blank\"></i></a></li></ul></div></div></div></div></div></div></div></div><!-- footer-bottom Footer--><div class=\"footer_bottom position-relative\"><div class=\"container\"><div class=\"footer_bottom_content\"><div class=\"copyright wow fadeInUp animated\"><p>© 2022 <a href=\"index.html\">Game ru.</a> All Rights Reserved.</p></div><div class=\"footer-payment wow fadeInUp animated\"><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_1_jpg__WEBPACK_IMPORTED_MODULE_4__["default"] + "\" alt=\"payment\"></a><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_2_jpg__WEBPACK_IMPORTED_MODULE_5__["default"] + "\" alt=\"payment\"></a><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_3_jpg__WEBPACK_IMPORTED_MODULE_6__["default"] + "\" alt=\"payment\"></a><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_4_jpg__WEBPACK_IMPORTED_MODULE_7__["default"] + "\" alt=\"payment\"></a></div></div></div></div></footer>", 1);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _this = this;
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
   var _component_select_currency = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("select-currency");
   var _component_router_view = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-view");
@@ -18209,44 +18216,53 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_32];
     }),
     _: 1 /* STABLE */
-  })])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])]), _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  })])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: "/myAccount",
+    "class": "text-warning"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_this.$store.state.user.login), 1 /* TEXT */)];
+    }),
+
+    _: 1 /* STABLE */
+  })]))])])])]), _hoisted_34, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_40, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_40];
+      return [_hoisted_41];
     }),
     _: 1 /* STABLE */
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/products"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_42];
+      return [_hoisted_43];
     }),
     _: 1 /* STABLE */
-  })])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_44, [_hoisted_45, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_47, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_48, [_hoisted_49, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_50, "(" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$store.state.count) + ")", 1 /* TEXT */)])])])])])])])])]), _hoisted_51, _hoisted_52])])])]), _hoisted_53, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_56, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_57, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_58, "Ваша корзина (" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$store.state.count) + ")", 1 /* TEXT */), _hoisted_59, _hoisted_60]), _ctx.$store.state.cart ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_61, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$store.state.cart, function (product) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_62, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_63, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  })])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_44, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_45, [_hoisted_46, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_48, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_49, [_hoisted_50, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_51, "(" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$store.state.count) + ")", 1 /* TEXT */)])])])])])])])])]), _hoisted_52, _hoisted_53])])])]), _hoisted_54, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_56, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_57, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_58, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_59, "Ваша корзина (" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$store.state.count) + ")", 1 /* TEXT */), _hoisted_60, _hoisted_61]), _ctx.$store.state.cart ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_62, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$store.state.cart, function (product) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_63, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_64, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
       href: "/products/".concat(product.id),
       "class": "thumb d-flex justify-content-between align-items-center"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       src: product.image_url,
       alt: ""
-    }, null, 8 /* PROPS */, _hoisted_65)], 8 /* PROPS */, _hoisted_64), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_66, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    }, null, 8 /* PROPS */, _hoisted_66)], 8 /* PROPS */, _hoisted_65), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_67, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
       href: "/products/".concat(product.id)
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.title), 1 /* TEXT */)], 8 /* PROPS */, _hoisted_67), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.qty) + " X ", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.price * product.qty) + ".руб", 1 /* TEXT */)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_68, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.title), 1 /* TEXT */)], 8 /* PROPS */, _hoisted_68), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.qty) + " X ", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.price * product.qty) + ".руб", 1 /* TEXT */)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_69, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
       onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
         return $options.removeProduct(product.id);
       }, ["prevent"]),
       "class": "item-remove"
-    }, _hoisted_71, 8 /* PROPS */, _hoisted_69)])]);
-  }), 256 /* UNKEYED_FRAGMENT */))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_72, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_73, [_hoisted_74, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_75, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.$store.state.totalPrice) + ".руб", 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_76, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    }, _hoisted_72, 8 /* PROPS */, _hoisted_70)])]);
+  }), 256 /* UNKEYED_FRAGMENT */))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_73, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_74, [_hoisted_75, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_76, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.$store.state.totalPrice) + ".руб", 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_77, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/cart",
     "class": "btn_black p-2"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_77];
+      return [_hoisted_78];
     }),
     _: 1 /* STABLE */
-  }), _hoisted_78, _hoisted_79])])]), _hoisted_80, _hoisted_81]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("  Footer Three start "), _hoisted_82]);
+  }), _hoisted_79, _hoisted_80])])]), _hoisted_81, _hoisted_82]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("  Footer Three start "), _hoisted_83]);
 }
 
 /***/ }),
@@ -18280,7 +18296,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $data.value = $event;
     }),
-    onInput: _cache[1] || (_cache[1] = function () {
+    onChange: _cache[1] || (_cache[1] = function () {
       return $options.selectedValue && $options.selectedValue.apply($options, arguments);
     })
   }, _hoisted_4, 544 /* HYDRATE_EVENTS, NEED_PATCH */)), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.value]]);
@@ -18702,6 +18718,14 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.createStore)({
       } else {
         commit('SET_IS_LOGED_IN', false);
       }
+    },
+    initalizePrice: function initalizePrice(_ref3) {
+      var commit = _ref3.commit,
+        getters = _ref3.getters;
+      var value = localStorage.getItem('cur_value');
+      if (value !== getters.currencyValue) {
+        commit('ADD_CURRENCY_VALUE', value);
+      }
     }
   },
   getters: {
@@ -18718,6 +18742,7 @@ app.mixin({
   created: function created() {
     this.$store.dispatch('initializeCart');
     this.$store.dispatch('getUserInfo');
+    this.$store.dispatch('initalizePrice');
   }
 });
 app.config.globalProperties.axios = axios__WEBPACK_IMPORTED_MODULE_5__["default"];

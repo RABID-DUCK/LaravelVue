@@ -40,6 +40,10 @@
                                          aria-controls="v-pills-account" aria-selected="false">
                                     <span> Детали аккаунта</span>
                                 </button>
+                                <button @click="goAdmin" v-if="user.is_admin === 1" class="nav-link" id="v-pills-account-tab" data-bs-toggle="pill" data-bs-target="#v-pills-account" type="button" role="tab"
+                                         aria-controls="v-pills-account" aria-selected="false">
+                                    <span> Админка</span>
+                                </button>
                                 <button @click.prevent="logout" class="nav-link">
                                     <span> Выйти </span>
                                 </button>
@@ -94,6 +98,13 @@ export default {
     methods: {
         logout(){
             this.$store.commit('LOGOUT');
+        },
+        goAdmin(){
+            this.axios.get('/api/admin')
+                .then(res => {
+                    // console.log(res.request.responseURL);
+                    window.location.href = res.request.responseURL
+                })
         }
     }
 }

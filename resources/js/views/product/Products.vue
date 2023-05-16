@@ -291,9 +291,9 @@
                             <span v-if="product.category">{{ product.category.title }}</span>
                             <h5><router-link :to="{name: 'products.show', params: {id: product.id}}"> {{ product.title }}</router-link>
                             </h5>
-                         <p v-if="currency_value === 'rub'"><del v-if="product.old_price">{{product.old_price}}.руб</del>{{ product.price }}.руб</p>
-                          <p v-if="currency_value === 'usd'"><del v-if="product.old_price">{{product.old_price / 76}}.руб</del>{{ product.price / 76 }}.руб</p>
-                          <p v-if="currency_value === 'kzt'"><del v-if="product.old_price">{{product.old_price * 5.81}}.руб</del>{{ product.price * 5.81}}.руб</p>
+                         <p v-if="this.$store.getters.currencyValue === 'rub'"><del v-if="product.old_price">{{product.old_price}}.руб</del>{{ product.price }}.руб</p>
+                          <p v-if="this.$store.getters.currencyValue === 'usd'"><del v-if="product.old_price">${{(product.old_price / 76).toFixed(2)}}</del>${{ (product.price / 76).toFixed(2) }}</p>
+                          <p v-if="this.$store.getters.currencyValue === 'kzt'"><del v-if="product.old_price">₸{{(product.old_price * 5.81).toFixed(2)}}</del>₸{{ (product.price * 5.81).toFixed(2)}}</p>
                           </div>
 
                         </div>
@@ -349,8 +349,7 @@ export default {
     mounted() {
     $(document).trigger('changed')
     this.getProducts()
-    this.getFilterList(),
-    this.getCurrencyValue()
+    this.getFilterList()
   },
   data(){
     return {
@@ -369,8 +368,7 @@ export default {
       selectedSort: "all",
       pagination: [],
       totalPrice: 0,
-        isLoadedProduct: false,
-        currency_value: ''
+        isLoadedProduct: false
     }
   },
   methods: {
@@ -474,10 +472,7 @@ export default {
           .finally(v => {
             $(document).trigger('changed');
           })
-    },
-      getCurrencyValue(){
-            this.currency_value = this.$store.getters.currencyValue;
-      }
+    }
   },
 }
 </script>

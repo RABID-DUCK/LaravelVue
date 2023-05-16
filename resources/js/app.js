@@ -135,6 +135,12 @@ const store = createStore({
             } else {
                 commit('SET_IS_LOGED_IN', false);
             }
+        },
+        initalizePrice: ({commit, getters}) => {
+            const value = localStorage.getItem('cur_value');
+            if(value !== getters.currencyValue){
+                commit('ADD_CURRENCY_VALUE', value)
+            }
         }
     },
     getters: {
@@ -153,6 +159,7 @@ app.mixin({
     created: function(){
         this.$store.dispatch('initializeCart')
         this.$store.dispatch('getUserInfo')
+        this.$store.dispatch('initalizePrice')
     }
 })
 app.config.globalProperties.axios = axios

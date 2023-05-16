@@ -27,10 +27,19 @@
                 @method('patch')
                 @csrf
                 <div class="form-group">
+                    <label>Логин</label>
                     <input type="text" class="form-control" name="login" value="{{ $user->login ?? old('login') }}">
+                    <label>Имя</label>
                     <input type="text" class="form-control" name="name" value="{{ $user->name ?? old('name')}}">
+                    <label>Почта</label>
                     <input type="text" class="form-control" name="address" value="{{ $user->address ?? old('address') }}">
-                    <input type="text" class="form-control" name="number" value="{{ $user->number ?? old('number') }}">
+                    <label>Телефон</label>
+                    <input type="text" class="form-control" id="phone" name="number" value="{{ $user->number ?? old('number') }}" maxlength="18">
+                    <label>Статус</label>
+                    <select class="form-control" name="is_admin">
+                        <option value="0" selected>Пользователь</option>
+                        <option value="1">Администратор</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Редактировать">
@@ -39,5 +48,16 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            jQuery.noConflict();
+            jQuery(document).ready(function($) {
+                const phoneInput = document.querySelector('#phone');
+                if (phoneInput) {
+                    $('#phone').mask('+7(999)999-9999');
+                }
+            });
+        });
+    </script>
     <!-- /.content -->
 @endsection

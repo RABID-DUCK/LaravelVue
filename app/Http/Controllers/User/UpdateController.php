@@ -13,6 +13,10 @@ class UpdateController extends Controller
     public function __invoke(UpdateRequest $request, User $user)
     {
         $data = $request->validated();
+        if (isset($data['is_admin'])){
+            $user->is_admin = $data['is_admin'];
+            unset($data['is_admin']);
+        }
         $user->update($data);
 
         return view('user.show', compact('user'));
