@@ -23,15 +23,12 @@ Route::post('/orders', \App\Http\Controllers\API\Order\StoreController::class);
 Route::post('/products', \App\Http\Controllers\API\Product\IndexController::class);
 Route::get('/products/filters', \App\Http\Controllers\API\Product\FilterListController::class);
 Route::get('/products/{product}', \App\Http\Controllers\API\Product\ShowController::class);
-Route::get('/admin', function (){
-    return redirect('http://market/admin');
-});
+
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function($router) {
+    Route::post('me', [App\Http\Controllers\API\Auth\AuthController::class, 'me']);
     Route::post('register', [App\Http\Controllers\API\Auth\AuthController::class, 'register']);
     Route::post('login', [App\Http\Controllers\API\Auth\AuthController::class, 'login']);
     Route::post('refresh', [App\Http\Controllers\API\Auth\AuthController::class, 'refresh']);
-    Route::post('me', [App\Http\Controllers\API\Auth\AuthController::class, 'me']);
     Route::post('logout', [App\Http\Controllers\API\Auth\AuthController::class, 'logout']);
-    Route::post('/user', [AuthController::class, 'user']);
 });
 

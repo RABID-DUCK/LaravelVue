@@ -27,9 +27,18 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       this.$store.commit('LOGOUT');
     },
     goAdmin: function goAdmin() {
-      this.axios.get('/api/admin').then(function (res) {
-        // console.log(res.request.responseURL);
-        window.location.href = res.request.responseURL;
+      var webApiUrl = '/admin';
+      var tokenStr = localStorage.getItem('access_token');
+      document.cookie = "user=" + tokenStr;
+      alert(document.cookie);
+      this.axios.get(webApiUrl, {
+        headers: {
+          "Authorization": "Bearer ".concat(tokenStr)
+        }
+      }).then(function (res) {
+        console.log(res);
+
+        // window.location.href = '/admin?token=' + tokenStr;
       });
     }
   }

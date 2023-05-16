@@ -16,22 +16,24 @@ class StoreController extends Controller
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-
+        $user = User::where('login', $data['login'])->first();
         $password = Hash::make(Str::random(10));
-        $user = User::firstOrCreate([
-            'address' => $data['email']
-        ],[
-            'name' => $data['login'],
-            'login' => $data['login'],
-            'number' => $data['number_phone'],
-            'password' => $password,
-        ]);
+        if (!$user){
+            $user = User::firstOrCreate([
+                'address' => $data['email']
+            ],[
+                'name' => $data['login'],
+                'login' => $data['login'],
+                'number' => $data['number_phone'],
+                'password' => $password,
+            ]);
+        }
+
         $order = Order::create([
             'products' => json_encode($data['products']),
             'user_id' => json_encode($user->id),
             'total_price' => $data['total_price']
         ]);
-
         return new OrderResource($order, $data['number_phone']);
     }
 }

@@ -112,7 +112,9 @@
                     <p>Итоговая цена:</p>
                   </div>
                   <div class="right">
-                    <p>{{ totalPrice }}.руб</p>
+                    <p  v-if="this.$store.getters.currencyValue === 'rub'">{{ totalPrice }}.руб</p>
+                    <p  v-if="this.$store.getters.currencyValue === 'usd'">${{ totalPrice }}</p>
+                    <p  v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ totalPrice }}</p>
                   </div>
                 </li>
               </ul>
@@ -123,7 +125,7 @@
               <h3>Заполните данные</h3>
               <ul class="cart-check-out-list">
                 <li>
-                  <div class="left form-group">
+                  <div class="left form-group" v-if="!this.$store.state.user">
                       <label>Придумайте логин</label>
                       <input class="form-control" type="text" v-model="login" placeholder="Логин...">
                       <label>Электронная почта</label>
@@ -131,6 +133,14 @@
                       <label>Номер телефона</label>
                       <input class="form-control" type="text" v-model="number_phone" placeholder="89000034567">
                   </div>
+                    <div v-else>
+                        <label>Ваш логин</label>
+                        <input class="form-control" type="text" :value="this.$store.state.user.login">
+                        <label>Электронная почта</label>
+                        <input class="form-control" type="text" :value="this.$store.state.user.address">
+                        <label>Номер телефона</label>
+                        <input class="form-control" type="text" :value="this.$store.state.user.number">
+                    </div>
                 </li>
                 <li>
                   <div class="left">
@@ -175,7 +185,7 @@ export default {
         number_phone: ''
     }
   },
-  methods: {
+    methods: {
     getCartProducts(){
         this.products = JSON.parse(localStorage.getItem('cart'));
       this.calculateTotal()
@@ -207,6 +217,12 @@ export default {
         this.totalPrice = this.products.reduce((sum, product) => sum + product.price * product.qty, 0)
     },
       storeOrder(){
+          if(this.$store.state.user){
+              this.login = this.$store.state.user.login
+              this.email = this.$store.state.user.address
+              this.number_phone = this.$store.state.user.number
+          }
+          console.log(this.$store.state.user)
         this.axios.post('/api/orders', {
             'login': this.login,
             'email': this.email,
@@ -215,7 +231,11 @@ export default {
             'total_price': this.totalPrice,
         })
             .then(res => {
-                console.log(res)
+                this.products = [];
+                this.updateCart()
+                this.calculateTotal()
+                this.$store.commit('CART_ITEMS');
+
             })
             .finally(v => {
                 $(document).trigger('changed')

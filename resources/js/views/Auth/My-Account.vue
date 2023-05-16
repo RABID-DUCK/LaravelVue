@@ -100,10 +100,17 @@ export default {
             this.$store.commit('LOGOUT');
         },
         goAdmin(){
-            this.axios.get('/api/admin')
+            let webApiUrl = '/admin';
+            let tokenStr = localStorage.getItem('access_token');
+            document.cookie = "user="+tokenStr;
+            alert(document.cookie)
+            this.axios.get(webApiUrl, {
+                headers: {"Authorization" : `Bearer ${tokenStr}`}
+            })
                 .then(res => {
-                    // console.log(res.request.responseURL);
-                    window.location.href = res.request.responseURL
+                    console.log(res);
+
+                    // window.location.href = '/admin?token=' + tokenStr;
                 })
         }
     }

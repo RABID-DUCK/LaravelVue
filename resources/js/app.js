@@ -100,11 +100,11 @@ const store = createStore({
     },
     actions: {
         initializeCart: ({commit}) => {
-           commit('CART_ITEMS');
-           commit('TOTAL_PRICE');
+            commit('CART_ITEMS');
+            commit('TOTAL_PRICE');
         },
         initializeFav: ({commit}) => {
-           commit('COUNT_FAV');
+            commit('COUNT_FAV');
         },
         getUserInfo: ({commit, state}) => {
             const token = localStorage.getItem('access_token');
@@ -123,33 +123,33 @@ const store = createStore({
                     .catch(err => {
                         if (err.response.data.message === 'Unauthenticated.') {
                             commit('SET_IS_LOGED_IN', false);
-                                axios.post('http://market/api/auth/refresh', null, {
-                                    headers: {
-                                        'authorization': `Bearer ${token}`,
-                                        'Accept': 'application/json'
-                                    },
-                                    responseType: 'json'
-                                })
-                                    .then(res => {
-                                        localStorage.setItem('access_token', res.data.access_token);
-                                        axios.post("http://market/api/auth/me", {}, {
-                                            headers: {
-                                                'authorization': `Bearer ${res.data.access_token}`,
-                                                'Accept': 'application/json'
-                                            },
-                                            responseType: 'json'
+                            axios.post('http://market/api/auth/refresh', null, {
+                                headers: {
+                                    'authorization': `Bearer ${token}`,
+                                    'Accept': 'application/json'
+                                },
+                                responseType: 'json'
+                            })
+                                .then(res => {
+                                    localStorage.setItem('access_token', res.data.access_token);
+                                    axios.post("http://market/api/auth/me", {}, {
+                                        headers: {
+                                            'authorization': `Bearer ${res.data.access_token}`,
+                                            'Accept': 'application/json'
+                                        },
+                                        responseType: 'json'
+                                    })
+                                        .then(res => {
+                                            commit('SET_IS_LOGED_IN', true); // сохраняем данные в state
+                                            commit('GET_INFO_USER', res.data);
                                         })
-                                            .then(res => {
-                                                commit('SET_IS_LOGED_IN', true); // сохраняем данные в state
-                                                commit('GET_INFO_USER', res.data);
-                                            })
-                                            .catch(err => {
-                                                commit('SET_IS_LOGED_IN', false);
-                                            })
-                                    })
-                                    .catch(err => {
-                                        commit('SET_IS_LOGED_IN', false);
-                                    })
+                                        .catch(err => {
+                                            commit('SET_IS_LOGED_IN', false);
+                                        })
+                                })
+                                .catch(err => {
+                                    commit('SET_IS_LOGED_IN', false);
+                                })
                         }
                     });
             } else {
