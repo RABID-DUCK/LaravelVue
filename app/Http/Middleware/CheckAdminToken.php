@@ -22,11 +22,9 @@ class CheckAdminToken
 
         try {
             $headers = apache_request_headers();
-            dd($headers);
-            $url = $_SERVER['REQUEST_URI'];
-            $url = explode('token=', $url);
-            $request->headers->set('authorization', $url[1]);
-            $user = JWTAuth::parseToken()->authenticate();
+            $val = $_COOKIE['user'];
+            $request->header('authorization', $val);
+            $user = $request->user();
         } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
             return response()->json(['status' => 'Token is Invalid']);
         } catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {

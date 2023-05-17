@@ -24,21 +24,19 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)(['user', 'isLoadingUser'])),
   methods: {
     logout: function logout() {
+      document.cookie = 'user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
       this.$store.commit('LOGOUT');
     },
     goAdmin: function goAdmin() {
       var webApiUrl = '/admin';
       var tokenStr = localStorage.getItem('access_token');
       document.cookie = "user=" + tokenStr;
-      alert(document.cookie);
       this.axios.get(webApiUrl, {
         headers: {
           "Authorization": "Bearer ".concat(tokenStr)
         }
       }).then(function (res) {
-        console.log(res);
-
-        // window.location.href = '/admin?token=' + tokenStr;
+        window.location.href = '/admin?token=' + tokenStr;
       });
     }
   }

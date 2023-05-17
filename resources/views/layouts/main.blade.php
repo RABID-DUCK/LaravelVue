@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Game ru</title>
-
+    <title>CapiGame ru</title>
+    <link rel="icon" href="{{asset('images/logo.png')}}">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -127,7 +127,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="#" class="brand-link">
-            <span class="brand-text font-weight-light">GAME RU</span>
+            <span class="brand-text font-weight-light">CAPIGAME RU</span>
         </a>
 
         <!-- Sidebar -->
@@ -197,6 +197,14 @@
                             <i class="nav-icon fas fa-users"></i>
                             <p>
                                 Пользователи
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/products" class="nav-link" >
+                            <i class="fa-solid fa-shop"></i>
+                            <p>
+                                Магазин
                             </p>
                         </a>
                     </li>
