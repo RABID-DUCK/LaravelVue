@@ -33,7 +33,7 @@
                                         type="button" role="tab" aria-controls="v-pills-dashboard" aria-selected="true">
                                     <span> Рабочая область</span>
                                 </button>
-                                <button class="nav-link" id="v-pills-orders-tab" data-bs-toggle="pill" data-bs-target="#v-pills-orders" type="button" role="tab"
+                                <button @click.prevent="getOrders(user.id)" class="nav-link" id="v-pills-orders-tab" data-bs-toggle="pill" data-bs-target="#v-pills-orders" type="button" role="tab"
                                         aria-controls="v-pills-orders" aria-selected="false">
                                     <span> Заказы</span> </button>
                                  <button class="nav-link" id="v-pills-account-tab" data-bs-toggle="pill" data-bs-target="#v-pills-account" type="button" role="tab"
@@ -65,6 +65,24 @@
                                 <div class="tabs-content__single">
                                     <h4><span>Привет {{user.login}}</span></h4>
                                     <h5>Здесь будут ваши <span>Заказы</span></h5>
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Название</th>
+                                            <th scope="col">Изображение</th>
+                                            <th scope="col">Количество</th>
+                                            <th scope="col">Цена</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row"></th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="v-pills-account" role="tabpanel"
@@ -109,6 +127,12 @@ export default {
             })
                 .then(res => {
                     window.location.href = '/admin?token=' + tokenStr;
+                })
+        },
+        getOrders(id){
+            this.axios.get(`/products/${id}`)
+                .then(res => {
+                    console.log(res);
                 })
         }
     }

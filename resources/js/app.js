@@ -85,7 +85,7 @@ const store = createStore({
         ADD_TO_FAVOURITES: (state, product) => {
             let index = state.favourites.findIndex(productInFav => productInFav.id === product[0].id);
             if (index !== -1){
-                state.favourites[index].qty += parseInt(product[0].qty, 10)
+                return;
             } else{
                 state.favourites.push(product[0])
             }

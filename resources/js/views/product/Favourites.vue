@@ -35,7 +35,6 @@
                                         <th>Цена</th>
                                         <th>Статус</th>
                                         <th>Количество</th>
-                                        <th>Итог</th>
                                         <th>Delete</th>
                                     </tr>
                                     </thead>
@@ -51,22 +50,14 @@
                                         </td>
                                         <td>
                                             <p class="price" v-if="this.$store.getters.currencyValue === 'rub'">{{ product.price }}.руб</p>
-                                            <p class="price" v-if="this.$store.getters.currencyValue === 'usd'">${{ product.price }}</p>
-                                            <p class="price" v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ product.price }}</p>
+                                            <p class="price" v-if="this.$store.getters.currencyValue === 'usd'">${{ (product.price / 76).toFixed(2)}}</p>
+                                            <p class="price" v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ (product.price * 5.81).toFixed(2)}}</p>
                                         </td>
                                         <td>
                                             <p class="instock">{{ product.is_published ? 'В наличии' : "Нет в наличии" }}</p>
                                         </td>
-                                        <td>
-                                            <p class="qty">{{ product.qty}}</p>
-                                        </td>
                                         <td class="add-to-cart-btn p-0">
                                             <a @click.prevent="addToCart(product)" class=" btn--primary style2 ">Add To Cart</a> </td>
-                                        <td>
-                                            <p class="sub-total" v-if="this.$store.getters.currencyValue === 'rub'">{{ product.qty * product.price }}.руб</p>
-                                            <p class="sub-total" v-if="this.$store.getters.currencyValue === 'usd'">${{ product.qty * product.price }}</p>
-                                            <p class="sub-total" v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ product.qty * product.price }}</p>
-                                        </td>
                                         <td>
                                             <div class="remove" @click.prevent="removeProduct(product.id)"> <i class="flaticon-cross"></i> </div>
                                         </td>
