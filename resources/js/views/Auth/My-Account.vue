@@ -50,36 +50,54 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-7">
+                    <div class="col-lg-9">
+
                         <div class="tab-content " id="v-pills-tabContent">
                             <div class="tab-pane fade show active" id="v-pills-dashboard" role="tabpanel"
                                  aria-labelledby="v-pills-dashboard-tab">
                                 <div class="tabs-content__single" >
                                     <h4 v-if="user && isLoadingUser"><span>Привет {{user.login}}</span></h4>
                                     <h5>На панели мониторинга вашей учетной записи вы можете просматривать свои <span>последние заказы</span>,
-                                        а также <span>редактировать</span> свой пароль и данные учетной записи</h5>
+                                        а также <span>узнать</span> свои данные учетной записи</h5>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="v-pills-orders" role="tabpanel"
                                  aria-labelledby="v-pills-orders-tab">
                                 <div class="tabs-content__single">
                                     <h4><span>Привет {{user.login}}</span></h4>
-                                    <h5>Здесь будут ваши <span>Заказы</span></h5>
-                                    <table class="table">
-                                        <thead class="thead-dark">
-                                        <tr>
-                                            <th scope="col">Название</th>
-                                            <th scope="col">Изображение</th>
-                                            <th scope="col">Количество</th>
-                                            <th scope="col">Цена</th>
-                                        </tr>
+                                    <h5 v-if="orders.length === 0">Здесь будут ваши <span>Заказы</span></h5>
+                                    <h5 v-else>Ваши <span>заказы:</span></h5>
+                                    <table class="table table-dark table-striped" v-if="orders.length !== 0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Заказ</th>
+                                                <th scope="col">Итог</th>
+                                                <th scope="col">Название</th>
+                                                <th scope="col">Изображение</th>
+                                                <th scope="col">Количество</th>
+                                                <th scope="col">Цена</th>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <th scope="row"></th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
+                                        <tr v-for="(order, index) in orders" :key="index" class="product-table">
+                                            <td>№{{order.id}}</td>
+                                            <td v-if="this.$store.getters.currencyValue === 'rub'">{{ order.total_price }}.руб</td>
+                                            <td v-if="this.$store.getters.currencyValue === 'usd'">${{ (order.total_price / 76).toFixed(2) }}</td>
+                                            <td v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ (order.total_price * 5.81).toFixed(2) }}</td>
+                                            <td colspan="4">
+                                                <table class="table table-dark table-striped">
+                                                    <tbody>
+                                                    <tr v-for="(product, index) in order.products" :key="index">
+                                                        <td>{{product.title}}</td>
+                                                        <td><img :src="product.image_url" :alt="product.title"></td>
+                                                        <td class="text-center">{{product.qty}}</td>
+                                                        <td class="text-center" v-if="this.$store.getters.currencyValue === 'rub'">{{ product.price }}.руб</td>
+                                                        <td class="text-center" v-if="this.$store.getters.currencyValue === 'usd'">${{ (product.price / 76).toFixed(2) }}</td>
+                                                        <td class="text-center" v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ (product.price * 5.81).toFixed(2) }}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -110,6 +128,11 @@ import {mapState} from "vuex";
 
 export default {
     name: "My-Account",
+    data() {
+        return {
+            orders: []
+        }
+    },
     computed: {
         ...mapState(['user', 'isLoadingUser'])
     },
@@ -130,9 +153,9 @@ export default {
                 })
         },
         getOrders(id){
-            this.axios.get(`/products/${id}`)
+            this.axios.get(`http://market/api/orders/${id}`)
                 .then(res => {
-                    console.log(res);
+                    this.orders = res.data;
                 })
         }
     }
@@ -140,5 +163,7 @@ export default {
 </script>
 
 <style scoped>
-
+table td{
+    width: 100px !important;
+}
 </style>
