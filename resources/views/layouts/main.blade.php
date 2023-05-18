@@ -126,7 +126,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="#" class="brand-link">
+        <a href="{{route('main.index')}}" class="brand-link">
             <span class="brand-text font-weight-light">CAPIGAME RU</span>
         </a>
 
@@ -153,7 +153,7 @@
                          with font-awesome or any other icon font library -->
 
                     <li class="nav-item">
-                        <a href="pages/gallery.html" class="nav-link">
+                        <a href="{{route('order.index')}}" class="nav-link">
                             <i class="nav-icon fas fa-shopping-bag"></i>
                             <p>
                                 Заказы
@@ -185,10 +185,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('color.index')}}" class="nav-link">
-                            <i class="nav-icon fas fa-palette"></i>
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-comments"></i>
                             <p>
-                                Цвета
+                                Отзывы
                             </p>
                         </a>
                     </li>
@@ -202,7 +202,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="/products" class="nav-link" >
-                            <i class="fa-solid fa-shop"></i>
+                            <i class="nav-icon fas fa-store"></i>
                             <p>
                                 Магазин
                             </p>

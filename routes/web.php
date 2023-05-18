@@ -73,6 +73,9 @@ Route::group(['prefix' => 'products'], function () {
     Route::patch('/{product}', \App\Http\Controllers\Product\UpdateController::class)->name('product.update');
     Route::delete('/{product}', \App\Http\Controllers\Product\DeleteController::class)->name('product.delete');
 });
+Route::group(['prefix' => 'orders'], function () {
+   Route::get('/', '\App\Http\Controllers\Order\IndexController@index')->name('order.index');
+});
 });
 
 
