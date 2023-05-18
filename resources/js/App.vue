@@ -152,7 +152,7 @@
           <h6 class="ammount text-uppercase">{{this.$store.state.totalPrice}}.руб</h6>
         </div>
         <div class="button-box d-flex justify-content-between">
-          <router-link to="/cart" class="btn_black p-2"> Страница корзины</router-link> <a href="cart.html" class="button-2 btn_theme"> Оформить </a> </div>
+          <router-link to="/cart" class="btn_black w-100"> Страница корзины</router-link></div>
       </div>
     </div>
     <div class="sidebar-content-closer"></div>

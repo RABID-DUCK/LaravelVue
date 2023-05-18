@@ -8,6 +8,7 @@ use App\Http\Resources\Order\OrderResource;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 
@@ -34,6 +35,16 @@ class StoreController extends Controller
             'user_id' => json_encode($user->id),
             'total_price' => $data['total_price']
         ]);
-        return new OrderResource($order, $data['number_phone']);
+
+        $dataForEmail  = [
+            'id' => $order['id'],
+            'login' => $data['login'],
+            'total_price' => $data['total_price'],
+            'products' => $data['products']
+        ];
+
+        Mail::to('onetaphack@gmail.com')->send((new OrderNotifaction($dataForEmail))->with('dataForEmail', $dataForEmail));
+
+        return new OrderResource($order, $data['number_phone'], $dataForEmail);
     }
 }

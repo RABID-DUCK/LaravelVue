@@ -9,7 +9,7 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel="stylesheet">
     <!-- <![endif]-->
 
-    <title>Material Design for Bootstrap</title>
+    <title>CAPIGAME</title>
 
     <style type="text/css">
         body {
@@ -138,8 +138,6 @@
 
 
 <body class="respond" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-<!-- pre-header -->
-<!-- pre-header end -->
 <!-- header -->
 <table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="ffffff">
     <tr>
@@ -408,10 +406,8 @@ l-14 30 6 -40z"/>
                 <tr>
                     <td align="center" style="color: #343434; font-size: 24px; font-family: Quicksand, Calibri, sans-serif; font-weight:700;letter-spacing: 3px; line-height: 35px;" class="main-header">
                         <div style="line-height: 35px">
-
-                            Ваш заказ <span style="color: #5caad2;">№</span>
-                            На сумму <b style="color: #5caad2;">price</b>
-
+                            Ваш заказ <span style="color: #5caad2;">№{{$dataForEmail['id']}}</span>
+                            На сумму <b style="color: #5caad2;">{{$dataForEmail['total_price']}}.руб</b>
                         </div>
                     </td>
                 </tr>
@@ -436,21 +432,20 @@ l-14 30 6 -40z"/>
                     <td align="center">
                         <table border="0" width="400" align="center" cellpadding="0" cellspacing="0" class="container590">
                             <thead>
-                            <tr>
+                            <tr style="text-align: left">
                                 <th scope="col">Название</th>
-                                <th scope="col">Изображение</th>
                                 <th scope="col">Количество</th>
                                 <th scope="col">Цена</th>
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($dataForEmail['products'] as $product)
                             <tr>
-                                <td>Name</td>
-                                <td><img src="product.image_url" alt="name"></td>
-                                <td class="text-center">QTY</td>
-                                <td class="text-center">PRICE.руб</td>
+                                <td>{{$product['title']}}</td>
+                                <td class="text-center">{{$product['qty']}}</td>
+                                <td class="text-center">{{$product['price']}}.руб</td>
                             </tr>
-
+                            @endforeach
                             </tbody>
                         </table>
                     </td>
@@ -473,7 +468,7 @@ l-14 30 6 -40z"/>
 
 
                                     <div style="line-height: 26px;">
-                                        <a href="" style="color: #ffffff; text-decoration: none;">SHOP NOW</a>
+                                        <a href="http://market/products" style="color: #ffffff; text-decoration: none;">Купить ещё</a>
                                     </div>
                                 </td>
                             </tr>
