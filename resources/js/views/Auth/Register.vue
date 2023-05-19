@@ -22,7 +22,7 @@
                                 <input v-model="email" type="email" class="form-control"  placeholder="dropZew@gmail.com"> </div>
                             <div class="form-group">
                                 <label>Ваш телефон</label>
-                                <input v-model="number_phone" type="text" class="form-control"  placeholder="89004567614" maxlength="18"> </div>
+                                <input v-model="number_phone" type="tel" class="form-control" v-mask="'+7(###)###-##-##'"  maxlength="18"> </div>
                             <div class="form-group eye">
                                 <div class="icon icon-1"> <i class="flaticon-hidden"></i></div>
                                 <label>Придумайте пароль</label>
@@ -47,8 +47,11 @@
 </template>
 
 <script>
+import {mask} from 'vue-the-mask'
+
 export default {
     name: "Register",
+    directives: {mask},
     data() {
         return {
             name: '',
