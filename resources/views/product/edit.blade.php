@@ -62,7 +62,7 @@
                             <span class="input-group-text">Загрузка</span>
                         </div>
                     </div>
-                    <span>{{!empty($productImage[1]) ? $productImage[1]->file_path : ''}}</span>
+                    <span>{{!empty($productImage[1]) ? $productImage[0]->file_path : ''}}</span>
                 </div>
                 <div class="form-group">
                     <div class="input-group">

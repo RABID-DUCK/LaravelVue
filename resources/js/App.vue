@@ -173,16 +173,16 @@
                 </div>
               </div>
               <div class="form_inner">
-                <h4>Support</h4>
+                <h4>Поддержка</h4>
                 <form action="index.html" method="post">
-                  <div class="form-group mt-4"> <input type="text" name="name" placeholder="Name"
+                  <div class="form-group mt-4"> <input type="text" name="name" placeholder="Имя"
                                                        required=""> </div>
-                  <div class="form-group mt-4"> <input type="email" name="email" placeholder="Email"
+                  <div class="form-group mt-4"> <input type="email" name="email" placeholder="Почта"
                                                        required=""> </div>
                   <div class="form-group mt-4"> <textarea name="message"
-                                                          placeholder="Message..."></textarea> </div>
+                                                          placeholder="Сообщение..."></textarea> </div>
                   <div class="form-group message-btn mt-4"> <button type="submit"
-                                                                    class="btn--secondary"> <span class="txt">Submit Now</span> </button> </div>
+                                                                    class="btn--secondary"> <span class="txt">Отправить</span> </button> </div>
                 </form>
               </div>
               <div class="sidebar-contact-info">
@@ -228,16 +228,16 @@
             <div class="footer-default__single-box">
               <div class="company-info">
                 <div class="footer-title">
-                  <h4> Office</h4>
+                  <h4> Офис</h4>
                 </div>
                 <div class="text1">
-                  <p>29 Holles Place, Dublin 2 D02 YY46</p>
+                  <p>г.Челябинск, ул.Сони Кривой 24, Capigame,офис 666</p>
                 </div>
                 <div class="text2">
-                  <p>68 Jay Street, Suite 902 New Side <br> Brooklyn, NY 11201</p>
+                  <p>Ирвайн, 1 <br> Бруклин, Нью-Йорк 11201</p>
                 </div>
                 <div class="text3">
-                  <p>New York, United States</p>
+                  <p>Российская Федерация</p>
                 </div>
               </div>
             </div>
@@ -248,11 +248,11 @@
                 <h4> Useful Links </h4>
               </div>
               <ul class="footer-links">
-                <li><a href="my-account.html">Account</a></li>
-                <li><a href="login.html">Sign In</a></li>
-                <li><a href="cart.html">View Cart</a></li>
-                <li><a href="wishlist.html">My WishList</a></li>
-                <li><a href="compare.html">Compare Products</a></li>
+                  <li><router-link to="/myAccount" v-if="this.$store.getters.statusUser">Аккаунт</router-link></li>
+                <li><router-link to="/register" v-if="!this.$store.getters.statusUser">Войти/Зарегистрироваться</router-link></li>
+                <li><router-link to="/cart">Страницы корзины</router-link></li>
+                <li><router-link to="/products">Продукты</router-link></li>
+                <li><router-link to="/favourites">Мои избранные</router-link></li>
               </ul>
             </div>
           </div>
@@ -262,39 +262,33 @@
                 <h4> Information </h4>
               </div>
               <ul class="footer-links">
-                <li><a href="about-us.html">About us</a></li>
-                <li><a href="contact.html">Contact Us </a></li>
-                <li><a href="faq.html">Faq</a></li>
-                <li><a href="blog.html">Latest Posts</a></li>
-                <li><a href="order-track.html">Order Track</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
               </ul>
             </div>
           </div>
           <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated">
             <div class="footer-default__single-box">
               <div class="footer-title">
-                <h4> Newsletter </h4>
+                <h4> Новости </h4>
               </div>
               <div class="footer-newsletter">
-                <p class="text">Enter your email to receive our latest updates about our products &
-                  promotions. </p>
+                <p class="text">Введите свой адрес электронной почты, чтобы получать последние обновления о наших продуктах и рекламных акциях. </p>
                 <form action="#0" class="footer-default__subscrib-form">
-                  <div class="footer-input-box"> <input type="email" placeholder="Email address"
-                                                        name="email"> <button type="submit" class="subscribe_btn"> Subscribe
+                  <div class="footer-input-box"> <input type="email" placeholder="Ваша почта..."
+                                                        name="email"> <button type="submit" class="subscribe_btn"> Подписаться
                   </button> </div>
                 </form>
                 <div class="newsletter-bottom d-flex align-items-center">
                   <div class="footer-title-box">
-                    <p>Follow Us:</p>
+                    <p>Подпишитесь на нас:</p>
                   </div>
                   <div class="footer__medio-boxx  medio-boxx  d-flex align-items-center">
                     <ul>
                       <li><a href="https://www.facebook.com/" target="_blank" class="active"><i
-                          class="flaticon-facebook-app-symbol"></i></a></li>
+                          class="flaticon-vk-app-symbol"></i></a></li>
                       <li><a href="https://www.youtube.com/" target="_blank"><i
                           class="flaticon-youtube"></i></a></li>
-                      <li><a href="https://twitter.com/"><i class="flaticon-twitter"
-                                                            target="_blank"></i></a></li>
                       <li><a href="https://www.instagram.com/"><i class="flaticon-instagram"
                                                                   target="_blank"></i></a></li>
                     </ul>
@@ -310,7 +304,7 @@
       <div class="container">
         <div class="footer_bottom_content">
           <div class="copyright wow fadeInUp animated">
-            <p>© 2022 <a href="index.html">Game ru.</a> All Rights Reserved.</p>
+            <p>© 2022 <a href="index.html">CAPIGAME ru.</a> Все права защищены.</p>
           </div>
           <div class="footer-payment wow fadeInUp animated">
             <a href="#0"> <img src="../../public/assets/images/home-four/method-1.jpg" alt="payment"> </a>

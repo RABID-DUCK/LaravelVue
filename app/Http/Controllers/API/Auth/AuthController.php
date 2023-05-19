@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\Auth;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Validator;
 use \App\Http\Controllers\Controller;
@@ -29,12 +30,20 @@ class AuthController extends Controller
      */
     public function register(StoreRequest $request){
         $data = $request->validated();
-        $data['password'] = Hash::make($data['password']);
+        if(isset($data['password'])) {
+            $data['password'] = Hash::make($data['password']);
+        }
+        else{
+            return response()->json(['message' => 'Поле пароля не заполнено!']);
+        }
+
         $user = User::where('address', $data['address'])->first();
         if ($user) return response(['message' => 'Пользователь с такой почтой уже существует!'], 403);
+
         $user = User::create($data);
         $token = auth()->tokenById($user->id);
 
+        Mail::to($data['address'])->send((new RegisterNotifaction($data['login']))->with('data', $data));
 
         return response([
             'status' => true,

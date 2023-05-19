@@ -7,12 +7,12 @@
         <div class="row">
           <div class="col-xl-12">
             <div class="breadcrumb-content pb-60 text-center wow fadeInUp animated">
-              <h2>Shop Grid</h2>
+              <h2>Страница магазина</h2>
               <div class="breadcrumb-menu">
                 <ul>
-                  <li><a href="index.html"><i class="flaticon-home pe-2"></i>Home</a></li>
+                  <li><a href="index.html"><i class="flaticon-home pe-2"></i>Главная</a></li>
                   <li> <i class="flaticon-next"></i> </li>
-                  <li class="active">Shop Grid</li>
+                  <li class="active">Страница магазина</li>
                 </ul>
               </div>
             </div>
@@ -29,51 +29,31 @@
             <div class="product-categories-one__inner">
               <ul>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="assets/images/logo/logo.png"
-                                           alt="" /> </div>
+                  <div class="inner"> <img src="assets/images/logo/logo.png" alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
-                    <h6>Accessories</h6>
+                    <h6>Главная</h6>
                   </a> </div>
                 </li>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="assets/images/logo/logo.png"
-                                           alt="" /> </div>
+                  <div class="inner"> <img src="assets/images/logo/logo.png" alt="" /> </div>
                 </a>
-                  <div class="title"> <a href="#0">
-                    <h6>Furnitures</h6>
+                  <div class="title"> <a href="#">
+                    <h6>Продукты</h6>
                   </a> </div>
                 </li>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="assets/images/logo/logo.png"
-                                           alt="" /> </div>
+                  <div class="inner"> <img src="assets/images/logo/logo.png" alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
-                    <h6>Jewellery</h6>
+                    <h6>О нас</h6>
                   </a> </div>
                 </li>
                 <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="assets/images/logo/logo.png"
-                                           alt="" /> </div>
+                  <div class="inner"> <img src="assets/images/logo/logo.png" alt="" /> </div>
                 </a>
                   <div class="title"> <a href="#0">
-                    <h6>Shoes</h6>
-                  </a> </div>
-                </li>
-                <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="assets/images/logo/logo.png"
-                                           alt="" /> </div>
-                </a>
-                  <div class="title"> <a href="#0">
-                    <h6>Electronics</h6>
-                  </a> </div>
-                </li>
-                <li> <a href="#0" class="img-box">
-                  <div class="inner"> <img src="assets/images/logo/logo.png"
-                                           alt="" /> </div>
-                </a>
-                  <div class="title"> <a href="#0">
-                    <h6>Fashion</h6>
+                    <h6>Контакты</h6>
                   </a> </div>
                 </li>
               </ul>

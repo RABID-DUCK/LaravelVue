@@ -43,7 +43,7 @@ class StoreController extends Controller
             'products' => $data['products']
         ];
 
-        Mail::to('onetaphack@gmail.com')->send((new OrderNotifaction($dataForEmail))->with('dataForEmail', $dataForEmail));
+        Mail::to($data['email'])->send((new OrderNotifaction($dataForEmail))->with('dataForEmail', $dataForEmail));
 
         return new OrderResource($order, $data['number_phone'], $dataForEmail);
     }

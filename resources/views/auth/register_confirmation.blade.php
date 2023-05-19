@@ -406,8 +406,8 @@ l-14 30 6 -40z"/>
                 <tr>
                     <td align="center" style="color: #343434; font-size: 24px; font-family: Quicksand, Calibri, sans-serif; font-weight:700;letter-spacing: 3px; line-height: 35px;" class="main-header">
                         <div style="line-height: 35px">
-                            Ваш заказ <span style="color: #f69c63;">№{{$dataForEmail['id']}}</span>
-                            На сумму <b style="color: #f69c63;">{{$dataForEmail['total_price']}}.руб</b>
+                            Привет <span style="color: #f69c63;">№{{$data['login']}}</span><br />
+                            <b>Спасибо за регистрацию на нашем сайте</b>
                         </div>
                     </td>
                 </tr>
@@ -429,29 +429,6 @@ l-14 30 6 -40z"/>
                     <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td align="center">
-                        <table border="0" width="400" align="center" cellpadding="0" cellspacing="0" class="container590">
-                            <thead>
-                            <tr style="text-align: left">
-                                <th scope="col">Название</th>
-                                <th scope="col">Количество</th>
-                                <th scope="col">Цена</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($dataForEmail['products'] as $product)
-                            <tr>
-                                <td>{{$product['title']}}</td>
-                                <td class="text-center">{{$product['qty']}}</td>
-                                <td class="text-center">{{$product['price']}}.руб</td>
-                            </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-
-                <tr>
                     <td height="25" style="font-size: 25px; line-height: 25px;">&nbsp;</td>
                 </tr>
 
@@ -468,7 +445,7 @@ l-14 30 6 -40z"/>
 
 
                                     <div style="line-height: 26px;">
-                                        <a href="http://market/products" style="color: #ffffff; text-decoration: none; font-weight: bold">Купить ещё</a>
+                                        <a href="http://market/products" style="color: #ffffff; text-decoration: none; font-weight: bold">Перейти к покупкам</a>
                                     </div>
                                 </td>
                             </tr>

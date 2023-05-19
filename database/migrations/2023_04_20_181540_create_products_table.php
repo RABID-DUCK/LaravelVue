@@ -23,7 +23,6 @@ return new class extends Migration
             $table->boolean('is_published')->default(true);
 
             $table->foreignId('category_id')->constrained('categories', 'id');
-            $table->foreignId('tag_id')->constrained('product_tags', 'id');
             $table->timestamps();
         });
     }
