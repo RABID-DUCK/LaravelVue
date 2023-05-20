@@ -126,20 +126,16 @@
               <ul class="cart-check-out-list">
                 <li>
                   <div class="left form-group" v-if="!this.$store.state.user">
-                      <label>Придумайте логин</label>
-                      <input class="form-control" type="text" v-model="login" placeholder="Логин...">
                       <label>Электронная почта</label>
                       <input class="form-control" type="text" v-model="email" placeholder="sobaka@gmail.com...">
                       <label>Номер телефона</label>
-                      <input class="form-control" type="text" v-model="number_phone" placeholder="89000034567">
+                      <input v-model="number_phone" type="tel" class="form-control" v-mask="'+7(###)###-##-##'"  maxlength="18">
                   </div>
                     <div v-else>
-                        <label>Ваш логин</label>
-                        <input class="form-control" type="text" :value="this.$store.state.user.login">
                         <label>Электронная почта</label>
-                        <input class="form-control" type="text" :value="this.$store.state.user.address">
+                        <input class="form-control" type="text" :value="this.$store.state.user.address" disabled>
                         <label>Номер телефона</label>
-                        <input class="form-control" type="text" :value="this.$store.state.user.number">
+                        <input class="form-control" type="text" :value="this.$store.state.user.number" disabled>
                     </div>
                 </li>
                 <li>
@@ -168,19 +164,20 @@
 </template>
 
 <script>
+import {mask} from 'vue-the-mask'
+
 export default {
-  name: "Show",
+  name: "Cart",
+    directives: {mask},
   mounted() {
     $(document).trigger('changed')
     this.getCartProducts()
     this.calculateTotal()
-
   },
   data (){
     return {
       products: [],
       totalPrice: 0,
-        login: '',
         email: '',
         number_phone: ''
     }
@@ -218,23 +215,22 @@ export default {
     },
       storeOrder(){
           if(this.$store.state.user){
-              this.login = this.$store.state.user.login
               this.email = this.$store.state.user.address
               this.number_phone = this.$store.state.user.number
           }
           console.log(this.$store.state.user)
         this.axios.post('/api/orders', {
-            'login': this.login,
             'email': this.email,
             'number_phone': this.number_phone,
             'products': this.products,
             'total_price': this.totalPrice,
         })
             .then(res => {
-                this.products = [];
-                this.updateCart()
-                this.calculateTotal()
-                this.$store.commit('CART_ITEMS');
+                    this.products = [];
+                    this.updateCart()
+                    this.calculateTotal()
+                    this.$store.commit('CART_ITEMS');
+                    alert('Заказ отправлен вам на почту!');
 
             })
             .finally(v => {

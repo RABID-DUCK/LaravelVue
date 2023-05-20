@@ -13,8 +13,8 @@
         </div>
         <div class="col-lg-7 col-md-8 col-sm-10">
           <div class="newsLetter-popup__content mb-4">
-            <div class="text-center"> <a href="index.html" class="logo"> <img
-                src="/images/Logo.png" alt="logo"> </a>
+            <div class="text-center"> <router-link to="/" class="logo"> <img
+                src="/images/Logo.png" alt="logo"> </router-link>
               <h2> Присоединяйтесь <span>к нам.</span> </h2>
               <p> Подпишитесь, чтобы получать новости от Capigame</p>
             </div>
@@ -59,47 +59,6 @@
       </div>
     </section>
     <!-- newsLetter-one style-two End -->
-
-    <!--Start Categories Two-->
-    <section class="categories-three overflow-hidden">
-      <div class="auto-container container">
-        <div class="row">
-          <div class="categories-three__inner pt-120 pb-120">
-            <div class="row align-items-center justify-content-xl-start justify-content-center">
-              <div class="col-xl-4 col-md-7">
-                <div class="categories-three__content text-xl-start text-center wow fadeInUp animated">
-                  <div class="sec-title-style2 style3">
-                    <h2>Покупка по категориям</h2>
-                  </div>
-                  <p>Постоянно расширяйте долгосрочные нишевые рынки с высокой отдачей, в то время как нишевые рынки, ориентированные на пользователя. реализуйте обратную совместимость...</p>
-                  <div class="btn-box"> <a href="shop-grid-left-sidebar.html"
-                                           class="btn--primary style2">Discover More</a> </div>
-                </div>
-              </div>
-
-              <div class="col-xl-8">
-                <div class="row  justify-content-center">
-                  <div class="col-lg-4 col-sm-6">
-                    <div class="categories-three__list-item mt-30 wow fadeInUp animated">
-                      <div class="categories-three__list-item-inner"> <a
-                          href="shop-grid-right-sidebar.html" class="img-box"> <img
-                          src="src/assets/images/home-three/categories-v2-img1.jpg" alt="" />
-                        <div class="text"> <span>369 Items</span> </div>
-                      </a>
-                        <div class="title text-center">
-                          <h4><a href="shop-grid-left-sidebar.html">Sport’s Shoes</a></h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--End Categories Two-->
   </main>
 </div>
 </template>

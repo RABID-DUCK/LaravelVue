@@ -364,7 +364,7 @@ export default {
     },
     methods: {
     getProduct(){
-      this.axios.get(`http://market/api/products/${this.$route.params.id}`)
+      this.axios.get(`/api/products/${this.$route.params.id}`)
           .then(res => {
             this.product = res.data.data;
           })
@@ -397,7 +397,7 @@ export default {
         }
     },
     getProductsAnother(page = 1){
-        this.axios.post('http://market/api/products', {
+        this.axios.post('/api/products', {
             'filterList': this.filterList,
             'categories': this.categories,
             'prices': this.prices,

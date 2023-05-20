@@ -43,10 +43,15 @@ export default {
             error: null
         }
     },
+    watch: {
+        '$store.getters.statusUser': function (statusUser){
+            if (statusUser) this.$router.push({name: 'Auth.MyAccount'});
+        }
+    },
     methods: {
         login(){
             if (this.login !== '' && this.password !== ''){
-                this.axios.post('http://market/api/auth/login', {
+                this.axios.post('/api/auth/login', {
                     'login': this.loginUser,
                     'password': this.password
                 })

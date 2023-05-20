@@ -1,12 +1,12 @@
 <template>
     <main class="overflow-hidden ">
         <!--Start Breadcrumb Style2-->
-        <section class="breadcrumb-area" style="background-image: url('assets/images/inner-pages/breadcum-bg.png');">
+        <section class="breadcrumb-area" style="background-image: url('assets/images/logo/logo.png');">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="breadcrumb-content text-center wow fadeInUp animated">
-                            <h2>My Account </h2>
+                            <h2>Мой аккаунт </h2>
                             <div class="breadcrumb-menu">
                                 <ul>
                                     <li><a href="index.html"><i class="flaticon-home pe-2"></i>Главная</a></li>
@@ -109,9 +109,9 @@
                                     <h4><span>Привет {{user.login}}</span></h4>
                                     <h4>Ваши данные:</h4>
                                     <h5>Логин: <span>{{user.login}}</span></h5>
-                                    <h5>Ваше имя: <span>{{user.name}}</span></h5>
-                                    <h5>Ваша почта: <span>{{user.address}}</span></h5>
-                                    <h5>Ваш телефон: <span>{{user.number}}</span></h5>
+                                    <h5>Ваше имя: <span>{{user.name}}</span><i @click.prevent="penBtn" class="fas fa-pen-square"></i></h5>
+                                    <h5>Ваша почта: <span>{{user.address}}</span><i @click.prevent="penBtn" class="fas fa-pen-square"></i></h5>
+                                    <h5>Ваш телефон: <span>{{user.number}}</span><i @click.prevent="penBtn" class="fas fa-pen-square"></i></h5>
                                 </div>
                             </div>
                         </div>
@@ -153,10 +153,13 @@ export default {
                 })
         },
         getOrders(id){
-            this.axios.get(`http://market/api/orders/${id}`)
+            this.axios.get(`/api/orders/${id}`)
                 .then(res => {
                     this.orders = res.data;
                 })
+        },
+        penBtn(){
+
         }
     }
 }
@@ -165,5 +168,8 @@ export default {
 <style scoped>
 table td{
     width: 100px !important;
+}
+.fas{
+    margin-left: 5px;
 }
 </style>

@@ -20,11 +20,18 @@ __webpack_require__.r(__webpack_exports__);
       error: null
     };
   },
+  watch: {
+    '$store.getters.statusUser': function $storeGettersStatusUser(statusUser) {
+      if (statusUser) this.$router.push({
+        name: 'Auth.MyAccount'
+      });
+    }
+  },
   methods: {
     login: function login() {
       var _this = this;
       if (this.login !== '' && this.password !== '') {
-        this.axios.post('http://market/api/auth/login', {
+        this.axios.post('/api/auth/login', {
           'login': this.loginUser,
           'password': this.password
         }).then(function (res) {

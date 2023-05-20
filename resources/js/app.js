@@ -5,6 +5,7 @@ import App from './App.vue'
 import router from './router'
 import VueTheMask from 'vue-the-mask'
 import axios from 'axios'
+import { debounce } from "lodash";
 
 const app = createApp(App)
 const store = createStore({
@@ -14,7 +15,7 @@ const store = createStore({
         totalPrice: 0,
         cur_value: 'rub',
         isLogedIn: false,
-        user: [],
+        user: null,
         isLoadingUser: false,
         tokenRefreshed: true,
         favourites: [],
@@ -71,7 +72,7 @@ const store = createStore({
             state.tokenRefreshed = value
         },
         LOGOUT: (state) => {
-            axios.post('http://market/api/auth/logout', {}, {
+            axios.post('/api/auth/logout', {}, {
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('access_token')}`
                 },
@@ -80,6 +81,7 @@ const store = createStore({
                 .then(res => {
                     localStorage.removeItem('access_token');
                     state.isLogedIn = false;
+                    state.user = null;
                     router.push({name: 'Auth.Login'})
                 })
         },
@@ -107,58 +109,60 @@ const store = createStore({
         initializeFav: ({commit}) => {
             commit('COUNT_FAV');
         },
-        getUserInfo: ({commit, state}) => {
-            const token = localStorage.getItem('access_token');
-            if (token) {
-                axios.post("http://market/api/auth/me", null, {
-                    headers: {
-                        'authorization': `Bearer ${token}`,
-                        'Accept': 'application/json'
-                    },
-                    responseType: 'json'
-                })
-                    .then(res => {
-                        commit('SET_IS_LOGED_IN', true);
-                        commit('GET_INFO_USER', res.data);
+        getUserInfo: debounce(({commit, state}) => {
+                const token = localStorage.getItem('access_token');
+                if (token) {
+                    axios.post("/api/auth/me", null, {
+                        headers: {
+                            'authorization': `Bearer ${token}`,
+                            'Accept': 'application/json'
+                        },
+                        responseType: 'json'
                     })
-                    .catch(err => {
-                        if (err.response.data.message === 'Unauthenticated.') {
-                            commit('SET_IS_LOGED_IN', false);
-                            axios.post('http://market/api/auth/refresh', null, {
-                                headers: {
-                                    'authorization': `Bearer ${token}`,
-                                    'Accept': 'application/json'
-                                },
-                                responseType: 'json'
-                            })
-                                .then(res => {
-                                    localStorage.setItem('access_token', res.data.access_token);
-                                    axios.post("http://market/api/auth/me", {}, {
-                                        headers: {
-                                            'authorization': `Bearer ${res.data.access_token}`,
-                                            'Accept': 'application/json'
-                                        },
-                                        responseType: 'json'
+                        .then(res => {
+                            commit('SET_IS_LOGED_IN', true);
+                            commit('GET_INFO_USER', res.data);
+                        })
+                        .catch(err => {
+                            if (err.response.data.message === 'Unauthenticated.') {
+                                commit('SET_IS_LOGED_IN', false);
+                                axios.post('/api/auth/refresh', null, {
+                                    headers: {
+                                        'authorization': `Bearer ${token}`,
+                                        'Accept': 'application/json'
+                                    },
+                                    responseType: 'json'
+                                })
+                                    .then(res => {
+                                        localStorage.setItem('access_token', res.data.access_token);
+                                        axios.post("/api/auth/me", {}, {
+                                            headers: {
+                                                'authorization': `Bearer ${res.data.access_token}`,
+                                                'Accept': 'application/json'
+                                            },
+                                            responseType: 'json'
+                                        })
+                                            .then(res => {
+                                                commit('SET_IS_LOGED_IN', true); // сохраняем данные в state
+                                                commit('GET_INFO_USER', res.data);
+                                            })
+                                            .catch(err => {
+                                                commit('SET_IS_LOGED_IN', false);
+                                            })
                                     })
-                                        .then(res => {
-                                            commit('SET_IS_LOGED_IN', true); // сохраняем данные в state
-                                            commit('GET_INFO_USER', res.data);
-                                        })
-                                        .catch(err => {
-                                            commit('SET_IS_LOGED_IN', false);
-                                        })
-                                })
-                                .catch(err => {
-                                    commit('SET_IS_LOGED_IN', false);
-                                })
-                        }
-                    });
-            } else {
-                commit('SET_IS_LOGED_IN', false);
-            }
-        },
+                                    .catch(err => {
+                                        commit('SET_IS_LOGED_IN', false);
+                                    })
+                            }
+                        });
+                } else {
+                    commit('SET_IS_LOGED_IN', false);
+                }
+
+
+        }, 1000),
         initalizePrice: ({commit, getters}) => {
-            const value = localStorage.getItem('cur_value');
+            const value = localStorage.getItem('cur_value') || 'rub';
             if(value !== getters.currencyValue){
                 commit('ADD_CURRENCY_VALUE', value)
             }

@@ -37,14 +37,10 @@
               </div>
               <ul class="page-dropdown-menu">
                 <li class="dropdown-list"> <router-link to="/"> <span>Главная </span> </router-link></li>
-                <li class="dropdown-list"> <router-link to="/products"> <span>Продукты </span> </router-link>
-                  <ul class="dropdown">
-                    <li> <a href="index.html">Drop page 1</a> </li>
-                  </ul>
-                </li>
-                <li><a href="contact.html">Contact </a></li>
-                <li><a href="login.html">Login </a></li>
-                <li><a href="register.html">Register </a></li>
+                <li class="dropdown-list"> <router-link to="/about"> <span>О нас </span> </router-link></li>
+                <li><router-link to="/contacts">Contact </router-link></li>
+                <li><router-link to="/login">Login </router-link></li>
+                <li><router-link to="/register">Register </router-link></li>
               </ul>
             </div>
           </div>
@@ -52,7 +48,7 @@
         <div class="d-lg-block d-none">
           <div class="row g-0 position-relative">
             <div class="col-lg-3 d-flex align-items-center justify-content-center border-rit ">
-              <div class="logo"> <a href="index.html"> <img src="../../public/assets/images/logo/logo.png" alt="" style="height: 90px"> </a>
+              <div class="logo"> <router-link to="/"> <img src="../../public/assets/images/logo/logo.png" alt="" style="height: 90px"> </router-link>
               </div>
             </div>
             <div class="col-lg-9 g-0 p-0">

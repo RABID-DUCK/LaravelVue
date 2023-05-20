@@ -445,7 +445,7 @@ l-14 30 6 -40z"/>
 
 
                                     <div style="line-height: 26px;">
-                                        <a href="http://market/products" style="color: #ffffff; text-decoration: none; font-weight: bold">Перейти к покупкам</a>
+                                        <a href="/products" style="color: #ffffff; text-decoration: none; font-weight: bold">Перейти к покупкам</a>
                                     </div>
                                 </td>
                             </tr>

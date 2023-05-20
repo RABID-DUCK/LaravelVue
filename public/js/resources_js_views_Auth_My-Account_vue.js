@@ -46,10 +46,11 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     getOrders: function getOrders(id) {
       var _this = this;
-      this.axios.get("http://market/api/orders/".concat(id)).then(function (res) {
+      this.axios.get("/api/orders/".concat(id)).then(function (res) {
         _this.orders = res.data;
       });
-    }
+    },
+    penBtn: function penBtn() {}
   }
 });
 
@@ -73,7 +74,7 @@ var _withScopeId = function _withScopeId(n) {
 var _hoisted_1 = {
   "class": "overflow-hidden"
 };
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"breadcrumb-area\" style=\"background-image:url(&#39;assets/images/inner-pages/breadcum-bg.png&#39;);\" data-v-c784b0f8><div class=\"container\" data-v-c784b0f8><div class=\"row\" data-v-c784b0f8><div class=\"col-xl-12\" data-v-c784b0f8><div class=\"breadcrumb-content text-center wow fadeInUp animated\" data-v-c784b0f8><h2 data-v-c784b0f8>My Account </h2><div class=\"breadcrumb-menu\" data-v-c784b0f8><ul data-v-c784b0f8><li data-v-c784b0f8><a href=\"index.html\" data-v-c784b0f8><i class=\"flaticon-home pe-2\" data-v-c784b0f8></i>Главная</a></li><li data-v-c784b0f8><i class=\"flaticon-next\" data-v-c784b0f8></i></li><li class=\"active\" data-v-c784b0f8>Мой аккаунт</li></ul></div></div></div></div></div></section>", 1);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"breadcrumb-area\" style=\"background-image:url(&#39;assets/images/logo/logo.png&#39;);\" data-v-c784b0f8><div class=\"container\" data-v-c784b0f8><div class=\"row\" data-v-c784b0f8><div class=\"col-xl-12\" data-v-c784b0f8><div class=\"breadcrumb-content text-center wow fadeInUp animated\" data-v-c784b0f8><h2 data-v-c784b0f8>Мой аккаунт </h2><div class=\"breadcrumb-menu\" data-v-c784b0f8><ul data-v-c784b0f8><li data-v-c784b0f8><a href=\"index.html\" data-v-c784b0f8><i class=\"flaticon-home pe-2\" data-v-c784b0f8></i>Главная</a></li><li data-v-c784b0f8><i class=\"flaticon-next\" data-v-c784b0f8></i></li><li class=\"active\" data-v-c784b0f8>Мой аккаунт</li></ul></div></div></div></div></div></section>", 1);
 var _hoisted_3 = {
   "class": "my-account-page pt-120 pb-120"
 };
@@ -288,7 +289,22 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         alt: product.title
       }, null, 8 /* PROPS */, _hoisted_40)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.qty), 1 /* TEXT */), _this.$store.getters.currencyValue === 'rub' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_42, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.price) + ".руб", 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _this.$store.getters.currencyValue === 'usd' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_43, "$" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((product.price / 76).toFixed(2)), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _this.$store.getters.currencyValue === 'kzt' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_44, "₸" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((product.price * 5.81).toFixed(2)), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
     }), 128 /* KEYED_FRAGMENT */))])])])]);
-  }), 128 /* KEYED_FRAGMENT */))])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Привет " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.login), 1 /* TEXT */)]), _hoisted_47, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, [_hoisted_48, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.login), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, [_hoisted_49, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.name), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, [_hoisted_50, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.address), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, [_hoisted_51, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.number), 1 /* TEXT */)])])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End My Account Page")]);
+  }), 128 /* KEYED_FRAGMENT */))])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Привет " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.login), 1 /* TEXT */)]), _hoisted_47, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, [_hoisted_48, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.login), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, [_hoisted_49, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    onClick: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.penBtn && $options.penBtn.apply($options, arguments);
+    }, ["prevent"])),
+    "class": "fas fa-pen-square"
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, [_hoisted_50, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.address), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    onClick: _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.penBtn && $options.penBtn.apply($options, arguments);
+    }, ["prevent"])),
+    "class": "fas fa-pen-square"
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, [_hoisted_51, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.number), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    onClick: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.penBtn && $options.penBtn.apply($options, arguments);
+    }, ["prevent"])),
+    "class": "fas fa-pen-square"
+  })])])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End My Account Page")]);
 }
 
 /***/ }),
@@ -309,7 +325,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ntable td[data-v-c784b0f8]{\n    width: 100px !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ntable td[data-v-c784b0f8]{\n    width: 100px !important;\n}\n.fas[data-v-c784b0f8]{\n    margin-left: 5px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

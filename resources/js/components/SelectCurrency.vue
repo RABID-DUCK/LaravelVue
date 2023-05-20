@@ -14,8 +14,10 @@ export default {
           value: 'rub'
       }
     },
-    created() {
-        this.value = this.$store.getters.currencyValue;
+    watch: {
+        '$store.getters.currencyValue': function(curValue){
+            console.log(curValue);
+        }
     },
     methods: {
       selectedValue(){

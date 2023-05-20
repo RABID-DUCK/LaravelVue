@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getProduct: function getProduct() {
       var _this = this;
-      this.axios.get("http://market/api/products/".concat(this.$route.params.id)).then(function (res) {
+      this.axios.get("/api/products/".concat(this.$route.params.id)).then(function (res) {
         _this.product = res.data.data;
       })["finally"](function (v) {
         $(document).trigger('changed');
@@ -64,7 +64,7 @@ __webpack_require__.r(__webpack_exports__);
     getProductsAnother: function getProductsAnother() {
       var _this2 = this;
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      this.axios.post('http://market/api/products', {
+      this.axios.post('/api/products', {
         'filterList': this.filterList,
         'categories': this.categories,
         'prices': this.prices,

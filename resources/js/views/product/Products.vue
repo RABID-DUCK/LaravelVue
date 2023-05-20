@@ -28,33 +28,33 @@
           <div class="col-xl-12">
             <div class="product-categories-one__inner">
               <ul>
-                <li> <a href="#0" class="img-box">
+                <li> <router-link to="/" class="img-box">
                   <div class="inner"> <img src="assets/images/logo/logo.png" alt="" /> </div>
-                </a>
-                  <div class="title"> <a href="#0">
+                </router-link>
+                  <div class="title"> <router-link to="/">
                     <h6>Главная</h6>
-                  </a> </div>
+                  </router-link> </div>
                 </li>
-                <li> <a href="#0" class="img-box">
+                <li> <router-link to="/myAccount" class="img-box">
                   <div class="inner"> <img src="assets/images/logo/logo.png" alt="" /> </div>
-                </a>
-                  <div class="title"> <a href="#">
-                    <h6>Продукты</h6>
-                  </a> </div>
+                </router-link>
+                  <div class="title"> <router-link to="/myAccount">
+                    <h6>Аккаунт</h6>
+                  </router-link> </div>
                 </li>
-                <li> <a href="#0" class="img-box">
+                <li> <router-link to="/about" class="img-box">
                   <div class="inner"> <img src="assets/images/logo/logo.png" alt="" /> </div>
-                </a>
-                  <div class="title"> <a href="#0">
+                </router-link>
+                  <div class="title"> <router-link to="/about">
                     <h6>О нас</h6>
-                  </a> </div>
+                  </router-link> </div>
                 </li>
-                <li> <a href="#0" class="img-box">
+                <li> <router-link to="/contacts" class="img-box">
                   <div class="inner"> <img src="assets/images/logo/logo.png" alt="" /> </div>
-                </a>
-                  <div class="title"> <a href="#0">
+                </router-link>
+                  <div class="title"> <router-link to="/contacts">
                     <h6>Контакты</h6>
-                  </a> </div>
+                  </router-link> </div>
                 </li>
               </ul>
             </div>
@@ -275,7 +275,6 @@
                           <p v-if="this.$store.getters.currencyValue === 'usd'"><del v-if="product.old_price">${{(product.old_price / 76).toFixed(2)}}</del>${{ (product.price / 76).toFixed(2) }}</p>
                           <p v-if="this.$store.getters.currencyValue === 'kzt'"><del v-if="product.old_price">₸{{(product.old_price * 5.81).toFixed(2)}}</del>₸{{ (product.price * 5.81).toFixed(2)}}</p>
                           </div>
-
                         </div>
                       </div>
                     </div>
@@ -329,7 +328,7 @@ export default {
     mounted() {
     $(document).trigger('changed')
     this.getProducts()
-    this.getFilterList()
+        this.getFilterList()
   },
   data(){
     return {
@@ -427,7 +426,7 @@ export default {
 
     },
     getProducts(page = 1){
-      this.axios.post('http://market/api/products', {
+      this.axios.post('/api/products', {
         'filterList': this.filterList,
         'categories': this.categories,
         'prices': this.prices,
@@ -444,7 +443,7 @@ export default {
       })
     },
     getProduct(id){
-      this.axios.get(`http://market/api/products/${id}`)
+      this.axios.get(`/api/products/${id}`)
           .then(res => {
               this.popupProduct = res.data.data;
           })
@@ -453,7 +452,7 @@ export default {
           })
     },
     getFilterList(){
-      this.axios.get('http://market/api/products/filters')
+      this.axios.get('/api/products/filters')
           .then(res => {
             this.filterList = res.data;
             //  Price Filter
