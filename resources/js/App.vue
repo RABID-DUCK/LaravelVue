@@ -159,7 +159,7 @@
         <div class="sidebar-textwidget">
           <div class="sidebar-info-contents">
             <div class="content-inner">
-              <div class="logo"> <a href="index.html"><img src="../../public/assets/images/logo/logo-2.png" alt=""></a>
+              <div class="logo"> <a href="index.html"><img src="assets/images/logo/logo-2.png" alt=""></a>
               </div>
               <div class="content-box">
                 <h4>About Us</h4>
@@ -241,7 +241,7 @@
           <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated">
             <div class="footer-default__single-box">
               <div class="footer-title">
-                <h4> Useful Links </h4>
+                <h4> Полезные ссылки </h4>
               </div>
               <ul class="footer-links">
                   <li><router-link to="/myAccount" v-if="this.$store.getters.statusUser">Аккаунт</router-link></li>
@@ -255,11 +255,11 @@
           <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated">
             <div class="footer-default__single-box">
               <div class="footer-title">
-                <h4> Information </h4>
+                <h4> Информация </h4>
               </div>
               <ul class="footer-links">
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Контакты</a></li>
+                <li><router-link to="/about">О нас</router-link></li>
+                <li><router-link to="/contacts">Контакты</router-link></li>
               </ul>
             </div>
           </div>
@@ -271,9 +271,10 @@
               <div class="footer-newsletter">
                 <p class="text">Введите свой адрес электронной почты, чтобы получать последние обновления о наших продуктах и рекламных акциях. </p>
                 <form action="#0" class="footer-default__subscrib-form">
-                  <div class="footer-input-box"> <input type="email" placeholder="Ваша почта..."
-                                                        name="email"> <button type="submit" class="subscribe_btn"> Подписаться
-                  </button> </div>
+                  <div class="footer-input-box">
+                      <input v-model="subEmail" type="email" placeholder="Ваша почта..." name="email">
+                      <button @click.prevent="subBtn" type="submit" class="subscribe_btn"> Подписаться</button>
+                  </div>
                 </form>
                 <div class="newsletter-bottom d-flex align-items-center">
                   <div class="footer-title-box">
@@ -283,9 +284,9 @@
                     <ul>
                       <li><a href="https://www.facebook.com/" target="_blank" class="active"><i
                           class="flaticon-vk-app-symbol"></i></a></li>
-                      <li><a href="https://www.youtube.com/" target="_blank"><i
+                      <li><a href="https://www.twitch.tv/rab1d_ru" target="_blank"><i
                           class="flaticon-youtube"></i></a></li>
-                      <li><a href="https://www.instagram.com/"><i class="flaticon-instagram"
+                      <li><a href="https://www.instagram.com/rab1dick/"><i class="flaticon-instagram"
                                                                   target="_blank"></i></a></li>
                     </ul>
                   </div>
@@ -300,7 +301,7 @@
       <div class="container">
         <div class="footer_bottom_content">
           <div class="copyright wow fadeInUp animated">
-            <p>© 2022 <a href="index.html">CAPIGAME ru.</a> Все права защищены.</p>
+            <p>© 2022 <router-link to="/">CAPIGAME ru.</router-link> Все права защищены.</p>
           </div>
           <div class="footer-payment wow fadeInUp animated">
             <a href="#0"> <img src="../../public/assets/images/home-four/method-1.jpg" alt="payment"> </a>
@@ -327,6 +328,7 @@ export default {
     return {
       products: [],
       totalPrice: 0,
+        subEmail: ''
     }
   },
     mounted() {
@@ -341,7 +343,6 @@ export default {
         this.$store.commit('CART_ITEMS');
         this.calculateCartPrice()
       }
-
     },
     removeProduct(id) {
         this.$store.commit('REMOVE_PRODUCT', id);
@@ -356,7 +357,11 @@ export default {
     calculateCartPrice(){
         let computedCart = JSON.parse(localStorage.getItem('cart'));
         this.totalPrice = computedCart.reduce((sum, product) => sum + product.price * product.qty, 0)
-    }
+    },
+        subBtn(){
+            this.subEmail = '';
+            alert('Вы подписались на рассылку новостей!');
+        }
   }
 }
 </script>

@@ -17692,7 +17692,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       products: [],
-      totalPrice: 0
+      totalPrice: 0,
+      subEmail: ''
     };
   },
   mounted: function mounted() {
@@ -17725,6 +17726,10 @@ __webpack_require__.r(__webpack_exports__);
       this.totalPrice = computedCart.reduce(function (sum, product) {
         return sum + product.price * product.qty;
       }, 0);
+    },
+    subBtn: function subBtn() {
+      this.subEmail = '';
+      alert('Вы подписались на рассылку новостей!');
     }
   }
 });
@@ -17871,13 +17876,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _public_assets_images_logo_logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../public/assets/images/logo/logo.png */ "./public/assets/images/logo/logo.png");
-/* harmony import */ var _public_assets_images_logo_logo_2_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../public/assets/images/logo/logo-2.png */ "./public/assets/images/logo/logo-2.png");
-/* harmony import */ var _public_assets_images_shape_footer_shape_1_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../public/assets/images/shape/footer-shape-1.png */ "./public/assets/images/shape/footer-shape-1.png");
-/* harmony import */ var _public_assets_images_home_four_method_1_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../public/assets/images/home-four/method-1.jpg */ "./public/assets/images/home-four/method-1.jpg");
-/* harmony import */ var _public_assets_images_home_four_method_2_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../public/assets/images/home-four/method-2.jpg */ "./public/assets/images/home-four/method-2.jpg");
-/* harmony import */ var _public_assets_images_home_four_method_3_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../public/assets/images/home-four/method-3.jpg */ "./public/assets/images/home-four/method-3.jpg");
-/* harmony import */ var _public_assets_images_home_four_method_4_jpg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../public/assets/images/home-four/method-4.jpg */ "./public/assets/images/home-four/method-4.jpg");
-
+/* harmony import */ var _public_assets_images_shape_footer_shape_1_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../public/assets/images/shape/footer-shape-1.png */ "./public/assets/images/shape/footer-shape-1.png");
+/* harmony import */ var _public_assets_images_home_four_method_1_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../public/assets/images/home-four/method-1.jpg */ "./public/assets/images/home-four/method-1.jpg");
+/* harmony import */ var _public_assets_images_home_four_method_2_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../public/assets/images/home-four/method-2.jpg */ "./public/assets/images/home-four/method-2.jpg");
+/* harmony import */ var _public_assets_images_home_four_method_3_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../public/assets/images/home-four/method-3.jpg */ "./public/assets/images/home-four/method-3.jpg");
+/* harmony import */ var _public_assets_images_home_four_method_4_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../public/assets/images/home-four/method-4.jpg */ "./public/assets/images/home-four/method-4.jpg");
 
 
 
@@ -18125,7 +18128,7 @@ var _hoisted_83 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "index.html"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_logo_logo_2_png__WEBPACK_IMPORTED_MODULE_2__["default"],
+  src: "assets/images/logo/logo-2.png",
   alt: ""
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "content-box"
@@ -18213,7 +18216,7 @@ var _hoisted_84 = {
 var _hoisted_85 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "footer-default__shap_1 position-absolute"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _public_assets_images_shape_footer_shape_1_png__WEBPACK_IMPORTED_MODULE_3__["default"],
+  src: _public_assets_images_shape_footer_shape_1_png__WEBPACK_IMPORTED_MODULE_2__["default"],
   alt: ""
 })], -1 /* HOISTED */);
 var _hoisted_86 = {
@@ -18234,7 +18237,7 @@ var _hoisted_91 = {
 };
 var _hoisted_92 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "footer-title"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, " Useful Links ")], -1 /* HOISTED */);
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, " Полезные ссылки ")], -1 /* HOISTED */);
 var _hoisted_93 = {
   "class": "footer-links"
 };
@@ -18243,8 +18246,59 @@ var _hoisted_95 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 var _hoisted_96 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Страницы корзины");
 var _hoisted_97 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Продукты");
 var _hoisted_98 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Мои избранные");
-var _hoisted_99 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-xl-3 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated\"><div class=\"footer-default__single-box\"><div class=\"footer-title\"><h4> Information </h4></div><ul class=\"footer-links\"><li><a href=\"#\">О нас</a></li><li><a href=\"#\">Контакты</a></li></ul></div></div><div class=\"col-xl-4 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated\"><div class=\"footer-default__single-box\"><div class=\"footer-title\"><h4> Новости </h4></div><div class=\"footer-newsletter\"><p class=\"text\">Введите свой адрес электронной почты, чтобы получать последние обновления о наших продуктах и рекламных акциях. </p><form action=\"#0\" class=\"footer-default__subscrib-form\"><div class=\"footer-input-box\"><input type=\"email\" placeholder=\"Ваша почта...\" name=\"email\"> <button type=\"submit\" class=\"subscribe_btn\"> Подписаться </button></div></form><div class=\"newsletter-bottom d-flex align-items-center\"><div class=\"footer-title-box\"><p>Подпишитесь на нас:</p></div><div class=\"footer__medio-boxx medio-boxx d-flex align-items-center\"><ul><li><a href=\"https://www.facebook.com/\" target=\"_blank\" class=\"active\"><i class=\"flaticon-vk-app-symbol\"></i></a></li><li><a href=\"https://www.youtube.com/\" target=\"_blank\"><i class=\"flaticon-youtube\"></i></a></li><li><a href=\"https://www.instagram.com/\"><i class=\"flaticon-instagram\" target=\"_blank\"></i></a></li></ul></div></div></div></div></div>", 2);
-var _hoisted_101 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"footer_bottom position-relative\"><div class=\"container\"><div class=\"footer_bottom_content\"><div class=\"copyright wow fadeInUp animated\"><p>© 2022 <a href=\"index.html\">CAPIGAME ru.</a> Все права защищены.</p></div><div class=\"footer-payment wow fadeInUp animated\"><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_1_jpg__WEBPACK_IMPORTED_MODULE_4__["default"] + "\" alt=\"payment\"></a><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_2_jpg__WEBPACK_IMPORTED_MODULE_5__["default"] + "\" alt=\"payment\"></a><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_3_jpg__WEBPACK_IMPORTED_MODULE_6__["default"] + "\" alt=\"payment\"></a><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_4_jpg__WEBPACK_IMPORTED_MODULE_7__["default"] + "\" alt=\"payment\"></a></div></div></div></div>", 1);
+var _hoisted_99 = {
+  "class": "col-xl-3 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated"
+};
+var _hoisted_100 = {
+  "class": "footer-default__single-box"
+};
+var _hoisted_101 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "footer-title"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, " Информация ")], -1 /* HOISTED */);
+var _hoisted_102 = {
+  "class": "footer-links"
+};
+var _hoisted_103 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("О нас");
+var _hoisted_104 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Контакты");
+var _hoisted_105 = {
+  "class": "col-xl-4 col-lg-6 col-md-6 col-sm-12 mt-30 wow fadeInUp animated"
+};
+var _hoisted_106 = {
+  "class": "footer-default__single-box"
+};
+var _hoisted_107 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "footer-title"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, " Новости ")], -1 /* HOISTED */);
+var _hoisted_108 = {
+  "class": "footer-newsletter"
+};
+var _hoisted_109 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text"
+}, "Введите свой адрес электронной почты, чтобы получать последние обновления о наших продуктах и рекламных акциях. ", -1 /* HOISTED */);
+var _hoisted_110 = {
+  action: "#0",
+  "class": "footer-default__subscrib-form"
+};
+var _hoisted_111 = {
+  "class": "footer-input-box"
+};
+var _hoisted_112 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"newsletter-bottom d-flex align-items-center\"><div class=\"footer-title-box\"><p>Подпишитесь на нас:</p></div><div class=\"footer__medio-boxx medio-boxx d-flex align-items-center\"><ul><li><a href=\"https://www.facebook.com/\" target=\"_blank\" class=\"active\"><i class=\"flaticon-vk-app-symbol\"></i></a></li><li><a href=\"https://www.twitch.tv/rab1d_ru\" target=\"_blank\"><i class=\"flaticon-youtube\"></i></a></li><li><a href=\"https://www.instagram.com/rab1dick/\"><i class=\"flaticon-instagram\" target=\"_blank\"></i></a></li></ul></div></div>", 1);
+var _hoisted_113 = {
+  "class": "footer_bottom position-relative"
+};
+var _hoisted_114 = {
+  "class": "container"
+};
+var _hoisted_115 = {
+  "class": "footer_bottom_content"
+};
+var _hoisted_116 = {
+  "class": "copyright wow fadeInUp animated"
+};
+var _hoisted_117 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("© 2022 ");
+var _hoisted_118 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("CAPIGAME ru.");
+var _hoisted_119 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Все права защищены.");
+var _hoisted_120 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"footer-payment wow fadeInUp animated\"><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_1_jpg__WEBPACK_IMPORTED_MODULE_3__["default"] + "\" alt=\"payment\"></a><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_2_jpg__WEBPACK_IMPORTED_MODULE_4__["default"] + "\" alt=\"payment\"></a><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_3_jpg__WEBPACK_IMPORTED_MODULE_5__["default"] + "\" alt=\"payment\"></a><a href=\"#0\"><img src=\"" + _public_assets_images_home_four_method_4_jpg__WEBPACK_IMPORTED_MODULE_6__["default"] + "\" alt=\"payment\"></a></div>", 1);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
@@ -18391,7 +18445,41 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_98];
     }),
     _: 1 /* STABLE */
-  })])])])]), _hoisted_99])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" footer-bottom Footer"), _hoisted_101])]);
+  })])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_99, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_100, [_hoisted_101, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_102, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: "/about"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_103];
+    }),
+    _: 1 /* STABLE */
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: "/contacts"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_104];
+    }),
+    _: 1 /* STABLE */
+  })])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_105, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_106, [_hoisted_107, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_108, [_hoisted_109, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_110, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_111, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.subEmail = $event;
+    }),
+    type: "email",
+    placeholder: "Ваша почта...",
+    name: "email"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.subEmail]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.subBtn && $options.subBtn.apply($options, arguments);
+    }, ["prevent"])),
+    type: "submit",
+    "class": "subscribe_btn"
+  }, " Подписаться")])]), _hoisted_112])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" footer-bottom Footer"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_113, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_114, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_115, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_116, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [_hoisted_117, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: "/"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_118];
+    }),
+    _: 1 /* STABLE */
+  }), _hoisted_119])]), _hoisted_120])])])])]);
 }
 
 /***/ }),
@@ -21183,21 +21271,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/method-4.jpg?380d9cfc79f242a63d606d96e4d12072");
-
-/***/ }),
-
-/***/ "./public/assets/images/logo/logo-2.png":
-/*!**********************************************!*\
-  !*** ./public/assets/images/logo/logo-2.png ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/logo-2.png?e3df72ed6dfa2a6ca66361cfa5fd3ba8");
 
 /***/ }),
 

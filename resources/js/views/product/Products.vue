@@ -10,7 +10,7 @@
               <h2>Страница магазина</h2>
               <div class="breadcrumb-menu">
                 <ul>
-                  <li><a href="index.html"><i class="flaticon-home pe-2"></i>Главная</a></li>
+                  <li><router-link to="/"><i class="flaticon-home pe-2"></i>Главная</router-link></li>
                   <li> <i class="flaticon-next"></i> </li>
                   <li class="active">Страница магазина</li>
                 </ul>
