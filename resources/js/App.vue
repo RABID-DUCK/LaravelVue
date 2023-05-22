@@ -340,6 +340,7 @@ export default {
     calculateCartPrice(){
         let computedCart = JSON.parse(localStorage.getItem('cart'));
         this.totalPrice = computedCart.reduce((sum, product) => sum + product.price * product.qty, 0)
+        this.$store.commit('TOTAL_PRICE');
     },
         subBtn(){
             this.subEmail = '';

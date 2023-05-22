@@ -306,6 +306,11 @@
         </div>
       </div>
     </div>
+      <transition name="fade">
+          <div class="alert alert-warning notification" role="alert" v-show="visibleNot">
+              Товар <router-link to="/cart" class="alert-link text-info">{{notTitle}}</router-link> добавлен в корзину.
+          </div>
+      </transition>
     <!--End product-grid-->
   </main>
 </div>
@@ -315,7 +320,6 @@
 
 import SearchModal from "../../components/SearchModal";
 export default {
-
   name: "Index",
     components: {SearchModal},
     beforeCreate() {
@@ -346,7 +350,9 @@ export default {
       pagination: [],
       totalPrice: 0,
         isLoadedProduct: false,
-        searchTitle: ''
+        searchTitle: '',
+        notTitle: '',
+        visibleNot: false
     }
   },
   methods: {
@@ -354,6 +360,8 @@ export default {
         let qty = isSingle ? 1 : parseInt($('.qtyValue').val(), 10);
         let cart = this.$store.state.cart;
         $('.qtyValue').val(1);
+        this.visibleNot = true;
+        this.notTitle = product.title;
 
         let newProduct = [
             {
@@ -368,13 +376,16 @@ export default {
         if (!cart) {
             this.$store.commit('ADD_TO_CART', newProduct);
         } else {
-            // обновление корзины в хранилище из состояния хранилища
             this.$store.commit('ADD_TO_CART', newProduct);
         }
+
+        setTimeout(() => {
+            this.visibleNot = false;
+        }, 3000)
+
     },
       addToFav(product){
           let fav = this.$store.state.favourites;
-          console.log(product.is_published);
           let newProduct = [
               {
                   "id": product.id,
@@ -489,5 +500,22 @@ export default {
 <style scoped>
 .filtres{
     z-index: 111111111;
+}
+.notification{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 1111111;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: all .3s ease;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+    transform: translateY(100%);
+}
+.fade-enter-to, .fade-leave {
+    opacity: 1;
+    transform: translateY(0);
 }
 </style>

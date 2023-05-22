@@ -101,14 +101,19 @@ __webpack_require__.r(__webpack_exports__);
       pagination: [],
       totalPrice: 0,
       isLoadedProduct: false,
-      searchTitle: ''
+      searchTitle: '',
+      notTitle: '',
+      visibleNot: false
     };
   },
   methods: {
     addToCart: function addToCart(product, isSingle) {
+      var _this = this;
       var qty = isSingle ? 1 : parseInt($('.qtyValue').val(), 10);
       var cart = this.$store.state.cart;
       $('.qtyValue').val(1);
+      this.visibleNot = true;
+      this.notTitle = product.title;
       var newProduct = [{
         "id": product.id,
         "image_url": product.image_url,
@@ -119,13 +124,14 @@ __webpack_require__.r(__webpack_exports__);
       if (!cart) {
         this.$store.commit('ADD_TO_CART', newProduct);
       } else {
-        // обновление корзины в хранилище из состояния хранилища
         this.$store.commit('ADD_TO_CART', newProduct);
       }
+      setTimeout(function () {
+        _this.visibleNot = false;
+      }, 3000);
     },
     addToFav: function addToFav(product) {
       var fav = this.$store.state.favourites;
-      console.log(product.is_published);
       var newProduct = [{
         "id": product.id,
         "image_url": product.image_url,
@@ -180,7 +186,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     getProducts: function getProducts() {
-      var _this = this;
+      var _this2 = this;
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       this.axios.post('/api/products', {
         'filterList': this.filterList,
@@ -189,32 +195,32 @@ __webpack_require__.r(__webpack_exports__);
         'tags': this.tags,
         'page': page
       }).then(function (res) {
-        _this.products = res.data.data;
-        _this.pagination = res.data.meta;
+        _this2.products = res.data.data;
+        _this2.pagination = res.data.meta;
       })["finally"](function (v) {
         $(document).trigger('changed');
-        _this.isLoadedProduct = true;
+        _this2.isLoadedProduct = true;
       });
     },
     getProduct: function getProduct(id) {
-      var _this2 = this;
+      var _this3 = this;
       this.axios.get("/api/products/".concat(id)).then(function (res) {
-        _this2.popupProduct = res.data.data;
+        _this3.popupProduct = res.data.data;
       })["finally"](function (v) {
         $(document).trigger('changed');
       });
     },
     getFilterList: function getFilterList() {
-      var _this3 = this;
+      var _this4 = this;
       this.axios.get('/api/products/filters').then(function (res) {
-        _this3.filterList = res.data;
+        _this4.filterList = res.data;
         //  Price Filter
         if ($("#price-range").length) {
           $("#price-range").slider({
             range: true,
-            min: _this3.filterList.price.min,
-            max: _this3.filterList.price.max,
-            values: [_this3.filterList.price.min, _this3.filterList.price.max],
+            min: _this4.filterList.price.min,
+            max: _this4.filterList.price.max,
+            values: [_this4.filterList.price.min, _this4.filterList.price.max],
             slide: function slide(event, ui) {
               $("#priceRange").val("₽" + ui.values[0] + " - ₽" + ui.values[1]);
             }
@@ -226,12 +232,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     searchProduct: function searchProduct(someData) {
-      var _this4 = this;
+      var _this5 = this;
       if (someData) {
         this.axios.post('/api/search', {
           'title': someData.title
         }).then(function (res) {
-          _this4.products = res.data;
+          _this5.products = res.data;
         });
       }
     }
@@ -834,6 +840,12 @@ var _hoisted_140 = /*#__PURE__*/_withScopeId(function () {
   }, null, -1 /* HOISTED */);
 });
 var _hoisted_141 = [_hoisted_140];
+var _hoisted_142 = {
+  "class": "alert alert-warning notification",
+  role: "alert"
+};
+var _hoisted_143 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Товар ");
+var _hoisted_144 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" добавлен в корзину. ");
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
@@ -1033,7 +1045,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.getProducts($data.pagination.current_page + 1);
     }, ["prevent"])),
     href: "#0"
-  }, _hoisted_141)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End product-grid")])]);
+  }, _hoisted_141)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+    name: "fade",
+    persisted: ""
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_142, [_hoisted_143, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+        to: "/cart",
+        "class": "alert-link text-info"
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.notTitle), 1 /* TEXT */)];
+        }),
+
+        _: 1 /* STABLE */
+      }), _hoisted_144], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.visibleNot]])];
+    }),
+    _: 1 /* STABLE */
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End product-grid")])]);
 }
 
 /***/ }),
@@ -1077,7 +1106,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.filtres[data-v-6d9964ba]{\n    z-index: 111111111;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.filtres[data-v-6d9964ba]{\n    z-index: 111111111;\n}\n.notification[data-v-6d9964ba]{\n    position: fixed;\n    bottom: 0;\n    right: 0;\n    z-index: 1111111;\n}\n.fade-enter-active[data-v-6d9964ba], .fade-leave-active[data-v-6d9964ba] {\n    transition: all .3s ease;\n}\n.fade-enter[data-v-6d9964ba], .fade-leave-to[data-v-6d9964ba] {\n    opacity: 0;\n    transform: translateY(100%);\n}\n.fade-enter-to[data-v-6d9964ba], .fade-leave[data-v-6d9964ba] {\n    opacity: 1;\n    transform: translateY(0);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

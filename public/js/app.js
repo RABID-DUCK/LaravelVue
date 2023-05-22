@@ -17734,6 +17734,7 @@ __webpack_require__.r(__webpack_exports__);
       this.totalPrice = computedCart.reduce(function (sum, product) {
         return sum + product.price * product.qty;
       }, 0);
+      this.$store.commit('TOTAL_PRICE');
     },
     subBtn: function subBtn() {
       this.subEmail = '';
