@@ -17,6 +17,6 @@ class RegisterNotifaction extends Mailable
     }
 
     public function build(){
-        return $this->view('auth.register_confirmation')->with($this->data);
+        return $this->view('auth.register_confirmation')->with($this->data)->subject('Регистрация на сайте Capigame');
     }
 }

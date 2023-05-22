@@ -53,7 +53,7 @@
                       <li><i class="flaticon-star-1"></i></li>
                       <li><i class="flaticon-star-1"></i></li>
                     </ul>
-                    <p>(2 отзыва)</p>
+                    <p>(0 отзывов)</p>
                   </div>
                 </div>
                 <div class="shop-details-top-title">
@@ -64,7 +64,9 @@
                   <li><span>Продавец:</span> Capigame</li>
                 </ul>
                 <div class="shop-details-top-price-box">
-                  <h3>{{ product.price }}.руб <del v-if="product.old_price">{{ product.old_price }}.руб</del></h3>
+                  <h3 v-if="this.$store.getters.currencyValue === 'rub'">{{ product.price }}.руб <del v-if="product.old_price">{{ product.old_price }}.руб</del></h3>
+                  <h3 v-if="this.$store.getters.currencyValue === 'usd'">${{ (product.price).toFixed(2) }} <del v-if="product.old_price">${{ (product.old_price).toFixed(2) }}</del></h3>
+                  <h3 v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ (product.price).toFixed(2) }} <del v-if="product.old_price">₸{{ (product.old_price).toFixed(2) }}</del></h3>
                   <p>(+15% НДС включает)</p>
                 </div>
                 <p class="shop-details-top-product-sale"><span>1</span> Продуктов продано за 12 ч
@@ -85,7 +87,7 @@
                   <div class="product-quantity-box d-flex align-items-center flex-wrap">
                     <div class="qty mr-2">
                       <div class="qtySelector text-center"> <span class="decreaseQty"><i
-                          class="flaticon-minus"></i> </span> <input type="number"
+                          class="flaticon-minus"></i> </span> <input type="number" min="1" :max="product.count"
                                                                      class="qtyValue" value="1" /> <span class="increaseQty"> <i
                           class="flaticon-plus"></i> </span> </div>
                     </div>

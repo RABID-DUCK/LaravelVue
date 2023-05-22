@@ -142,7 +142,9 @@
       <div class="bottom">
         <div class="total-ammount d-flex justify-content-between align-items-center">
           <h6 class="text-uppercase">Итого:</h6>
-          <h6 class="ammount text-uppercase">{{this.$store.state.totalPrice}}.руб</h6>
+          <h6 class="ammount text-uppercase" v-if="this.$store.getters.currencyValue === 'rub'">{{this.$store.state.totalPrice}}.руб</h6>
+          <h6 class="ammount text-uppercase" v-if="this.$store.getters.currencyValue === 'usd'">${{this.$store.state.totalPrice}}</h6>
+          <h6 class="ammount text-uppercase" v-if="this.$store.getters.currencyValue === 'kzt'">₸{{this.$store.state.totalPrice}}</h6>
         </div>
         <div class="button-box d-flex justify-content-between">
           <router-link to="/cart" class="btn_black w-100"> Страница корзины</router-link></div>
@@ -309,7 +311,6 @@ export default {
     mounted() {
     $(document).trigger('changed')
     this.getCartProducts()
-
   },
     watch: {
       '$store.getters.statusUser': function (value) {

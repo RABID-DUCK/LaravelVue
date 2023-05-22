@@ -1,7 +1,7 @@
 <template>
     <main class="overflow-hidden ">
         <!--Start Breadcrumb Style2-->
-        <section class="breadcrumb-area" style="background-image: url('images/logo/breadcum-bg.png');">
+        <section class="breadcrumb-area" style="background-image: url('images/logo.png');">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">

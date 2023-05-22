@@ -160,24 +160,21 @@
                           <div class="products-three-single-img">
                               <a :href="`/products/${product.id}`" class="d-block">
                                   <img :src="product.image_url ?? 'storage/'+product.preview_image" class="first-img" alt="" />
-                                  <img src="assets/images/logo/logo.png" alt="" class="hover-img" />
+                                      <img src="assets/images/logo/logo.png" alt="" class="hover-img" />
                           </a>
                             <div class="products-grid-one__badge-box"> <span
                                 class="bg_base badge new ">New</span>
-                            </div> <a @click.prevent="addToCart(product, true)" href="cart.html" class="addcart btn--primary style2">
+                            </div> <a @click.prevent="addToCart(product, true)"  class="addcart btn--primary style2">
                               Add To Cart </a>
                             <div class="products-grid__usefull-links">
                               <ul>
                                 <li><a @click.prevent="addToFav(product)"> <i class="flaticon-heart">
                                 </i> <span>
-                                                                            wishlist</span> </a> </li>
-                                <li><a href="compare.html"> <i
-                                    class="flaticon-left-and-right-arrows"></i>
-                                  <span>
-                                                                            compare</span> </a> </li>
+                                                                            Избранное</span> </a> </li>
+
                                 <li><a class="popup_link" :href="`#popup${product.id}`" @click="getProduct(product.id)"> <i
                                     class="flaticon-visibility"></i>
-                                  <span> quick view</span>
+                                  <span> Открыть</span>
                                 </a> </li>
                               </ul>
                             </div>
@@ -223,12 +220,18 @@
                                           class="flaticon-star"></i>
                                         <i class="flaticon-star"></i> <i
                                             class="flaticon-star"></i>
-                                        <span>(112)</span> </div>
+                                        <span>(0)</span> </div>
                                       <p class="text"> {{popupProduct.description}}
                                       </p>
                                       <div class="price">
-                                        <h2> {{ popupProduct.price }}.руб
+                                        <h2 v-if="this.$store.getters.currencyValue === 'rub'"> {{ popupProduct.price }}.руб
                                           <del v-if="popupProduct.old_price > 0"> {{popupProduct.old_price}}.руб</del>
+                                        </h2>
+                                          <h2 v-if="this.$store.getters.currencyValue === 'usd'"> ${{ (popupProduct.price / 76).toFixed(2) }}
+                                          <del v-if="popupProduct.old_price > 0"> ${{(popupProduct.old_price / 76).toFixed(2)}}</del>
+                                        </h2>
+                                          <h2 v-if="this.$store.getters.currencyValue === 'kzt'"> ₸{{ (popupProduct.price * 5.81).toFixed(2)}}
+                                          <del v-if="popupProduct.old_price > 0"> ₸{{(popupProduct.old_price * 5.81).toFixed(2)}}</del>
                                         </h2>
                                         <h6 v-if="popupProduct.is_published == 1" style="color: green;"> В наличии</h6>
                                         <h6 v-else style="color: red;"> Нет в наличии</h6>
@@ -240,7 +243,7 @@
                                                 <span class="decreaseQty"><i
                                                     class="flaticon-minus"></i>
                                                 </span> <input type="number"
-                                                               class="qtyValue" value="1" />
+                                                               class="qtyValue" value="1" min="1" :max="product.count" />
                                             <span class="increaseQty"> <i
                                                 class="flaticon-plus"></i>
                                                                                     </span> </div>
@@ -498,14 +501,17 @@ export default {
 }
 </script>
 <style scoped>
+.product-gird__quick-view-popup{
+    z-index: 22;
+}
 .filtres{
-    z-index: 111111111;
+    z-index: 11;
 }
 .notification{
     position: fixed;
     bottom: 0;
     right: 0;
-    z-index: 1111111;
+    z-index: 11;
 }
 .fade-enter-active, .fade-leave-active {
     transition: all .3s ease;

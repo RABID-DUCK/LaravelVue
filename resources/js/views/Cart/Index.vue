@@ -2,7 +2,7 @@
 <div>
   <main class="overflow-hidden ">
     <!--Start Breadcrumb Style2-->
-    <section class="breadcrumb-area" style="background-image: url('/assets/images/inner-pages/breadcum-bg.png');">
+    <section class="breadcrumb-area" style="background-image: url('images/logo.png');">
       <div class="container">
         <div class="row">
           <div class="col-xl-12">
@@ -47,14 +47,18 @@
                         <h5> {{product.title}} </h5>
                       </router-link> </div>
                     </td>
-                    <td>{{product.price}}.руб</td>
+                    <td v-if="this.$store.getters.currencyValue === 'rub'">{{product.price}}.руб</td>
+                    <td v-if="this.$store.getters.currencyValue === 'usd'">${{(product.price / 76).toFixed(2)}}</td>
+                    <td v-if="this.$store.getters.currencyValue === 'kzt'">₸{{(product.price * 5.81).toFixed(2)}}</td>
                     <td class="qty">
                       <div class="qtySelector text-center">
                         <span @click.prevent="minusQty(product)" class="decreaseQty"><i class="flaticon-minus"></i> </span>
-                        <input type="number" class="qtyValue" :value="product.qty" />
+                        <input type="number" min="1" :max="product.count" class="qtyValue" :value="product.qty" />
                         <span @click.prevent="plusQty(product)" class="increaseQty"> <i class="flaticon-plus"></i> </span> </div>
                     </td>
-                    <td class="sub-total">{{product.price * product.qty}}.руб</td>
+                    <td class="sub-total" v-if="this.$store.getters.currencyValue === 'rub'">{{product.price * product.qty}}.руб</td>
+                    <td class="sub-total" v-if="this.$store.getters.currencyValue === 'usd'">${{(product.price * product.qty / 76).toFixed(2)}}</td>
+                    <td class="sub-total" v-if="this.$store.getters.currencyValue === 'kzt'">₸{{(product.price * product.qty * 5.81).toFixed(2)}}</td>
                     <td>
                       <div @click.prevent="removeProduct(product.id)" class="remove"> <i class="flaticon-cross"></i> </div>
                     </td>
@@ -96,7 +100,9 @@
                     <p>Промежуточный итог</p>
                   </div>
                   <div class="right">
-                    <p>{{totalPrice}}.руб</p>
+                    <p v-if="this.$store.getters.currencyValue === 'rub'">{{totalPrice}}.руб</p>
+                    <p v-if="this.$store.getters.currencyValue === 'usd'">${{(totalPrice).toFixed(2)}}</p>
+                    <p v-if="this.$store.getters.currencyValue === 'kzt'">₸{{(totalPrice).toFixed(2)}}</p>
                   </div>
                 </li>
                 <li>
@@ -104,7 +110,9 @@
                     <p>Скидка</p>
                   </div>
                   <div class="right">
-                    <p><span>Размер:</span> 0.руб</p>
+                    <p v-if="this.$store.getters.currencyValue === 'rub'"><span>Размер:</span> 0.руб</p>
+                    <p v-if="this.$store.getters.currencyValue === 'usd'"><span>Размер:</span>$0</p>
+                    <p v-if="this.$store.getters.currencyValue === 'kzt'"><span>Размер:</span>₸0</p>
                   </div>
                 </li>
                 <li>
@@ -113,8 +121,8 @@
                   </div>
                   <div class="right">
                     <p  v-if="this.$store.getters.currencyValue === 'rub'">{{ totalPrice }}.руб</p>
-                    <p  v-if="this.$store.getters.currencyValue === 'usd'">${{ totalPrice }}</p>
-                    <p  v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ totalPrice }}</p>
+                    <p  v-if="this.$store.getters.currencyValue === 'usd'">${{ (totalPrice).toFixed(2) }}</p>
+                    <p  v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ (totalPrice).toFixed(2) }}</p>
                   </div>
                 </li>
               </ul>
@@ -143,15 +151,22 @@
                     <p>Сумма</p>
                   </div>
                   <div class="right">
-                    <p><span>Размер:</span> {{totalPrice}}.руб</p>
+                    <p v-if="this.$store.getters.currencyValue === 'rub'"><span>Размер:</span> {{totalPrice}}.руб</p>
+                    <p v-if="this.$store.getters.currencyValue === 'usd'"><span>Размер:</span> ${{(totalPrice).toFixed(2)}}</p>
+                    <p v-if="this.$store.getters.currencyValue === 'kzt'"><span>Размер:</span> ₸{{(totalPrice).toFixed(2)}}</p>
                   </div>
                 </li>
                 <li>
                     <div class="left"></div>
                     <div class="right">
-                        <button @click.prevent="storeOrder" class="btn btn-success">Оформить</button>
+                        <button @click.prevent="storeOrder" class="btn btn-success" id="buy">Оформить</button>
                     </div>
                 </li>
+                  <div v-if="isSend" class="d-flex justify-content-center">
+                      <div class="spinner-border " role="status">
+                          <span class="visually-hidden">Загрузка...</span>
+                      </div>
+                  </div>
               </ul>
             </div>
           </div>
@@ -179,7 +194,8 @@ export default {
       products: [],
       totalPrice: 0,
         email: '',
-        number_phone: ''
+        number_phone: '',
+        isSend: false
     }
   },
     methods: {
@@ -214,6 +230,8 @@ export default {
         this.totalPrice = this.products.reduce((sum, product) => sum + product.price * product.qty, 0)
     },
       storeOrder(){
+          this.isSend = true;
+            document.getElementById('buy').setAttribute("disabled", "");
           if(this.$store.state.user){
               this.email = this.$store.state.user.address
               this.number_phone = this.$store.state.user.number
@@ -225,12 +243,13 @@ export default {
             'total_price': this.totalPrice,
         })
             .then(res => {
-                    this.products = [];
-                    this.updateCart()
-                    this.calculateTotal()
-                    this.$store.commit('CART_ITEMS');
-                    alert('Заказ отправлен вам на почту!');
-
+                this.products = [];
+                this.updateCart()
+                this.calculateTotal()
+                this.$store.commit('CART_ITEMS');
+                document.getElementById('buy').removeAttribute("disabled");
+                this.isSend = false;
+                alert('Заказ отправлен вам на почту!');
             })
             .finally(v => {
                 $(document).trigger('changed')

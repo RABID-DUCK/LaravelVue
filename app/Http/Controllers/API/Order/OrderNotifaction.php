@@ -18,6 +18,6 @@ class OrderNotifaction extends Mailable
     }
 
     public function build(){
-        return $this->view('order.order_confirmation')->with($this->data);
+        return $this->view('order.order_confirmation')->with($this->data)->subject('Покупка на Capigame');
     }
 }

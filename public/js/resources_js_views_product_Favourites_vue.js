@@ -80,7 +80,7 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "breadcrumb-area",
   style: {
-    "background-image": "url(assets/images/inner-pages/breadcum-bg.png)"
+    "background-image": "url('images/logo.png')"
   }
 };
 var _hoisted_3 = {
