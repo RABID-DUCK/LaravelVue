@@ -49,7 +49,7 @@
                                                 @foreach(json_decode($order['products'], true) as $product)
                                                 <tr>
                                                     <td>{{$product['title']}}</td>
-                                                    <td><img src="{{$product['image_url']}}" alt="{{$product['title']}}" width="200" height="100"></td>
+                                                    <td><img src="https://109.191.89.254:4433/{{strstr( $product['image_url'], 'storage')}}" alt="{{$product['title']}}" width="200" height="100"></td>
                                                     <td>{{$product['qty']}}</td>
                                                     <td>{{$product['price']}}.руб</td>
                                                 </tr>

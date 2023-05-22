@@ -17843,7 +17843,6 @@ __webpack_require__.r(__webpack_exports__);
         this.email = this.$store.state.user.address;
         this.number_phone = this.$store.state.user.number;
       }
-      console.log(this.$store.state.user);
       this.axios.post('/api/orders', {
         'email': this.email,
         'number_phone': this.number_phone,

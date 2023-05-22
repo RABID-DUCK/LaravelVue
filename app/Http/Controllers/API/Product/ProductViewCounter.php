@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\API\Product;
 
+use App\Models\Product;
+use Illuminate\Http\Request;
 use Ratchet\ConnectionInterface;
 
 class ProductViewCounter implements \Ratchet\WebSocket\Stub\WsMessageComponentInterface
