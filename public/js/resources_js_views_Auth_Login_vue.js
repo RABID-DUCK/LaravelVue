@@ -37,6 +37,7 @@ __webpack_require__.r(__webpack_exports__);
         }).then(function (res) {
           console.log(res);
           _this.$store.commit('ADD_AUTH', res.data.access_token);
+          _this.$store.commit('SET_IS_LOGED_IN', true);
           _this.$router.push({
             name: 'Auth.MyAccount'
           });

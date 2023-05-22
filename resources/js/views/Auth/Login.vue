@@ -58,8 +58,8 @@ export default {
                     .then(res => {
                             console.log(res);
                             this.$store.commit('ADD_AUTH', res.data.access_token)
+                            this.$store.commit('SET_IS_LOGED_IN', true)
                             this.$router.push({name: 'Auth.MyAccount'})
-
                     })
                     .catch(err => {
                         this.error = err.response.data.error

@@ -25,7 +25,7 @@ class StoreController extends Controller
         if (!$user){
             $user = User::firstOrCreate([
                 'address' => $data['email'],
-                'name' => $data['name'],
+                'name' => $data['name'] ?? '',
                 'login' => $data['login'] ?? $tempLogin,
                 'number' => $data['number_phone'],
                 'password' => $password,

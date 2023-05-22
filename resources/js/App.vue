@@ -1,6 +1,5 @@
 <template>
 <div>
-
   <!-- header-default start -->
   <header class="header-style-3">
     <!-- Start Desktop Menu -->
@@ -39,8 +38,8 @@
                 <li class="dropdown-list"> <router-link to="/"> <span>Главная </span> </router-link></li>
                 <li class="dropdown-list"> <router-link to="/about"> <span>О нас </span> </router-link></li>
                 <li><router-link to="/contacts">Контакты </router-link></li>
-                <li><router-link to="/login" v-if="this.$store.getters.isLogedIn" >Войти в </router-link></li>
-                <li><router-link to="/register" v-if="this.$store.getters.isLogedIn">Регистрация </router-link></li>
+                <li><router-link to="/login" v-if="!isSignIn" >Войти в </router-link></li>
+                <li><router-link to="/register" v-if="!isSignIn">Регистрация </router-link></li>
               </ul>
             </div>
           </div>
@@ -65,11 +64,11 @@
                                     <option>Россия </option>
                                     <option value="1" disabled title="Скоро...(soon...)">English</option>
                                 </select> </div>
-                                <div v-if="!this.$store.getters.statusUser" class="d-flex">
+                                <div v-if="!isSignIn" class="d-flex">
                                     <router-link to="/login" class="auth"> Войти</router-link> /
                                     <router-link to="/register" class="auth"> Зарегистрироваться </router-link>
                                 </div>
-                                <div v-else>
+                                <div v-if="isSignIn && this.$store.state.user.login">
                                     <router-link to="/myAccount" class="text-warning">{{this.$store.state.user.login}}</router-link>
                                 </div>
                             </div>
@@ -111,14 +110,11 @@
                         </div>
                     </div>
                 </div>
-            </div> <a href="shop-grid.html" class="offer-link"> Offer </a>
+            </div> <a href="#" class="offer-link"> Offer </a>
           </div>
         </div>
       </div>
     </div>
-
-
-
 
     <div class="side-cart-closer"></div>
     <div class="side-cart d-flex flex-column justify-content-between">
@@ -306,20 +302,26 @@ export default {
     return {
       products: [],
       totalPrice: 0,
-        subEmail: ''
+        subEmail: '',
+        isSignIn: false
     }
   },
     mounted() {
     $(document).trigger('changed')
     this.getCartProducts()
-        this.$store.dispatch('getUserInfo')
+
   },
+    watch: {
+      '$store.getters.statusUser': function (value) {
+            this.isSignIn = value
+          this.$store.dispatch('getUserInfo')
+      }
+    },
     methods: {
     getCartProducts(){
       if (localStorage.getItem('cart') || []){
         this.products = JSON.parse(localStorage.getItem('cart'));
         this.$store.commit('CART_ITEMS');
-          console.log(this.products);
           if (this.products !== null){
             this.calculateCartPrice()
         }

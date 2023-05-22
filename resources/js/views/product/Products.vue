@@ -71,7 +71,7 @@
             <div class="shop-grid-sidebar"> <button class="remove-sidebar d-lg-none d-block"> <i
                 class="flaticon-cross"> </i> </button>
               <div class="sidebar-holder">
-                <search-modal></search-modal>
+                <search-modal :search="searchTitle" @search-products="searchProduct"></search-modal>
                 <div class="single-sidebar-box mt-30 wow fadeInUp animated ">
                   <h4>Выберите категории</h4>
                   <div class="checkbox-item">
@@ -159,7 +159,7 @@
                         <div class="products-three-single w-100  mt-30">
                           <div class="products-three-single-img">
                               <a :href="`/products/${product.id}`" class="d-block">
-                                  <img :src="product.image_url" class="first-img" alt="" />
+                                  <img :src="product.image_url ?? 'storage/'+product.preview_image" class="first-img" alt="" />
                                   <img src="assets/images/logo/logo.png" alt="" class="hover-img" />
                           </a>
                             <div class="products-grid-one__badge-box"> <span
@@ -345,7 +345,8 @@ export default {
       selectedSort: "all",
       pagination: [],
       totalPrice: 0,
-        isLoadedProduct: false
+        isLoadedProduct: false,
+        searchTitle: ''
     }
   },
   methods: {
@@ -470,7 +471,18 @@ export default {
           .finally(v => {
             $(document).trigger('changed');
           })
-    }
+    },
+      searchProduct(someData){
+          if (someData){
+              this.axios.post('/api/search', {
+                  'title': someData.title
+              })
+                  .then(res => {
+                      this.products = res.data;
+                  })
+          }
+      }
+
   },
 }
 </script>

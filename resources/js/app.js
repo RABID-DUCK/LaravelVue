@@ -83,7 +83,6 @@ const store = createStore({
                     localStorage.removeItem('access_token');
                     state.isLogedIn = false;
                     state.user = null;
-                    router.push({name: 'Auth.Login'})
                 })
         },
         ADD_TO_FAVOURITES: (state, product) => {

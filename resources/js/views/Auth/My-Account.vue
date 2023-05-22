@@ -133,6 +133,7 @@
 <script>
 import {mapState} from "vuex";
 import ModalWindow from "../../components/ModalWindow";
+import router from "../../router";
 
 export default {
     name: "My-Account",
@@ -150,6 +151,7 @@ export default {
         logout(){
             document.cookie = 'user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
             this.$store.commit('LOGOUT');
+            router.push({name: 'Auth.Login'})
         },
         goAdmin(){
             let webApiUrl = '/admin';

@@ -1,8 +1,8 @@
 <template>
     <form class="footer-default__subscrib-form m-0 p-0 wow fadeInUp animated">
         <div class="footer-input-box p-0 ">
-            <input v-model="title" type="email" placeholder="Поиск..." name="email" @input="getPoruducts" >
-            <button type="submit" class="subscribe_btn"> <i class="flaticon-magnifying-glass"></i></button>
+            <input v-model="title" type="search" placeholder="Поиск..." name="search" @input="getPoruducts" >
+            <button @click.prevent="searchProducts" type="submit" class="subscribe_btn"> <i class="flaticon-magnifying-glass"></i></button>
         </div>
     </form>
     <div class="row" v-show="visible">
@@ -21,6 +21,8 @@
 <script>
 export default {
     name: "SearchModal",
+    emits: ['searchProducts'],
+    props: ['search'],
     data() {
         return {
             title: '',
@@ -40,6 +42,14 @@ export default {
                     })
             }
             else{
+                this.visible = false;
+            }
+        },
+        searchProducts(){
+            if (this.title){
+            this.$emit('searchProducts', {
+                title: this.title
+                })
                 this.visible = false;
             }
         }
