@@ -1,11 +1,12 @@
 import './bootstrap';
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import {createStore} from 'vuex'
 import App from './App.vue'
 import router from './router'
 import VueTheMask from 'vue-the-mask'
 import axios from 'axios'
 import { debounce } from "lodash";
+
 
 const app = createApp(App)
 const store = createStore({
@@ -19,7 +20,7 @@ const store = createStore({
         isLoadingUser: false,
         tokenRefreshed: true,
         favourites: [],
-        countFav: 0
+        countFav: 0,
     },
     mutations: {
         ADD_TO_CART: (state, product) => {
@@ -158,8 +159,6 @@ const store = createStore({
                 } else {
                     commit('SET_IS_LOGED_IN', false);
                 }
-
-
         }, 1000),
         initalizePrice: ({commit, getters}) => {
             const value = localStorage.getItem('cur_value') || 'rub';

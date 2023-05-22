@@ -81,6 +81,4 @@ Route::group(['prefix' => 'orders'], function () {
 
 Route::get('{page}', \App\Http\Controllers\Client\IndexController::class)->where('page', '.*');
 
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -24,9 +24,16 @@ class UpdateRequest extends FormRequest
         return [
             'login' => 'nullable|string',
             'name' => 'nullable|string',
-            'address' => 'nullable|string',
+            'address' => 'nullable|string|unique:users',
             'number' => 'nullable|string',
             'is_admin' => 'nullable|string'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'address.unique' => 'Пользователь с такой почтой уже существует!'
         ];
     }
 }

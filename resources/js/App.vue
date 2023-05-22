@@ -12,9 +12,9 @@
               <div class="container">
                 <div class="row">
                   <div class="menu-info d-flex justify-content-between align-items-center">
-                    <div class="menubar"> <span></span> <span></span> <span></span> </div> <a
-                      href="index.html" class="logo"> <img src="../../public/assets/images/logo/logo.png"
-                                                           alt=""> </a>
+                    <div class="menubar"> <span></span> <span></span> <span></span> </div> <router-link
+                      to="/" class="logo"> <img src="../../public/assets/images/logo/logo.png"
+                                                           alt=""> </router-link>
                     <div class="cart-holder">
                       <a href="#0" class="cart cart-icon position-relative">
                         <i class="flaticon-shopping-cart"></i>
@@ -38,9 +38,9 @@
               <ul class="page-dropdown-menu">
                 <li class="dropdown-list"> <router-link to="/"> <span>Главная </span> </router-link></li>
                 <li class="dropdown-list"> <router-link to="/about"> <span>О нас </span> </router-link></li>
-                <li><router-link to="/contacts">Contact </router-link></li>
-                <li><router-link to="/login">Login </router-link></li>
-                <li><router-link to="/register">Register </router-link></li>
+                <li><router-link to="/contacts">Контакты </router-link></li>
+                <li><router-link to="/login" v-if="this.$store.getters.isLogedIn" >Войти в </router-link></li>
+                <li><router-link to="/register" v-if="this.$store.getters.isLogedIn">Регистрация </router-link></li>
               </ul>
             </div>
           </div>
@@ -65,8 +65,9 @@
                                     <option>Россия </option>
                                     <option value="1" disabled title="Скоро...(soon...)">English</option>
                                 </select> </div>
-                                <div v-if="!this.$store.getters.statusUser">
-                                    <router-link to="/register"> Войти / Зарегистрироваться </router-link>
+                                <div v-if="!this.$store.getters.statusUser" class="d-flex">
+                                    <router-link to="/login" class="auth"> Войти</router-link> /
+                                    <router-link to="/register" class="auth"> Зарегистрироваться </router-link>
                                 </div>
                                 <div v-else>
                                     <router-link to="/myAccount" class="text-warning">{{this.$store.state.user.login}}</router-link>
@@ -159,7 +160,7 @@
         <div class="sidebar-textwidget">
           <div class="sidebar-info-contents">
             <div class="content-inner">
-              <div class="logo"> <a href="index.html"><img src="assets/images/logo/logo-2.png" alt=""></a>
+              <div class="logo"> <router-link to="/"><img src="assets/images/logo/logo-2.png" alt=""></router-link>
               </div>
               <div class="content-box">
                 <h4>About Us</h4>
@@ -167,29 +168,6 @@
                   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                     Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
                 </div>
-              </div>
-              <div class="form_inner">
-                <h4>Поддержка</h4>
-                <form action="index.html" method="post">
-                  <div class="form-group mt-4"> <input type="text" name="name" placeholder="Имя"
-                                                       required=""> </div>
-                  <div class="form-group mt-4"> <input type="email" name="email" placeholder="Почта"
-                                                       required=""> </div>
-                  <div class="form-group mt-4"> <textarea name="message"
-                                                          placeholder="Сообщение..."></textarea> </div>
-                  <div class="form-group message-btn mt-4"> <button type="submit"
-                                                                    class="btn--secondary"> <span class="txt">Отправить</span> </button> </div>
-                </form>
-              </div>
-              <div class="sidebar-contact-info">
-                <h4>Contact Info</h4>
-                <ul>
-                  <li> <span class="flaticon-pin-1"></span> New York, United States </li>
-                  <li> <span class="flaticon-telephone"></span> <a href="tel:+44203700001">+44 123 456
-                    789</a> </li>
-                  <li> <span class="flaticon-mail"></span> <a
-                      href="mailto:info@example.com">info@example.com</a> </li>
-                </ul>
               </div>
               <div class="thm-medio-boxx1">
                 <ul class="social-box">
@@ -338,10 +316,13 @@ export default {
   },
     methods: {
     getCartProducts(){
-      if (localStorage.getItem('cart')){
+      if (localStorage.getItem('cart') || []){
         this.products = JSON.parse(localStorage.getItem('cart'));
         this.$store.commit('CART_ITEMS');
-        this.calculateCartPrice()
+          console.log(this.products);
+          if (this.products !== null){
+            this.calculateCartPrice()
+        }
       }
     },
     removeProduct(id) {
@@ -367,5 +348,7 @@ export default {
 </script>
 
 <style scoped>
-
+.auth:hover{
+    color: #f69c63;
+}
 </style>

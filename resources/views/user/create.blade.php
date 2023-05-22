@@ -68,7 +68,7 @@
             jQuery(document).ready(function($) {
                 const phoneInput = document.querySelector('#phone');
                 if (phoneInput) {
-                    $('#phone').mask('+7(999)999-9999');
+                    $('#phone').mask('+7(999)999-99-99');
                 }
             });
         });

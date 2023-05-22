@@ -185,6 +185,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('color.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-laptop-code"></i>
+                            <p>
+                                Платформы
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-comments"></i>
                             <p>
@@ -222,7 +230,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2014-{{now()->year}} <a href="{{route('main.index')}}">Game.ru</a>.</strong>
+        <strong>Copyright &copy; 2014-{{now()->year}} <a href="{{route('main.index')}}">Capigame.ru</a>.</strong>
         All rights reserved.
     </footer>
 

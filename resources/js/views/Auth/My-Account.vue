@@ -9,7 +9,7 @@
                             <h2>Мой аккаунт </h2>
                             <div class="breadcrumb-menu">
                                 <ul>
-                                    <li><a href="index.html"><i class="flaticon-home pe-2"></i>Главная</a></li>
+                                    <li><router-link to="/"><i class="flaticon-home pe-2"></i>Главная</router-link></li>
                                     <li> <i class="flaticon-next"></i> </li>
                                     <li class="active">Мой аккаунт</li>
                                 </ul>
@@ -40,7 +40,7 @@
                                          aria-controls="v-pills-account" aria-selected="false">
                                     <span> Детали аккаунта</span>
                                 </button>
-                                <button @click="goAdmin" v-if="user.is_admin === 1" class="nav-link" id="v-pills-account-tab" data-bs-toggle="pill" data-bs-target="#v-pills-account" type="button" role="tab"
+                                <button @click="goAdmin" v-if="this.$store.state.user.is_admin === 1" class="nav-link" id="v-pills-account-tab" data-bs-toggle="pill" data-bs-target="#v-pills-account" type="button" role="tab"
                                          aria-controls="v-pills-account" aria-selected="false">
                                     <span> Админка</span>
                                 </button>
@@ -105,13 +105,19 @@
                             </div>
                             <div class="tab-pane fade" id="v-pills-account" role="tabpanel"
                                  aria-labelledby="v-pills-account-tab">
+
+
+
                                 <div class="tabs-content__single">
                                     <h4><span>Привет {{user.login}}</span></h4>
                                     <h4>Ваши данные:</h4>
                                     <h5>Логин: <span>{{user.login}}</span></h5>
-                                    <h5>Ваше имя: <span>{{user.name}}</span><i @click.prevent="penBtn" class="fas fa-pen-square"></i></h5>
-                                    <h5>Ваша почта: <span>{{user.address}}</span><i @click.prevent="penBtn" class="fas fa-pen-square"></i></h5>
-                                    <h5>Ваш телефон: <span>{{user.number}}</span><i @click.prevent="penBtn" class="fas fa-pen-square"></i></h5>
+                                    <h5>Ваше имя: <span>{{user.name}}</span></h5>
+                                    <h5>Ваша почта: <span>{{user.address}}</span></h5>
+                                    <h5>Ваш телефон: <span>{{user.number}}</span></h5>
+                                    <button @click.prevent="penBtn" type="button" class="btn btn-primary edit-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                            data-bs-whatever="@mdo">Редактировать<i class="fas fa-pen-square"></i></button>
+
                                 </div>
                             </div>
                         </div>
@@ -121,16 +127,20 @@
         </section>
         <!--End My Account Page-->
     </main>
+    <modal-window v-show="openModal" :backdrop="'static'"></modal-window>
 </template>
 
 <script>
 import {mapState} from "vuex";
+import ModalWindow from "../../components/ModalWindow";
 
 export default {
     name: "My-Account",
+    components: {ModalWindow},
     data() {
         return {
-            orders: []
+            orders: [],
+            openModal: false
         }
     },
     computed: {
@@ -159,7 +169,7 @@ export default {
                 })
         },
         penBtn(){
-
+            this.openModal = true;
         }
     }
 }
@@ -171,5 +181,8 @@ table td{
 }
 .fas{
     margin-left: 5px;
+}
+.edit-btn{
+    margin-top: 20px;
 }
 </style>

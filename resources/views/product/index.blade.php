@@ -36,7 +36,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Название</th>
-                                    <th style="width: 22%">Описание</th>
+                                    <th style="width: 22%">Платформа</th>
                                     <th>Изображение</th>
                                     <th>Старая цена</th>
                                     <th>Цена</th>

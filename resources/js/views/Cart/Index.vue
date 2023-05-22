@@ -10,9 +10,9 @@
               <h2>Cart</h2>
               <div class="breadcrumb-menu">
                 <ul>
-                  <li><a href="index.html"><i class="flaticon-home pe-2"></i>Home</a></li>
+                  <li><router-link to="/"><i class="flaticon-home pe-2"></i>На главную</router-link></li>
                   <li> <i class="flaticon-next"></i> </li>
-                  <li class="active">Cart</li>
+                  <li class="active">Корзина</li>
                 </ul>
               </div>
             </div>

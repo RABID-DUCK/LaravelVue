@@ -99,6 +99,13 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <select name="platforms[]" class="tags" multiple="multiple" data-placeholder="Выберите плтаформу" style="width: 100%;">
+                            @foreach($platforms as $platform)
+                            <option value="{{$platform->id}}">{{$platform->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Добавить">
                     </div>
                 </form>

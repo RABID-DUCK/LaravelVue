@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\IndexRequest;
+use App\Models\Color;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\ProductTag;
@@ -50,7 +51,15 @@ class StoreController extends Controller
                     'file_path' => $filePath
                 ]);
             }
+        }
 
+        if(isset($data['platforms'])){
+            foreach ($data['platforms'] as $platform){
+                Color::create([
+                    'product_id' => $product->id,
+                    'color_id' => $platform
+                ]);
+            }
         }
 
         return redirect()->route('product.index');

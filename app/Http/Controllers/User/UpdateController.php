@@ -17,6 +17,7 @@ class UpdateController extends Controller
             $user->is_admin = $data['is_admin'];
             unset($data['is_admin']);
         }
+
         $user->update($data);
 
         return view('user.show', compact('user'));

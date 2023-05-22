@@ -80,8 +80,6 @@
                     </div>
                   </div>
                 </div>
-                <p class="shop-details-top-product-sale"><span>{{ viewersCount }}</span> Людей смотрят этот товар
-                  product</p>
                 <div class="product-quantity">
                   <h4>Quantity</h4>
                   <div class="product-quantity-box d-flex align-items-center flex-wrap">
@@ -111,7 +109,7 @@
                         class="flaticon-youtube"></i></a> </li>
                     <li> <a href="https://twitter.com/" target="_blank"><i
                         class="flaticon-twitter"></i></a> </li>
-                    <li> <a href="https://www.instagram.com/" target="_blank"><i
+                    <li> <a href="https://www.instagram.com/rabid1ck" target="_blank"><i
                         class="flaticon-instagram"></i></a> </li>
                   </ul>
                 </div>
@@ -120,9 +118,7 @@
                     <div class="form-group"> <input type="checkbox" id="html"> <label for="html">Я согласен со всеми правилами и условиями магазина</label> </div>
                   </form>
                 </div>
-                <div class="shop-details-top-buy-now-btn"> <a href="#" class="btn--primary">Buy It
-                  Now</a> </div>
-                <ul class="shop-details-top-category-tags">
+                  <ul class="shop-details-top-category-tags">
                   <li>Категория: <span>{{ product.category.title }}</span></li>
                   <li>Теги: <span v-for="tag in product.tags">{{tag.title + ', '}} </span></li>
                 </ul>
@@ -242,24 +238,13 @@
                       interdependent customer service without clicks-and-mortar e-services. </p>
                   </div> <a href="#0" class="right-box"> Report this Comments </a>
                 </div>
-                <div class="review-single">
-                  <div class="left">
-                    <div class="ratting"> <i class="flaticon-star-1"></i> <i
-                        class="flaticon-star-1"></i> <i class="flaticon-star-1"></i> <i
-                        class="flaticon-star-1"></i> <i class="flaticon-star-1"></i> </div>
-                    <h6> Amazing Theme <span>Kurt Morgan on January 28, 2022</span> </h6>
-                    <p> Assertively conceptualize parallel process improvements through user
-                      friendly colighue to action items. Interactively antidos cultivate
-                      interdependent customer service without clicks-and-mortar e-services. </p>
-                  </div> <a href="#0" class="right-box">Report this Comments </a>
-                </div>
                 <div class="review-from-box mt-30">
-                  <h6>Write a Review</h6>
+                  <h6>Напишите свой отзыв</h6>
                   <form action="#" class="review-from">
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="ratting-box">
-                          <p> RATING </p>
+                          <p> Рейтинг </p>
                           <div class="ratting"> <i class="flaticon-star-1"></i> <i
                               class="flaticon-star-1"></i> <i class="flaticon-star-1"></i>
                             <i class="flaticon-star-1"></i> <i class="flaticon-star-1"></i>
@@ -267,31 +252,26 @@
                         </div>
                       </div>
                       <div class="col-lg-6">
-                        <div class="form-group"> <label for="name">NAME</label> <input
+                        <div class="form-group"> <label for="name">Имя</label> <input
                             type="text" id="name" class="form-control"
-                            placeholder="David Warner"> </div>
+                            placeholder="Евгений"> </div>
                       </div>
                       <div class="col-lg-6">
-                        <div class="form-group"> <label for="number">Number</label> <input
-                            type="text" id="number" class="form-control"
-                            placeholder="Phone Number"> </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group"> <label for="email"> Email </label> <input
+                        <div class="form-group"> <label for="email"> Электронная почта </label> <input
                             type="text" id="email" class="form-control"
-                            placeholder="support@gmail.com"> </div>
+                            placeholder="qwerty@gmail.com"> </div>
                       </div>
                       <div class="col-lg-6">
-                        <div class="form-group"> <label for="namee"> REVIEW TITLE</label> <input
+                        <div class="form-group"> <label for="namee"> Общее впечатление</label> <input
                             type="text" id="namee" class="form-control"
-                            placeholder="Give your review title"> </div>
+                            placeholder="Товар понравился!"> </div>
                       </div>
                       <div class="col-12">
-                        <div class="form-group m-0"> <label for="email">BODY OF REVIEW (1500)
+                        <div class="form-group m-0"> <label for="email">Описание (максимум 1500 символов)
                         </label> <textarea
-                            placeholder="Write Your Comments Here"></textarea> </div>
+                            placeholder="Напишите подробнее..."></textarea> </div>
                       </div>
-                    </div> <button type="submit" class="btn--primary style2 ">Submit Review
+                    </div> <button type="submit" class="btn--primary style2 ">Отправить отзыв
                   </button>
                   </form>
                 </div>
@@ -350,16 +330,13 @@ export default {
   data(){
     return {
       product: null,
-        viewersCount: 0,
         isProductsLoaded: false,
         anotherProducts: [],
         currentIndex: 0,
-        isLoading: false
+        isLoading: false,
     }
   },
     created() {
-      this.viewersCount++;
-      window.addEventListener('beforeunload', this.decreaseViewersCount)
         window.addEventListener('scroll', this.scrollMethod)
     },
     methods: {
@@ -371,9 +348,6 @@ export default {
           .finally(v => {
             $(document).trigger('changed')
           })
-    },
-    decreaseViewersCount(){
-        this.count--;
     },
     AddToCart(product){
         let qty = parseInt($('.qtyValue').val(), 10);

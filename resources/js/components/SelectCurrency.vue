@@ -16,7 +16,6 @@ export default {
     },
     watch: {
         '$store.getters.currencyValue': function(curValue){
-            console.log(curValue);
         }
     },
     methods: {

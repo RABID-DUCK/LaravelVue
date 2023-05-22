@@ -33,6 +33,9 @@
                     <input type="text" class="form-control" name="name" value="{{ $user->name ?? old('name')}}">
                     <label>Почта</label>
                     <input type="text" class="form-control" name="address" value="{{ $user->address ?? old('address') }}">
+                    @if($errors->has('address'))
+                        <div class="alert alert-danger">{{$errors->first('address')}}</div>
+                    @endif
                     <label>Телефон</label>
                     <input type="text" class="form-control" id="phone" name="number" value="{{ $user->number ?? old('number') }}" maxlength="18">
                     <label>Статус</label>
