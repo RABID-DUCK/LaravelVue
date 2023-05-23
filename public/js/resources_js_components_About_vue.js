@@ -12,7 +12,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "About"
+  name: "About",
+  data: function data() {
+    return {
+      reviews: []
+    };
+  },
+  mounted: function mounted() {
+    this.getReviews();
+  },
+  methods: {
+    getReviews: function getReviews() {
+      var _this = this;
+      this.axios.get('/api/listReviews').then(function (res) {
+        _this.reviews = res.data;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -79,7 +95,58 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticV
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"mission\" data-v-fb05e49c><div class=\"shape1\" data-v-fb05e49c><img src=\"assets/images/shape/mission-v1-shape1.png\" alt=\"\" data-v-fb05e49c></div><div class=\"shape2\" data-v-fb05e49c><img src=\"assets/images/shape/mission-v1-shape2.png\" alt=\"\" data-v-fb05e49c></div><div class=\"auto-container container mission__background pt-120 pb-120\" data-v-fb05e49c><div class=\"container\" data-v-fb05e49c><div class=\"row mt--30 align-items-center justify-content-center\" data-v-fb05e49c><!--Start Mission One Content--><div class=\"col-lg-6 col-md-10 mt-30\" data-v-fb05e49c><div class=\"mission__content text-lg-start text-center\" data-v-fb05e49c><h2 class=\"wow fadeInUp animated\" data-v-fb05e49c>Наша миссия</h2><p class=\"wow fadeInUp animated\" data-v-fb05e49c>Наша компания стремится стать самым узнаваемым и надежным интернет-магазином видеоигр, который будет являться первым выбором для геймеров всего мира. Мы продвигаем наш бизнес с целью стать топовым игровым ресурсом, который предоставляет только самые лучшие игры и осуществляет быструю и качественную доставку. Наш главный приоритет - это удовлетворение потребностей наших клиентов, предоставление им отличного сервиса и уверенность в том, что они всегда найдут здесь игры, которые им нужны. Мы стремимся к постоянному улучшению нашего сервиса, расширению ассортимента и созданию лучшего опыта для всех наших клиентов.</p><div class=\"btn-box wow fadeInUp animated\" data-v-fb05e49c></div></div></div><!--End Mission One Content--><!--Start Mission One Img--><div class=\"col-lg-6 mt-30\" data-v-fb05e49c><div class=\"mission__thumb wow fadeInRight animated\" data-v-fb05e49c><img src=\"images/auf.jpg\" alt=\"\" data-v-fb05e49c><div class=\"content-box\" data-v-fb05e49c><div class=\"icon\" data-v-fb05e49c><i class=\"flaticon-quote\" data-v-fb05e49c></i></div><h3 data-v-fb05e49c>Добиться успеха легче, чем его заслужить.</h3><div class=\"author-box\" data-v-fb05e49c><h5 data-v-fb05e49c>Альбер Камю</h5></div></div></div></div><!--End Mission One Img--></div></div></div></section>", 1);
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"team pt-120 pb-120\" data-v-fb05e49c><div class=\"container\" data-v-fb05e49c><div class=\"row justify-content-center\" data-v-fb05e49c><div class=\"col-xl-6 col-lg-9\" data-v-fb05e49c><div class=\"section-head text-center wow fadeInUp animated\" data-v-fb05e49c><h2 class=\"title\" data-v-fb05e49c>Мы гордимся тем, что у нас есть команда высококвалифицированных специалистов</h2></div></div></div><div class=\"row justify-content-center\" data-v-fb05e49c><!--Start Team One Single--><div class=\"col-xl-4 col-lg-4 col-md-6 col-10 wow fadeInUp animated\" data-v-fb05e49c><div class=\"team__single mt-30\" data-v-fb05e49c><div class=\"team__single-img\" data-v-fb05e49c><img src=\"assets/images/me/me.jpg\" alt=\"моё фото\" data-v-fb05e49c><div class=\"overlay-text\" data-v-fb05e49c><ul data-v-fb05e49c><li data-v-fb05e49c><h6 data-v-fb05e49c><a href=\"https://vk.com/rabid_duck_1\" target=\"_blank\" data-v-fb05e49c>Вконтакте</a></h6></li><li data-v-fb05e49c><h6 data-v-fb05e49c><a href=\"https://www.twitch.tv/rab1d_ru\" target=\"_blank\" data-v-fb05e49c>Twitch</a></h6></li><li data-v-fb05e49c><h6 data-v-fb05e49c><a href=\"https://www.instagram.com/rab1dick/\" target=\"_blank\" data-v-fb05e49c>Instagram</a></h6></li></ul></div></div><div class=\"team-content text-center\" data-v-fb05e49c><h2 data-v-fb05e49c><a href=\"#0\" data-v-fb05e49c>Сагитов Максим</a> <span data-v-fb05e49c>Основатель</span></h2></div></div></div><!--End Team One Single--></div></div></section>", 1);
 var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"video-three\" data-v-fb05e49c><div class=\"video-three__bg jarallax\" data-jarallax data-speed=\"0.3\" data-imgPosition=\"50% 50%\" style=\"background-image:url(&#39;images/office.jpg&#39;);\" data-v-fb05e49c></div><div class=\"container\" data-v-fb05e49c><div class=\"row\" data-v-fb05e49c><div class=\"col-xl-12\" data-v-fb05e49c><div class=\"video-three__inner\" data-v-fb05e49c><div class=\"icon wow zoomIn animated\" data-wow-delay=\"300ms\" data-wow-duration=\"1500ms\" data-v-fb05e49c><a class=\"video-popup\" title=\"Video Gallery\" href=\"https://www.twitch.tv/rab1d_ru\" data-v-fb05e49c><i class=\"flaticon-play\" data-v-fb05e49c></i></a> <span class=\"border-animation border-1\" data-v-fb05e49c></span> <span class=\"border-animation border-2\" data-v-fb05e49c></span> <span class=\"border-animation border-3\" data-v-fb05e49c></span></div></div></div></div></div></div>", 1);
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section class=\"testimonial-two pt-120 pb-120\" data-v-fb05e49c><div class=\"container\" data-v-fb05e49c><div class=\"section-header text-center wow fadeInUp animated\" data-v-fb05e49c><p data-v-fb05e49c>Рекомендации</p><h2 data-v-fb05e49c>Довольные клиенты</h2></div><div class=\"row\" data-v-fb05e49c><div class=\"col-xl-12 wow fadeInUp animated\" data-v-fb05e49c><div class=\"testimonial-two__slider\" data-v-fb05e49c><!--Start Testimonial Two Single--><div class=\"testimonial-two__single\" data-v-fb05e49c><div class=\"testimonial-two__single-inner\" data-v-fb05e49c><div class=\"testimonial-two__single-img\" data-v-fb05e49c><img src=\"images/office.jpg\" alt=\"\" data-v-fb05e49c></div><div class=\"testimonial-two__single-content\" data-v-fb05e49c><div class=\"text\" data-v-fb05e49c><p data-v-fb05e49c>“Grow tactical &quot;outside the box&quot; thinking whereas principle entered internal or organic&quot; sources”</p></div><div class=\"client-info\" data-v-fb05e49c><a href=\"#0\" data-v-fb05e49c><h6 data-v-fb05e49c>David Smith</h6></a> <span data-v-fb05e49c>Founder</span></div></div></div></div><!--End Testimonial Two Single--></div></div></div></div></section>", 1);
+var _hoisted_17 = {
+  "class": "testimonial-two pt-120 pb-120"
+};
+var _hoisted_18 = {
+  "class": "container"
+};
+var _hoisted_19 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "section-header text-center wow fadeInUp animated"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Рекомендации"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, "Довольные клиенты")], -1 /* HOISTED */);
+});
+var _hoisted_20 = {
+  "class": "row"
+};
+var _hoisted_21 = {
+  "class": "col-xl-12 wow fadeInUp animated"
+};
+var _hoisted_22 = {
+  key: 0,
+  "class": "testimonial-two__slider"
+};
+var _hoisted_23 = {
+  "class": "testimonial-two__single"
+};
+var _hoisted_24 = {
+  "class": "testimonial-two__single-inner"
+};
+var _hoisted_25 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "testimonial-two__single-img"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: "images/user.jpg",
+    alt: ""
+  })], -1 /* HOISTED */);
+});
+var _hoisted_26 = {
+  "class": "testimonial-two__single-content"
+};
+var _hoisted_27 = {
+  "class": "text"
+};
+var _hoisted_28 = {
+  "class": "client-info"
+};
+var _hoisted_29 = {
+  href: "#"
+};
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)();
+var _hoisted_31 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Пользователь", -1 /* HOISTED */);
+});
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start Breadcrumb Style2"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
@@ -89,7 +156,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_9, _hoisted_10];
     }),
     _: 1 /* STABLE */
-  })]), _hoisted_11, _hoisted_12])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End Breadcrumb Style2"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start About One"), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End About One"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start Mission One"), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End Mission One"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start Team One"), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End Team One"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start Video Three"), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End Video Three"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start Testimonial Two"), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start Testimonial Two")]);
+  })]), _hoisted_11, _hoisted_12])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End Breadcrumb Style2"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start About One"), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End About One"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start Mission One"), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End Mission One"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start Team One"), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End Team One"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start Video Three"), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End Video Three"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start Testimonial Two"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [$data.reviews ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start Testimonial Two Single"), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.reviews, function (rev) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "“" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(rev.description) + "”", 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(rev.name), 1 /* TEXT */)]), _hoisted_30, _hoisted_31])])])]);
+  }), 256 /* UNKEYED_FRAGMENT */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End Testimonial Two Single")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start Testimonial Two")]);
 }
 
 /***/ }),
@@ -110,7 +179,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.img-box[data-v-fb05e49c]{\n    width: 400px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.img-box[data-v-fb05e49c]{\n    width: 400px;\n}\n.testimonial-two__single[data-v-fb05e49c]{\n    border-top: 1px solid #b3b3b3;\n    margin-top: 20px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

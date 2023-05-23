@@ -68,7 +68,7 @@
                                     <router-link to="/login" class="auth"> Войти</router-link> /
                                     <router-link to="/register" class="auth"> Зарегистрироваться </router-link>
                                 </div>
-                                <div v-if="isSignIn && this.$store.state.user.login">
+                                <div v-if="isSignIn && this.$store.state.user.login" class="login-user">
                                     <router-link to="/myAccount" class="text-warning">{{this.$store.state.user.login}}</router-link>
                                 </div>
                             </div>
@@ -93,8 +93,8 @@
 
                                 <div class="right d-flex align-items-center justify-content-end">
                                     <ul class="main-menu__widge-box d-flex align-items-center ">
-                                        <li class="d-lg-block d-none"><a href="my-account.html"><i
-                                            class="flaticon-user"></i> </a></li>
+                                        <li v-if="isSignIn" class="d-lg-block d-none"><router-link to="/myAccount"><i
+                                            class="flaticon-user"></i> </router-link></li>
                                         <li class="d-lg-block d-none"><router-link to="/favourites"
                                                                          class="number"><i class="flaticon-heart"></i> <span
                                             class="count">{{$store.state.countFav}}</span> </router-link> </li>
@@ -354,5 +354,8 @@ export default {
 <style scoped>
 .auth:hover{
     color: #f69c63;
+}
+.login-user{
+    margin-bottom: -15px;
 }
 </style>

@@ -166,7 +166,7 @@
               <li class="nav-item" role="presentation"> <button class="nav-link" id="pills-additional-tab"
                                                                 data-bs-toggle="pill" data-bs-target="#pills-additional" type="button" role="tab"
                                                                 aria-controls="pills-additional" aria-selected="false"> Сюжет </button> </li>
-              <li class="nav-item" role="presentation"> <button class="nav-link" id="pills-review-tab"
+              <li class="nav-item" role="presentation"> <button @click.prevent="getReviews" class="nav-link" id="pills-review-tab"
                                                                 data-bs-toggle="pill" data-bs-target="#pills-review" type="button" role="tab"
                                                                 aria-controls="pills-review" aria-selected="false"> Отзывы </button> </li>
             </ul>
@@ -224,57 +224,70 @@
             <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
               <div class="product-drescription">
                 <div class="review-single pt-0 hed">
-                  <div class="ratting"> <i class="flaticon-star-1"></i> <i
-                      class="flaticon-star-1"></i> <i class="flaticon-star-1"></i> <i
-                      class="flaticon-star-1"></i> <i class="flaticon-star-1"></i> <span
-                      class="ps-2">BASED ON 100 REVIEW</span> </div>
+                    <span>Рейтинг({{totalRate}})</span>
+                  <div class="ratting">
+                      <i class="fas fa-star" :class="{'active-star': totalRate >= 1}"></i>
+                      <i class="fas fa-star" :class="{'active-star': totalRate >= 2}"></i>
+                      <i class="fas fa-star" :class="{'active-star': totalRate >= 3}"></i>
+                      <i class="fas fa-star" :class="{'active-star': totalRate >= 4}"></i>
+                      <i class="fas fa-star" :class="{'active-star': totalRate >= 5}"></i>
+                      <span class="ps-2">Основано на {{reviews.length}} отзывов</span> </div>
                 </div>
-                <div class="review-single">
+                <div class="review-single" v-for="review in reviews">
                   <div class="left">
-                    <div class="ratting"> <i class="flaticon-star-1"></i> <i
-                        class="flaticon-star-1"></i> <i class="flaticon-star-1"></i> <i
-                        class="flaticon-star-1"></i> <i class="flaticon-star-1"></i> </div>
-                    <h6>Vary Good quality Theme <span>Raul Bates on January 28, 2022</span> </h6>
-                    <p> Assertively conceptualize parallel process improvements through user
-                      friendly colighue to action items. Interactively antidos cultivate
-                      interdependent customer service without clicks-and-mortar e-services. </p>
-                  </div> <a href="#0" class="right-box"> Report this Comments </a>
+                    <div class="ratting">
+                        <i class="flaticon-star-1" :class="{'active-star': getActiveStars(review.score) >= 1}"></i>
+                        <i class="flaticon-star-1" :class="{'active-star': getActiveStars(review.score) >= 2}"></i>
+                        <i class="flaticon-star-1" :class="{'active-star': getActiveStars(review.score) >= 3}"></i>
+                        <i class="flaticon-star-1" :class="{'active-star': getActiveStars(review.score) >= 4}"></i>
+                        <i class="flaticon-star-1" :class="{'active-star': getActiveStars(review.score) >= 5}"></i>
+                    </div>
+                      <span>Пользователь: {{review.name}} (дата: {{ formatDate(review.created_at) }})</span>
+                      <h6>{{review.title}}</h6>
+                      <p> {{review.description}} </p>
+                  </div>
                 </div>
                 <div class="review-from-box mt-30">
                   <h6>Напишите свой отзыв</h6>
-                  <form action="#" class="review-from">
+                  <form class="review-from">
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="ratting-box">
                           <p> Рейтинг </p>
-                          <div class="ratting"> <i class="flaticon-star-1"></i> <i
-                              class="flaticon-star-1"></i> <i class="flaticon-star-1"></i>
-                            <i class="flaticon-star-1"></i> <i class="flaticon-star-1"></i>
+                          <div class="ratting">
+                              <i @click.prevent="setRating(1)" class="flaticon-star-1" :class="{'active-star': review.rating >= 1}"></i>
+                              <i @click.prevent="setRating(2)" class="flaticon-star-1" :class="{'active-star': review.rating >= 2}"></i>
+                              <i @click.prevent="setRating(3)" class="flaticon-star-1" :class="{'active-star': review.rating >= 3}"></i>
+                              <i @click.prevent="setRating(4)" class="flaticon-star-1" :class="{'active-star': review.rating >= 4}"></i>
+                              <i @click.prevent="setRating(5)" class="flaticon-star-1" :class="{'active-star': review.rating >= 5}"></i>
                           </div>
                         </div>
                       </div>
                       <div class="col-lg-6">
-                        <div class="form-group"> <label for="name">Имя</label> <input
-                            type="text" id="name" class="form-control"
-                            placeholder="Евгений"> </div>
+                        <div class="form-group"> <label for="name">Имя</label>
+                            <input v-model="review.name" type="text" id="name" class="form-control"
+                                   placeholder="Евгений">
+                        </div>
                       </div>
                       <div class="col-lg-6">
-                        <div class="form-group"> <label for="email"> Электронная почта </label> <input
-                            type="text" id="email" class="form-control"
-                            placeholder="qwerty@gmail.com"> </div>
+                        <div class="form-group"> <label for="email"> Электронная почта </label>
+                            <input v-model="review.email" type="text" id="email" class="form-control"
+                                   placeholder="qwerty@gmail.com">
+                        </div>
                       </div>
                       <div class="col-lg-6">
-                        <div class="form-group"> <label for="namee"> Общее впечатление</label> <input
-                            type="text" id="namee" class="form-control"
-                            placeholder="Товар понравился!"> </div>
+                        <div class="form-group"> <label for="title"> Общее впечатление</label>
+                            <input v-model="review.title" type="text" id="title" class="form-control" placeholder="Товар понравился!">
+                        </div>
                       </div>
                       <div class="col-12">
-                        <div class="form-group m-0"> <label for="email">Описание (максимум 1500 символов)
-                        </label> <textarea
-                            placeholder="Напишите подробнее..."></textarea> </div>
+                        <div class="form-group m-0"> <label for="description">Описание (максимум 1500 символов)
+                        </label>
+                            <textarea v-model="review.description" placeholder="Напишите подробнее..."></textarea>
+                        </div>
                       </div>
-                    </div> <button type="submit" class="btn--primary style2 ">Отправить отзыв
-                  </button>
+                    </div>
+                      <button @click.prevent="sendReview" type="submit" id="review-btn" class="btn--primary style2 ">Отправить отзыв</button>
                   </form>
                 </div>
               </div>
@@ -336,6 +349,14 @@ export default {
         anotherProducts: [],
         currentIndex: 0,
         isLoading: false,
+        review: [
+            {rating: 0, score: '', name: '', email: '', title: '', description: ''}
+        ],
+        reviews: [],
+        totalRate: 0,
+        errors: [
+            {rating: '', score: '', name: '', email: '', title: '', description: ''}
+        ]
     }
   },
     created() {
@@ -396,7 +417,52 @@ export default {
             this.getProductsAnother();
             this.isProductsLoaded = true;
         }
-    }
+    },
+    sendReview(){
+        document.getElementById('review-btn').setAttribute('disabled', "");
+        if (this.review.rating && this.review.name && this.review.email && this.review.title && this.review.description){
+            this.axios.post('/api/review', {
+                'score': this.review.rating,
+                'name': this.review.name,
+                'email': this.review.email,
+                'title': this.review.title,
+                'description': this.review.description
+            })
+                .then(res => {
+                    this.review.rating = 0
+                    this.review.name = ''
+                    this.review.email = ''
+                    this.review.title = ''
+                    this.review.description = ''
+                })
+        }else{
+            alert('Заполните все поля!')
+        }
+        document.getElementById('review-btn').removeAttribute('disabled');
+
+    },
+    setRating(num){
+        this.review.rating = num;
+    },
+    getReviews(){
+        this.axios.get('/api/listReviews')
+            .then(res => {
+                this.reviews = res.data
+                    this.totalRate = this.reviews.reduce((score, review) => (score + review.score) / this.reviews.length, 0);
+                console.log(this.totalRate);
+            })
+
+    },
+    formatDate(dateTimeString){
+        const date = new Date(dateTimeString);
+        const options = {
+            year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'
+        };
+        return date.toLocaleString('ru-RU', options);
+    },
+        getActiveStars(score) {
+            return Math.floor(score);
+        }
   }
 }
 </script>
@@ -412,5 +478,14 @@ export default {
 }
 .carousel-item img{
     max-height: 400px;
+}
+.active-star:before{
+    color: #f69c63;
+}
+.ratting i{
+    color: black;
+}
+.product-drescription .review-single .ratting i{
+    margin-bottom: 3px;
 }
 </style>

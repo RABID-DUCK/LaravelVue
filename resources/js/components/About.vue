@@ -166,20 +166,19 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-12 wow fadeInUp animated">
-                        <div class="testimonial-two__slider ">
+                        <div class="testimonial-two__slider " v-if="reviews">
                             <!--Start Testimonial Two Single-->
-                            <div class="testimonial-two__single">
+                            <div class="testimonial-two__single" v-for="rev in reviews">
                                 <div class="testimonial-two__single-inner">
                                     <div class="testimonial-two__single-img"> <img
-                                        src="images/office.jpg" alt="" /> </div>
+                                        src="images/user.jpg" alt="" /> </div>
                                     <div class="testimonial-two__single-content">
                                         <div class="text">
-                                            <p>“Grow tactical "outside the box" thinking whereas principle entered
-                                                internal or organic" sources”</p>
+                                            <p>“{{rev.description}}”</p>
                                         </div>
-                                        <div class="client-info"> <a href="#0">
-                                            <h6>David Smith</h6>
-                                        </a> <span>Founder</span> </div>
+                                        <div class="client-info"> <a href="#">
+                                            <h6>{{ rev.name }}</h6>
+                                        </a> <span>Пользователь</span> </div>
                                     </div>
                                 </div>
                             </div>
@@ -195,12 +194,32 @@
 
 <script>
 export default {
-    name: "About"
+    name: "About",
+    data(){
+        return {
+            reviews: []
+        }
+    },
+    mounted() {
+        this.getReviews();
+    },
+    methods: {
+        getReviews(){
+            this.axios.get('/api/listReviews')
+                .then(res => {
+                    this.reviews = res.data
+                })
+        }
+    }
 }
 </script>
 
 <style scoped>
 .img-box{
     width: 400px;
+}
+.testimonial-two__single{
+    border-top: 1px solid #b3b3b3;
+    margin-top: 20px;
 }
 </style>

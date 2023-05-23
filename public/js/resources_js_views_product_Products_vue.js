@@ -196,6 +196,7 @@ __webpack_require__.r(__webpack_exports__);
         'page': page
       }).then(function (res) {
         _this2.products = res.data.data;
+        console.log(_this2.products);
         _this2.pagination = res.data.meta;
       })["finally"](function (v) {
         $(document).trigger('changed');

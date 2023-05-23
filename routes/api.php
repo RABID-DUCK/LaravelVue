@@ -27,6 +27,8 @@ Route::get('/orders/{user}', \App\Http\Controllers\API\Order\ListOrdersControlle
 Route::post('/about', \App\Http\Controllers\API\FeedBack\FBController::class);
 Route::post('/editUser', '\App\Http\Controllers\API\User\UserController@editUser');
 Route::post('/search', \App\Http\Controllers\API\Product\SearchControlller::class);
+Route::post('/review', '\App\Http\Controllers\API\Reviews\ReviewController@index');
+Route::get('/listReviews', '\App\Http\Controllers\API\Reviews\ReviewController@listRev');
 
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function($router) {
     Route::post('me', [App\Http\Controllers\API\Auth\AuthController::class, 'me']);
