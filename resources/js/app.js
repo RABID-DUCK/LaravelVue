@@ -6,6 +6,9 @@ import router from './router'
 import VueTheMask from 'vue-the-mask'
 import axios from 'axios'
 import { debounce } from "lodash";
+document.addEventListener("DOMContentLoaded", function(event) {
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+});
 
 
 const app = createApp(App)
@@ -175,6 +178,7 @@ const store = createStore({
         },
     }
 })
+
 
 app.use(router)
     .use(store)

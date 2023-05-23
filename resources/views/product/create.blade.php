@@ -28,14 +28,23 @@
                     <div class="form-group">
                         <label>Название продукта</label>
                         <input type="text" class="form-control" name="title" placeholder="Название">
+                        @if($errors->has('title'))
+                            <div class="alert alert-danger">{{$errors->first('title')}}</div>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label>Описание(вступление небольшое)</label>
                         <input type="text" class="form-control" name="description" placeholder="Описание">
+                        @if($errors->has('description'))
+                            <div class="alert alert-danger">{{$errors->first('description')}}</div>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label>Сюжет игры</label>
                         <textarea class="form-control" name="content" cols="30" rows="10" placeholder="Контент"></textarea>
+                        @if($errors->has('content'))
+                            <div class="alert alert-danger">{{$errors->first('content')}}</div>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label>Старая цена(если есть)</label>
@@ -44,10 +53,16 @@
                     <div class="form-group">
                         <label>Цена</label>
                         <input type="text" class="form-control" name="price" placeholder="Цена">
+                        @if($errors->has('price'))
+                            <div class="alert alert-danger">{{$errors->first('price')}}</div>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label>Количество</label>
                         <input type="text" class="form-control" name="count" placeholder="Количество">
+                        @if($errors->has('count'))
+                            <div class="alert alert-danger">{{$errors->first('count')}}</div>
+                        @endif
                     </div>
                     <div class="form-group">
                         <div class="input-group">
@@ -59,6 +74,9 @@
                                 <span class="input-group-text">Загрузка</span>
                             </div>
                         </div>
+                        @if($errors->has('preview_image'))
+                            <div class="alert alert-danger">{{$errors->first('preview_image')}}</div>
+                        @endif
                     </div>
                     <div class="form-group">
                         <div class="input-group">

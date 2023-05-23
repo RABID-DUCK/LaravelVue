@@ -21,7 +21,7 @@
         </section>
         <!--End Breadcrumb Style2-->
         <!--Start My Account Page-->
-        <section class="my-account-page pt-120 pb-120">
+        <section class="my-account-page pt-120 pb-120" v-if="this.$store.getters.statusUser">
             <div class="container">
                 <div class="row wow fadeInUp animated">
                     <!--Start My Account Page Menu-->
@@ -145,7 +145,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['user', 'isLoadingUser'])
+        ...mapState(['user', 'isLoadingUser']),
     },
     methods: {
         logout(){

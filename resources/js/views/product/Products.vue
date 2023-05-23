@@ -332,8 +332,8 @@ export default {
     },
     mounted() {
     $(document).trigger('changed')
-    this.getProducts()
         this.getFilterList()
+    this.getProducts()
   },
   data(){
     return {
@@ -448,7 +448,7 @@ export default {
       })
           .then(res => {
               this.products = res.data.data;
-            this.pagination = res.data.meta;
+              this.pagination = res.data.meta;
           })
           .finally(v => {
         $(document).trigger('changed')
@@ -468,7 +468,6 @@ export default {
       this.axios.get('/api/products/filters')
           .then(res => {
             this.filterList = res.data;
-            //  Price Filter
              if ($("#price-range").length) {
                $("#price-range").slider({
                  range: true,

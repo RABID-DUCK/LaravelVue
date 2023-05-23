@@ -73,8 +73,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     $(document).trigger('changed');
-    this.getProducts();
     this.getFilterList();
+    this.getProducts();
   },
   data: function data() {
     return {
@@ -214,7 +214,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this4 = this;
       this.axios.get('/api/products/filters').then(function (res) {
         _this4.filterList = res.data;
-        //  Price Filter
         if ($("#price-range").length) {
           $("#price-range").slider({
             range: true,

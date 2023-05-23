@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Filters\ProductFilter;
 use App\Http\Requests\API\Product\IndexRequest;
 use App\Http\Resources\Product\ProductResource;
+use App\Models\ColorProduct;
 use App\Models\Product;
 
 class IndexController extends Controller
@@ -15,6 +16,7 @@ class IndexController extends Controller
         $data = $request->validated();
         $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
         $products = Product::filter($filter)->paginate(9, ['*'], 'page', $data['page']);
+
         return ProductResource::collection($products);
     }
 }

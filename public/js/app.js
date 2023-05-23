@@ -19008,12 +19008,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./router */ "./resources/js/router/index.js");
 /* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-the-mask */ "./node_modules/vue-the-mask/dist/vue-the-mask.js");
 /* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_the_mask__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_5__);
 
@@ -19024,8 +19024,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+document.addEventListener("DOMContentLoaded", function (event) {
+  axios__WEBPACK_IMPORTED_MODULE_6__["default"].defaults.headers.common["X-CSRF-TOKEN"] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+});
 var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)(_App_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
-var store = (0,vuex__WEBPACK_IMPORTED_MODULE_6__.createStore)({
+var store = (0,vuex__WEBPACK_IMPORTED_MODULE_7__.createStore)({
   state: {
     count: 0,
     cart: [],
@@ -19101,7 +19104,7 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_6__.createStore)({
       state.tokenRefreshed = value;
     },
     LOGOUT: function LOGOUT(state) {
-      axios__WEBPACK_IMPORTED_MODULE_7__["default"].post('/api/auth/logout', {}, {
+      axios__WEBPACK_IMPORTED_MODULE_6__["default"].post('/api/auth/logout', {}, {
         headers: {
           'authorization': "Bearer ".concat(localStorage.getItem('access_token'))
         },
@@ -19147,7 +19150,7 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_6__.createStore)({
         state = _ref3.state;
       var token = localStorage.getItem('access_token');
       if (token) {
-        axios__WEBPACK_IMPORTED_MODULE_7__["default"].post("/api/auth/me", null, {
+        axios__WEBPACK_IMPORTED_MODULE_6__["default"].post("/api/auth/me", null, {
           headers: {
             'authorization': "Bearer ".concat(token),
             'Accept': 'application/json'
@@ -19159,7 +19162,7 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_6__.createStore)({
         })["catch"](function (err) {
           if (err.response.data.message === 'Unauthenticated.') {
             commit('SET_IS_LOGED_IN', false);
-            axios__WEBPACK_IMPORTED_MODULE_7__["default"].post('/api/auth/refresh', null, {
+            axios__WEBPACK_IMPORTED_MODULE_6__["default"].post('/api/auth/refresh', null, {
               headers: {
                 'authorization': "Bearer ".concat(token),
                 'Accept': 'application/json'
@@ -19167,7 +19170,7 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_6__.createStore)({
               responseType: 'json'
             }).then(function (res) {
               localStorage.setItem('access_token', res.data.access_token);
-              axios__WEBPACK_IMPORTED_MODULE_7__["default"].post("/api/auth/me", {}, {
+              axios__WEBPACK_IMPORTED_MODULE_6__["default"].post("/api/auth/me", {}, {
                 headers: {
                   'authorization': "Bearer ".concat(res.data.access_token),
                   'Accept': 'application/json'
@@ -19215,7 +19218,7 @@ app.mixin({
     this.$store.dispatch('initializeFav');
   }
 });
-app.config.globalProperties.axios = axios__WEBPACK_IMPORTED_MODULE_7__["default"];
+app.config.globalProperties.axios = axios__WEBPACK_IMPORTED_MODULE_6__["default"];
 app.mount('#app');
 
 /***/ }),

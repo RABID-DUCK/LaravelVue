@@ -103,16 +103,17 @@
                 </div>
                 <div class="form-group">
                     <label>Теги</label>
-                    <select name="tags[]" class="tags" multiple="multiple" data-placeholder="Выберите тег" style="width: 100%;">
-                        @foreach($productTagsTitle as $productTag)
-                            <option value="{{$productTag->id}}" {{isset($productTag) ? 'selected' : ''}}>
-                                {{$productTag->title}}</option>
+                    <select name="tags[]" class="tags" multiple="multiple" style="width: 100%;">
+                        @foreach($tags as $tag)
+                            <option value="{{$tag->tag->id}}" {{$tag->product_id === $product->id ? 'selected' : ''}}>
+                                {{$tag->tag->title}}
+                            </option>
                         @endforeach
                         @foreach($tags as $tag)
-                                <option value="{{$tag->id}}">
-                                        {{$tag->title}} </option>
-                        @endforeach
-                    </select>
+                            <option value="{{$tag->tag->id}}">
+                                {{$tag->tag->title}}
+                            </option>
+                    @endforeach
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Редактировать">

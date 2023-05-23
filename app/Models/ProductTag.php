@@ -9,4 +9,8 @@ class ProductTag extends Model
 {
     protected $table = 'product_tags';
     protected $guarded = false;
+
+    public function tag(){
+        return $this->belongsTo(Tag::class);
+    }
 }

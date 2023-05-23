@@ -27,13 +27,25 @@ class StoreRequest extends FormRequest
             'content' => 'required',
             'preview_image' => 'required',
             'price' => 'required',
-            'old_price' => 'required',
+            'old_price' => 'nullable',
             'count' => 'required',
             'is_published' => 'nullable',
             'category_id' => 'nullable',
             'tags' => 'nullable|array',
             'product_images' => 'nullable|array',
             'platforms' => 'nullable|array'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Поле названия должно быть заполненым!',
+            'description.required' => 'Поле описания должно быть заполненым!',
+            'content.required' => 'Поле контента должно быть заполненым!',
+            'preview_image.required' => 'Поле картинки должно быть заполненым!',
+            'price.required' => 'Поле цены должно быть заполненым!',
+            'count.required' => 'Поле количества должно быть заполненым!',
         ];
     }
 }

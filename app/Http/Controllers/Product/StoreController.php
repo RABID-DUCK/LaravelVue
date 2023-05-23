@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Product\IndexRequest;
+use App\Http\Requests\Product\StoreRequest;
 use App\Models\Color;
 use App\Models\Product;
 use App\Models\ProductImage;
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
-    public function __invoke(IndexRequest $request)
+    public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
         if (array_key_exists('product_images', $data)){
@@ -23,13 +23,14 @@ class StoreController extends Controller
         if (array_key_exists('tags', $data)){
             $tagsIds = $data['tags'];
         }
+        if (isset($data['platforms'])){
+            $platforms = $data['platforms'];
+        }
 
 
-        unset($data['tags'], $data['product_images']);
+        unset($data['tags'], $data['product_images'], $data['platforms']);
 
-        $product = Product::firstOrCreate([
-            'title' => $data['title']
-        ], $data);
+        $product = Product::firstOrCreate($data);
 
         if (isset($tagsId)) {
             foreach ($tagsIds as $tagId) {
@@ -54,7 +55,7 @@ class StoreController extends Controller
         }
 
         if(isset($data['platforms'])){
-            foreach ($data['platforms'] as $platform){
+            foreach ($platforms as $platform){
                 Color::create([
                     'product_id' => $product->id,
                     'color_id' => $platform

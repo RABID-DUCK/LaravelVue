@@ -13,14 +13,11 @@ class EditController extends Controller
 {
     public function __invoke(Product $product)
     {
-        $tags = Tag::all();
+        $tags = ProductTag::all();
         $categories = Category::all();
         $productImage = ProductImage::all();
 
-        $productTagsTitle = ProductTag::join('tags', 'tags.id', '=', 'product_tags.tag_id')->
-        select('tags.title', 'tags.id')->where('product_id', $product->id)->get();
-
-        return view('product.edit', compact('product', 'tags', 'productTagsTitle',
+        return view('product.edit', compact('product', 'tags',
             'categories', 'productImage'));
     }
 }
