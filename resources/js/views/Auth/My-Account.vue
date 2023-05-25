@@ -58,7 +58,7 @@
                                 <div class="tabs-content__single" >
                                     <h4 v-if="user && isLoadingUser"><span>Привет {{user.login}}</span></h4>
                                     <h5>На панели мониторинга вашей учетной записи вы можете просматривать свои <span>последние заказы</span>,
-                                        а также <span>узнать</span> свои данные учетной записи</h5>
+                                        а также <span>узнать</span> свои данные учетной записи или отредактировать их</h5>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="v-pills-orders" role="tabpanel"

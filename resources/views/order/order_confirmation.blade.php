@@ -468,7 +468,7 @@ l-14 30 6 -40z"/>
 
 
                                     <div style="line-height: 26px;">
-                                        <a href="/products" style="color: #ffffff; text-decoration: none; font-weight: bold">Купить ещё</a>
+                                        <a href="https://109.191.89.254:4433" style="color: #ffffff; text-decoration: none; font-weight: bold">Купить ещё</a>
                                     </div>
                                 </td>
                             </tr>

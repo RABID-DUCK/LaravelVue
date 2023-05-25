@@ -129,7 +129,6 @@ __webpack_require__.r(__webpack_exports__);
         _this4.totalRate = _this4.reviews.reduce(function (score, review) {
           return (score + review.score) / _this4.reviews.length;
         }, 0);
-        console.log(_this4.totalRate);
       });
     },
     formatDate: function formatDate(dateTimeString) {

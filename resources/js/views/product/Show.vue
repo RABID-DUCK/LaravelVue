@@ -448,10 +448,8 @@ export default {
         this.axios.get('/api/listReviews')
             .then(res => {
                 this.reviews = res.data
-                    this.totalRate = this.reviews.reduce((score, review) => (score + review.score) / this.reviews.length, 0);
-                console.log(this.totalRate);
-            })
-
+                this.totalRate = this.reviews.reduce((score, review) => (score + review.score) / this.reviews.length, 0);
+        })
     },
     formatDate(dateTimeString){
         const date = new Date(dateTimeString);
@@ -460,9 +458,9 @@ export default {
         };
         return date.toLocaleString('ru-RU', options);
     },
-        getActiveStars(score) {
-            return Math.floor(score);
-        }
+    getActiveStars(score) {
+        return Math.floor(score);
+    }
   }
 }
 </script>

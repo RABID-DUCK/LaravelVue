@@ -448,7 +448,6 @@ export default {
       })
           .then(res => {
               this.products = res.data.data;
-              console.log(this.products);
               this.pagination = res.data.meta;
           })
           .finally(v => {

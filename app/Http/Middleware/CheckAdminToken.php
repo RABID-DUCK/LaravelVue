@@ -19,6 +19,9 @@ class CheckAdminToken
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if(auth()->user() === null || auth()->user()->is_admin !== 1){
+            return redirect()->to('https://109.191.89.254:4433');
+        }
 
         try {
             $headers = apache_request_headers();
