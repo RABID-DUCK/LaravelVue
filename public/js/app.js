@@ -19224,6 +19224,18 @@ app.mixin({
     this.$store.dispatch('getUserInfo');
     this.$store.dispatch('initalizePrice');
     this.$store.dispatch('initializeFav');
+  },
+  methods: {
+    OpenHideEye: function OpenHideEye() {
+      var svg = document.getElementById('eye');
+      svg.classList.toggle('fa-eye');
+      svg.classList.toggle('fa-eye-slash');
+      if (svg.classList.contains('fa-eye')) {
+        document.querySelector('[data-pass]').setAttribute('type', "password");
+      } else {
+        document.querySelector('[data-pass]').setAttribute('type', "text");
+      }
+    }
   }
 });
 app.config.globalProperties.axios = axios__WEBPACK_IMPORTED_MODULE_6__["default"];
@@ -19349,6 +19361,18 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.createRouter)({
     name: 'contacts',
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_components_Contacts_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/Contacts.vue */ "./resources/js/components/Contacts.vue"));
+    }
+  }, {
+    path: '/reset',
+    name: 'reset_password_email',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_WriteEmail_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/WriteEmail.vue */ "./resources/js/components/WriteEmail.vue"));
+    }
+  }, {
+    path: '/resetPass/:token/:email',
+    name: 'reset_password',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_ResetPass_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../components/ResetPass.vue */ "./resources/js/components/ResetPass.vue"));
     }
   }, {
     path: '/:catchAll(.*)',
@@ -49194,7 +49218,7 @@ function useRoute() {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_product_Products_vue":1,"resources_js_views_product_Show_vue":1,"resources_js_views_Auth_Register_vue":1,"resources_js_views_Auth_Login_vue":1,"resources_js_views_Auth_My-Account_vue":1,"resources_js_views_product_Favourites_vue":1,"resources_js_components_About_vue":1,"resources_js_components_Contacts_vue":1,"resources_js_views_Error_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_product_Products_vue":1,"resources_js_views_product_Show_vue":1,"resources_js_views_Auth_Register_vue":1,"resources_js_views_Auth_Login_vue":1,"resources_js_views_Auth_My-Account_vue":1,"resources_js_views_product_Favourites_vue":1,"resources_js_components_About_vue":1,"resources_js_components_Contacts_vue":1,"resources_js_components_WriteEmail_vue":1,"resources_js_components_ResetPass_vue":1,"resources_js_views_Error_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

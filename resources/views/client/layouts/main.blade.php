@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/plugin/animate.css')}}">
     <!-- Style Css -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
 </head>
 

@@ -55,6 +55,17 @@ const router = createRouter({
           component: () => import('../components/Contacts.vue')
       },
       {
+          path: '/reset',
+          name: 'reset_password_email',
+          component: () => import('../components/WriteEmail.vue')
+      },
+      {
+          path: '/resetPass/:token/:email',
+          name: 'reset_password',
+          component: () => import('../components/ResetPass.vue')
+      }
+      ,
+      {
           path: '/:catchAll(.*)',
           name: '404',
           component: () => import('../views/Error.vue')

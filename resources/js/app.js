@@ -189,6 +189,19 @@ app.mixin({
         this.$store.dispatch('getUserInfo')
         this.$store.dispatch('initalizePrice')
         this.$store.dispatch('initializeFav')
+    },
+    methods: {
+        OpenHideEye(){
+            let svg = document.getElementById('eye');
+
+            svg.classList.toggle('fa-eye')
+            svg.classList.toggle('fa-eye-slash')
+            if (svg.classList.contains('fa-eye')){
+                document.querySelector('[data-pass]').setAttribute('type', "password")
+            }else{
+                document.querySelector('[data-pass]').setAttribute('type', "text")
+            }
+        }
     }
 })
 app.config.globalProperties.axios = axios

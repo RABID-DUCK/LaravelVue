@@ -24,8 +24,12 @@ Route::post('/products', \App\Http\Controllers\API\Product\IndexController::clas
 Route::get('/products/filters', \App\Http\Controllers\API\Product\FilterListController::class);
 Route::get('/products/{product}', \App\Http\Controllers\API\Product\ShowController::class);
 Route::get('/orders/{user}', \App\Http\Controllers\API\Order\ListOrdersController::class);
+
 Route::post('/about', \App\Http\Controllers\API\FeedBack\FBController::class);
 Route::post('/editUser', '\App\Http\Controllers\API\User\UserController@editUser');
+
+Route::post('/sendResetPass', '\App\Http\Controllers\API\User\UserController@resetPasswordEmail')->name('password.reset');
+Route::post('/resetPass', '\App\Http\Controllers\API\User\UserController@resetPassword');
 Route::post('/search', \App\Http\Controllers\API\Product\SearchControlller::class);
 Route::post('/review', '\App\Http\Controllers\API\Reviews\ReviewController@index');
 Route::get('/listReviews', '\App\Http\Controllers\API\Reviews\ReviewController@listRev');

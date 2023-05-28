@@ -14,15 +14,18 @@
                                 <label>Ваш логин</label>
                                 <input v-model="loginUser" type="text" class="form-control" placeholder="Логин при регистрации..."> </div>
                             <div class="form-group eye">
-                                <div class="icon icon-1"> <i class="flaticon-hidden"></i></div>
                                 <label>Ваш пароль</label>
-                                <input v-model="password" type="password" id="password-field" class="form-control">
-                                <div class="icon icon-2 "><i class="flaticon-visibility"></i> </div>
+                                <div class="form-group pass">
+                                    <input v-model="password" type="password" id="password-field" class="form-control" data-pass>
+                                    <i class="fas fa-eye" id="eye" @click="OpenHideEye"></i>
+                                </div>
+
+
                             </div>
                             <div class="checkk ">
                                 <div class="form-check p-0 m-0"> <input type="checkbox" id="remember">
                                     <label class="p-0" for="remember"> Запомнить меня</label> </div>
-                                <a href="#0" class="forgot"> Забыли пароль?</a>
+                                <router-link to="/reset" class="forgot"> Забыли пароль?</router-link>
                             </div> <button @click.prevent="login()" class="btn--primary style2">Войти </button>
                             <b v-if="error" class="text-danger">{{error}}</b>
                         </form>
