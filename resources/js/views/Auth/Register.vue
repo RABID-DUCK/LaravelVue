@@ -24,12 +24,16 @@
                                 <label>Ваш телефон</label>
                                 <input v-model="number_phone" type="tel" class="form-control" v-mask="'+7(###)###-##-##'"  maxlength="18"> </div>
                             <div class="form-group eye">
-                                <div class="icon icon-1"> <i class="flaticon-hidden"></i></div>
                                 <label>Придумайте пароль</label>
-                                <input v-model="password" type="password" id="password-field" class="form-control" placeholder="Password">
+                                <div class="form-group pass">
+                                    <input v-model="password" type="password" id="password-field" class="form-control" placeholder="Password" data-pass>
+                                    <i class="fas fa-eye" id="eye" @click="OpenHideEye"></i>
+                                </div>
                                 <label>Подтвердите пароль</label>
-                                <input v-model="password_confirm" type="password" class="form-control phone" placeholder="Password">
-                                <div class="icon icon-2 "><i class="flaticon-visibility"></i> </div>
+                                <div class="form-group pass">
+                                    <input v-model="password_confirm" type="password" class="form-control phone" placeholder="Password" data-pass>
+                                    <i class="fas fa-eye" id="eye" @click="OpenHideEye"></i>
+                                </div>
                             </div>
                             <div class="checkk ">
                                 <div class="form-check p-0 m-0">

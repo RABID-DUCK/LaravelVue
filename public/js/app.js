@@ -19099,7 +19099,11 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_7__.createStore)({
     },
     ADD_AUTH: function ADD_AUTH(state, value) {
       state.isLogedIn = true;
-      localStorage.setItem('access_token', value);
+      if (value.remember === true) {
+        localStorage.setItem('access_token', value.token);
+      } else {
+        sessionStorage.setItem('access_token', value.token);
+      }
     },
     SET_IS_LOGED_IN: function SET_IS_LOGED_IN(state, value) {
       state.isLogedIn = value;
@@ -19112,13 +19116,18 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_7__.createStore)({
       state.tokenRefreshed = value;
     },
     LOGOUT: function LOGOUT(state) {
+      var _localStorage$getItem;
       axios__WEBPACK_IMPORTED_MODULE_6__["default"].post('/api/auth/logout', {}, {
         headers: {
-          'authorization': "Bearer ".concat(localStorage.getItem('access_token'))
+          'authorization': "Bearer ".concat((_localStorage$getItem = localStorage.getItem('access_token')) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : sessionStorage.getItem('access_token'))
         },
         responseType: 'json'
       }).then(function (res) {
-        localStorage.removeItem('access_token');
+        if (localStorage.getItem('access_token')) {
+          localStorage.removeItem('access_token');
+        } else {
+          sessionStorage.removeItem('access_token');
+        }
         state.isLogedIn = false;
         state.user = null;
       });
@@ -19157,6 +19166,9 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_7__.createStore)({
       var commit = _ref3.commit,
         state = _ref3.state;
       var token = localStorage.getItem('access_token');
+      if (!token) {
+        if (sessionStorage.getItem('access_token')) token = sessionStorage.getItem('access_token');
+      }
       if (token) {
         axios__WEBPACK_IMPORTED_MODULE_6__["default"].post("/api/auth/me", null, {
           headers: {

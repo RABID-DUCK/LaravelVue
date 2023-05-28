@@ -42,19 +42,8 @@ __webpack_require__.r(__webpack_exports__);
           alert(res.data.message);
         }
       })["catch"](function (err) {
-        console.log(err);
         _this.password = '';
       });
-    },
-    OpenHideEye: function OpenHideEye() {
-      var svg = document.getElementById('eye');
-      svg.classList.toggle('fa-eye');
-      svg.classList.toggle('fa-eye-slash');
-      if (svg.classList.contains('fa-eye')) {
-        document.querySelector('[data-pass]').setAttribute('type', "password");
-      } else {
-        document.querySelector('[data-pass]').setAttribute('type', "text");
-      }
     }
   }
 });
@@ -121,7 +110,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "fas fa-eye",
     id: "eye",
     onClick: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-      return $options.OpenHideEye && $options.OpenHideEye.apply($options, arguments);
+      return _ctx.OpenHideEye && _ctx.OpenHideEye.apply(_ctx, arguments);
     }, ["prevent"]))
   })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["style2", {

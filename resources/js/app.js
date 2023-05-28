@@ -63,7 +63,11 @@ const store = createStore({
         },
         ADD_AUTH: (state, value) => {
             state.isLogedIn = true;
-            localStorage.setItem('access_token', value)
+            if (value.remember === true){
+                localStorage.setItem('access_token', value.token)
+            }else{
+                sessionStorage.setItem('access_token', value.token)
+            }
         },
         SET_IS_LOGED_IN: (state, value) => {
             state.isLogedIn = value;
@@ -78,12 +82,16 @@ const store = createStore({
         LOGOUT: (state) => {
             axios.post('/api/auth/logout', {}, {
                 headers: {
-                    'authorization': `Bearer ${localStorage.getItem('access_token')}`
+                    'authorization': `Bearer ${localStorage.getItem('access_token') ?? sessionStorage.getItem('access_token')}`
                 },
                 responseType: 'json'
             })
                 .then(res => {
-                    localStorage.removeItem('access_token');
+                    if (localStorage.getItem('access_token')){
+                        localStorage.removeItem('access_token');
+                    }else{
+                        sessionStorage.removeItem('access_token');
+                    }
                     state.isLogedIn = false;
                     state.user = null;
                 })
@@ -113,7 +121,10 @@ const store = createStore({
             commit('COUNT_FAV');
         },
         getUserInfo: debounce(({commit, state}) => {
-                const token = localStorage.getItem('access_token');
+                let token = localStorage.getItem('access_token');
+                if (!token){
+                    if (sessionStorage.getItem('access_token')) token = sessionStorage.getItem('access_token');
+                }
                 if (token) {
                     axios.post("/api/auth/me", null, {
                         headers: {

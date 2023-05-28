@@ -134,6 +134,7 @@
 import {mapState} from "vuex";
 import ModalWindow from "../../components/ModalWindow";
 import router from "../../router";
+import {useRouter} from "vue-router/dist/vue-router";
 
 export default {
     name: "My-Account",

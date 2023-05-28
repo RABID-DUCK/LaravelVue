@@ -23,7 +23,8 @@
 
                             </div>
                             <div class="checkk ">
-                                <div class="form-check p-0 m-0"> <input type="checkbox" id="remember">
+                                <div class="form-check p-0 m-0">
+                                    <input type="checkbox" id="remember" v-model="checked">
                                     <label class="p-0" for="remember"> Запомнить меня</label> </div>
                                 <router-link to="/reset" class="forgot"> Забыли пароль?</router-link>
                             </div> <button @click.prevent="login()" class="btn--primary style2">Войти </button>
@@ -43,6 +44,7 @@ export default {
         return {
             loginUser: '',
             password: '',
+            checked: false,
             error: null
         }
     },
@@ -59,7 +61,7 @@ export default {
                     'password': this.password
                 })
                     .then(res => {
-                            this.$store.commit('ADD_AUTH', res.data.access_token)
+                            this.$store.commit('ADD_AUTH', {token: res.data.access_token, remember: this.checked})
                             this.$store.commit('SET_IS_LOGED_IN', true)
                             this.$router.push({name: 'Auth.MyAccount'})
                     })
