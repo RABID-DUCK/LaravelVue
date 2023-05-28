@@ -311,7 +311,12 @@
     </div>
       <transition name="fade">
           <div class="alert alert-warning notification" role="alert" v-show="visibleNot">
-              Товар <router-link to="/cart" class="alert-link text-info">{{notTitle}}</router-link> добавлен в корзину.
+              <div class="cart-notif" v-show="visibleCart">
+                  Товар <router-link to="/cart" class="alert-link text-info">{{notTitle}}</router-link> добавлен в корзину.
+              </div>
+              <div class="fav-botif" v-show="visibleFav">
+                  Товар <router-link to="/favourites" class="alert-link text-info">{{notTitle}}</router-link> добавлен в избранное.
+              </div>
           </div>
       </transition>
     <!--End product-grid-->
@@ -355,7 +360,9 @@ export default {
         isLoadedProduct: false,
         searchTitle: '',
         notTitle: '',
-        visibleNot: false
+        visibleNot: false,
+        visibleFav: false,
+        visibleCart: false
     }
   },
   methods: {
@@ -364,6 +371,7 @@ export default {
         let cart = this.$store.state.cart;
         $('.qtyValue').val(1);
         this.visibleNot = true;
+        this.visibleCart = true;
         this.notTitle = product.title;
 
         let newProduct = [
@@ -384,11 +392,16 @@ export default {
 
         setTimeout(() => {
             this.visibleNot = false;
+            this.visibleCart = false;
         }, 3000)
 
     },
       addToFav(product){
           let fav = this.$store.state.favourites;
+          this.visibleNot = true;
+          this.visibleFav = true;
+          this.notTitle = product.title;
+
           let newProduct = [
               {
                   "id": product.id,
@@ -406,6 +419,10 @@ export default {
               // обновление корзины в хранилище из состояния хранилища
               this.$store.commit('ADD_TO_FAVOURITES', newProduct);
           }
+          setTimeout(() => {
+              this.visibleNot = false;
+              this.visibleFav = false;
+          }, 3000)
       },
     addTags(id){
       if (!this.tags.includes(id)){

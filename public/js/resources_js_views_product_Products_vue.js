@@ -103,7 +103,9 @@ __webpack_require__.r(__webpack_exports__);
       isLoadedProduct: false,
       searchTitle: '',
       notTitle: '',
-      visibleNot: false
+      visibleNot: false,
+      visibleFav: false,
+      visibleCart: false
     };
   },
   methods: {
@@ -113,6 +115,7 @@ __webpack_require__.r(__webpack_exports__);
       var cart = this.$store.state.cart;
       $('.qtyValue').val(1);
       this.visibleNot = true;
+      this.visibleCart = true;
       this.notTitle = product.title;
       var newProduct = [{
         "id": product.id,
@@ -128,10 +131,15 @@ __webpack_require__.r(__webpack_exports__);
       }
       setTimeout(function () {
         _this.visibleNot = false;
+        _this.visibleCart = false;
       }, 3000);
     },
     addToFav: function addToFav(product) {
+      var _this2 = this;
       var fav = this.$store.state.favourites;
+      this.visibleNot = true;
+      this.visibleFav = true;
+      this.notTitle = product.title;
       var newProduct = [{
         "id": product.id,
         "image_url": product.image_url,
@@ -146,6 +154,10 @@ __webpack_require__.r(__webpack_exports__);
         // обновление корзины в хранилище из состояния хранилища
         this.$store.commit('ADD_TO_FAVOURITES', newProduct);
       }
+      setTimeout(function () {
+        _this2.visibleNot = false;
+        _this2.visibleFav = false;
+      }, 3000);
     },
     addTags: function addTags(id) {
       if (!this.tags.includes(id)) {
@@ -186,7 +198,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     getProducts: function getProducts() {
-      var _this2 = this;
+      var _this3 = this;
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       this.axios.post('/api/products', {
         'filterList': this.filterList,
@@ -195,31 +207,31 @@ __webpack_require__.r(__webpack_exports__);
         'tags': this.tags,
         'page': page
       }).then(function (res) {
-        _this2.products = res.data.data;
-        _this2.pagination = res.data.meta;
+        _this3.products = res.data.data;
+        _this3.pagination = res.data.meta;
       })["finally"](function (v) {
         $(document).trigger('changed');
-        _this2.isLoadedProduct = true;
+        _this3.isLoadedProduct = true;
       });
     },
     getProduct: function getProduct(id) {
-      var _this3 = this;
+      var _this4 = this;
       this.axios.get("/api/products/".concat(id)).then(function (res) {
-        _this3.popupProduct = res.data.data;
+        _this4.popupProduct = res.data.data;
       })["finally"](function (v) {
         $(document).trigger('changed');
       });
     },
     getFilterList: function getFilterList() {
-      var _this4 = this;
+      var _this5 = this;
       this.axios.get('/api/products/filters').then(function (res) {
-        _this4.filterList = res.data;
+        _this5.filterList = res.data;
         if ($("#price-range").length) {
           $("#price-range").slider({
             range: true,
-            min: _this4.filterList.price.min,
-            max: _this4.filterList.price.max,
-            values: [_this4.filterList.price.min, _this4.filterList.price.max],
+            min: _this5.filterList.price.min,
+            max: _this5.filterList.price.max,
+            values: [_this5.filterList.price.min, _this5.filterList.price.max],
             slide: function slide(event, ui) {
               $("#priceRange").val("₽" + ui.values[0] + " - ₽" + ui.values[1]);
             }
@@ -231,12 +243,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     searchProduct: function searchProduct(someData) {
-      var _this5 = this;
+      var _this6 = this;
       if (someData) {
         this.axios.post('/api/search', {
           'title': someData.title
         }).then(function (res) {
-          _this5.products = res.data;
+          _this6.products = res.data;
         });
       }
     }
@@ -869,8 +881,16 @@ var _hoisted_150 = {
   "class": "alert alert-warning notification",
   role: "alert"
 };
-var _hoisted_151 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Товар ");
-var _hoisted_152 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" добавлен в корзину. ");
+var _hoisted_151 = {
+  "class": "cart-notif"
+};
+var _hoisted_152 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Товар ");
+var _hoisted_153 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" добавлен в корзину. ");
+var _hoisted_154 = {
+  "class": "fav-botif"
+};
+var _hoisted_155 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Товар ");
+var _hoisted_156 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" добавлен в избранное. ");
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
@@ -1080,7 +1100,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     persisted: ""
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_150, [_hoisted_151, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_150, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_151, [_hoisted_152, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
         to: "/cart",
         "class": "alert-link text-info"
       }, {
@@ -1089,7 +1109,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }),
 
         _: 1 /* STABLE */
-      }), _hoisted_152], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.visibleNot]])];
+      }), _hoisted_153], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.visibleCart]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_154, [_hoisted_155, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+        to: "/favourites",
+        "class": "alert-link text-info"
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.notTitle), 1 /* TEXT */)];
+        }),
+
+        _: 1 /* STABLE */
+      }), _hoisted_156], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.visibleFav]])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.visibleNot]])];
     }),
     _: 1 /* STABLE */
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End product-grid")])]);
