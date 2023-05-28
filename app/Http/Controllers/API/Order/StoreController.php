@@ -17,14 +17,14 @@ class StoreController extends Controller
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        $user = User::where('address', $data['email'])->first();
+        $user = User::where('email', $data['email'])->first();
         $password = Hash::make(Str::random(10));
 
         $tempLogin = strstr($data['email'], '@', true);
 
         if (!$user){
             $user = User::firstOrCreate([
-                'address' => $data['email'],
+                'email' => $data['email'],
                 'name' => $data['name'] ?? '',
                 'login' => $data['login'] ?? $tempLogin,
                 'number' => $data['number_phone'],

@@ -25,7 +25,7 @@ class StoreRequest extends FormRequest
         'name' => 'nullable|string',
         'password' => 'required|string|required_with:password_confirmation|same:password_confirmation',
         'password_confirmation' => 'required|string',
-        'address' => 'required|string|unique:users,address',
+        'email' => 'required|string|unique:users,email',
         'number' => 'nullable|string',
         'is_admin' => 'nullable|boolean'
     ];
@@ -38,7 +38,7 @@ class StoreRequest extends FormRequest
             'login.unique' => 'Пользователь с таким логином уже существует!',
             'password.required' => 'Подтверждение пароля является обязательным полем!',
             'password.confirmed' => 'Пароли не совпадают!',
-            'address.unique' => 'Пользователь с такой почтой уже существует!'
+            'email.unique' => 'Пользователь с такой почтой уже существует!'
         ];
     }
 

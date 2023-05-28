@@ -46,7 +46,7 @@ __webpack_require__.r(__webpack_exports__);
           'password': this.password,
           'password_confirmation': this.password_confirm,
           'name': this.name,
-          'address': this.email,
+          'email': this.email,
           'number': this.number_phone
         }).then(function (res) {
           localStorage.setItem('access_token', res.data.access_token);

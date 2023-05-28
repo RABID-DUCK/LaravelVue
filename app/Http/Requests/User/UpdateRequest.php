@@ -24,7 +24,7 @@ class UpdateRequest extends FormRequest
         return [
             'login' => 'nullable|string',
             'name' => 'nullable|string',
-            'address' => 'nullable|string|unique:users',
+            'email' => 'nullable|string|unique:users',
             'number' => 'nullable|string',
             'is_admin' => 'nullable|string'
         ];

@@ -202,15 +202,15 @@ app.mixin({
         this.$store.dispatch('initializeFav')
     },
     methods: {
-        OpenHideEye(){
+        OpenHideEye(event){
             let svg = document.getElementById('eye');
 
-            svg.classList.toggle('fa-eye')
-            svg.classList.toggle('fa-eye-slash')
-            if (svg.classList.contains('fa-eye')){
-                document.querySelector('[data-pass]').setAttribute('type', "password")
+            event.target.classList.toggle('fa-eye')
+            event.target.classList.toggle('fa-eye-slash')
+            if (event.target.classList.contains('fa-eye')){
+                event.target.closest('div').querySelector('[data-pass]').setAttribute('type', "password")
             }else{
-                document.querySelector('[data-pass]').setAttribute('type', "text")
+                event.target.closest('div').querySelector('[data-pass]').setAttribute('type', "text")
             }
         }
     }

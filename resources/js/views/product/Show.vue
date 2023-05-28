@@ -224,7 +224,7 @@
             <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
               <div class="product-drescription">
                 <div class="review-single pt-0 hed">
-                    <span>Рейтинг({{totalRate}})</span>
+                    <span>Рейтинг({{(totalRate).toFixed(2)}})</span>
                   <div class="ratting">
                       <i class="fas fa-star" :class="{'active-star': totalRate >= 1}"></i>
                       <i class="fas fa-star" :class="{'active-star': totalRate >= 2}"></i>
@@ -247,9 +247,10 @@
                       <p> {{review.description}} </p>
                   </div>
                 </div>
-                <div class="review-from-box mt-30">
-                  <h6>Напишите свой отзыв</h6>
-                  <form class="review-from">
+                <div class="review-from-box mt-30" >
+                  <h6 v-if="this.$store.getters.statusUser">Напишите свой отзыв</h6>
+                    <h6 v-else>Авторизируйтесь, чтобы оставить свой отзыв!</h6>
+                  <form class="review-from" v-if="this.$store.getters.statusUser">
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="ratting-box">
@@ -290,6 +291,10 @@
                       <button @click.prevent="sendReview" type="submit" id="review-btn" class="btn--primary style2 ">Отправить отзыв</button>
                   </form>
                 </div>
+                  <transition name="gratitude" v-show="show_gratitude">
+                      <div class="window-gratitude"><b>Спасибо за ваш отзыв :)</b></div>
+                  </transition>
+
               </div>
             </div>
           </div>
@@ -356,7 +361,8 @@ export default {
         totalRate: 0,
         errors: [
             {rating: '', score: '', name: '', email: '', title: '', description: ''}
-        ]
+        ],
+        show_gratitude: false
     }
   },
     created() {
@@ -422,6 +428,7 @@ export default {
         document.getElementById('review-btn').setAttribute('disabled', "");
         if (this.review.rating && this.review.name && this.review.email && this.review.title && this.review.description){
             this.axios.post('/api/review', {
+                'product_id': this.product.id,
                 'score': this.review.rating,
                 'name': this.review.name,
                 'email': this.review.email,
@@ -434,7 +441,13 @@ export default {
                     this.review.email = ''
                     this.review.title = ''
                     this.review.description = ''
+                    this.show_gratitude = true
+
+                    setTimeout(() => {
+                        this.show_gratitude = false
+                    }, 3000)
                 })
+
         }else{
             alert('Заполните все поля!')
         }
@@ -445,10 +458,11 @@ export default {
         this.review.rating = num;
     },
     getReviews(){
-        this.axios.get('/api/listReviews')
+        this.axios.get('/api/listReviews/'+this.product.id)
             .then(res => {
                 this.reviews = res.data
-                this.totalRate = this.reviews.reduce((score, review) => (score + review.score) / this.reviews.length, 0);
+                if (this.reviews) this.totalRate = this.reviews.reduce((score, review) => score + review.score / this.reviews.length, 0);
+
         })
     },
     formatDate(dateTimeString){
@@ -485,5 +499,28 @@ export default {
 }
 .product-drescription .review-single .ratting i{
     margin-bottom: 3px;
+}
+.window-gratitude{
+    position: fixed;
+    top: 500px;
+    left: 500px;
+    background-color: linen;
+    width: 400px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1111;
+}
+.gratitude-enter-active, .gratitude-leave-active{
+    transition: all .3s ease;
+}
+.gratitude-enter, .gratitude-leave-to{
+    opacity: 0;
+    transform: translateY(100%);
+}
+.gratitude-enter-to, .gratitude-leave{
+    opacity: 1;
+    transform: translateY(0);
 }
 </style>

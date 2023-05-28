@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table){
-            $table->string( 'email');
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->foreignId('product_id')->references('id')->on('products');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table){
-            $table->dropColumn('email');
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->dropColumn('product_id');
         });
     }
 };

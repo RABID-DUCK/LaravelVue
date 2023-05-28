@@ -80,7 +80,7 @@ export default {
                     'password': this.password,
                     'password_confirmation': this.password_confirm,
                     'name': this.name,
-                    'address': this.email,
+                    'email': this.email,
                     'number': this.number_phone,
                 })
                     .then(res => {

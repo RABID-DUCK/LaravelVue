@@ -24,7 +24,7 @@ class UserController extends Controller
         if ($dataUser){
                 DB::table('users')->where('id', $data['id'])->update([
                     'name' => $data['name'],
-                    'address' => $data['email'],
+                    'email' => $data['email'],
                     'number' =>$data['phone']
                 ]);
 

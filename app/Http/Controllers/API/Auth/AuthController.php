@@ -37,13 +37,13 @@ class AuthController extends Controller
             return response()->json(['message' => 'Поле пароля не заполнено!']);
         }
 
-        $user = User::where('address', $data['address'])->first();
-        if ($user) return response(['message' => 'Пользователь с такой почтой уже существует!'], 403);
+        $user = User::where('email', $data['email'])->first();
+        if ($user === true) return response(['message' => 'Пользователь с такой почтой уже существует!'], 403);
 
         $user = User::create($data);
         $token = auth()->tokenById($user->id);
 
-        Mail::to($data['address'])->send((new RegisterNotifaction($data['login']))->with('data', $data));
+        Mail::to($data['email'])->send((new RegisterNotifaction($data['login']))->with('data', $data));
 
         return response([
             'status' => true,
@@ -120,7 +120,7 @@ class AuthController extends Controller
 //        $user->login = $data['login'];
 //        $user->password = Hash::make($data['password']);
 //        $user->name = $data['name'];
-//        $user->address = $data['address'];
+//        $user->email = $data['email'];
 //        $user->number = $data['number'];
 //        $user->is_admin = false;
 //        $user->save();

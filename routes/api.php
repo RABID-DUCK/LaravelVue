@@ -32,7 +32,8 @@ Route::post('/sendResetPass', '\App\Http\Controllers\API\User\UserController@res
 Route::post('/resetPass', '\App\Http\Controllers\API\User\UserController@resetPassword');
 Route::post('/search', \App\Http\Controllers\API\Product\SearchControlller::class);
 Route::post('/review', '\App\Http\Controllers\API\Reviews\ReviewController@index');
-Route::get('/listReviews', '\App\Http\Controllers\API\Reviews\ReviewController@listRev');
+Route::get('/listReviews/{rew}', '\App\Http\Controllers\API\Reviews\ReviewController@getRew');
+Route::get('/listReviews', '\App\Http\Controllers\API\Reviews\ReviewController@getListRews');
 
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function($router) {
     Route::post('me', [App\Http\Controllers\API\Auth\AuthController::class, 'me']);
