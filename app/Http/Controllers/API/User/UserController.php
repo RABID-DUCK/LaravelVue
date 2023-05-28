@@ -8,6 +8,7 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Password;
 
 class UserController extends Controller
@@ -35,18 +36,21 @@ class UserController extends Controller
     }
 
     public function resetPasswordEmail(Request $request){
-        if (User::query()->where('email', $request->only('email'))->first() !== null) {
-            $status = Password::sendResetLink(
-                $request->only('email')
-            );
-            return $status = Password::RESET_LINK_SENT
-                ? back()->with(['status' => __($status)])
-                : back()->withErrors(['email' => __($status)]);
+        $user = User::query()->where('email', $request->only('email'))->first();
+
+        if ($user !== null) {
+                $request->only('email');
+                $token = app('auth.password.broker')->createToken($user);
+
+            Mail::send('mail.resetPass', ['token' => $token, 'user' => $user], function($message) use ($user) {
+                $message->to($user->email);
+                $message->subject('Сброс пароля');
+            });
+             return back()->with('status', 'Ссылка для сброса пароля отправлена на вашу почту!');
         }
         else{
             return response()->json(['message' => 'Пользователя с такой почтой не существует!'], 403);
         }
-
     }
 
     public function resetPassword(Request $request){
