@@ -48,6 +48,7 @@ __webpack_require__.r(__webpack_exports__);
       });
       this.updateCart();
       this.calculateTotal();
+      this.$store.dispatch('initializeFav');
     },
     updateCart: function updateCart() {
       localStorage.setItem('favour', JSON.stringify(this.products));

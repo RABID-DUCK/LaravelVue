@@ -115,6 +115,7 @@ export default {
             })
             this.updateCart()
             this.calculateTotal()
+            this.$store.dispatch('initializeFav')
         },
         updateCart(){
             localStorage.setItem('favour', JSON.stringify(this.products))

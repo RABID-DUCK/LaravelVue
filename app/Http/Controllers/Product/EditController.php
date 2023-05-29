@@ -13,7 +13,7 @@ class EditController extends Controller
 {
     public function __invoke(Product $product)
     {
-        $tags = ProductTag::distinct()->get(['tag_id', 'product_id']);
+        $tags = Tag::all();
         $categories = Category::all();
         $images = ProductImage::query()->where('product_id', $product->id)->get();
 

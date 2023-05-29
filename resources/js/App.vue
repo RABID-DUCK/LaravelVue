@@ -258,8 +258,8 @@
                   </div>
                   <div class="footer__medio-boxx  medio-boxx  d-flex align-items-center">
                     <ul>
-                      <li><a href="https://www.facebook.com/" target="_blank" class="active"><i
-                          class="flaticon-vk-app-symbol"></i></a></li>
+                      <li><a href="https://www.vk.com/" target="_blank" class="active"><i
+                          class="fab fa-vk"></i></a></li>
                       <li><a href="https://www.twitch.tv/rab1d_ru" target="_blank"><i
                           class="flaticon-youtube"></i></a></li>
                       <li><a href="https://www.instagram.com/rab1dick/"><i class="flaticon-instagram"

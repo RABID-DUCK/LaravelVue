@@ -100,11 +100,16 @@
                 <div class="form-group">
                     <label>Теги</label>
                     <select name="tags[]" class="tags" multiple="multiple" style="width: 100%;">
-                        @foreach($tags as $tag)
-                            <option value="{{$tag->tag->id}}" {{$tag->product_id === $product->id ? 'selected' : ''}}>
-                                {{$tag->tag->title}}
+                        @foreach($product->tags as $tag)
+                            <option value="{{$tag->id}}" selected>
+                                {{$tag->title}}
                             </option>
                         @endforeach
+                            @foreach($tags as $tag)
+                                <option value="{{$tag->id}}">
+                                    {{$tag->title}}
+                                </option>
+                            @endforeach
                     </select>
                 </div>
                 <div class="form-group">

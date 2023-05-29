@@ -27,7 +27,7 @@
               <div class="big-product single-product-one slider-for">
                 <div v-for="image in product.product_images">
                   <div class="single-item"> <img :src="image.url" alt="">
-                    <div class="ptag"> <span class="one">-20% </span> </div> <a href="#0"
+                    <div class="ptag"> <span class="one">-20% </span> </div> <a href="#0" @click.prevent="addToFav"
                                                                                 class="love"> <i class="flaticon-like"></i> </a>
                   </div>
                 </div>
@@ -105,8 +105,8 @@
                 <div class="shop-details-top-social-box">
                   <p>Поделиться:</p>
                   <ul class="ps-1 social_link d-flex align-items-center">
-                    <li><a href="https://www.facebook.com/" class="active" target="_blank"><i
-                        class="flaticon-facebook-app-symbol"></i></a> </li>
+                    <li><a href="https://www.vk.com/" class="active" target="_blank"><i
+                        class="fab fa-vk"></i></a> </li>
                     <li> <a href="https://www.youtube.com/" target="_blank"><i
                         class="flaticon-youtube"></i></a> </li>
                     <li> <a href="https://twitter.com/" target="_blank"><i
@@ -324,6 +324,16 @@
           </div>
 
       </section>
+      <transition name="fade">
+          <div class="alert alert-warning notification" role="alert" v-show="visibleNot">
+              <div class="cart-notif" v-show="visibleCart">
+                  Товар <router-link to="/cart" class="alert-link text-info">{{notTitle}}</router-link> добавлен в корзину.
+              </div>
+              <div class="fav-botif" v-show="visibleFav">
+                  Товар <router-link to="/favourites" class="alert-link text-info">{{notTitle}}</router-link> добавлен в избранное.
+              </div>
+          </div>
+      </transition>
   </main>
 </div>
 </template>
@@ -352,7 +362,11 @@ export default {
         errors: [
             {rating: '', score: '', name: '', email: '', title: '', description: ''}
         ],
-        show_gratitude: false
+        show_gratitude: false,
+        notTitle: '',
+        visibleNot: false,
+        visibleFav: false,
+        visibleCart: false
     }
   },
     created() {
@@ -371,6 +385,9 @@ export default {
     AddToCart(product){
         let qty = parseInt($('.qtyValue').val(), 10);
         let cart = this.$store.state.cart;
+        this.visibleNot = true;
+        this.visibleCart = true;
+        this.notTitle = product.title;
 
         let newProduct = [
             {
@@ -388,7 +405,39 @@ export default {
             // обновление корзины в хранилище из состояния хранилища
             this.$store.commit('ADD_TO_CART', newProduct);
         }
+        setTimeout(() => {
+            this.visibleNot = false;
+            this.visibleCart = false;
+        }, 3000)
     },
+        addToFav(){
+            let fav = this.$store.state.favourites;
+            this.visibleNot = true;
+            this.visibleFav = true;
+            this.notTitle = this.product.title;
+
+            let newProduct = [
+                {
+                    "id": this.product.id,
+                    "image_url": this.product.image_url,
+                    "title": this.product.title,
+                    "price": this.product.price,
+                    "qty": 1,
+                    "is_published": this.product.is_published,
+                }
+            ];
+
+            if (!fav) {
+                this.$store.commit('ADD_TO_FAVOURITES', newProduct);
+            } else {
+                // обновление корзины в хранилище из состояния хранилища
+                this.$store.commit('ADD_TO_FAVOURITES', newProduct);
+            }
+            setTimeout(() => {
+                this.visibleNot = false;
+                this.visibleFav = false;
+            }, 3000)
+        },
     getProductsAnother(page = 1){
         this.axios.post('/api/products', {
             'filterList': this.filterList,
@@ -513,4 +562,22 @@ export default {
     opacity: 1;
     transform: translateY(0);
 }
+.notification{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 11;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: all .3s ease;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+    transform: translateY(100%);
+}
+.fade-enter-to, .fade-leave {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 </style>
