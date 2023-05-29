@@ -49,7 +49,7 @@
                                         <td>{{ $user->id }}</td>
                                         <td>{{ $user->login }}</td>
                                         <td>{{ $user->name ?? '(не указано)'}}</td>
-                                        <td>{{ $user->address }}</td>
+                                        <td>{{ $user->email }}</td>
                                         <td>{{ $user->number }}</td>
                                         <td>{{ $user->is_admin ? 'Администратор' : 'Пользователь'}}</td>
                                     </tr>

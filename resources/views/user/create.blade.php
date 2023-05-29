@@ -32,7 +32,7 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" value="{{old('address')}}" name="address" placeholder="Почта">
+                        <input type="text" class="form-control" value="{{old('email')}}" name="email" placeholder="Почта">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="password" placeholder="Пароль">

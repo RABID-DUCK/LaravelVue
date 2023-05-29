@@ -113,7 +113,7 @@
                                     <h4>Ваши данные:</h4>
                                     <h5>Логин: <span>{{user.login}}</span></h5>
                                     <h5>Ваше имя: <span>{{user.name}}</span></h5>
-                                    <h5>Ваша почта: <span>{{user.address}}</span></h5>
+                                    <h5>Ваша почта: <span>{{user.email}}</span></h5>
                                     <h5>Ваш телефон: <span>{{user.number}}</span></h5>
                                     <button @click.prevent="penBtn" type="button" class="btn btn-primary edit-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                             data-bs-whatever="@mdo">Редактировать<i class="fas fa-pen-square"></i></button>

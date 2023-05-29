@@ -33,7 +33,7 @@ class UpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'address.unique' => 'Пользователь с такой почтой уже существует!'
+            'email.unique' => 'Пользователь с такой почтой уже существует!'
         ];
     }
 }

@@ -23,7 +23,7 @@ class UserController extends Controller
             $dataUser = User::where('id', $data['id'])->get();
 
         if ($dataUser){
-                DB::table('users')->where('id', $data['id'])->update([
+                DB::table('users')->where('id', $data['id'])->updateOrInsert([
                     'name' => $data['name'],
                     'email' => $data['email'],
                     'number' =>$data['phone']

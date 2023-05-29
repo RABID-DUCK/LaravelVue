@@ -49,9 +49,8 @@
             <div class="newsLetter-one__content-box three d-flex align-items-center justify-content-md-start justify-content-center wow fadeInUp animated"
                  data-wow-delay="0.3s">
               <form action="#0" class="form">
-                <div class="newsLetter-one__subscribe-box"> <input type="email"
-                                                                   placeholder="Email address" name="email"> <button type="submit"
-                                                                                                                     class="subscrib-btn"> Subscribe </button> </div>
+                <div class="newsLetter-one__subscribe-box"> <input type="email" placeholder="Email address" name="email">
+                    <button type="submit" class="subscrib-btn"> Подпишись </button> </div>
               </form>
             </div>
           </div>

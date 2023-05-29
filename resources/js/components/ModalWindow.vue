@@ -53,7 +53,7 @@ export default {
         '$store.state.user': function (value){
             this.id = value.id
             this.name = value.name
-            this.email = value.address
+            this.email = value.email
             this.phone = value.number
         }
     },

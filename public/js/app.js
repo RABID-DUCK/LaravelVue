@@ -17856,7 +17856,7 @@ __webpack_require__.r(__webpack_exports__);
       this.isSend = true;
       document.getElementById('buy').setAttribute("disabled", "");
       if (this.$store.state.user) {
-        this.email = this.$store.state.user.address;
+        this.email = this.$store.state.user.email;
         this.number_phone = this.$store.state.user.number;
       }
       this.axios.post('/api/orders', {
@@ -18988,7 +18988,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.number_phone], [_directive_mask, '+7(###)###-##-##']])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_80, [_hoisted_81, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "form-control",
     type: "text",
-    value: this.$store.state.user.address,
+    value: this.$store.state.user.email,
     disabled: ""
   }, null, 8 /* PROPS */, _hoisted_82), _hoisted_83, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "form-control",

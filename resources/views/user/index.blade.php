@@ -46,7 +46,7 @@
                                         <td>{{ $user->id }}</td>
                                         <td><a href="{{route('user.show', $user->id)}}">{{$user->login}}</a></td>
                                         <td>{{$user->name}}</td>
-                                        <td>{{$user->address}}</td>
+                                        <td>{{$user->email}}</td>
                                         <td>{{$user->number}}</td>
                                         <td>{{$user->is_admin === 1 ? 'Администратор' : 'Пользователь'}}</td>
                                     </tr>

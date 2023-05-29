@@ -141,7 +141,7 @@
                   </div>
                     <div v-else>
                         <label>Электронная почта</label>
-                        <input class="form-control" type="text" :value="this.$store.state.user.address" disabled>
+                        <input class="form-control" type="text" :value="this.$store.state.user.email" disabled>
                         <label>Номер телефона</label>
                         <input class="form-control" type="text" :value="this.$store.state.user.number" disabled>
                     </div>
@@ -233,7 +233,7 @@ export default {
           this.isSend = true;
             document.getElementById('buy').setAttribute("disabled", "");
           if(this.$store.state.user){
-              this.email = this.$store.state.user.address
+              this.email = this.$store.state.user.email
               this.number_phone = this.$store.state.user.number
           }
         this.axios.post('/api/orders', {
