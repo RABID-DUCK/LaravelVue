@@ -28,4 +28,28 @@ disabled-btn:hover{
     top: 23px;
     cursor: pointer;
 }
+.block-images{
+    position: relative;
+    margin: 10px 0 10px 0;
+}
+.delete-image{
+    position: absolute;
+    right: 20px;
+    top: 26px;
+    border: 1px solid red;
+    width: 20px;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+    font-style: normal;
+}
+.delete-image:hover{
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border: 1px solid gray;
+    transition: all .3s;
+}
 

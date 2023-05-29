@@ -72,6 +72,7 @@ Route::group(['prefix' => 'products'], function () {
     Route::get('/{product}', \App\Http\Controllers\Product\ShowController::class)->name('product.show');
     Route::patch('/{product}', \App\Http\Controllers\Product\UpdateController::class)->name('product.update');
     Route::delete('/{product}', \App\Http\Controllers\Product\DeleteController::class)->name('product.delete');
+    Route::post('/deleteImage', \App\Http\Controllers\Product\DeleteImage::class)->name('product.deleteImage');
 });
 Route::group(['prefix' => 'orders'], function () {
    Route::get('/', '\App\Http\Controllers\Order\IndexController@index')->name('order.index');

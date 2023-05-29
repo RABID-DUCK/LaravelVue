@@ -41,8 +41,6 @@ class UpdateController extends Controller
 
        if (isset($data['product_images'])){
             $productImages = $data['product_images'];
-            $original_file = '';
-            $file = $request->file('file');
             $currentImages = ProductImage::where('product_id', $product->id)->get();
            foreach($productImages as $index => $p_img) {
                 $filePath = Storage::disk('public')->put('/images', $p_img);

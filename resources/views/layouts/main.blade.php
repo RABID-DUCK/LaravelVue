@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>CapiGame ru</title>
     <link rel="icon" href="{{asset('images/logo.png')}}">
     <!-- Google Font: Source Sans Pro -->
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/summernote/summernote-bs4.min.css')}}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/app.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -261,6 +263,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('adminlte/dist/js/adminlte.js') }}"></script>
 <script src="{{ asset('adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
+<script src="{{ asset('js/main.js')}}"></script>
 <script>
     $(document).ready(function() {
         $('#summernote').summernote({

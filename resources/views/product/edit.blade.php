@@ -41,6 +41,7 @@
 {{--                    <input type="text" class="form-control" name="content" value="{{ $product->content ?? old('content') }}">--}}
                 </div>
                 <div class="form-group">
+                    <label>Основная картинка</label>
                     <div class="input-group">
                         <div class="custom-file">
                             <input name="preview_image" type="file" class="custom-file-input" id="exampleInputFile" value="{{$product->preview_image ?? old('preview_image')}}">
@@ -53,28 +54,23 @@
                     <span>{{$product->preview_image ?? old('preview_image')}}</span>
                 </div>
                 <div class="form-group">
+                    <label>Дополнительные картинки</label>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input name="product_images[]" type="file" class="custom-file-input" id="exampleInputFile">
+                            <input name="product_images[]" type="file" class="custom-file-input" id="exampleInputFile" multiple>
                             <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
                         </div>
                         <div class="input-group-append">
                             <span class="input-group-text">Загрузка</span>
                         </div>
                     </div>
-                    <span>{{!empty($productImage[1]) ? $productImage[0]->file_path : ''}}</span>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="custom-file">
-                            <input name="product_images[]" type="file" class="custom-file-input" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
-                        </div>
-                        <div class="input-group-append">
-                            <span class="input-group-text">Загрузка</span>
-                        </div>
+                    @foreach($images as $image)
+                    <div data-key="{{$image->id}}" class="block-images">
+                        <img src="https://109.191.89.254:4433/storage/{{$image->file_path}}" width="250" height="100">
+                        <span>{{$image->file_path}}</span>
+                        <i class="delete-image">X</i>
                     </div>
-                    <span>{{!empty($productImage[1]) ? $productImage[1]->file_path : ''}}</span>
+                    @endforeach
                 </div>
                 <div class="form-group">
                     <label>Старая цена</label>
@@ -109,11 +105,7 @@
                                 {{$tag->tag->title}}
                             </option>
                         @endforeach
-                        @foreach($tags as $tag)
-                            <option value="{{$tag->tag->id}}">
-                                {{$tag->tag->title}}
-                            </option>
-                    @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Редактировать">
