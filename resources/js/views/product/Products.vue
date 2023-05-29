@@ -162,9 +162,13 @@
                                   <img :src="product.image_url ?? 'storage/'+product.preview_image" class="first-img" alt="" />
                                       <img src="assets/images/logo/logo.png" alt="" class="hover-img" />
                           </a>
-                            <div class="products-grid-one__badge-box"> <span
-                                class="bg_base badge new ">New</span>
-                            </div> <a @click.prevent="addToCart(product, true)"  class="addcart btn--primary style2">
+                            <div class="products-grid-one__badge-box d-flex flex-row flex-wrap platforms" v-if="product.platforms">
+                                <span class="bg_base badge new"  v-for="platform in product.platforms">{{platform.title}}</span>
+                            </div>
+                              <div class="products-grid-one__badge-box d-flex flex-row platforms" v-if="!product.platforms">
+                                  <span class="bg_base badge new">New</span>
+                              </div>
+                              <a @click.prevent="addToCart(product, true)"  class="addcart btn--primary style2">
                               Add To Cart </a>
                             <div class="products-grid__usefull-links">
                               <ul>
@@ -539,5 +543,8 @@ export default {
 .fade-enter-to, .fade-leave {
     opacity: 1;
     transform: translateY(0);
+}
+.platforms span:not(:first-child){
+    margin-left: 3px;
 }
 </style>

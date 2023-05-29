@@ -113,6 +113,21 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label>Платформы</label>
+                    <select name="platforms[]" class="platforms tags" multiple="multiple" style="width: 100%;">
+                        @foreach($product->platforms as $plat)
+                            <option value="{{$plat->id}}" selected>
+                                {{$plat->title}}
+                            </option>
+                        @endforeach
+                            @foreach($platforms as $platform)
+                                <option value="{{$platform->id}}">
+                                    {{$platform->title}}
+                                </option>
+                            @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Редактировать">
                 </div>
             </form>

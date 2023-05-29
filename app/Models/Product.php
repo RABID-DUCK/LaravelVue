@@ -28,4 +28,8 @@ class Product extends Model
    public function productImages(){
        return $this->hasMany(ProductImage::class, 'product_id', 'id');
    }
+
+   public function platforms(){
+       return $this->belongsToMany(Platforms::class, 'product_platforms', 'product_id', 'platform_id');
+   }
 }

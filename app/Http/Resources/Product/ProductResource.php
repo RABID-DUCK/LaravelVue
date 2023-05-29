@@ -28,7 +28,8 @@ class ProductResource extends JsonResource
             'category' => new CategoryResource($this->category),
             'product_images' => ProductImageResource::collection($this->productImages),
             'tags' => $this->tags,
-            'date_added' => $this->created_at->format('Y-m-d H:i:s')
+            'date_added' => $this->created_at->format('Y-m-d H:i:s'),
+            'platforms' => $this->platforms
 
         ];
     }

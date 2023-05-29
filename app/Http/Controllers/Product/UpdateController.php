@@ -7,6 +7,7 @@ use App\Http\Requests\Product\UpdateRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\ProductPlatforms;
 use App\Models\ProductTag;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -44,35 +45,41 @@ class UpdateController extends Controller
             $currentImages = ProductImage::where('product_id', $product->id)->get();
            foreach($productImages as $index => $p_img) {
                 $filePath = Storage::disk('public')->put('/images', $p_img);
-                if (isset($currentImages[$index])){
-                    $currentImage = $currentImages[$index];
-                    $currentImage->file_path = $filePath;
-                    $currentImage->save();
-                }
-                else{
                     ProductImage::create(
                         ['product_id' => $product->id,
                         'file_path' => $filePath]);
-                }
             }
         }
+       if (isset($data['platforms'])){
+           foreach ($data['platforms'] as $platform) {
+               ProductPlatforms::query()->updateOrCreate([
+                   'platform_id' => $platform,
+                   'product_id' => $product->id
+               ]);
+           }
 
-       if($data){
-           $product->title = $data['title'];
-           $product->description = $data['description'];
-           $product->content = $data['content'];
-           $product->price = $data['price'];
-           $product->old_price = $data['old_price'];
-           $product->count = $data['count'];
-           $product->is_published = $data['is_published'];
-           $product->category_id = $data['category_id'];
-           $product->save();
        }
 
-       if (isset($data['preview_image'])){
-           $product->preview_image = $data['preview_image'];
-           $product->save();
-       }
+       unset($data['product_images'], $data['tags'], $data['platforms']);
+//        if (isset($data['preview_image'])){
+//            $product->preview_image = $data['preview_image'];
+//            $product->save();
+//        }
+
+       $product->update($data);
+//       if($data){
+//           $product->title = $data['title'];
+//           $product->description = $data['description'];
+//           $product->content = $data['content'];
+//           $product->price = $data['price'];
+//           $product->old_price = $data['old_price'];
+//           $product->count = $data['count'];
+//           $product->is_published = $data['is_published'];
+//           $product->category_id = $data['category_id'];
+//           $product->save();
+//       }
+
+
 
         return view('product.show', compact('product', 'category', 'tags', 'productImages'));
     }
