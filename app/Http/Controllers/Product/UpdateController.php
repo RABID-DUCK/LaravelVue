@@ -68,6 +68,7 @@ class UpdateController extends Controller
            $product->count = $data['count'];
            $product->is_published = $data['is_published'];
            $product->category_id = $data['category_id'];
+           $product->save();
        }
 
        if (isset($data['preview_image'])){

@@ -178,7 +178,7 @@
                  aria-labelledby="pills-description-tab">
               <div class="product-drescription" >
                 <h4> Детали продукта:</h4>
-                <p> {{product.description}} </p>
+                  <p v-html="product.description"></p>
                 <div class="row align-items-center">
                   <div class="col-lg-4 mt-30 ">
                     <div class="thumb"> <img
@@ -205,20 +205,9 @@
             </div>
             <div class="tab-pane fade" id="pills-additional" role="tabpanel"
                  aria-labelledby="pills-additional-tab">
-              <div class="product-drescription">
-                <p class="pt-0"> {{product.content}} </p>
-                <ul class="drescription-list">
-                  <li> 1. Adipiscing hac cubilia, fermentum ipsum auctor parturient tempus lobortis
-                    fermentum. </li>
-                  <li> 2. Euismod disagree soler imperdiet vehicula pede eros ipsum cras mi feugiat.
-                  </li>
-                  <li> 3. Rhoncus consequat phasellus donec suspendisse scelerisque facilisis gravida
-                    porttitor turpis. </li>
-                  <li> 4. Consequat phasellus donec suspendisse scelerisque facilisis gravida
-                    porttitor turpis. </li>
-                  <li> 5. Consequat phasellus donec suspendisse scelerisque facilisis gravida
-                    porttitor </li>
-                </ul>
+              <div class="product-drescription" >
+                  <div v-html="product.content" >
+                  </div>
               </div>
             </div>
             <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
@@ -340,12 +329,13 @@
 </template>
 
 <script>
-
 export default {
   name: "Show",
   mounted() {
     $(document).trigger('changed')
     this.getProduct()
+
+
   },
   data(){
     return {
@@ -474,7 +464,7 @@ export default {
     },
     getActiveStars(score) {
         return Math.floor(score);
-    }
+    },
   }
 }
 </script>

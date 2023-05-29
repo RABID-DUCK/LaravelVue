@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group">
                     <label>Контент</label>
-                    <textarea class="form-control" name="content" cols="70" rows="10">{{ $product->content ?? old('content') }}</textarea>
+                    <textarea class="form-control" name="content" cols="70" rows="10" id="summernote">{{ $product->content ?? old('content') }}</textarea>
 {{--                    <input type="text" class="form-control" name="content" value="{{ $product->content ?? old('content') }}">--}}
                 </div>
                 <div class="form-group">

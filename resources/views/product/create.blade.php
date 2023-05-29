@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label>Сюжет игры</label>
-                        <textarea class="form-control" name="content" cols="30" rows="10" placeholder="Контент"></textarea>
+                        <textarea class="form-control" name="content" cols="30" rows="10" placeholder="Контент" id="summernote"></textarea>
                         @if($errors->has('content'))
                             <div class="alert alert-danger">{{$errors->first('content')}}</div>
                         @endif
