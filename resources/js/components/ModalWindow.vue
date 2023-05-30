@@ -1,9 +1,9 @@
 <template>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" ref="modal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Новое сообщение</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Изменение данных</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                 </div>
                 <div class="modal-body">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                    <button type="button" class="btn btn-primary" @click.prevent="editUser">Редактировать</button>
+                    <button type="button" class="btn btn-primary edit" @click.prevent="editUser">Редактировать</button>
                 </div>
             </div>
         </div>
@@ -58,19 +58,31 @@ export default {
         }
     },
     methods: {
-        editUser(){
-            this.axios.post('/api/editUser', {
-                'id': this.id,
-                'name': this.name,
-                'email': this.email,
-                'phone': this.phone
-            })
+        async editUser(){
+            let btn = document.querySelector('.edit');
+            btn.setAttribute('disabled', "");
+
+            let data = {id: this.id};
+            if (this.name !== this.$store.state.user.name) data.name = this.name;
+            if (this.email !== this.$store.state.user.email) data.email = this.email;
+            if (this.phone !== this.$store.state.user.phone) data.phone = this.number;
+
+            this.axios.post('/api/editUser', data)
                 .then(res => {
+                    btn.removeAttribute('disabled');
                     if (res.data.status){
                         window.location.reload();
                     }
-                    else{
-                        alert('Что-то пошло не так ;(')
+                })
+                .catch(err => {
+                    btn.removeAttribute('disabled');
+                    if (err.response.status === 403){
+                        alert(err.response.data.message);
+                    }
+                    if (!err.response.data.status) {
+                        this.$refs.modal.remove();
+                        document.querySelector('body').classList.remove('modal-open')
+                        document.querySelector('body').removeAttribute('style')
                     }
                 })
         }

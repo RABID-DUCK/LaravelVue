@@ -20,10 +20,14 @@ class UserController extends Controller
                 'email' => 'nullable|string',
                 'phone' => 'nullable|string'
             ]);
-            $dataUser = User::where('id', $data['id'])->get();
 
-        if ($dataUser){
-                DB::table('users')->where('id', $data['id'])->updateOrInsert([
+        $dataUser = User::where('id', $data['id'])->first();
+
+            if($dataUser->email === $data['email']) unset($data['email']);
+            if (DB::table('users')->where('email', $dataUser->email)) return response()->json(['message' => 'Пользователь с такой почтой уже существует!'], 403);
+
+        if ($dataUser && count($dataUser) > 1){
+                $dataUser->update([
                     'name' => $data['name'],
                     'email' => $data['email'],
                     'number' =>$data['phone']

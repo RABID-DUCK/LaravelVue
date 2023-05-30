@@ -130,7 +130,9 @@
               <div class="text"> <a :href="`/products/${product.id}`">
                 <h6>{{product.title}}</h6>
               </a>
-                <p>{{product.qty}} X <span>{{product.price * product.qty}}.руб</span> </p>
+                <p v-if="this.$store.getters.currencyValue === 'rub'">{{product.qty}} X <span>{{product.price * product.qty}}.руб</span> </p>
+                <p v-if="this.$store.getters.currencyValue === 'usd'">{{product.qty}} X <span>${{(product.price * product.qty).toFixed(2) / 80}}</span> </p>
+                <p v-if="this.$store.getters.currencyValue === 'kzt'">{{product.qty}} X <span>₸{{(product.price * product.qty).toFixed(2) * 0.17}}</span> </p>
               </div>
             </div>
             <div class="right">

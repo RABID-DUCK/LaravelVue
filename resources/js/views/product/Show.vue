@@ -65,8 +65,8 @@
                 </ul>
                 <div class="shop-details-top-price-box">
                   <h3 v-if="this.$store.getters.currencyValue === 'rub'">{{ product.price }}.руб <del v-if="product.old_price">{{ product.old_price }}.руб</del></h3>
-                  <h3 v-if="this.$store.getters.currencyValue === 'usd'">${{ (product.price).toFixed(2) }} <del v-if="product.old_price">${{ (product.old_price).toFixed(2) }}</del></h3>
-                  <h3 v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ (product.price).toFixed(2) }} <del v-if="product.old_price">₸{{ (product.old_price).toFixed(2) }}</del></h3>
+                  <h3 v-if="this.$store.getters.currencyValue === 'usd'">${{ parseFloat((product.price / 80).toFixed(2)) }} <del v-if="product.old_price">${{ parseFloat((product.old_price / 80).toFixed(2)) }}</del></h3>
+                  <h3 v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ parseFloat((product.price * 0.17).toFixed(2)) }} <del v-if="product.old_price">₸{{ parseFloat((product.old_price * 0.17).toFixed(2)) }}</del></h3>
                   <p>(+15% НДС включает)</p>
                 </div>
                 <p class="shop-details-top-product-sale"><span>1</span> Продуктов продано за 12 ч
@@ -83,13 +83,15 @@
                   </div>
                 </div>
                 <div class="product-quantity">
-                  <h4>Quantity</h4>
+                  <h4>Количество</h4>
                   <div class="product-quantity-box d-flex align-items-center flex-wrap">
                     <div class="qty mr-2">
-                      <div class="qtySelector text-center"> <span class="decreaseQty"><i
-                          class="flaticon-minus"></i> </span> <input type="number" min="1" :max="product.count"
-                                                                     class="qtyValue" value="1" /> <span class="increaseQty"> <i
-                          class="flaticon-plus"></i> </span> </div>
+                      <div class="qtySelector text-center d-flex justify-content-around w-100 p-0">
+                          <span @click.prevent="qtyMinus"><i class="flaticon-minus"></i> </span>
+                          <input v-model="qtyBuyValue" type="number" min="1" :max="product.count" class="qtyValue" />
+                          <span @click.prevent="qtuPlus(product)">
+                              <i  class="flaticon-plus"></i> </span>
+                      </div>
                     </div>
                     <div class="product-quantity-check"> <i class="flaticon-select"></i>
                       <p v-if="product.is_published === 1">В наличии</p>
@@ -109,8 +111,6 @@
                         class="fab fa-vk"></i></a> </li>
                     <li> <a href="https://www.youtube.com/" target="_blank"><i
                         class="flaticon-youtube"></i></a> </li>
-                    <li> <a href="https://twitter.com/" target="_blank"><i
-                        class="flaticon-twitter"></i></a> </li>
                     <li> <a href="https://www.instagram.com/rabid1ck" target="_blank"><i
                         class="flaticon-instagram"></i></a> </li>
                   </ul>
@@ -309,7 +309,9 @@
                       <img :src="product.image_url" class="'d-block w-100" :alt="product.title">
                       <div class="carousel-caption d-none d-md-block">
                           <a :href="`/products/${product.id}`"><h5 class="text-white">{{product.title}}</h5></a>
-                          <p>{{ product.price }}.руб</p>
+                          <p v-if="this.$store.getters.currencyValue === 'rub'">{{ product.price }}.руб</p>
+                          <p v-if="this.$store.getters.currencyValue === 'usd'">${{ parseFloat((product.price / 80).toFixed(2)) }}</p>
+                          <p v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ parseFloat((product.price * 0.17).toFixed(2)) }}</p>
                       </div>
                   </div>
               </div>
@@ -344,8 +346,6 @@ export default {
   mounted() {
     $(document).trigger('changed')
     this.getProduct()
-
-
   },
   data(){
     return {
@@ -366,11 +366,17 @@ export default {
         notTitle: '',
         visibleNot: false,
         visibleFav: false,
-        visibleCart: false
+        visibleCart: false,
+        qty_buy: 1
     }
   },
     created() {
         window.addEventListener('scroll', this.scrollMethod)
+    },
+    computed: {
+        qtyBuyValue(){
+            return typeof this.qty_buy === 'number' && this.qty_buy >= 1 ? this.qty_buy : 1;
+        }
     },
     methods: {
     getProduct(){
@@ -382,8 +388,33 @@ export default {
             $(document).trigger('changed')
           })
     },
+        qtuPlus(product){
+            if (this.qty_buy > product.count || this.qty_buy === product.count){
+                alert('Столько товаров нет! Всего: '+product.count+"шт.")
+                this.qty_buy = product.count
+                return;
+            } else {
+                if (parseInt(this.qty_buy) === parseInt(product.count)){
+                    console.log('dadada')
+                    return;
+                }
+                else{
+                    this.qty_buy++
+                }
+            }
+        },
+        qtyMinus(){
+            if(typeof this.qty_buy === 'number' && this.qty_buy >= 1){
+                this.qty_buy--;
+            }
+        },
     AddToCart(product){
         let qty = parseInt($('.qtyValue').val(), 10);
+        console.log(product);
+        if (qty > product.count) {
+            $('.qtyValue').val(product.count)
+            return alert('Такого количества товаров нет! Всего товаров: ' + product.count)
+        }
         let cart = this.$store.state.cart;
         this.visibleNot = true;
         this.visibleCart = true;
@@ -395,7 +426,8 @@ export default {
                 "image_url": product.image_url,
                 "title": product.title,
                 "price": product.price,
-                "qty": qty
+                "qty": qty,
+                'count': product.count
             }
         ];
 
@@ -579,5 +611,9 @@ export default {
     opacity: 1;
     transform: translateY(0);
 }
-
+.carousel-caption{
+    background-color: black;
+    opacity: 0.8;
+    border-radius: 20px;
+}
 </style>

@@ -243,14 +243,11 @@
                                       <div class="add-product">
                                         <h6>Количество:</h6>
                                         <div class="button-group">
-                                          <div class="qtySelector text-center">
-                                                <span class="decreaseQty"><i
-                                                    class="flaticon-minus"></i>
-                                                </span> <input type="number"
-                                                               class="qtyValue" value="1" min="1" :max="product.count" />
-                                            <span class="increaseQty"> <i
-                                                class="flaticon-plus"></i>
-                                                                                    </span> </div>
+                                            <div class="qtySelector text-center d-flex justify-content-around">
+                                                <span @click.prevent="qtyMinus"><i class="flaticon-minus"></i> </span>
+                                                <input v-model="qtyBuyValue" type="number" min="1" :max="product.count" class="qtyValue p-0 text-center" />
+                                                <span @click.prevent="qtuPlus(product)"><i  class="flaticon-plus"></i> </span>
+                                            </div>
                                           <button @click.prevent="addToCart(product)" class="btn--primary "> Добавить в корзину </button>
                                         </div>
                                       </div>
@@ -344,6 +341,11 @@ export default {
         this.getFilterList()
     this.getProducts()
   },
+    computed: {
+        qtyBuyValue(){
+            return typeof this.qty_buy === 'number' && this.qty_buy >= 1 ? this.qty_buy : 1;
+        }
+    },
   data(){
     return {
       products: [],
@@ -354,7 +356,7 @@ export default {
       tags: [],
       sortArray: [
         {key: 'all','name' : 'Все'},
-        {key: 'priceCreasing','name' : 'Цена по возростанию'},
+        {key: 'priceCreasing','name' : 'Цена по возрастанию'},
         {key: 'priceDecreasing','name' : 'Цена по убыванию'},
         {key: 'dateNew','name' : 'Дата к новым'}
       ],
@@ -366,14 +368,20 @@ export default {
         notTitle: '',
         visibleNot: false,
         visibleFav: false,
-        visibleCart: false
+        visibleCart: false,
+        qty_buy: 1
     }
   },
   methods: {
     addToCart(product, isSingle){
-        let qty = isSingle ? 1 : parseInt($('.qtyValue').val(), 10);
+        let qty = isSingle ? 1 : this.qty_buy;
+
+        if (qty > product.count) {
+            return alert('Такого количества товаров нет! Всего товаров: ' + product.count)
+        }
+
         let cart = this.$store.state.cart;
-        $('.qtyValue').val(1);
+        this.qty_buy = 1;
         this.visibleNot = true;
         this.visibleCart = true;
         this.notTitle = product.title;
@@ -400,6 +408,26 @@ export default {
         }, 3000)
 
     },
+      qtuPlus(product){
+          if (this.qty_buy > product.count || this.qty_buy === product.count){
+              alert('Столько товаров нет! Всего: '+product.count+"шт.")
+              this.qty_buy = product.count
+              return;
+          } else {
+              if (parseInt(this.qty_buy) === parseInt(product.count)){
+                  console.log('dadada')
+                  return;
+              }
+              else{
+                  this.qty_buy++
+              }
+          }
+      },
+      qtyMinus(){
+          if(typeof this.qty_buy === 'number' && this.qty_buy >= 1){
+              this.qty_buy--;
+          }
+      },
       addToFav(product){
           let fav = this.$store.state.favourites;
           this.visibleNot = true;

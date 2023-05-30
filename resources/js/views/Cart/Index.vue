@@ -7,7 +7,7 @@
         <div class="row">
           <div class="col-xl-12">
             <div class="breadcrumb-content text-center wow fadeInUp animated">
-              <h2>Cart</h2>
+              <h2>Корзина</h2>
               <div class="breadcrumb-menu">
                 <ul>
                   <li><router-link to="/"><i class="flaticon-home pe-2"></i>На главную</router-link></li>
@@ -48,8 +48,8 @@
                       </router-link> </div>
                     </td>
                     <td v-if="this.$store.getters.currencyValue === 'rub'">{{product.price}}.руб</td>
-                    <td v-if="this.$store.getters.currencyValue === 'usd'">${{(product.price / 76).toFixed(2)}}</td>
-                    <td v-if="this.$store.getters.currencyValue === 'kzt'">₸{{(product.price * 5.81).toFixed(2)}}</td>
+                    <td v-if="this.$store.getters.currencyValue === 'usd'">${{parseFloat((product.price / 76).toFixed(2))}}</td>
+                    <td v-if="this.$store.getters.currencyValue === 'kzt'">₸{{parseFloat((product.price * 5.81).toFixed(2))}}</td>
                     <td class="qty">
                       <div class="qtySelector text-center">
                         <span @click.prevent="minusQty(product)" class="decreaseQty"><i class="flaticon-minus"></i> </span>
@@ -57,8 +57,8 @@
                         <span @click.prevent="plusQty(product)" class="increaseQty"> <i class="flaticon-plus"></i> </span> </div>
                     </td>
                     <td class="sub-total" v-if="this.$store.getters.currencyValue === 'rub'">{{product.price * product.qty}}.руб</td>
-                    <td class="sub-total" v-if="this.$store.getters.currencyValue === 'usd'">${{(product.price * product.qty / 76).toFixed(2)}}</td>
-                    <td class="sub-total" v-if="this.$store.getters.currencyValue === 'kzt'">₸{{(product.price * product.qty * 5.81).toFixed(2)}}</td>
+                    <td class="sub-total" v-if="this.$store.getters.currencyValue === 'usd'">${{parseFloat((product.price * product.qty / 76).toFixed(2))}}</td>
+                    <td class="sub-total" v-if="this.$store.getters.currencyValue === 'kzt'">₸{{parseFloat((product.price * product.qty * 5.81).toFixed(2))}}</td>
                     <td>
                       <div @click.prevent="removeProduct(product.id)" class="remove"> <i class="flaticon-cross"></i> </div>
                     </td>
@@ -212,7 +212,17 @@ export default {
       this.calculateTotal()
     },
     plusQty(product){
-      product.qty++;
+      if (product.qty > product.count) {
+          $('.qtySelector input').val(6);
+          return alert('Столько товаров нет! Всего: '+product.count+"шт.")
+      }else{
+          if (parseInt($('.qtySelector input').val()) === product.count) {
+              return;
+          }else{
+              product.qty++;
+          }
+      }
+
       this.updateCart()
       this.calculateTotal()
     },

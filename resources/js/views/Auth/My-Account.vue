@@ -127,7 +127,8 @@
         </section>
         <!--End My Account Page-->
     </main>
-    <modal-window v-show="openModal" :backdrop="'static'"></modal-window>
+    <modal-window v-show="openModal" :backdrop="'static'" ref="modal">
+    </modal-window>
 </template>
 
 <script>
@@ -162,7 +163,10 @@ export default {
                 headers: {"Authorization" : `Bearer ${tokenStr}`}
             })
                 .then(res => {
-                    window.location.href = '/admin?token=' + tokenStr;
+                    window.open(
+                        '/admin?token=' + tokenStr,
+                        '_blank'
+                    );
                 })
         },
         getOrders(id){
