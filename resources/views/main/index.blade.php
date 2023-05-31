@@ -25,11 +25,17 @@
             <div class="row">
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-info">
+                    <div class="small-box bg-dark">
                         <div class="inner">
-                            <h3>{{$count_orders}}</h3>
+                            <div>
+                                <h3>{{$count_orders}}<sub>заказов</sub></h3>
 
-                            <p>Заказы</p>
+                            </div>
+                            <div>
+                                <h3 class="text-success">{{$summ_orders}}<sub>.руб</sub></h3>
+                                <p>Общая прибыль</p>
+                            </div>
+
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
@@ -72,14 +78,14 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>0</h3>
+                            <h3>{{$count_reviews}}</h3>
 
                             <p>Отзывы</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{route('review.index')}}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

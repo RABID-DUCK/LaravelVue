@@ -188,33 +188,26 @@
                                 <div class="row justify-content-between">
                                   <div class="col-lg-6">
                                     <div class="quick-view__left-content">
-                                      <div class="tabs d-flex flex-column">
-
-                                          <div class="popup-product-main-image-box">
-                                              <div :id="`tabb${product.id}`" class="tab-item popup-product-image gondor">
-                                                  <div class="popup-product-single-image">
-                                                      <img :src="product.image_url" style="min-height: 350px; height: auto">
-                                                  </div>
-                                              </div>
-                                              <button class="prev"> <i
-                                                  class="flaticon-back"></i>
-                                              </button> <button class="next"> <i
-                                              class="flaticon-next"></i>
-                                          </button>
-                                          </div>
-                                          <div class="popup-product-thumb-box">
-                                              <ul class="d-flex flex-row list-popup popup-li">
-                                                  <li v-for="productImage in popupProduct.product_images"
-                                                      :id="`tabb${productImage.id}`"
-                                                      class="tab-nav popup-product-thumb"
-                                                      :aria-controls="`tabb${productImage.id}`" style="display: block !important;" tabindex="0">
-                                                      <a :href="`#tabb${productImage.id}`">
-                                                          <img :src="productImage.url" @click.prevent="next(productImage.id, productImage.url)"
-                                                               alt="" /> </a>
-                                                  </li>
-                                              </ul>
-                                          </div>
-                                      </div>
+                                        <div class="single-product-box one">
+                                            <div class="big-product single-product-one slider-for">
+                                                <div v-for="image in product.product_images">
+                                                    <div class="single-item">
+                                                        <img :src="image.url" :alt="product.title" class="single-img-popup">
+                                                        <div class="products-grid-one__badge-box d-flex flex-row flex-wrap platforms" v-if="product.platforms">
+                                                            <span class="bg_base badge new"  v-for="platform in product.platforms">{{platform.title}}</span>
+                                                        </div>
+                                                        <a href="#0" @click.prevent="addToFav" class="love"> <i class="flaticon-like"></i> </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="navholder" >
+                                                <div class="product-slicknav single-product-one-nav slider-nav">
+                                                    <div v-for="image in product.product_images">
+                                                        <span class="single-item"><img :src="image.url" alt=""></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                   </div>
                                   <div class="col-lg-6">
@@ -592,9 +585,7 @@ export default {
     opacity: 1;
     transform: translateY(0);
 }
-.platforms span:not(:first-child){
-    margin-left: 3px;
-}
+
 .list-popup{
     width: 330px;
 }
@@ -616,5 +607,8 @@ export default {
 }
 .ratting i{
     color: black;
+}
+.single-img-popup{
+    height: 500px;
 }
 </style>

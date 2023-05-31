@@ -52,3 +52,6 @@ disabled-btn:hover{
     border: 1px solid gray;
     transition: all .3s;
 }
+.platforms span:not(:first-child){
+    margin-left: 3px;
+}

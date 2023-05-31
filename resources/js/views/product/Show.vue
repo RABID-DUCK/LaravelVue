@@ -27,7 +27,10 @@
               <div class="big-product single-product-one slider-for">
                 <div v-for="image in product.product_images">
                   <div class="single-item"> <img :src="image.url" alt="">
-                    <div class="ptag"> <span class="one">-20% </span> </div> <a href="#0" @click.prevent="addToFav"
+                      <div class="products-grid-one__badge-box d-flex flex-row flex-wrap platforms" v-if="product.platforms">
+                          <span class="bg_base badge new"  v-for="platform in product.platforms">{{platform.title}}</span>
+                      </div>
+                      <a href="#0" @click.prevent="addToFav"
                                                                                 class="love"> <i class="flaticon-like"></i> </a>
                   </div>
                 </div>

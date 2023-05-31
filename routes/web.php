@@ -77,6 +77,13 @@ Route::group(['prefix' => 'products'], function () {
 Route::group(['prefix' => 'orders'], function () {
    Route::get('/', '\App\Http\Controllers\Order\IndexController@index')->name('order.index');
 });
+Route::group(['prefix' => 'reviews'], function (){
+    Route::get('/', '\App\Http\Controllers\Review\IndexController')->name('review.index');
+    Route::delete('/delete/{review}', '\App\Http\Controllers\Review\ReviewController@deleteRev')->name('review.delete');
+    Route::patch('/edit/{review}', '\App\Http\Controllers\Review\ReviewController@edit')->name('review.edit');
+    Route::get('/show/{review}', '\App\Http\Controllers\Review\ReviewController@show')->name('review.show');
+});
+
 });
 
 

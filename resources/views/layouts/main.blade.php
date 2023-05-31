@@ -212,6 +212,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{route('review.index')}}" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Отзывы
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="/products" class="nav-link" >
                             <i class="nav-icon fas fa-store"></i>
                             <p>
