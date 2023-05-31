@@ -47,13 +47,13 @@
                 <div class="shop-details-top-review-box">
                   <div class="shop-details-top-review">
                     <ul>
-                      <li><i class="flaticon-star-1"></i></li>
-                      <li><i class="flaticon-star-1"></i></li>
-                      <li><i class="flaticon-star-1"></i></li>
-                      <li><i class="flaticon-star-1"></i></li>
-                      <li><i class="flaticon-star-1"></i></li>
+                        <i class="fas fa-star" :class="{'active-star': totalRate >= 1}"></i>
+                        <i class="fas fa-star" :class="{'active-star': totalRate >= 2}"></i>
+                        <i class="fas fa-star" :class="{'active-star': totalRate >= 3}"></i>
+                        <i class="fas fa-star" :class="{'active-star': totalRate >= 4}"></i>
+                        <i class="fas fa-star" :class="{'active-star': totalRate >= 5}"></i>
                     </ul>
-                    <p>(0 отзывов)</p>
+                    <p>({{reviews.length}} отзывов)</p>
                   </div>
                 </div>
                 <div class="shop-details-top-title">
@@ -66,7 +66,7 @@
                 <div class="shop-details-top-price-box">
                   <h3 v-if="this.$store.getters.currencyValue === 'rub'">{{ product.price }}.руб <del v-if="product.old_price">{{ product.old_price }}.руб</del></h3>
                   <h3 v-if="this.$store.getters.currencyValue === 'usd'">${{ parseFloat((product.price / 80).toFixed(2)) }} <del v-if="product.old_price">${{ parseFloat((product.old_price / 80).toFixed(2)) }}</del></h3>
-                  <h3 v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ parseFloat((product.price * 0.17).toFixed(2)) }} <del v-if="product.old_price">₸{{ parseFloat((product.old_price * 0.17).toFixed(2)) }}</del></h3>
+                  <h3 v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ parseFloat((product.price * 5.81).toFixed(2)) }} <del v-if="product.old_price">₸{{ parseFloat((product.old_price * 5.81).toFixed(2)) }}</del></h3>
                   <p>(+15% НДС включает)</p>
                 </div>
                 <p class="shop-details-top-product-sale"><span>1</span> Продуктов продано за 12 ч
@@ -311,7 +311,7 @@
                           <a :href="`/products/${product.id}`"><h5 class="text-white">{{product.title}}</h5></a>
                           <p v-if="this.$store.getters.currencyValue === 'rub'">{{ product.price }}.руб</p>
                           <p v-if="this.$store.getters.currencyValue === 'usd'">${{ parseFloat((product.price / 80).toFixed(2)) }}</p>
-                          <p v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ parseFloat((product.price * 0.17).toFixed(2)) }}</p>
+                          <p v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ parseFloat((product.price * 5.81).toFixed(2)) }}</p>
                       </div>
                   </div>
               </div>
@@ -383,6 +383,11 @@ export default {
       this.axios.get(`/api/products/${this.$route.params.id}`)
           .then(res => {
             this.product = res.data.data;
+              this.axios.get('/api/listReviews/'+res.data.data.id)
+                  .then(res => {
+                      this.reviews = res.data
+                      if (this.reviews) this.totalRate = this.reviews.reduce((score, review) => score + review.score / this.reviews.length, 0);
+                  })
           })
           .finally(v => {
             $(document).trigger('changed')
@@ -533,7 +538,6 @@ export default {
             .then(res => {
                 this.reviews = res.data
                 if (this.reviews) this.totalRate = this.reviews.reduce((score, review) => score + review.score / this.reviews.length, 0);
-
         })
     },
     formatDate(dateTimeString){

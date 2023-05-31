@@ -23,15 +23,17 @@ class UserController extends Controller
 
         $dataUser = User::where('id', $data['id'])->first();
 
-            if($dataUser->email === $data['email']) unset($data['email']);
-            if (DB::table('users')->where('email', $dataUser->email)) return response()->json(['message' => 'Пользователь с такой почтой уже существует!'], 403);
+            if ($dataUser && count($data) > 1){
+                if (isset($data['name'])) $dataUser->update(['name' => $data['name']]);
 
-        if ($dataUser && count($dataUser) > 1){
-                $dataUser->update([
-                    'name' => $data['name'],
-                    'email' => $data['email'],
-                    'number' =>$data['phone']
-                ]);
+                if (isset($data['email'])) {
+                    if($dataUser->email === $data['email']) unset($data['email']);
+                    if (DB::table('users')->where('email', $data['email'])->first()) return response()->json(['message' => 'Пользователь с такой почтой уже существует!'],
+                        403);
+
+                    $dataUser->update(['email' => $data['email']]);
+                }
+                if (isset($data['phone'])) $dataUser->update(['number' => $data['phone']]);
 
                 return response()->json(['status' => true]);
             } else{

@@ -188,21 +188,12 @@
                                 <div class="row justify-content-between">
                                   <div class="col-lg-6">
                                     <div class="quick-view__left-content">
-                                      <div class="tabs">
-                                        <div class="popup-product-thumb-box">
-                                            <ul>
-                                                <li v-for="productImage in popupProduct.product_images"
-                                                    class="tab-nav popup-product-thumb" :aria-controls="`tabb${productImage.id}`">
-                                                    <a :href="`#tabb${productImage.id}`">
-                                                        <img :src="productImage.url"
-                                                             alt="" /> </a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                      <div class="tabs d-flex flex-column">
+
                                           <div class="popup-product-main-image-box">
-                                              <div v-for="productImage in popupProduct.product_images" :id="`tabb${productImage.id}`" class="tab-item popup-product-image">
+                                              <div :id="`tabb${product.id}`" class="tab-item popup-product-image gondor">
                                                   <div class="popup-product-single-image">
-                                                      <img :src="productImage.url" style="min-height: 350px; height: auto">
+                                                      <img :src="product.image_url" style="min-height: 350px; height: auto">
                                                   </div>
                                               </div>
                                               <button class="prev"> <i
@@ -211,6 +202,18 @@
                                               class="flaticon-next"></i>
                                           </button>
                                           </div>
+                                          <div class="popup-product-thumb-box">
+                                              <ul class="d-flex flex-row list-popup popup-li">
+                                                  <li v-for="productImage in popupProduct.product_images"
+                                                      :id="`tabb${productImage.id}`"
+                                                      class="tab-nav popup-product-thumb"
+                                                      :aria-controls="`tabb${productImage.id}`" style="display: block !important;" tabindex="0">
+                                                      <a :href="`#tabb${productImage.id}`">
+                                                          <img :src="productImage.url" @click.prevent="next(productImage.id, productImage.url)"
+                                                               alt="" /> </a>
+                                                  </li>
+                                              </ul>
+                                          </div>
                                       </div>
                                     </div>
                                   </div>
@@ -218,13 +221,13 @@
                                     <div class="popup-right-content">
                                       <h3>{{popupProduct.title}}</h3>
                                       <i>{{popupProduct.category.title}}</i>
-                                      <div class="ratting"> <i
-                                          class="flaticon-star"></i> <i
-                                          class="flaticon-star"></i> <i
-                                          class="flaticon-star"></i>
-                                        <i class="flaticon-star"></i> <i
-                                            class="flaticon-star"></i>
-                                        <span>(0)</span> </div>
+                                      <div class="ratting">
+                                          <i class="fas fa-star" :class="{'active-star': totalRate >= 1}"></i>
+                                          <i class="fas fa-star" :class="{'active-star': totalRate >= 2}"></i>
+                                          <i class="fas fa-star" :class="{'active-star': totalRate >= 3}"></i>
+                                          <i class="fas fa-star" :class="{'active-star': totalRate >= 4}"></i>
+                                          <i class="fas fa-star" :class="{'active-star': totalRate >= 5}"></i>
+                                        <span>{{parseFloat((totalRate).toFixed(2))}}</span> </div>
                                       <p class="text"> {{popupProduct.description}}
                                       </p>
                                       <div class="price">
@@ -369,10 +372,22 @@ export default {
         visibleNot: false,
         visibleFav: false,
         visibleCart: false,
-        qty_buy: 1
+        qty_buy: 1,
+        reviews: [],
+        totalRate: 0,
     }
   },
   methods: {
+      next(id, url){
+          console.log(url);
+          document.querySelector('.gondor').setAttribute('id', 'tabb'+id);
+          document.querySelector('.gondor').setAttribute('aria-labelledby', 'ui-id-'+id);
+          document.querySelector('.popup-product-single-image img').setAttribute('src', url);
+          let popupLiList = document.querySelectorAll('.popup-li li');
+          popupLiList.forEach(function(element) {
+              element.style.display = 'block';
+          });
+      },
     addToCart(product, isSingle){
         let qty = isSingle ? 1 : this.qty_buy;
 
@@ -508,6 +523,12 @@ export default {
       this.axios.get(`/api/products/${id}`)
           .then(res => {
               this.popupProduct = res.data.data;
+
+              this.axios.get('/api/listReviews/'+id)
+                  .then(res => {
+                      this.reviews = res.data
+                      if (this.reviews) this.totalRate = this.reviews.reduce((score, review) => score + review.score / this.reviews.length, 0);
+                  })
           })
           .finally(v => {
             $(document).trigger('changed')
@@ -543,8 +564,7 @@ export default {
                       this.products = res.data;
                   })
           }
-      }
-
+      },
   },
 }
 </script>
@@ -574,5 +594,27 @@ export default {
 }
 .platforms span:not(:first-child){
     margin-left: 3px;
+}
+.list-popup{
+    width: 330px;
+}
+.list-popup li, .list-popup a{
+    height: 70px !important;
+}
+.list-popup img{
+    height: 100%;
+    width: 100%;
+}
+.prev, .next{
+    z-index: 111;
+}
+.popup-product-main-image-box{
+    width: 445px;
+}
+.active-star:before{
+    color: #f69c63;
+}
+.ratting i{
+    color: black;
 }
 </style>

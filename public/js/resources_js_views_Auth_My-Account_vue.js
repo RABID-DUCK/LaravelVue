@@ -62,7 +62,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
               };
               if (_this.name !== _this.$store.state.user.name) data.name = _this.name;
               if (_this.email !== _this.$store.state.user.email) data.email = _this.email;
-              if (_this.phone !== _this.$store.state.user.phone) data.phone = _this.number;
+              if (_this.phone !== _this.$store.state.user.number) data.phone = _this.phone;
               _this.axios.post('/api/editUser', data).then(function (res) {
                 btn.removeAttribute('disabled');
                 if (res.data.status) {
@@ -74,9 +74,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
                   alert(err.response.data.message);
                 }
                 if (!err.response.data.status) {
-                  _this.$refs.modal.remove();
-                  document.querySelector('body').classList.remove('modal-open');
-                  document.querySelector('body').removeAttribute('style');
+                  window.location.reload();
                 }
               });
             case 7:

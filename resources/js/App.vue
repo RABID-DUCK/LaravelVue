@@ -131,8 +131,8 @@
                 <h6>{{product.title}}</h6>
               </a>
                 <p v-if="this.$store.getters.currencyValue === 'rub'">{{product.qty}} X <span>{{product.price * product.qty}}.руб</span> </p>
-                <p v-if="this.$store.getters.currencyValue === 'usd'">{{product.qty}} X <span>${{(product.price * product.qty).toFixed(2) / 80}}</span> </p>
-                <p v-if="this.$store.getters.currencyValue === 'kzt'">{{product.qty}} X <span>₸{{(product.price * product.qty).toFixed(2) * 0.17}}</span> </p>
+                <p v-if="this.$store.getters.currencyValue === 'usd'">{{product.qty}} X <span>${{((product.price * product.qty) / 80).toFixed(2)}}</span> </p>
+                <p v-if="this.$store.getters.currencyValue === 'kzt'">{{product.qty}} X <span>₸{{((product.price * product.qty) * 5.81).toFixed(2)}}</span> </p>
               </div>
             </div>
             <div class="right">
@@ -145,8 +145,8 @@
         <div class="total-ammount d-flex justify-content-between align-items-center">
           <h6 class="text-uppercase">Итого:</h6>
           <h6 class="ammount text-uppercase" v-if="this.$store.getters.currencyValue === 'rub'">{{this.$store.state.totalPrice}}.руб</h6>
-          <h6 class="ammount text-uppercase" v-if="this.$store.getters.currencyValue === 'usd'">${{this.$store.state.totalPrice}}</h6>
-          <h6 class="ammount text-uppercase" v-if="this.$store.getters.currencyValue === 'kzt'">₸{{this.$store.state.totalPrice}}</h6>
+          <h6 class="ammount text-uppercase" v-if="this.$store.getters.currencyValue === 'usd'">${{((this.$store.state.totalPrice / 80).toFixed(2))}}</h6>
+          <h6 class="ammount text-uppercase" v-if="this.$store.getters.currencyValue === 'kzt'">₸{{((this.$store.state.totalPrice) * 5.81).toFixed(2)}}</h6>
         </div>
         <div class="button-box d-flex justify-content-between">
           <router-link to="/cart" class="btn_black w-100"> Страница корзины</router-link></div>
@@ -207,12 +207,15 @@
                 <div class="text1">
                   <p>г.Челябинск, ул.Сони Кривой 24, Capigame,офис 666</p>
                 </div>
+                  <div class="text3 text-decoration-underline">
+                      <p>Российская Федерация</p>
+                  </div>
                 <div class="text2">
                   <p>Ирвайн, 1 <br> Бруклин, Нью-Йорк 11201</p>
                 </div>
-                <div class="text3">
-                  <p>Российская Федерация</p>
-                </div>
+                  <div class="text3 text-decoration-underline">
+                      <p>США</p>
+                  </div>
               </div>
             </div>
           </div>
@@ -279,7 +282,7 @@
       <div class="container">
         <div class="footer_bottom_content">
           <div class="copyright wow fadeInUp animated">
-            <p>© 2022 <router-link to="/">CAPIGAME ru.</router-link> Все права защищены.</p>
+            <p>© 2023 <router-link to="/">CAPIGAME ru.</router-link> Все права защищены.</p>
           </div>
           <div class="footer-payment wow fadeInUp animated">
             <a href="#0"> <img src="../../public/assets/images/home-four/method-1.jpg" alt="payment"> </a>

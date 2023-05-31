@@ -101,8 +101,8 @@
                   </div>
                   <div class="right">
                     <p v-if="this.$store.getters.currencyValue === 'rub'">{{totalPrice}}.руб</p>
-                    <p v-if="this.$store.getters.currencyValue === 'usd'">${{(totalPrice).toFixed(2)}}</p>
-                    <p v-if="this.$store.getters.currencyValue === 'kzt'">₸{{(totalPrice).toFixed(2)}}</p>
+                    <p v-if="this.$store.getters.currencyValue === 'usd'">${{((totalPrice) / 80).toFixed(2)}}</p>
+                    <p v-if="this.$store.getters.currencyValue === 'kzt'">₸{{((totalPrice) * 5.81).toFixed(2)}}</p>
                   </div>
                 </li>
                 <li>
@@ -121,8 +121,8 @@
                   </div>
                   <div class="right">
                     <p  v-if="this.$store.getters.currencyValue === 'rub'">{{ totalPrice }}.руб</p>
-                    <p  v-if="this.$store.getters.currencyValue === 'usd'">${{ (totalPrice).toFixed(2) }}</p>
-                    <p  v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ (totalPrice).toFixed(2) }}</p>
+                    <p  v-if="this.$store.getters.currencyValue === 'usd'">${{ ((totalPrice) / 80).toFixed(2)}}</p>
+                    <p  v-if="this.$store.getters.currencyValue === 'kzt'">₸{{ ((totalPrice) * 5.81).toFixed(2)}}</p>
                   </div>
                 </li>
               </ul>
@@ -152,8 +152,8 @@
                   </div>
                   <div class="right">
                     <p v-if="this.$store.getters.currencyValue === 'rub'"><span>Размер:</span> {{totalPrice}}.руб</p>
-                    <p v-if="this.$store.getters.currencyValue === 'usd'"><span>Размер:</span> ${{(totalPrice).toFixed(2)}}</p>
-                    <p v-if="this.$store.getters.currencyValue === 'kzt'"><span>Размер:</span> ₸{{(totalPrice).toFixed(2)}}</p>
+                    <p v-if="this.$store.getters.currencyValue === 'usd'"><span>Размер:</span> ${{((totalPrice) / 80).toFixed(2)}}</p>
+                    <p v-if="this.$store.getters.currencyValue === 'kzt'"><span>Размер:</span> ₸{{((totalPrice) * 5.81).toFixed(2)}}</p>
                   </div>
                 </li>
                 <li>

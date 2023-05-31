@@ -61,11 +61,10 @@ export default {
         async editUser(){
             let btn = document.querySelector('.edit');
             btn.setAttribute('disabled', "");
-
             let data = {id: this.id};
             if (this.name !== this.$store.state.user.name) data.name = this.name;
             if (this.email !== this.$store.state.user.email) data.email = this.email;
-            if (this.phone !== this.$store.state.user.phone) data.phone = this.number;
+            if (this.phone !== this.$store.state.user.number) data.phone = this.phone;
 
             this.axios.post('/api/editUser', data)
                 .then(res => {
@@ -80,9 +79,7 @@ export default {
                         alert(err.response.data.message);
                     }
                     if (!err.response.data.status) {
-                        this.$refs.modal.remove();
-                        document.querySelector('body').classList.remove('modal-open')
-                        document.querySelector('body').removeAttribute('style')
+                        window.location.reload();
                     }
                 })
         }
