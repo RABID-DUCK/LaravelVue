@@ -10,7 +10,7 @@
               <h2>Страница магазина</h2>
               <div class="breadcrumb-menu">
                 <ul>
-                  <li><router-link to="/"><i class="flaticon-home pe-2"></i>Главная</router-link></li>
+                  <li><router-link to="/main"><i class="flaticon-home pe-2"></i>Главная</router-link></li>
                   <li> <i class="flaticon-next"></i> </li>
                   <li class="active">Страница магазина</li>
                 </ul>
@@ -28,13 +28,7 @@
           <div class="col-xl-12">
             <div class="product-categories-one__inner">
               <ul>
-                <li> <router-link to="/" class="img-box">
-                  <div class="inner"> <img src="assets/images/logo/logo.png" alt="" /> </div>
-                </router-link>
-                  <div class="title"> <router-link to="/">
-                    <h6>Главная</h6>
-                  </router-link> </div>
-                </li>
+
                 <li> <router-link to="/myAccount" class="img-box">
                   <div class="inner"> <img src="assets/images/logo/logo.png" alt="" /> </div>
                 </router-link>
@@ -244,7 +238,9 @@
                                                 <input v-model="qtyBuyValue" type="number" min="1" :max="product.count" class="qtyValue p-0 text-center" />
                                                 <span @click.prevent="qtuPlus(product)"><i  class="flaticon-plus"></i> </span>
                                             </div>
-                                          <button @click.prevent="addToCart(product)" class="btn--primary "> Добавить в корзину </button>
+                                          <button @click.prevent="addToCart(product)"
+                                                  :class="{'btn style2 disabled-btn': !popupProduct.is_published, 'btn--primary': popupProduct.is_published}"
+                                                  :disabled="!popupProduct.is_published"> Добавить в корзину </button>
                                         </div>
                                       </div>
                                       <div class="payment-method"> <a href="#0"> <img

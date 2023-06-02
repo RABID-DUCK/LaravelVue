@@ -84,9 +84,6 @@
                                     <ul
                                         class="page-dropdown-menu d-flex align-items-center justify-content-center">
                                         <li class="dropdown-list"> <router-link to="/"><span>Главная</span></router-link></li>
-                                        <li class="dropdown-list">
-                                            <router-link to="/products"><span>Продукты</span></router-link>
-                                        </li>
                                     </ul>
                                 </nav>
 
@@ -171,14 +168,12 @@
               </div>
               <div class="thm-medio-boxx1">
                 <ul class="social-box">
-                  <li class="facebook"> <a href="https://www.facebook.com/" target="_blank"><i
-                      class="flaticon-facebook-app-symbol"></i></a> </li>
-                  <li class="twitter"> <a href="https://twitter.com/" target="_blank"><i
-                      class="flaticon-twitter"></i></a> </li>
-                  <li class="instagram"> <a href="https://www.instagram.com/" target="_blank"><i
-                      class="flaticon-instagram"></i></a> </li>
-                  <li class="youtube"> <a href="https://www.youtube.com/" target="_blank"><i
-                      class="flaticon-youtube"></i></a> </li>
+                  <li class="twitter"> <a href="https://vk.com/rabid_duck_1" target="_blank"><i
+                      class="fab fa-vk"></i></a> </li>
+                  <li class="instagram"> <a href="https://t.me/Rab1Dok" target="_blank"><i
+                      class="fab fa-telegram"></i></a> </li>
+                  <li class="youtube"> <a href="https://www.twitch.tv/rab1d_ru" target="_blank"><i
+                      class="fab fa-twitch"></i></a> </li>
                 </ul>
               </div>
             </div>
@@ -263,11 +258,11 @@
                   </div>
                   <div class="footer__medio-boxx  medio-boxx  d-flex align-items-center">
                     <ul>
-                      <li><a href="https://www.vk.com/" target="_blank" class="active"><i
+                      <li><a href="https://vk.com/rabid_duck_1" target="_blank" class="active"><i
                           class="fab fa-vk"></i></a></li>
                       <li><a href="https://www.twitch.tv/rab1d_ru" target="_blank"><i
-                          class="flaticon-youtube"></i></a></li>
-                      <li><a href="https://www.instagram.com/rab1dick/"><i class="flaticon-instagram"
+                          class="fab fa-twitch"></i></a></li>
+                      <li><a href="https://t.me/Rab1Dok"><i class="fab fa-telegram"
                                                                   target="_blank"></i></a></li>
                     </ul>
                   </div>

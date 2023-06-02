@@ -63,7 +63,7 @@
                   <h3>{{ product.title }}</h3>
                 </div>
                 <ul class="shop-details-top-info">
-                  <li><span>SKU:</span> 25d5214</li>
+                  <li><span>SKU:</span> C{{Math.floor(Math.random() * (11111 - 999999) + 999999)}}</li>
                   <li><span>Продавец:</span> Capigame</li>
                 </ul>
                 <div class="shop-details-top-price-box">
@@ -110,12 +110,12 @@
                 <div class="shop-details-top-social-box">
                   <p>Поделиться:</p>
                   <ul class="ps-1 social_link d-flex align-items-center">
-                    <li><a href="https://www.vk.com/" class="active" target="_blank"><i
+                    <li><a href="https://vk.com/rabid_duck_1" class="active" target="_blank"><i
                         class="fab fa-vk"></i></a> </li>
-                    <li> <a href="https://www.youtube.com/" target="_blank"><i
-                        class="flaticon-youtube"></i></a> </li>
-                    <li> <a href="https://www.instagram.com/rabid1ck" target="_blank"><i
-                        class="flaticon-instagram"></i></a> </li>
+                    <li> <a href="https://www.twitch.tv/rab1d_ru" target="_blank"><i
+                        class="fab fa-twitch"></i></a> </li>
+                    <li> <a href="https://t.me/Rab1Dok" target="_blank"><i
+                        class="fab fa-telegram"></i></a> </li>
                   </ul>
                 </div>
                 <div class="checked-box">

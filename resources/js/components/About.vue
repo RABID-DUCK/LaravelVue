@@ -122,7 +122,7 @@
                                             <h6><a href="https://www.twitch.tv/rab1d_ru" target="_blank">Twitch</a> </h6>
                                         </li>
                                         <li>
-                                            <h6><a href="https://www.instagram.com/rab1dick/" target="_blank">Instagram</a></h6>
+                                            <h6><a href="https://t.me/Rab1Dok" target="_blank">Телеграм</a></h6>
                                         </li>
                                     </ul>
                                 </div>

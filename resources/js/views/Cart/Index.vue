@@ -53,7 +53,7 @@
                     <td class="qty">
                       <div class="qtySelector text-center">
                         <span @click.prevent="minusQty(product)" class="decreaseQty"><i class="flaticon-minus"></i> </span>
-                        <input type="number" min="1" :max="product.count" class="qtyValue" :value="product.qty" />
+                        <input type="number" min="1" :max="product.count" class="qtyValue" :value="product.qty" disabled />
                         <span @click.prevent="plusQty(product)" class="increaseQty"> <i class="flaticon-plus"></i> </span> </div>
                     </td>
                     <td class="sub-total" v-if="this.$store.getters.currencyValue === 'rub'">{{product.price * product.qty}}.руб</td>
@@ -214,12 +214,18 @@ export default {
     plusQty(product){
       if (product.qty > product.count) {
           $('.qtySelector input').val(6);
+          this.updateCart()
+          this.calculateTotal()
           return alert('Столько товаров нет! Всего: '+product.count+"шт.")
       }else{
           if (parseInt($('.qtySelector input').val()) === product.count) {
+              this.updateCart()
+              this.calculateTotal()
               return;
           }else{
               product.qty++;
+              this.updateCart()
+              this.calculateTotal()
           }
       }
 
