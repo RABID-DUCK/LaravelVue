@@ -162,8 +162,10 @@
                               <div class="products-grid-one__badge-box d-flex flex-row platforms" v-if="!product.platforms">
                                   <span class="bg_base badge new">New</span>
                               </div>
-                              <a @click.prevent="addToCart(product, true)"  class="addcart btn--primary style2">
-                              Add To Cart </a>
+                              <a v-if="product.is_published" @click.prevent="addToCart(product, true)"  class="addcart btn--primary style2">
+                              Добавить в корзину </a>
+                              <a v-else class="addcart btn--primary style2">
+                                  Товара пока нет :( </a>
                             <div class="products-grid__usefull-links">
                               <ul>
                                 <li><a @click.prevent="addToFav(product)"> <i class="flaticon-heart">
@@ -303,8 +305,8 @@
       </div>
     </div>
       <transition name="fade">
-          <div class="alert alert-warning notification" role="alert" v-show="visibleNot">
-              <div class="cart-notif" v-show="visibleCart">
+          <div class="alert alert-warning notification" role="alert" v-show="this.$store.state.visibleNot">
+              <div class="cart-notif" v-show="this.$store.state.visibleCart">
                   Товар <router-link to="/cart" class="alert-link text-info">{{notTitle}}</router-link> добавлен в корзину.
               </div>
               <div class="fav-botif" v-show="visibleFav">
@@ -358,9 +360,7 @@ export default {
         isLoadedProduct: false,
         searchTitle: '',
         notTitle: '',
-        visibleNot: false,
         visibleFav: false,
-        visibleCart: false,
         qty_buy: 1,
         reviews: [],
         totalRate: 0,
@@ -386,8 +386,6 @@ export default {
 
         let cart = this.$store.state.cart;
         this.qty_buy = 1;
-        this.visibleNot = true;
-        this.visibleCart = true;
         this.notTitle = product.title;
 
         let newProduct = [
@@ -396,6 +394,7 @@ export default {
                 "image_url": product.image_url,
                 "title": product.title,
                 "price": product.price,
+                "count": product.count,
                 "qty": qty
             }
         ];
@@ -406,10 +405,7 @@ export default {
             this.$store.commit('ADD_TO_CART', newProduct);
         }
 
-        setTimeout(() => {
-            this.visibleNot = false;
-            this.visibleCart = false;
-        }, 3000)
+
 
     },
       qtuPlus(product){

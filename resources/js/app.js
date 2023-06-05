@@ -24,18 +24,34 @@ const store = createStore({
         tokenRefreshed: true,
         favourites: [],
         countFav: 0,
+        visibleNot: false,
+        visibleCart: false
     },
     mutations: {
         ADD_TO_CART: (state, product) => {
             let index = state.cart.findIndex(productInCart => productInCart.id === product[0].id);
+
             if (index !== -1) {
+                if (parseInt(state.cart[index].qty) >= parseInt(product[0].count)){
+                    alert('Такого количества товаров нет! Всего товаров: ' + product[0].count)
+                    return;
+                }
+                state.visibleNot = true;
+                state.visibleCart = true;
+
                 state.cart[index].qty += parseInt(product[0].qty, 10);
             } else {
                 state.cart.push(product[0]);
             }
+
             localStorage.setItem('cart', JSON.stringify(state.cart));
             state.totalPrice = state.cart.reduce((sum, product) => sum + product.price * product.qty, 0);
             state.count = state.cart.reduce((qty, product) => qty + product.qty, 0);
+
+            setTimeout(() => {
+                state.visibleNot = false;
+                state.visibleCart = false;
+            }, 3000)
         },
         COUNT: (state, value) => {
             state.count = value

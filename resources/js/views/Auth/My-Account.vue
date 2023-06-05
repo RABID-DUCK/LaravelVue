@@ -40,7 +40,7 @@
                                          aria-controls="v-pills-account" aria-selected="false">
                                     <span> Детали аккаунта</span>
                                 </button>
-                                <button @click="goAdmin" v-if="this.$store.state.user.is_admin === 1" class="nav-link" id="v-pills-account-tab" data-bs-toggle="pill" data-bs-target="#v-pills-account" type="button" role="tab"
+                                <button @click="goAdmin" v-if="this.$store.state.user?.is_admin === 1" class="nav-link" id="v-pills-account-tab" data-bs-toggle="pill" data-bs-target="#v-pills-account" type="button" role="tab"
                                          aria-controls="v-pills-account" aria-selected="false">
                                     <span> Админка</span>
                                 </button>
@@ -148,6 +148,9 @@ export default {
     },
     computed: {
         ...mapState(['user', 'isLoadingUser']),
+    },
+    mounted() {
+        if (!this.$store.getters.statusUser) this.$router.push({name: 'main'})
     },
     methods: {
         logout(){

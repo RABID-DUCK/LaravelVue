@@ -17,7 +17,7 @@ class UpdateController extends Controller
 
         if ($data['email'] === $user->email) unset($data['email']);
 
-        if ($data['email']) {
+        if (isset($data['email'])) {
             if (DB::table('users')->where('email', $data['email'])->first()) {
                 return response()->json(['message' => 'Пользователь с такой почтой уже существует!']);
             }

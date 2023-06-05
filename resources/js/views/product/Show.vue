@@ -91,7 +91,7 @@
                     <div class="qty mr-2">
                       <div class="qtySelector text-center d-flex justify-content-around w-100 p-0">
                           <span @click.prevent="qtyMinus"><i class="flaticon-minus"></i> </span>
-                          <input v-model="qtyBuyValue" type="number" min="1" :max="product.count" class="qtyValue" />
+                          <input v-model="qtyBuyValue" type="number" min="1" :max="product.count" class="qtyValue" maxlength="3" />
                           <span @click.prevent="qtuPlus(product)">
                               <i  class="flaticon-plus"></i> </span>
                       </div>
@@ -418,7 +418,6 @@ export default {
         },
     AddToCart(product){
         let qty = parseInt($('.qtyValue').val(), 10);
-        console.log(product);
         if (qty > product.count) {
             $('.qtyValue').val(product.count)
             return alert('Такого количества товаров нет! Всего товаров: ' + product.count)

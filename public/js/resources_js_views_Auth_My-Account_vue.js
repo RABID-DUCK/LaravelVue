@@ -124,6 +124,11 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     };
   },
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapState)(['user', 'isLoadingUser'])),
+  mounted: function mounted() {
+    if (!this.$store.getters.statusUser) this.$router.push({
+      name: 'main'
+    });
+  },
   methods: {
     logout: function logout() {
       document.cookie = 'user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
@@ -497,7 +502,8 @@ var _hoisted_63 = /*#__PURE__*/_withScopeId(function () {
 });
 var _hoisted_64 = [_hoisted_62, _hoisted_63];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _this = this;
+  var _this$$store$state$us,
+    _this = this;
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
   var _component_modal_window = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("modal-window");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Start Breadcrumb Style2"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
@@ -519,7 +525,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     role: "tab",
     "aria-controls": "v-pills-orders",
     "aria-selected": "false"
-  }, _hoisted_21), _hoisted_22, this.$store.state.user.is_admin === 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+  }, _hoisted_21), _hoisted_22, ((_this$$store$state$us = this.$store.state.user) === null || _this$$store$state$us === void 0 ? void 0 : _this$$store$state$us.is_admin) === 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
     key: 0,
     onClick: _cache[1] || (_cache[1] = function () {
       return $options.goAdmin && $options.goAdmin.apply($options, arguments);

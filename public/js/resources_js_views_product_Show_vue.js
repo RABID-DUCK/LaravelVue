@@ -95,7 +95,6 @@ __webpack_require__.r(__webpack_exports__);
     AddToCart: function AddToCart(product) {
       var _this2 = this;
       var qty = parseInt($('.qtyValue').val(), 10);
-      console.log(product);
       if (qty > product.count) {
         $('.qtyValue').val(product.count);
         return alert('Такого количества товаров нет! Всего товаров: ' + product.count);
@@ -755,7 +754,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "number",
     min: "1",
     max: $data.product.count,
-    "class": "qtyValue"
+    "class": "qtyValue",
+    maxlength: "3"
   }, null, 8 /* PROPS */, _hoisted_52), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.qtyBuyValue]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     onClick: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
       return $options.qtuPlus($data.product);

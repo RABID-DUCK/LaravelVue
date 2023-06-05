@@ -24,7 +24,7 @@
     <!--Start cart area-->
     <section class="cart-area pt-120 pb-120">
       <div class="container">
-        <div class="row wow fadeInUp animated">
+        <div class="row wow fadeInUp animated" v-if="products.length > 0">
           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
             <div class="cart-table-box">
               <div class="table-outer">
@@ -53,7 +53,7 @@
                     <td class="qty">
                       <div class="qtySelector text-center">
                         <span @click.prevent="minusQty(product)" class="decreaseQty"><i class="flaticon-minus"></i> </span>
-                        <input type="number" min="1" :max="product.count" class="qtyValue" :value="product.qty" disabled />
+                        <input type="number" min="1" :max="product.count" class="qtyValue" :value="product.qty" :data-id-count="product.id" disabled />
                         <span @click.prevent="plusQty(product)" class="increaseQty"> <i class="flaticon-plus"></i> </span> </div>
                     </td>
                     <td class="sub-total" v-if="this.$store.getters.currencyValue === 'rub'">{{product.price * product.qty}}.руб</td>
@@ -69,6 +69,10 @@
             </div>
           </div>
         </div>
+          <div class="d-flex flex-column justify-content-center align-items-center wow fadeInUp animated" v-else>
+              <img src="images/cart.png" alt="Корзина" width="300">
+              <h2>Здесь будут ваши добавленные товары</h2>
+          </div>
         <div class="row">
           <div class="col-xl-12">
             <div class="cart-button-box">
@@ -212,23 +216,25 @@ export default {
       this.calculateTotal()
     },
     plusQty(product){
-      if (product.qty > product.count) {
-          $('.qtySelector input').val(6);
+        let countProduct = document.querySelector(`[data-id-count='${product.id}']`).value
+        console.log(countProduct);
+        if (product.qty > product.count) {
+            countProduct = product.count
+
           this.updateCart()
           this.calculateTotal()
-          return alert('Столько товаров нет! Всего: '+product.count+"шт.")
-      }else{
-          if (parseInt($('.qtySelector input').val()) === product.count) {
+            return alert('Столько товаров нет! Всего: '+product.count+"шт.")
+      }
+          if (parseInt(countProduct) === parseInt(product.count)) {
+              countProduct = product.count
               this.updateCart()
               this.calculateTotal()
-              return;
+              return alert('Столько товаров нет! Всего: '+product.count+"шт.");
           }else{
               product.qty++;
               this.updateCart()
               this.calculateTotal()
           }
-      }
-
       this.updateCart()
       this.calculateTotal()
     },
@@ -238,6 +244,7 @@ export default {
         })
       this.updateCart()
       this.calculateTotal()
+      this.$store.commit('CART_ITEMS');
     },
     updateCart(){
       localStorage.setItem('cart', JSON.stringify(this.products))

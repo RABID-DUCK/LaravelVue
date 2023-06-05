@@ -55,3 +55,7 @@ disabled-btn:hover{
 .platforms span:not(:first-child){
     margin-left: 3px;
 }
+
+.addcart{
+    cursor: pointer;
+}
