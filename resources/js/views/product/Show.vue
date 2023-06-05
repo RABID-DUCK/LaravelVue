@@ -63,7 +63,7 @@
                   <h3>{{ product.title }}</h3>
                 </div>
                 <ul class="shop-details-top-info">
-                  <li><span>SKU:</span> C{{Math.floor(Math.random() * (11111 - 999999) + 999999)}}</li>
+                  <li><span>SKU:</span> C{{sku}}</li>
                   <li><span>Продавец:</span> Capigame</li>
                 </ul>
                 <div class="shop-details-top-price-box">
@@ -370,11 +370,13 @@ export default {
         visibleNot: false,
         visibleFav: false,
         visibleCart: false,
-        qty_buy: 1
+        qty_buy: 1,
+        sku: 0
     }
   },
     created() {
         window.addEventListener('scroll', this.scrollMethod)
+        this.sku = Math.floor(Math.random() * (11111 - 999999) + 999999)
     },
     computed: {
         qtyBuyValue(){
