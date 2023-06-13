@@ -309,7 +309,7 @@
               <div class="cart-notif" v-show="this.$store.state.visibleCart">
                   Товар <router-link to="/cart" class="alert-link text-info">{{notTitle}}</router-link> добавлен в корзину.
               </div>
-              <div class="fav-botif" v-show="visibleFav">
+              <div class="fav-botif" v-show="this.$store.state.visibleFav">
                   Товар <router-link to="/favourites" class="alert-link text-info">{{notTitle}}</router-link> добавлен в избранное.
               </div>
           </div>
@@ -360,7 +360,6 @@ export default {
         isLoadedProduct: false,
         searchTitle: '',
         notTitle: '',
-        visibleFav: false,
         qty_buy: 1,
         reviews: [],
         totalRate: 0,
@@ -368,7 +367,6 @@ export default {
   },
   methods: {
       next(id, url){
-          console.log(url);
           document.querySelector('.gondor').setAttribute('id', 'tabb'+id);
           document.querySelector('.gondor').setAttribute('aria-labelledby', 'ui-id-'+id);
           document.querySelector('.popup-product-single-image img').setAttribute('src', url);
@@ -430,8 +428,6 @@ export default {
       },
       addToFav(product){
           let fav = this.$store.state.favourites;
-          this.visibleNot = true;
-          this.visibleFav = true;
           this.notTitle = product.title;
 
           let newProduct = [
@@ -451,10 +447,6 @@ export default {
               // обновление корзины в хранилище из состояния хранилища
               this.$store.commit('ADD_TO_FAVOURITES', newProduct);
           }
-          setTimeout(() => {
-              this.visibleNot = false;
-              this.visibleFav = false;
-          }, 3000)
       },
     addTags(id){
       if (!this.tags.includes(id)){

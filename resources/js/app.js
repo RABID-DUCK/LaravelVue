@@ -25,7 +25,8 @@ const store = createStore({
         favourites: [],
         countFav: 0,
         visibleNot: false,
-        visibleCart: false
+        visibleCart: false,
+        visibleFav: false,
     },
     mutations: {
         ADD_TO_CART: (state, product) => {
@@ -36,11 +37,11 @@ const store = createStore({
                     alert('Такого количества товаров нет! Всего товаров: ' + product[0].count)
                     return;
                 }
-                state.visibleNot = true;
-                state.visibleCart = true;
+
 
                 state.cart[index].qty += parseInt(product[0].qty, 10);
             } else {
+
                 state.cart.push(product[0]);
             }
 
@@ -48,6 +49,8 @@ const store = createStore({
             state.totalPrice = state.cart.reduce((sum, product) => sum + product.price * product.qty, 0);
             state.count = state.cart.reduce((qty, product) => qty + product.qty, 0);
 
+            state.visibleNot = true;
+            state.visibleCart = true;
             setTimeout(() => {
                 state.visibleNot = false;
                 state.visibleCart = false;
@@ -115,8 +118,17 @@ const store = createStore({
         ADD_TO_FAVOURITES: (state, product) => {
             let index = state.favourites.findIndex(productInFav => productInFav.id === product[0].id);
             if (index !== -1){
+                alert('Товар уже был ранее добавлен в избранное!')
                 return;
             } else{
+                state.visibleNot = true;
+                state.visibleFav = true;
+
+                setTimeout(() => {
+                    state.visibleNot = false;
+                    state.visibleFav = false;
+                }, 3000)
+                console.log('SECOND')
                 state.favourites.push(product[0])
             }
             localStorage.setItem('favour', JSON.stringify(state.favourites));

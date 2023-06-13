@@ -35,7 +35,7 @@
                                         <th>Цена</th>
                                         <th>Статус</th>
                                         <th>Количество</th>
-                                        <th>Delete</th>
+                                        <th>Удалить</th>
                                     </tr>
                                     </thead>
                                     <tbody v-if="products">
@@ -58,7 +58,7 @@
                                         </td>
                                         <td class="add-to-cart-btn p-0">
                                             <a @click.prevent="addToCart(product)" class=" btn--primary style2 ">Add To Cart</a> </td>
-                                        <td>
+                                        <td class="text-center">
                                             <div class="remove" @click.prevent="removeProduct(product.id)"> <i class="flaticon-cross"></i> </div>
                                         </td>
                                     </tr>

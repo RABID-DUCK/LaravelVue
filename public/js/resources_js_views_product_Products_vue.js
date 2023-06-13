@@ -108,7 +108,6 @@ __webpack_require__.r(__webpack_exports__);
       isLoadedProduct: false,
       searchTitle: '',
       notTitle: '',
-      visibleFav: false,
       qty_buy: 1,
       reviews: [],
       totalRate: 0
@@ -116,7 +115,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     next: function next(id, url) {
-      console.log(url);
       document.querySelector('.gondor').setAttribute('id', 'tabb' + id);
       document.querySelector('.gondor').setAttribute('aria-labelledby', 'ui-id-' + id);
       document.querySelector('.popup-product-single-image img').setAttribute('src', url);
@@ -167,10 +165,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     addToFav: function addToFav(product) {
-      var _this = this;
       var fav = this.$store.state.favourites;
-      this.visibleNot = true;
-      this.visibleFav = true;
       this.notTitle = product.title;
       var newProduct = [{
         "id": product.id,
@@ -186,10 +181,6 @@ __webpack_require__.r(__webpack_exports__);
         // обновление корзины в хранилище из состояния хранилища
         this.$store.commit('ADD_TO_FAVOURITES', newProduct);
       }
-      setTimeout(function () {
-        _this.visibleNot = false;
-        _this.visibleFav = false;
-      }, 3000);
     },
     addTags: function addTags(id) {
       if (!this.tags.includes(id)) {
@@ -230,7 +221,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     getProducts: function getProducts() {
-      var _this2 = this;
+      var _this = this;
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       this.axios.post('/api/products', {
         'filterList': this.filterList,
@@ -239,21 +230,21 @@ __webpack_require__.r(__webpack_exports__);
         'tags': this.tags,
         'page': page
       }).then(function (res) {
-        _this2.products = res.data.data;
-        _this2.pagination = res.data.meta;
+        _this.products = res.data.data;
+        _this.pagination = res.data.meta;
       })["finally"](function (v) {
         $(document).trigger('changed');
-        _this2.isLoadedProduct = true;
+        _this.isLoadedProduct = true;
       });
     },
     getProduct: function getProduct(id) {
-      var _this3 = this;
+      var _this2 = this;
       this.axios.get("/api/products/".concat(id)).then(function (res) {
-        _this3.popupProduct = res.data.data;
-        _this3.axios.get('/api/listReviews/' + id).then(function (res) {
-          _this3.reviews = res.data;
-          if (_this3.reviews) _this3.totalRate = _this3.reviews.reduce(function (score, review) {
-            return score + review.score / _this3.reviews.length;
+        _this2.popupProduct = res.data.data;
+        _this2.axios.get('/api/listReviews/' + id).then(function (res) {
+          _this2.reviews = res.data;
+          if (_this2.reviews) _this2.totalRate = _this2.reviews.reduce(function (score, review) {
+            return score + review.score / _this2.reviews.length;
           }, 0);
         });
       })["finally"](function (v) {
@@ -261,15 +252,15 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getFilterList: function getFilterList() {
-      var _this4 = this;
+      var _this3 = this;
       this.axios.get('/api/products/filters').then(function (res) {
-        _this4.filterList = res.data;
+        _this3.filterList = res.data;
         if ($("#price-range").length) {
           $("#price-range").slider({
             range: true,
-            min: _this4.filterList.price.min,
-            max: _this4.filterList.price.max,
-            values: [_this4.filterList.price.min, _this4.filterList.price.max],
+            min: _this3.filterList.price.min,
+            max: _this3.filterList.price.max,
+            values: [_this3.filterList.price.min, _this3.filterList.price.max],
             slide: function slide(event, ui) {
               $("#priceRange").val("₽" + ui.values[0] + " - ₽" + ui.values[1]);
             }
@@ -281,12 +272,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     searchProduct: function searchProduct(someData) {
-      var _this5 = this;
+      var _this4 = this;
       if (someData) {
         this.axios.post('/api/search', {
           'title': someData.title
         }).then(function (res) {
-          _this5.products = res.data;
+          _this4.products = res.data;
         });
       }
     }
@@ -1176,7 +1167,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }),
 
         _: 1 /* STABLE */
-      }), _hoisted_159], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.visibleFav]])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _this.$store.state.visibleNot]])];
+      }), _hoisted_159], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _this.$store.state.visibleFav]])], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, _this.$store.state.visibleNot]])];
     }),
     _: 1 /* STABLE */
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("End product-grid")])]);

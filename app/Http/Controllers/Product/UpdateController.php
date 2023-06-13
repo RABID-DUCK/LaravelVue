@@ -61,23 +61,8 @@ class UpdateController extends Controller
        }
 
        unset($data['product_images'], $data['tags'], $data['platforms']);
-//        if (isset($data['preview_image'])){
-//            $product->preview_image = $data['preview_image'];
-//            $product->save();
-//        }
 
        $product->update($data);
-//       if($data){
-//           $product->title = $data['title'];
-//           $product->description = $data['description'];
-//           $product->content = $data['content'];
-//           $product->price = $data['price'];
-//           $product->old_price = $data['old_price'];
-//           $product->count = $data['count'];
-//           $product->is_published = $data['is_published'];
-//           $product->category_id = $data['category_id'];
-//           $product->save();
-//       }
 
 
 

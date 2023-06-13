@@ -18267,7 +18267,7 @@ var _hoisted_103 = /*#__PURE__*/_withScopeId(function () {
     alt: ""
   }, null, -1 /* HOISTED */);
 });
-var _hoisted_104 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"content-box\" data-v-f348271a><h4 data-v-f348271a>About Us</h4><div class=\"inner-text\" data-v-f348271a><p data-v-f348271a>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, </p></div></div><div class=\"thm-medio-boxx1\" data-v-f348271a><ul class=\"social-box\" data-v-f348271a><li class=\"twitter\" data-v-f348271a><a href=\"https://vk.com/rabid_duck_1\" target=\"_blank\" data-v-f348271a><i class=\"fab fa-vk\" data-v-f348271a></i></a></li><li class=\"instagram\" data-v-f348271a><a href=\"https://t.me/Rab1Dok\" target=\"_blank\" data-v-f348271a><i class=\"fab fa-telegram\" data-v-f348271a></i></a></li><li class=\"youtube\" data-v-f348271a><a href=\"https://www.twitch.tv/rab1d_ru\" target=\"_blank\" data-v-f348271a><i class=\"fab fa-twitch\" data-v-f348271a></i></a></li></ul></div>", 2);
+var _hoisted_104 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"content-box\" data-v-f348271a><h4 data-v-f348271a>О нас</h4><div class=\"inner-text\" data-v-f348271a><p data-v-f348271a>Наш интернет-магазин видеоигр предоставляет широкий ассортимент компьютерных и консольных игр для любителей мира гейминга. Мы работаем только с проверенными производителями и предлагаем игры различных жанров: от экшенов и тиреров до симуляторов и стратегий.</p></div></div><div class=\"thm-medio-boxx1\" data-v-f348271a><ul class=\"social-box\" data-v-f348271a><li class=\"twitter\" data-v-f348271a><a href=\"https://vk.com/rabid_duck_1\" target=\"_blank\" data-v-f348271a><i class=\"fab fa-vk\" data-v-f348271a></i></a></li><li class=\"instagram\" data-v-f348271a><a href=\"https://t.me/Rab1Dok\" target=\"_blank\" data-v-f348271a><i class=\"fab fa-telegram\" data-v-f348271a></i></a></li><li class=\"youtube\" data-v-f348271a><a href=\"https://www.twitch.tv/rab1d_ru\" target=\"_blank\" data-v-f348271a><i class=\"fab fa-twitch\" data-v-f348271a></i></a></li></ul></div>", 2);
 var _hoisted_106 = {
   "class": "footer-default footer-3"
 };
@@ -19081,7 +19081,8 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_7__.createStore)({
     favourites: [],
     countFav: 0,
     visibleNot: false,
-    visibleCart: false
+    visibleCart: false,
+    visibleFav: false
   },
   mutations: {
     ADD_TO_CART: function ADD_TO_CART(state, product) {
@@ -19093,8 +19094,6 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_7__.createStore)({
           alert('Такого количества товаров нет! Всего товаров: ' + product[0].count);
           return;
         }
-        state.visibleNot = true;
-        state.visibleCart = true;
         state.cart[index].qty += parseInt(product[0].qty, 10);
       } else {
         state.cart.push(product[0]);
@@ -19106,6 +19105,8 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_7__.createStore)({
       state.count = state.cart.reduce(function (qty, product) {
         return qty + product.qty;
       }, 0);
+      state.visibleNot = true;
+      state.visibleCart = true;
       setTimeout(function () {
         state.visibleNot = false;
         state.visibleCart = false;
@@ -19181,8 +19182,16 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_7__.createStore)({
         return productInFav.id === product[0].id;
       });
       if (index !== -1) {
+        alert('Товар уже был ранее добавлен в избранное!');
         return;
       } else {
+        state.visibleNot = true;
+        state.visibleFav = true;
+        setTimeout(function () {
+          state.visibleNot = false;
+          state.visibleFav = false;
+        }, 3000);
+        console.log('SECOND');
         state.favourites.push(product[0]);
       }
       localStorage.setItem('favour', JSON.stringify(state.favourites));

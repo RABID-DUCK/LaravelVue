@@ -160,10 +160,9 @@
               <div class="logo"> <router-link to="/"><img src="assets/images/logo/logo-2.png" alt=""></router-link>
               </div>
               <div class="content-box">
-                <h4>About Us</h4>
+                <h4>О нас</h4>
                 <div class="inner-text">
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                  <p>Наш интернет-магазин видеоигр предоставляет широкий ассортимент компьютерных и консольных игр для любителей мира гейминга. Мы работаем только с проверенными производителями и предлагаем игры различных жанров: от экшенов и тиреров до симуляторов и стратегий.</p>
                 </div>
               </div>
               <div class="thm-medio-boxx1">
