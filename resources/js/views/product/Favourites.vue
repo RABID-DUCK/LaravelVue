@@ -57,7 +57,11 @@
                                             <p class="instock">{{ product.is_published ? 'В наличии' : "Нет в наличии" }}</p>
                                         </td>
                                         <td class="add-to-cart-btn p-0">
-                                            <a @click.prevent="addToCart(product)" class=" btn--primary style2 ">Add To Cart</a> </td>
+                                            <a v-if="product.is_published" @click.prevent="addToCart(product, true)"  class="addcart btn--primary style2">
+                                                Добавить в корзину </a>
+                                            <a v-else class="bg-gradient-gray btn--primary disabled-btn">
+                                                Товара пока нет :( </a>
+                                        </td>
                                         <td class="text-center">
                                             <div class="remove" @click.prevent="removeProduct(product.id)"> <i class="flaticon-cross"></i> </div>
                                         </td>

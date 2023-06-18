@@ -196,7 +196,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('review.index')}}" class="nav-link">
                             <i class="nav-icon fas fa-comments"></i>
                             <p>
                                 Отзывы
@@ -208,14 +208,6 @@
                             <i class="nav-icon fas fa-users"></i>
                             <p>
                                 Пользователи
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('review.index')}}" class="nav-link">
-                            <i class="nav-icon fas fa-users"></i>
-                            <p>
-                                Отзывы
                             </p>
                         </a>
                     </li>
